@@ -1,0 +1,10 @@
+[project]
+name = "mt-dataset"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "drain3>=0.9.11",
+    "json-stream>=2.5.1",
+]
