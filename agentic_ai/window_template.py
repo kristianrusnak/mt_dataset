@@ -61,7 +61,7 @@ def build_window_object(
         A JSON-serializable dictionary representing this window.
     """
     return {
-        "input": [log["content"] for log in parsed_lines],
+        "input": parsed_lines,
         "classification": classification,
         "explanation": explanation,
         "metadata": {
