@@ -1,0 +1,11 @@
+__pycache__/
+.venv/
+.idea/
+.env
+
+.DS_Store
+
+full_not_explained.json
+
+/a.json
+/test.py

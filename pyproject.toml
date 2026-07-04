@@ -7,4 +7,6 @@ requires-python = ">=3.13"
 dependencies = [
     "drain3>=0.9.11",
     "json-stream>=2.5.1",
+    "langchain>=1.3.11",
+    "langchain-openai>=1.3.3",
 ]

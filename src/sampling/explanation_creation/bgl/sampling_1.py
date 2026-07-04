@@ -1,23 +1,9 @@
 from src.help_functions.get_all_sequences import get_all_sequences
+from src.help_functions.json_deep_convert import deep_convert
 from json_stream import streamable_list, load
 import json
 import random
 import argparse
-
-def deep_convert(obj):
-    """
-    Recursively converts json_stream persistent objects into
-    standard Python dicts and lists so json.dump can serialize them.
-    """
-    if hasattr(obj, 'items'):
-        # It's a dict-like object
-        return {k: deep_convert(v) for k, v in obj.items()}
-    elif hasattr(obj, '__iter__') and not isinstance(obj, (str, bytes)):
-        # It's a list-like object
-        return [deep_convert(v) for v in obj]
-    else:
-        # It's a primitive type (int, float, str, bool, None)
-        return obj
 
 def create_sample_dataset(source_path: str, output_path: str, num_samples: int, seed: int = 42):
     """
