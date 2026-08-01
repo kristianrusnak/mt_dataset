@@ -1,5 +1,5 @@
 from src.help_functions.json_deep_convert import deep_convert
-from src.prompts.bgl.prompt1 import get_prompt
+from src.prompts.hdfs.prompt1 import get_prompt
 
 from langchain_openai import ChatOpenAI
 from langchain.messages import HumanMessage
@@ -35,7 +35,7 @@ def create_explanation(input_path: str, output_path: str, prompt_template_path: 
                     "generation_timestamp": str(datetime.now()),
                     "prompt_template_id": prompt_template_path,
                     "generation_params": {}
-                }
+        }
         sequence_data['metadata']['hallucination-check'] = {
             "verification_status": "unverified",
             "verification_method": None,
@@ -48,22 +48,18 @@ def create_explanation(input_path: str, output_path: str, prompt_template_path: 
         }
 
         classification = sequence_data.get('classification', "")
+        classification = "abnormal" if classification == "anomaly" else classification
         template_sequence = sequence_data.get('input', [])
-        raw_sequence = (sequence_data.get('metadata', {})
-                        .get('raw_content', {})
-                        .get('raw_log_sequence', []))
-        
         log_sequence = []
-        classifications = []
-        for template_log, raw_log in zip(template_sequence, raw_sequence):
+
+        for template_log in template_sequence:
             log_sequence.append(template_log)
-            classifications.append('normal' if raw_log.startswith('-') else 'anomalous')
         
         prompt = get_prompt(log_sequence=log_sequence, 
-                            classifications=classifications,
-                            session_based=False,
+                            classifications=[],
+                            session_based=True,
                             sequence_classification=classification,
-                            dataset_name="bgl")
+                            dataset_name="hdfs")
         
         message = [HumanMessage(content=prompt)]
         llm_response = llm.invoke(message)
@@ -92,19 +88,19 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input_path",
         type=str,
-        default="dataset_short/bgl/sampled_50_not_explained.json",
+        default="dataset_short/hdfs/sampled_50_not_explained.json",
         help="Path to the input JSON dataset containing log sequences."
     )
     parser.add_argument(
         "--output_path",
         type=str,
-        default="dataset_short/bgl/sampled_50_explained.json",
+        default="dataset_short/hdfs/sampled_50_explained.json",
         help="Path to save the output JSON dataset with explanations."
     )
     parser.add_argument(
         "--prompt_template_path",
         type=str,
-        default="bgl/prompt1",
+        default="hdfs/prompt1",
         help="Identifier for the prompt template used to generate explanations."
     )
     parser.add_argument(

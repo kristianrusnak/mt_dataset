@@ -76,16 +76,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.348538"
+                "review_timestamp": "2026-07-05 13:30:24.808718"
             },
             "dataset_split": null
         }
@@ -167,16 +167,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.349427"
+                "review_timestamp": "2026-07-05 13:31:21.616107"
             },
             "dataset_split": null
         }
@@ -258,16 +258,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "unknown"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
-                "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.350630"
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": "not sure if it's showing booting of a kernel and initialization",
+                "review_timestamp": "2026-07-05 13:33:50.881790"
             },
             "dataset_split": null
         }
@@ -349,16 +349,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.351179"
+                "review_timestamp": "2026-07-05 13:34:52.219748"
             },
             "dataset_split": null
         }
@@ -440,16 +440,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "unknown"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
-                "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.351734"
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": "not sure if it's showing booting and inicialization",
+                "review_timestamp": "2026-07-05 13:35:46.658585"
             },
             "dataset_split": null
         }
@@ -531,16 +531,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.352265"
+                "review_timestamp": "2026-07-05 13:37:11.316295"
             },
             "dataset_split": null
         }
@@ -622,16 +622,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.352831"
+                "review_timestamp": "2026-07-05 13:38:06.828493"
             },
             "dataset_split": null
         }
@@ -713,16 +713,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.353375"
+                "review_timestamp": "2026-07-05 13:38:42.275027"
             },
             "dataset_split": null
         }
@@ -804,16 +804,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.353895"
+                "review_timestamp": "2026-07-05 13:39:02.316842"
             },
             "dataset_split": null
         }
@@ -895,16 +895,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.354895"
+                "review_timestamp": "2026-07-05 13:39:32.442342"
             },
             "dataset_split": null
         }
@@ -986,16 +986,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.356874"
+                "review_timestamp": "2026-07-05 13:40:40.109251"
             },
             "dataset_split": null
         }
@@ -1077,16 +1077,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.357554"
+                "review_timestamp": "2026-07-05 13:41:08.025254"
             },
             "dataset_split": null
         }
@@ -1168,16 +1168,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.358177"
+                "review_timestamp": "2026-07-05 13:41:51.390630"
             },
             "dataset_split": null
         }
@@ -1259,16 +1259,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.359609"
+                "review_timestamp": "2026-07-05 13:42:41.983261"
             },
             "dataset_split": null
         }
@@ -1350,16 +1350,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.361125"
+                "review_timestamp": "2026-07-05 13:44:11.024648"
             },
             "dataset_split": null
         }
@@ -1441,16 +1441,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.362126"
+                "review_timestamp": "2026-07-05 13:44:32.169854"
             },
             "dataset_split": null
         }
@@ -1532,16 +1532,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.362880"
+                "review_timestamp": "2026-07-05 13:44:56.031284"
             },
             "dataset_split": null
         }
@@ -1623,16 +1623,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.364379"
+                "review_timestamp": "2026-07-05 13:45:40.845543"
             },
             "dataset_split": null
         }
@@ -1714,16 +1714,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.366127"
+                "review_timestamp": "2026-07-05 13:47:54.978742"
             },
             "dataset_split": null
         }
@@ -1805,16 +1805,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.367225"
+                "review_timestamp": "2026-07-05 13:48:47.524699"
             },
             "dataset_split": null
         }
@@ -1896,16 +1896,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.368439"
+                "review_timestamp": "2026-07-05 13:49:31.299083"
             },
             "dataset_split": null
         }
@@ -1987,16 +1987,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.369574"
+                "review_timestamp": "2026-07-05 13:49:55.116908"
             },
             "dataset_split": null
         }
@@ -2078,16 +2078,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.371095"
+                "review_timestamp": "2026-07-05 13:51:29.183436"
             },
             "dataset_split": null
         }
@@ -2169,16 +2169,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.371688"
+                "review_timestamp": "2026-07-05 13:52:55.079354"
             },
             "dataset_split": null
         }
@@ -2260,16 +2260,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.372234"
+                "review_timestamp": "2026-07-05 13:54:05.048891"
             },
             "dataset_split": null
         }
@@ -2351,16 +2351,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.372719"
+                "review_timestamp": "2026-07-05 13:54:56.056328"
             },
             "dataset_split": null
         }
@@ -2442,16 +2442,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.373215"
+                "review_timestamp": "2026-07-05 13:55:39.574487"
             },
             "dataset_split": null
         }
@@ -2533,16 +2533,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.373725"
+                "review_timestamp": "2026-07-05 13:56:09.630358"
             },
             "dataset_split": null
         }
@@ -2624,16 +2624,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.374901"
+                "review_timestamp": "2026-07-05 13:56:39.819174"
             },
             "dataset_split": null
         }
@@ -2715,16 +2715,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.376564"
+                "review_timestamp": "2026-07-05 13:57:35.952819"
             },
             "dataset_split": null
         }
@@ -2806,16 +2806,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.377276"
+                "review_timestamp": "2026-07-05 13:59:12.284668"
             },
             "dataset_split": null
         }
@@ -2897,16 +2897,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.378490"
+                "review_timestamp": "2026-07-05 14:01:00.647489"
             },
             "dataset_split": null
         }
@@ -2988,16 +2988,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.379530"
+                "review_timestamp": "2026-07-05 14:01:45.979485"
             },
             "dataset_split": null
         }
@@ -3079,16 +3079,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.380866"
+                "review_timestamp": "2026-07-05 14:02:07.195880"
             },
             "dataset_split": null
         }
@@ -3170,16 +3170,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.381521"
+                "review_timestamp": "2026-07-05 14:02:31.821636"
             },
             "dataset_split": null
         }
@@ -3261,16 +3261,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.382036"
+                "review_timestamp": "2026-07-05 14:02:46.105002"
             },
             "dataset_split": null
         }
@@ -3352,16 +3352,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.382551"
+                "review_timestamp": "2026-07-05 14:04:01.506557"
             },
             "dataset_split": null
         }
@@ -3443,16 +3443,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.383050"
+                "review_timestamp": "2026-07-05 14:04:27.342707"
             },
             "dataset_split": null
         }
@@ -3534,16 +3534,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.383540"
+                "review_timestamp": "2026-07-05 14:04:48.392858"
             },
             "dataset_split": null
         }
@@ -3625,16 +3625,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.384465"
+                "review_timestamp": "2026-07-05 14:05:19.634260"
             },
             "dataset_split": null
         }
@@ -3716,16 +3716,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.384930"
+                "review_timestamp": "2026-07-05 14:05:31.122493"
             },
             "dataset_split": null
         }
@@ -3807,16 +3807,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.386668"
+                "review_timestamp": "2026-07-05 14:06:03.192749"
             },
             "dataset_split": null
         }
@@ -3898,16 +3898,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.387236"
+                "review_timestamp": "2026-07-05 14:06:21.818734"
             },
             "dataset_split": null
         }
@@ -3989,16 +3989,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.387789"
+                "review_timestamp": "2026-07-05 14:07:09.201151"
             },
             "dataset_split": null
         }
@@ -4080,16 +4080,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.388368"
+                "review_timestamp": "2026-07-05 14:07:33.050345"
             },
             "dataset_split": null
         }
@@ -4171,16 +4171,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.388958"
+                "review_timestamp": "2026-07-05 14:08:16.525527"
             },
             "dataset_split": null
         }
@@ -4262,16 +4262,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.389575"
+                "review_timestamp": "2026-07-05 14:08:32.056923"
             },
             "dataset_split": null
         }
@@ -4353,16 +4353,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.391479"
+                "review_timestamp": "2026-07-05 14:08:48.782268"
             },
             "dataset_split": null
         }
@@ -4444,16 +4444,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.392116"
+                "review_timestamp": "2026-07-05 14:11:33.448468"
             },
             "dataset_split": null
         }
@@ -4535,16 +4535,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.392778"
+                "review_timestamp": "2026-07-05 14:11:54.922625"
             },
             "dataset_split": null
         }
@@ -4626,16 +4626,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.393683"
+                "review_timestamp": "2026-07-05 14:12:09.702891"
             },
             "dataset_split": null
         }
@@ -4717,16 +4717,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.408188"
+                "review_timestamp": "2026-07-05 14:12:20.622234"
             },
             "dataset_split": null
         }
@@ -4808,16 +4808,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.423776"
+                "review_timestamp": "2026-07-05 14:13:20.626201"
             },
             "dataset_split": null
         }
@@ -4899,16 +4899,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.424735"
+                "review_timestamp": "2026-07-05 14:13:44.816009"
             },
             "dataset_split": null
         }
@@ -4990,16 +4990,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.425458"
+                "review_timestamp": "2026-07-05 14:14:34.414503"
             },
             "dataset_split": null
         }
@@ -5081,16 +5081,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.426090"
+                "review_timestamp": "2026-07-05 14:14:44.784690"
             },
             "dataset_split": null
         }
@@ -5172,16 +5172,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.426714"
+                "review_timestamp": "2026-07-05 14:14:59.542307"
             },
             "dataset_split": null
         }
@@ -5263,16 +5263,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.429662"
+                "review_timestamp": "2026-07-05 14:15:11.891349"
             },
             "dataset_split": null
         }
@@ -5354,16 +5354,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.432273"
+                "review_timestamp": "2026-07-05 14:16:08.803542"
             },
             "dataset_split": null
         }
@@ -5445,16 +5445,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.432962"
+                "review_timestamp": "2026-07-05 14:16:39.572158"
             },
             "dataset_split": null
         }
@@ -5536,16 +5536,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.433616"
+                "review_timestamp": "2026-07-05 14:18:23.847355"
             },
             "dataset_split": null
         }
@@ -5627,16 +5627,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.434907"
+                "review_timestamp": "2026-07-05 14:18:36.997524"
             },
             "dataset_split": null
         }
@@ -5718,16 +5718,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.435418"
+                "review_timestamp": "2026-07-05 14:18:50.772538"
             },
             "dataset_split": null
         }
@@ -5809,16 +5809,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.436123"
+                "review_timestamp": "2026-07-05 14:19:17.519451"
             },
             "dataset_split": null
         }
@@ -5900,16 +5900,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.436834"
+                "review_timestamp": "2026-07-05 14:19:46.403075"
             },
             "dataset_split": null
         }
@@ -5991,16 +5991,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.437805"
+                "review_timestamp": "2026-07-05 14:20:17.529133"
             },
             "dataset_split": null
         }
@@ -6082,16 +6082,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.442422"
+                "review_timestamp": "2026-07-05 14:20:35.138411"
             },
             "dataset_split": null
         }
@@ -6173,16 +6173,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.443242"
+                "review_timestamp": "2026-07-05 14:21:38.225698"
             },
             "dataset_split": null
         }
@@ -6264,16 +6264,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.443968"
+                "review_timestamp": "2026-07-05 14:21:48.767867"
             },
             "dataset_split": null
         }
@@ -6355,16 +6355,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.447727"
+                "review_timestamp": "2026-07-05 14:22:41.692008"
             },
             "dataset_split": null
         }
@@ -6446,16 +6446,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.448574"
+                "review_timestamp": "2026-07-05 14:24:15.408523"
             },
             "dataset_split": null
         }
@@ -6537,16 +6537,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.449672"
+                "review_timestamp": "2026-07-05 14:25:06.453098"
             },
             "dataset_split": null
         }
@@ -6628,16 +6628,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.450265"
+                "review_timestamp": "2026-07-05 14:25:48.577119"
             },
             "dataset_split": null
         }
@@ -6719,16 +6719,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.450855"
+                "review_timestamp": "2026-07-05 14:26:10.778369"
             },
             "dataset_split": null
         }
@@ -6810,16 +6810,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.451440"
+                "review_timestamp": "2026-07-05 14:26:22.008606"
             },
             "dataset_split": null
         }
@@ -6901,16 +6901,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.452548"
+                "review_timestamp": "2026-07-05 14:26:37.003221"
             },
             "dataset_split": null
         }
@@ -6992,16 +6992,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.454075"
+                "review_timestamp": "2026-07-05 14:27:00.566476"
             },
             "dataset_split": null
         }
@@ -7083,16 +7083,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.455009"
+                "review_timestamp": "2026-07-05 14:27:10.191426"
             },
             "dataset_split": null
         }
@@ -7174,16 +7174,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.455598"
+                "review_timestamp": "2026-07-05 14:27:15.578739"
             },
             "dataset_split": null
         }
@@ -7265,16 +7265,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.456177"
+                "review_timestamp": "2026-07-05 14:27:23.637467"
             },
             "dataset_split": null
         }
@@ -7356,16 +7356,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.456714"
+                "review_timestamp": "2026-07-05 14:27:39.260330"
             },
             "dataset_split": null
         }
@@ -7447,16 +7447,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.457778"
+                "review_timestamp": "2026-07-05 14:28:22.592378"
             },
             "dataset_split": null
         }
@@ -7538,16 +7538,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.459246"
+                "review_timestamp": "2026-07-05 14:29:07.801344"
             },
             "dataset_split": null
         }
@@ -7629,16 +7629,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.460119"
+                "review_timestamp": "2026-07-05 14:29:27.005053"
             },
             "dataset_split": null
         }
@@ -7720,16 +7720,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.460831"
+                "review_timestamp": "2026-07-05 14:29:37.746891"
             },
             "dataset_split": null
         }
@@ -7811,16 +7811,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.461670"
+                "review_timestamp": "2026-07-05 14:30:08.577772"
             },
             "dataset_split": null
         }
@@ -7902,16 +7902,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.463963"
+                "review_timestamp": "2026-07-05 14:30:24.539831"
             },
             "dataset_split": null
         }
@@ -7993,16 +7993,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.464790"
+                "review_timestamp": "2026-07-05 14:30:58.935452"
             },
             "dataset_split": null
         }
@@ -8084,16 +8084,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.465314"
+                "review_timestamp": "2026-07-05 14:32:25.190491"
             },
             "dataset_split": null
         }
@@ -8175,16 +8175,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.465888"
+                "review_timestamp": "2026-07-05 14:33:01.748933"
             },
             "dataset_split": null
         }
@@ -8266,16 +8266,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.466519"
+                "review_timestamp": "2026-07-05 14:33:19.823521"
             },
             "dataset_split": null
         }
@@ -8357,16 +8357,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.467120"
+                "review_timestamp": "2026-07-05 14:33:30.410540"
             },
             "dataset_split": null
         }
@@ -8448,16 +8448,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.467751"
+                "review_timestamp": "2026-07-05 14:34:34.356396"
             },
             "dataset_split": null
         }
@@ -8539,16 +8539,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.468915"
+                "review_timestamp": "2026-07-05 14:35:02.626785"
             },
             "dataset_split": null
         }
@@ -8630,16 +8630,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.470359"
+                "review_timestamp": "2026-07-05 14:35:30.674053"
             },
             "dataset_split": null
         }
@@ -8721,16 +8721,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.471221"
+                "review_timestamp": "2026-07-05 14:36:12.387840"
             },
             "dataset_split": null
         }
@@ -8812,16 +8812,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.471888"
+                "review_timestamp": "2026-07-05 14:36:44.915729"
             },
             "dataset_split": null
         }
@@ -8903,16 +8903,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.472460"
+                "review_timestamp": "2026-07-05 14:37:20.734225"
             },
             "dataset_split": null
         }
@@ -8994,16 +8994,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.472956"
+                "review_timestamp": "2026-07-05 14:37:26.904544"
             },
             "dataset_split": null
         }
@@ -9085,16 +9085,16 @@
             },
             "hallucination-check": {
                 "verification_status": "verified",
-                "verification_method": "llm_as_judge",
-                "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py",
+                "verification_method": "human",
+                "verifier_model": "thunderbird/human/human_reviewer.py",
                 "hallucination_flags": [
-                    "invalid"
+                    "valid"
                 ],
                 "corrected_reasoning_text": null,
-                "human_reviewed": false,
-                "reviewer_id": "gpt-4",
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
                 "review_notes": null,
-                "review_timestamp": "2026-07-07 21:03:46.473516"
+                "review_timestamp": "2026-07-05 14:38:10.561037"
             },
             "dataset_split": null
         }

@@ -77,7 +77,7 @@ def prompt_llm_for_review(structured_llm,
         classifications=classifications,
         session_based=False,
         sequence_classification=sequence_classification,
-        dataset_name="thunderbird",
+        dataset_name="bgl",
         explanation=explanation
     )
     
@@ -133,7 +133,7 @@ def review_sequences_with_llm(input_path: str, llm_model: str):
                 sequence_data.setdefault('metadata', {})['hallucination-check'] = {
                     "verification_status": "verified",
                     "verification_method": "llm_as_judge",
-                    "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py", # Can be dynamically populated based on the model used
+                    "verifier_model": "review/llm_as_judge/bgl/llm_as_judge.py", # Can be dynamically populated based on the model used
                     "hallucination_flags": llm_response.get("hallucination_flags"),
                     "corrected_reasoning_text": llm_response.get("corrected_reasoning_text"),
                     "human_reviewed": False,
@@ -149,8 +149,8 @@ def review_sequences_with_llm(input_path: str, llm_model: str):
             yield sequence_data
 
 def main():
-    input_file = "dataset_short/thunderbird/sampled_50_reviewed.json"
-    output_file = "dataset_short/thunderbird/sampled_50_llm_reviewed.json"
+    input_file = "dataset_short/bgl/sampled_50_human_reviewed.json"
+    output_file = "dataset_short/bgl/sampled_50_llm_reviewed.json"
 
     reviewed_data_stream = review_sequences_with_llm(input_file, llm_model="nemotron-3-ultra")
 

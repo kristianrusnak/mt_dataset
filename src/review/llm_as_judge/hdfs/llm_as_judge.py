@@ -75,9 +75,9 @@ def prompt_llm_for_review(structured_llm,
     prompt = get_judge_prompt(
         log_sequence=logs,
         classifications=classifications,
-        session_based=False,
+        session_based=True,
         sequence_classification=sequence_classification,
-        dataset_name="thunderbird",
+        dataset_name="hdfs",
         explanation=explanation
     )
     
@@ -113,8 +113,7 @@ def review_sequences_with_llm(input_path: str, llm_model: str):
 
             parsed_logs = sequence_data.get('input')
             sequence_classification = sequence_data.get('classification')
-            raw_logs = sequence_data.get('metadata').get('raw_content').get('raw_log_sequence')
-            classifications = ["normal" if log.startswith("-") else "abnormal" for log in raw_logs]
+            sequence_classification = "abnormal" if sequence_classification == "anomaly" else sequence_classification
             explanation = sequence_data.get('explanation')
 
             print(f"Reviewing sequence_id: {sequence_data.get('metadata', {}).get('identity', {}).get('id')} with LLM...")
@@ -124,7 +123,7 @@ def review_sequences_with_llm(input_path: str, llm_model: str):
                 llm_response = prompt_llm_for_review(
                     structured_llm=structured_llm,
                     logs=parsed_logs,
-                    classifications=classifications,
+                    classifications=[],
                     explanation=explanation,
                     sequence_classification=sequence_classification
                     )
@@ -133,7 +132,7 @@ def review_sequences_with_llm(input_path: str, llm_model: str):
                 sequence_data.setdefault('metadata', {})['hallucination-check'] = {
                     "verification_status": "verified",
                     "verification_method": "llm_as_judge",
-                    "verifier_model": "llm_as_judge/thunderbird/llm_as_judge.py", # Can be dynamically populated based on the model used
+                    "verifier_model": "llm_as_judge/hdfs/llm_as_judge.py", # Can be dynamically populated based on the model used
                     "hallucination_flags": llm_response.get("hallucination_flags"),
                     "corrected_reasoning_text": llm_response.get("corrected_reasoning_text"),
                     "human_reviewed": False,
@@ -149,10 +148,10 @@ def review_sequences_with_llm(input_path: str, llm_model: str):
             yield sequence_data
 
 def main():
-    input_file = "dataset_short/thunderbird/sampled_50_reviewed.json"
-    output_file = "dataset_short/thunderbird/sampled_50_llm_reviewed.json"
+    input_file = "dataset_short/hdfs/sampled_50_human_reviewed.json"
+    output_file = "dataset_short/hdfs/sampled_50_llm_reviewed.json"
 
-    reviewed_data_stream = review_sequences_with_llm(input_file, llm_model="nemotron-3-ultra")
+    reviewed_data_stream = review_sequences_with_llm(input_file, llm_model="qwen3.6-27b")
 
     with open(output_file, 'w', encoding='utf-8') as f:
         # dump the streamable list
