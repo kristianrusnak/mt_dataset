@@ -49,19 +49,9 @@ def create_explanation(input_path: str, output_path: str, prompt_template_path: 
 
         classification = sequence_data.get('classification', "")
         template_sequence = sequence_data.get('input', [])
-        raw_sequence = (sequence_data.get('metadata', {})
-                        .get('raw_content', {})
-                        .get('raw_log_sequence', []))
-        
-        log_sequence = []
-        classifications = []
-        for template_log, raw_log in zip(template_sequence, raw_sequence):
-            log_sequence.append(template_log)
-            classifications.append('normal' if raw_log.startswith('-') else 'anomalous')
-        
-        prompt = get_prompt(log_sequence=log_sequence, 
-                            classifications=classifications,
-                            session_based=False,
+        log_sequence = list(template_sequence)
+
+        prompt = get_prompt(log_sequence=log_sequence,
                             sequence_classification=classification,
                             dataset_name="bgl")
         

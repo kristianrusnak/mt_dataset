@@ -50,14 +50,9 @@ def create_explanation(input_path: str, output_path: str, prompt_template_path: 
         classification = sequence_data.get('classification', "")
         classification = "abnormal" if classification == "anomaly" else classification
         template_sequence = sequence_data.get('input', [])
-        log_sequence = []
+        log_sequence = list(template_sequence)
 
-        for template_log in template_sequence:
-            log_sequence.append(template_log)
-        
-        prompt = get_prompt(log_sequence=log_sequence, 
-                            classifications=[],
-                            session_based=True,
+        prompt = get_prompt(log_sequence=log_sequence,
                             sequence_classification=classification,
                             dataset_name="hdfs")
         

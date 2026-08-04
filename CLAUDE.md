@@ -98,7 +98,13 @@ CLI tools for backfilling/migrating fields on already-generated JSON dataset fil
 build the LLM prompts as plain formatted strings (no template engine). Both enforce a strict
 output contract the rest of the pipeline depends on:
 - Explanations must start with exactly `"This log sequence is normal because ..."` or
-  `"...is abnormal because ..."`.
+  `"...is abnormal because ..."`, followed by exactly 3 sentences total: root cause,
+  sequence summary, then a contrast explaining why the opposite verdict doesn't apply.
+- Generation (`prompt1.py`) no longer receives per-log ground-truth labels for BGL/
+  Thunderbird — only the final sequence classification — so the model must find the
+  driving evidence itself instead of being told which line is anomalous. The judge
+  (`judge_prompt.py`) still receives full per-log labels, since its job is to fact-check
+  the explanation against ground truth, not to reason about it.
 - The judge only checks for hallucination categories listed in its prompt
   (`contradiction_with_label`, `fabricated_detail`, `misattributed_cause`,
   `factual_inconsistency`, `unsupported_speculation`, `format_violation`) or emits `["valid"]`

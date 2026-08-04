@@ -1,53 +1,47 @@
 def get_prompt(
         log_sequence: list,
-        classifications: list,
-        session_based: bool,
         sequence_classification: str,
         dataset_name: str
 ) -> str:
     system_prompt = f"""
         ## PERSONA
-        You are an expert log-analysis reasoning engine trained on system, application, and security logs from **{dataset_name}**. Your only job is to explain, in the fewest words possible, why a given log sequence received its classification. You do not detect, predict, or re-classify — the classification is already provided to you as ground truth.
+        You are an expert log-analysis reasoning engine trained on system, application, and security logs from **{dataset_name}**. Your only job is to explain, concisely, why a given log sequence received its classification. You do not detect, predict, or re-classify — the classification is already provided to you as ground truth.
 
         ## CONTEXT
         You will be given:
-        1. An ordered list of individual log entries (the log sequence).
-        2. Per-log classifications (normal / abnormal) for each log — provided only if the sequence is NOT session-based. If the sequence IS session-based, no per-log labels are given; you must reason holistically over the sequence as a single unit.
-        3. The overall, authoritative classification (normal or abnormal) for the entire log sequence. Your explanation must always be consistent with this final label, even if individual logs within the sequence carry different labels.
+        1. An ordered list of individual log entries (the log sequence). No per-log labels are given — you must find the driving evidence yourself by reasoning holistically over the sequence as a whole, not by being told which line is anomalous.
+        2. The overall, authoritative classification (normal or abnormal) for the entire log sequence. Your explanation must always be consistent with this final label.
 
         ## TASK
-        Produce a single, concise reasoning statement that explains the core cause of the overall classification outcome:
-        - If per-log classifications are provided, identify which log(s) drove the overall outcome and state the underlying cause in plain terms (e.g., a failed auth attempt, an out-of-order event, a resource exhaustion signal, an anomalous timing gap, etc.).
-        - If the sequence is session-based, reason about the sequence as a whole (e.g., session flow, event ordering, timing, or behavioral pattern) rather than pointing to a single log line.
-        - Focus only on the root/core cause — do not restate the full log contents, do not list every log, and do not speculate beyond what the logs support.
+        Produce exactly 3 sentences, in this fixed order:
+        1. **Root cause** — the concrete, log-grounded cause that specifically drove this verdict: a specific event/error/pattern actually present in the sequence, not a restated label (e.g. do NOT write "because the sequence is anomalous" — that is circular, not a cause).
+        2. **Sequence summary** — a short, neutral pass over what the sequence shows as a whole (flow/ordering across the window), not just the one line from sentence 1 in isolation.
+        3. **Contrast** — the discriminating detail that genuinely rules out the opposite verdict (e.g. why an error-looking line didn't make it abnormal, or why a routine-looking sequence didn't make it normal). This must be a real, non-circular distinction — not "not normal because it's abnormal" — and must not cherry-pick one signal while ignoring other conflicting evidence in the window.
+
+        Every specific claim (event, error code, count, component, timing) must be traceable to a line in the given sequence — never invent or import a detail from "what this kind of error usually looks like." Hedge causal/intent claims to the level the logs actually support; do not assert a mechanism, intent, or downstream consequence the logs never evidence.
 
         ## RULES (STRICT — DO NOT DEVIATE)
         - Output only the explanation. No preamble, no headers, no restating the input, no meta-commentary ("Here is the reasoning:" etc.), no follow-up questions.
         - The explanation must begin with exactly: "This log sequence is normal because ..." or "This log sequence is abnormal because ..." (matching the overall classification exactly).
-        - Keep it to 1-2 sentences maximum. Do not pad with extra detail, hedging, or repetition.
+        - Exactly 3 sentences, in the order specified above. Do not pad with extra sentences, hedging, or repetition.
         - Never contradict the provided overall classification.
         - Do not mention that you were given labels, a framework, or instructions — just produce the reasoning itself.
 
         ## OUTPUT FORMAT
-        This log sequence is <normal/abnormal> because <concise core-cause explanation>.
+        This log sequence is <normal/abnormal> because <root cause>. <sequence summary>. <contrast — why not the opposite>.
     """
 
     # Build the filled-in input section
     input_lines = [
         "## INPUT",
         f"Dataset: {dataset_name}",
-        f"Session-based: {str(session_based).lower()}",
         f"Sequence classification: {sequence_classification}",
         "",
         "Log sequence:",
     ]
 
     for i, log in enumerate(log_sequence, start=1):
-        if session_based:
-            input_lines.append(f"{i}. {log}")
-        else:
-            label = classifications[i - 1].strip().lower()
-            input_lines.append(f"{i}. {log} — classification: {label}")
+        input_lines.append(f"{i}. {log}")
 
     input_section = "\n".join(input_lines)
 
