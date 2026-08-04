@@ -10,6 +10,7 @@ dependencies = [
     "langchain>=1.3.11",
     "langchain-litellm>=0.7.0",
     "langchain-openai>=1.3.3",
+    "python-dotenv>=1.2.2",
 ]
 
 [tool.setuptools.packages.find]
