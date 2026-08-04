@@ -1,0 +1,155 @@
+[
+  {
+    "step": 1,
+    "action": "gold_sample_draw",
+    "timestamp": "2026-08-04T16:24:27Z",
+    "dataset": "bgl",
+    "stratum": "natural",
+    "params": {
+      "seed": 42,
+      "k": 3,
+      "abnormal_label": "abnormal",
+      "exclude_cross_class": false,
+      "per_class": 15
+    },
+    "inputs": [
+      "dataset_short/bgl/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/bgl/gold_natural_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Natural core: 15 normal / 15 abnormal. ids=['0a636876-45bd-4ccd-8571-c9b1b9eaa469', 'ae9df656-a582-45b1-94ac-4f49a91ea9a2', '016782c4-caaf-45b0-9ac5-9d913c3cb092', '89d0f9f3-15dd-4d69-bf24-c8759e3e17ac', 'e8086a98-3a54-485a-8b49-2647993bda08', 'fa399ffc-0c27-46b1-80b1-c5a199da3794', 'b71498b6-72ac-4ad9-ac44-4890627fd545', '7024d1c0-19af-460c-8c67-6da717e7f5b9', '81bf5971-bc58-480b-98ae-c5c1f79b13bd', 'b160ef24-6c99-43fe-b10b-94c77bf335b0', '8da27e65-2658-4b64-9313-61320cd03bf2', 'a678a033-7ddb-4720-ad4a-2f57f0453ec7', '0f5fc56f-0d3d-44f8-801d-eeee7a776f7d', '3ee28de1-ef78-40e7-880b-ee81df4fcdd8', '9c081a58-4ff7-40c8-95c1-ff95fc395d74', '99d5c12a-8faa-4df0-8658-2b94cec1a2d8', 'd0ebbf6a-8a45-4546-bc50-5d15d9aed650', '946d7094-7673-406f-8970-046a11714329', 'a52021e0-ea29-4d12-9aa4-afb72eeb46f1', '28b6f4af-6ee7-4221-9f33-82343f802ea8', '10d9fc41-d6f1-45e6-8765-31c491f9d4b0', '5e30f28c-ed7c-425d-842b-0cca09089ac7', 'c640a179-9e15-4b55-bea9-e96ad50bff5d', 'f343c703-bd55-458e-80e5-5420461be147', 'a459858d-b520-4ec3-834c-6f78956e91b8', '25201a95-b980-4fec-a91e-cc0d7452efc2', '0aa40e03-09ec-4a58-9c86-db4da27fe7c0', 'cee42f1a-ba3a-470f-83af-f4da1d39ab7c', 'f8806791-efc3-4f6a-b0ba-4e90801dac5b', 'e2406226-f4f9-466a-a41e-3c7381f235dd']"
+  },
+  {
+    "step": 1,
+    "action": "gold_sample_draw",
+    "timestamp": "2026-08-04T16:24:27Z",
+    "dataset": "bgl",
+    "stratum": "supplemental",
+    "params": {
+      "seed": 42,
+      "k": 3,
+      "abnormal_label": "abnormal",
+      "exclude_cross_class": false,
+      "per_class": 20
+    },
+    "inputs": [
+      "dataset_short/bgl/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/bgl/gold_supplemental_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Supplemental oversample pool, drawn but NOT yet selected into the gold set (topup selection is a follow-up step, pending step 2 human scores): 20 normal / 20 abnormal. ids=['3bc682af-e8a0-4445-9fc0-3e8e88dd5e91', 'ef9acf89-3324-4af0-b71e-cce055346aa6', '9483c352-42d8-49e1-9b40-4ec92f0c79ca', 'ac7a808f-84f3-4fa0-ae53-8cc78da1821b', 'a3f59d42-b1de-423b-a3c9-f2dccbdfe88b', '5fdbd4c5-d50a-474a-8c6a-4a24dc0aa7c3', 'a1f996ba-85e5-42e4-b1af-e6d482628edb', '6b7d87cb-59c2-4f63-b379-a62a3693f005', 'a69f79cf-3af4-43f7-93c7-89bdb98b008f', '5f09a10c-5d8d-4962-8db4-603b9635ff85', 'c6be2dc0-d381-4a2d-aade-eb6f8c0e305e', 'a91a3248-d66b-44b4-87c8-ab5e2e969893', 'c12215ec-bcd7-4e5d-9ea7-cd8a806f6ee7', 'bd35be3f-7768-41f5-97f7-00e80eb059a0', 'c57655a3-b6a1-4fe4-af32-68881c6868b0', '7360171e-1f24-4cf4-be42-aec64d98c152', '808a81aa-3372-4969-894c-e4fb4ca94bbe', '4d255bd1-456c-4175-abf6-7e55539d723b', '5fa5e919-c0b4-4a7b-9cc4-dfc371d2b979', 'e84f8eef-9d0c-4052-836d-4dde533ab803', 'a9933c38-987f-461c-a422-2940ad91f325', '94c53db4-b76a-4c44-9bd8-4f793b6d5f64', 'c09ff600-da4b-4f05-b5c2-d3f42a4c14a9', 'aae8c42c-0067-4ec6-b6b8-66397642f1cb', '57355eea-ee02-4280-b2e3-1be1d47ae431', '435fcd10-b416-43da-9841-5464cc5899d0', '31203a46-3472-4c74-a5a0-0c768fed2b5d', 'e8819629-4017-4015-a73e-f2420ff4fd4d', 'abcecb07-2878-4bfe-81cd-e3370e735a1e', '711659b3-6ea4-41b7-b0e0-c8256de32074', '5a3b0bd0-af38-4a26-8006-91925ee1de80', '3b70248e-fa4b-4afe-8158-e96a78432b54', 'e8738802-7755-48a1-83a1-a134953c69a6', '6551600f-7715-4a05-bd24-57d8c5cffa98', '15dd2cad-982f-41e7-992f-bd93983645b0', '12c0fe8a-eb1a-49dd-bf17-25a26d7b3be0', 'a7e26d1f-3835-4614-ab73-f9a1f5f2d829', '6005015e-e028-4c7f-a5e4-6f106687513c', '11ba13bb-f354-4b1d-b553-854377e41cdf', 'e2d1444c-1850-4ba8-aec8-ac7fc6e2c5c6']"
+  },
+  {
+    "step": 6,
+    "action": "production_sample_draw",
+    "timestamp": "2026-08-04T16:26:13Z",
+    "dataset": "bgl",
+    "params": {
+      "seed": 99,
+      "k": 3,
+      "abnormal_label": "abnormal",
+      "exclude_cross_class": false,
+      "num_per_class": 5
+    },
+    "inputs": [
+      "dataset_short/bgl/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/bgl/production_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Production draw: 5 normal / 5 abnormal. ids=['98b7c081-f170-4368-827f-a88565412f81', '2dc52b09-5eb6-430d-b0b2-61b8fe5e04ea', '413de76d-ac2b-4ed7-8566-e080b213bb11', '25f8ce74-a55e-43b1-8a43-20f1ccd2d410', '5ab06607-2802-4f63-a88e-3a2df933dde3', 'fc1aacc7-a56e-475e-9c5c-e0bf3b05dae6', '1e38dbfd-f7be-467b-8dd7-3ec1c15ac29d', '59740765-bc7b-48c7-ad39-d7370bab1d96', '7b02afd4-4ee1-47ac-a06a-07ed306b0038', 'c6544394-9956-4015-8722-7113d8eb6b6f']"
+  },
+  {
+    "step": 1,
+    "action": "gold_sample_draw",
+    "timestamp": "2026-08-04T16:28:36Z",
+    "dataset": "hdfs",
+    "stratum": "natural",
+    "params": {
+      "seed": 42,
+      "k": 3,
+      "abnormal_label": "anomaly",
+      "exclude_cross_class": true,
+      "per_class": 15
+    },
+    "inputs": [
+      "dataset_short/hdfs/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/gold_natural_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Natural core: 15 normal / 15 abnormal. ids=['ba170fc0-9ad2-49eb-be8c-c2f944cc0671', 'd3538d9b-6d9b-4b3a-8e21-a212410d17c6', 'df45eac1-ff2f-4b7f-a2f5-e466652d37c2', '89860d36-62fe-4118-a46e-e9a7d3fac4a7', '4db75f0b-0c93-415f-845d-2f0ced86cf3f', '10230f1f-8593-4100-bf5c-ae260b7299bd', 'd475e1ab-7dc0-40a4-8b6e-80912eb005aa', '5ae65aaf-2222-46a3-bfc9-bb163310627b', '37075517-653d-4938-aaef-f3cfdfb7cae2', '1e5e9792-f62b-4eb4-8b74-5f4ac4909989', 'bf1a0240-2a41-4631-9d03-137d818dbd35', '191eaafe-3bdd-4601-aa74-6cc0ee096ca0', '78aa5ed6-acfb-4cf9-a525-f82cabf2f2e2', '2598fdfd-ab13-4b73-841c-f478d70f6a71', '0cd5d6f3-0e32-4976-bc58-47661e291c73', '790a00e9-8738-470d-a2ce-1480008e61fd', '02b45dbd-8022-466c-9a65-f2172f1a3ee9', 'e110fc25-1481-407a-a9e5-cba77a3cd017', '2cfb28b6-a24e-4cc0-a420-4746b10e5f6b', '80dc55a9-f1e9-49a0-adef-4518171c5cc6', '06c03a10-51df-430b-9ac3-032b6dd695e1', '876f9e19-64ca-4f51-9bcf-4f829f14ad19', '5d100bb5-34b2-4579-85e7-4d936a210072', '3bff9029-be61-4817-ace8-73ae29a5413c', 'dd517e8b-f08f-454f-941e-b3bf75aedf15', '2092b797-8c6d-406f-a23a-fc2580434fa4', '907539ca-3f19-48b4-bd73-5314e5f14d2e', 'e5a03548-aa81-4b41-b009-914fbc85de90', 'e11935c1-a542-40e7-a5e2-c30abc60820f', '955a515e-1c6d-40c1-95fc-e66a93ce037d']"
+  },
+  {
+    "step": 1,
+    "action": "gold_sample_draw",
+    "timestamp": "2026-08-04T16:28:36Z",
+    "dataset": "hdfs",
+    "stratum": "supplemental",
+    "params": {
+      "seed": 42,
+      "k": 3,
+      "abnormal_label": "anomaly",
+      "exclude_cross_class": true,
+      "per_class": 20
+    },
+    "inputs": [
+      "dataset_short/hdfs/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/gold_supplemental_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Supplemental oversample pool, drawn but NOT yet selected into the gold set (topup selection is a follow-up step, pending step 2 human scores): 20 normal / 20 abnormal. ids=['e8bbc520-3da0-45fc-be3a-beeb8090cd72', '9099662c-63a4-4fdd-a518-1b7006955a83', '76bcd512-b602-479e-bfdc-465f95b794f7', '12a9f4b3-44e1-49a1-95ca-8ccea64f9feb', 'a71ddc45-29ab-4084-8d45-ba25372fe8bb', 'fa18c02d-1fac-48f4-a667-1fae3ae13aba', '2b2383f4-945b-4ed2-af24-7e47e0d36da1', '3ffe7730-bc0d-4dad-b3a6-55dbddd13ef2', '622fb393-da77-4f9e-be2d-2f9ef5aa3acd', 'bb037d30-1871-4902-a62e-1005fce9abc2', '910f420f-0358-44f2-97d0-fd07d8c8974d', '81d1767c-603a-461f-ac9e-b793c406f83c', '46980184-5dbf-4f0b-a189-519133561839', '379efbfc-e1e4-4af6-bd35-d2d956a04e31', 'c2143db1-b9ac-4ed0-bafb-43eedb142e53', '0383219d-4882-43b2-b38a-f2d91b9fa0e2', '37279274-1bb8-4302-a27e-1cfec9dc0b63', '60302ce6-34ec-4578-9d21-415f4e937f20', '681c04f1-90c1-4d31-b027-34dd10339864', '14e48b1e-4b93-40e0-a05f-4d51d98b1cf4', '3bef7c06-10a6-4af5-8784-2d52a99b23cc', '5729e535-e6fa-48ee-9848-c68137da772b', 'f16f9fb5-094c-436a-b5fc-e864eccbc754', '403c28ec-ef12-429a-8231-78c20d4d2a8e', 'a086ef20-a9da-4c5b-a200-53dbadb06a91', '87da429f-e471-4c52-8d67-dbdc7db2c7dd', 'cb1b102f-59d4-4c0c-a397-964be9298fc7', '5ebf68b3-a047-4d0f-a1bb-4011682a7119', '54db75e7-1d46-49cd-b396-5407bfb940d7', '250b1744-9e18-43e5-a986-1f7f0b7475c0', '33f4be38-d6f6-4c44-ad90-b3ecc97c1c68', 'f87ac717-6626-4049-9cb9-0b6e9054204b', 'faacdb89-1223-4b49-bf8c-1ff1a7a28dbd', 'ace1283a-f26b-403e-ba53-1e45d0739d90', 'e08aef50-97dc-4e2f-b846-f85faaf9857c', 'b5c14eb9-4e20-4a2e-8a34-a1043d35748e', '58c87b8c-0bbf-4072-91f9-ebbf29691574', '9311679d-1e27-464c-a3a2-4aa3a3f035b4', 'c811a08a-7e73-46fd-b1e7-7c963a6fc2de', '582346ae-c1dd-42d1-847e-7049e976161a']"
+  },
+  {
+    "step": 1,
+    "action": "gold_sample_draw",
+    "timestamp": "2026-08-04T16:35:15Z",
+    "dataset": "thunderbird",
+    "stratum": "natural",
+    "params": {
+      "seed": 42,
+      "k": 3,
+      "abnormal_label": "abnormal",
+      "exclude_cross_class": false,
+      "per_class": 15
+    },
+    "inputs": [
+      "dataset_short/thunderbird/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_natural_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Natural core: 15 normal / 15 abnormal. ids=['fca01c79-1902-4758-bd22-7ba6848f1808', '3d044e85-152a-45cb-a5e7-9ddc21efeba7', 'e5c0c38b-882b-4d76-9ed2-d88b789d3f01', '0febd531-a3d0-4cd1-aa20-17cc20cc7af8', 'b41e6f79-0f30-4d8d-8f00-25738ff765a2', '2c6adfd5-47fc-43b8-a728-bd154b329d0f', '69f50767-beea-49ac-8033-09d75f969884', 'b9ebbc6c-e4a0-4bda-83b0-f10753ddecb1', '510aa775-1a75-4b3c-9cde-22d611fbb423', '19e78c39-2986-474e-8d2d-ff3976585d8d', '9c05b14c-a313-44c9-965e-b0d7624aded6', 'c8744972-9c26-4594-9fd8-deca04864c07', '44fdbd27-d38d-4d7a-aca2-f9d1ccf3b3fc', 'cdf26e14-c9f7-43f4-a64c-d86ec822dab5', '07b52bf5-dd13-4994-ab78-98f4991a1a17', 'dcd69dc0-2c1e-46f6-97ef-af26b3bcd135', 'e82b9ade-2431-4dc2-bcdf-62614ad94a79', '64c60a0f-f3b8-40cd-a60a-a40d3d0b9fcb', 'e252befe-d754-48bb-bacd-023378572b34', 'fcc23e26-1bd4-4b42-b00f-0519ece277f9', 'cfa094dd-7a34-4577-84ab-0c7a8b28caa5', '3163b498-3dbb-4206-bcf0-00509ae9118f', '1258081d-ce6d-4450-97a9-5943a65159e1', 'de635f21-34ed-4adb-9621-b6c2b8cdd39a', 'fcebf9d2-235b-4519-a881-f6def63826a3', '0d91a42b-544a-4b03-bd14-9bf413160b3e', 'd167162b-ad00-42ec-99cc-7cda64dcf8ea', '1dc19723-ebc1-4e13-ba22-3016b8fc2fed', '3b513260-d247-45eb-975d-b259f0ce463e', 'cb7dbbff-10a1-457d-abac-60deb0dd8c0c']"
+  },
+  {
+    "step": 1,
+    "action": "gold_sample_draw",
+    "timestamp": "2026-08-04T16:35:15Z",
+    "dataset": "thunderbird",
+    "stratum": "supplemental",
+    "params": {
+      "seed": 42,
+      "k": 3,
+      "abnormal_label": "abnormal",
+      "exclude_cross_class": false,
+      "per_class": 20
+    },
+    "inputs": [
+      "dataset_short/thunderbird/full_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_supplemental_not_explained.json"
+    ],
+    "metrics": {},
+    "notes": "Supplemental oversample pool, drawn but NOT yet selected into the gold set (topup selection is a follow-up step, pending step 2 human scores): 20 normal / 20 abnormal. ids=['99b142e5-0b3c-4135-b1bf-50fce873a39a', '2fd40a0b-5f26-49b7-9aa1-775281e73d3e', '9903bdbf-bf08-448a-a950-35fcfb23176d', '75d7b089-d00c-408e-be20-bfc3fd223275', '9cd03bb3-7351-4f23-8666-1acb570c4065', 'a1e3908e-5782-4f25-b261-0a38d09ae92e', '359b7eda-c75f-4531-8ca0-67165130276d', '2ef64e31-234b-4517-ac06-c65af9bcd1e7', '981b3f07-d152-43c9-a1d0-c62788afb7ec', 'e5586ca0-1344-45cd-bbfc-3e222a18d91a', '6d0eecad-d23c-4a67-9345-74a01a79e443', '5b22ea38-ce77-4331-8e74-fcd5631c0037', 'f0ac61b6-e582-4d0e-8e97-a0d4c4640547', '8f558e3d-eb15-401f-9a8e-4c85c4e1a969', '61671e80-67ce-4312-9f29-146669b28dc1', 'fea004c1-c646-4a40-8bb0-41f63fa1c1f2', 'bf327ea6-94a2-4f06-bf8b-eed3996bd7b8', 'a61c4226-95c6-4245-a497-c0750616de48', '715feb75-2ac7-41b5-8cd4-5e199836c150', '91e10d68-1ae4-479e-bd3f-40a43a27553d', '624d5659-89aa-44c3-b37f-8ecd131a395e', '67d93b68-245c-42cb-830e-082349969e8b', 'f61b7a44-d779-4c21-83cf-1191f1ced977', '0d7ce2f5-ae7e-4d72-8175-f3e3b26506b0', '784d877e-7de9-49a1-9b1f-bf20ecff0720', 'e8374a25-d933-452e-889c-010c495f3d1d', '69963578-6ef9-4b8d-b780-e8345f4e162f', 'a759bfa3-06f3-4802-8929-596406eb94a1', '6ef7d845-a09e-479b-8c66-587d28d83f90', '4f377847-1f7a-4686-afb7-fd98afe57d87', 'da5719af-f987-45f4-8e4d-65ade39766e2', 'c56a8793-91c6-4350-a639-07f513dadff9', '40b2ccbb-2313-46af-b47f-0dd63d30929c', '8b26400a-77c6-4f25-aa04-165c396541a8', '117efacb-0dd0-4134-94f1-01577588adb8', 'bd545945-4182-4126-bc33-d44595867ae4', 'ad2e6194-3140-475e-8458-d6d51656c8a3', 'd95bc83d-8dc2-4bb2-96eb-361cd8d436af', 'd3f04698-fc85-437e-8e3e-af9a102b9033', '849c8d6e-6750-45ef-b631-40e2251ee142']"
+  }
+]

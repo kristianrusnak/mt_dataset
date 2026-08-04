@@ -139,21 +139,101 @@ definitions above are meant to be copy-pasted into both, not paraphrased
 separately, so there's no ambiguity between what a human scores and what
 the judge scores.
 
+## Sampling population & deduplication strategy
+
+**Status: design decided 2026-08-04, implemented 2026-08-04** (see Open questions for the
+follow-up sizing/decision items this still leaves open -- production-set size, the
+supplemental-topup selection logic, and which criteria-rollup/search-algorithm choices remain
+undecided).
+
+Implementation lives in `src/help_functions/`:
+- `dedup_pool.py::build_deduplicated_pool(...)` -- the template-hash dedup/cap/HDFS-filter pool
+  builder described below.
+- `id_ledger.py::get_used_ids(...)` / `append_used_ids(...)` -- reads/appends
+  `dataset_short/<dataset>/used_ids.json`.
+- `manifest_log.py::append_manifest_entry(...)` -- append-only writer for
+  `docs/llm_judge_validation_log.json`.
+- `gold_sampling.py::draw_gold_sample(...)` / `draw_production_sample(...)` -- shared draw
+  orchestration used by all three datasets' `sampling_1.py` CLIs (see step 1/6 below).
+
+Before any of the sampling in step 1 below can be trusted to actually produce a diverse,
+balanced gold set, two population properties needed to be measured directly rather than
+assumed: how imbalanced normal/abnormal actually is per dataset, and how much of each
+population is duplicate/near-duplicate content. Both were measured with a one-off streaming
+scan (`json_stream`, same approach `get_all_sequences.py` already uses) over each dataset's
+`full_not_explained.json` on 2026-08-04 — not yet a checked-in script, should become one
+(e.g. `src/help_functions/`) when this is implemented.
+
+**Why raw-text hashing doesn't work as a duplicate signal:** every BGL/HDFS raw log line
+embeds a per-line microsecond timestamp (and for BGL, a node ID) directly in the text, so
+exact-raw-text duplicates are ~0% even for windows that are behaviorally identical bursts of
+the same repeated event. The signal that actually finds duplicates is a hash of the **ordered
+sequence of parsed Drain3 templates** (the `input` field) — that's what's stripped of the
+timestamp/node-ID noise and exposes a genuinely repeated pattern.
+
+Measured population (per dataset, from `full_not_explained.json`):
+
+| Dataset | Total windows | Normal / Abnormal | Ratio | Unique templates — normal | Unique templates — abnormal | Largest duplicate cluster | Cross-class template collisions |
+|---|---|---|---|---|---|---|---|
+| BGL | 231,563 | 212,826 / 18,737 | 11.4:1 | 34,781 (16.3%) | 2,640 (14.1%) | 83,405 records (36% of dataset) | 0 |
+| HDFS | 575,061 | 558,223 / 16,838 | 33.1:1 | 14,155 (2.5%) | 3,703 (22.0%) | 94,972 records (16.5%) | **231 groups** |
+| Thunderbird | 830,087 | 829,665 / 422 | 1966:1 | 78.8% unique overall (not split by class) | (422 total — scarcity, not duplication, is the binding constraint) | 13,109 records | 0 |
+
+Takeaways:
+- BGL/HDFS's problem is **duplication**: a uniform-random draw is dominated by a handful of
+  mega-clusters (e.g. a BGL normal draw has a ~39% chance of landing in one single repeated
+  "generating core.\<\*\>" burst — visible verbatim as the first record in
+  `dataset_short/bgl/llm-lade_base_seed.json`).
+- Thunderbird's problem is **scarcity**: only 422 abnormal windows exist in the entire
+  830k-window dataset, so it constrains sample size directly rather than through duplication.
+- HDFS additionally has 231 template-hash groups where the *identical* parsed-template
+  sequence is labeled `normal` in some blocks and `anomaly` in others — meaning the cause
+  isn't recoverable from the window's own content for those cases at all.
+
+**Deduplication method (decided):** hash the ordered `input` template list per record; within
+each class's pool, cap each duplicate cluster (same hash) at **K=3** representative records
+before any random sampling happens — softer than full collapse-to-one, so a pattern's
+relative commonness isn't erased entirely, but no single cluster can dominate a draw the way
+the raw population does. This capping applies to both the judge-validation gold pool (step 1
+below) and the larger production pool (see Open questions).
+
+**HDFS cross-class filter (decided):** the 231 template-hash groups that contain *both*
+classes are dropped from the sampling pool entirely, on both sides, before capping/sampling —
+not a diversity fix but a label-recoverability filter: if the generation model is handed a
+window whose cause isn't distinguishable from its own content, criterion 4 (groundedness) is
+guaranteed to fail, so these windows can't productively be used for either class.
+
+**Feasibility check against step 1's existing gold-set numbers (30 core, 15/15, + up to 20
+supplemental topup, worst case 35/class):** comfortably met everywhere. BGL has 2,640 unique
+abnormal templates before capping; HDFS has 3,703 unique anomaly templates before capping and
+losing some to the 231-group exclusion still leaves far more than 35 needed; Thunderbird's
+raw 422 abnormal total, even before accounting for its 78.8%-unique overall dedup rate, is
+still >10x the worst-case 35 needed. The tight case is Thunderbird's *overall* abnormal
+budget across every draw this project ever makes from it (see Open questions) — not any
+single draw's feasibility.
+
 ## Proposed steps
 
 1. **Draw a gold-standard sample.**
-   From the already-sampled, already-explained datasets
-   (`dataset_short/<dataset>/sampled_50_explained.json` and equivalents),
-   take a subset dedicated purely to judge validation — separate from
-   whatever sample ends up human-reviewed for the final dataset itself, so
-   the same human labels aren't reused for both dataset ground-truth and
-   judge calibration.
+   Draw directly from each dataset's full population
+   (`dataset_short/<dataset>/full_not_explained.json`), not the old
+   `sampled_50_*` files — those predate the dedup/HDFS-filter design above
+   and were drawn with plain unfiltered `random.sample`. The draw pool is
+   the population **after** applying the sampling & deduplication strategy
+   above (HDFS's 231 cross-class groups excluded; each duplicate
+   template-hash cluster capped at K=3 representatives). This gold set is
+   dedicated purely to judge validation and is drawn from a disjoint ID
+   pool from the larger production set (see Open questions) — an ID-ledger
+   recording every ID drawn for either purpose is required so the same
+   window is never reused across the two. **Implemented**: every draw (gold
+   or production) checks `dataset_short/<dataset>/used_ids.json` before
+   sampling and appends to it after — see `src/help_functions/id_ledger.py`.
 
    Two strata, drawn and logged separately so they're never conflated in
    scoring:
    - **Natural core — 30 samples per dataset (BGL, Thunderbird, HDFS),
      split evenly 15 normal / 15 abnormal.** Plain random draw (fixed
-     seed) from the existing population. This is the set step 4's
+     seed) from the deduplicated/filtered population above. This is the set step 4's
      headline agreement/kappa/false-negative numbers are computed over —
      it preserves the real base rate of pass/fail per criterion, which
      those metrics depend on to mean anything.
@@ -179,6 +259,16 @@ the judge scores.
    field per sample (and, for supplemental entries, which criterion they
    were pulled in to satisfy), plus the sampling action itself (seed,
    source file, resulting IDs).
+
+   **Implemented**: `src/sampling/explanation_creation/<dataset>/sampling_1.py gold`
+   draws both strata in one run via `draw_gold_sample(...)`
+   (`src/help_functions/gold_sampling.py`) — natural core defaults to 15/15,
+   supplemental oversample pool defaults to 20 per class (40 total, within the
+   ~30-50 range above; overridable via `--supplemental_per_class`). Only the natural-
+   core and oversample-pool *draw* is implemented here; the per-criterion fail-floor
+   topup-selection logic (pulling supplemental cases into the gold set once step 2's
+   human scores exist) is intentionally left as a follow-up, since implementing it now
+   would mean coding against fake review data.
 
 2. **Human-review that sample — scored against the 5-criterion binary
    vector, not a plain valid/invalid flip.**
@@ -251,13 +341,47 @@ the judge scores.
    `llm_as_judge` unsupervised afterward.
 
 6. **Only then run the full pipeline unsupervised.**
-   Use the winning judge configuration to verify the remaining generated
-   explanations at scale, without per-item human review, citing step 4/5's
-   agreement numbers (and the manifest entries backing them) as
-   justification.
+   Use the winning judge configuration to verify explanations for a
+   separately-sampled **production set** (drawn from the same
+   deduplicated/filtered population as step 1, but from a disjoint ID pool
+   — see the ID-ledger note in step 1), at scale, without per-item human
+   review, citing step 4/5's agreement numbers (and the manifest entries
+   backing them) as justification. Production-set size is not yet decided
+   — see Open questions.
+
+   **Implemented (mechanism only, size still open)**:
+   `src/sampling/explanation_creation/<dataset>/sampling_1.py production
+   --num_per_class N` draws N normal + N abnormal records per run via
+   `draw_production_sample(...)` (`src/help_functions/gold_sampling.py`) — same
+   dedup/cap/HDFS-filter pool and ledger-exclusion as the gold draw, ids tagged
+   `purpose: "production"` in the ledger, no natural/supplemental split and no human
+   review. `--num_per_class` has no default on purpose (see Open questions) so it must
+   be passed explicitly each run.
 
 ## Open questions / things to decide later
 
+- **Production-set size.** The 30-40/dataset gold set (step 1) is only the
+  human-reviewed calibration/seed portion — bounded by realistic human
+  review capacity (confirmed: ~30-40/dataset max). Once the judge is
+  validated (step 5), a separate, larger **production set** gets verified
+  by the judge alone (step 6), with no human-capacity ceiling — but its
+  target size is still undecided and needs to come from downstream
+  training/eval needs, not from this doc. Every dataset has ample
+  deduplicated population left to support a production set well beyond
+  the gold set's 30-40 (BGL: 34,781 unique normal / 2,640 unique abnormal
+  templates before capping; HDFS: 14,155 / 3,703; Thunderbird: 422 raw
+  abnormal total is the binding ceiling there — whatever production-set
+  size is picked, Thunderbird's abnormal side should be checked against
+  422 minus whatever the gold set + topup already consumed). The *draw
+  mechanism* is implemented (`sampling_1.py production --num_per_class N`,
+  see step 6) with no default for `N` — only the actual number to pass is
+  still an open decision.
+- **ID-ledger mechanism. Implemented 2026-08-04.** `dataset_short/<dataset>/used_ids.json`
+  (array of `{id, purpose, drawn_at}`, `purpose` one of `gold_natural` /
+  `gold_supplemental` / `production`), read/written via
+  `src/help_functions/id_ledger.py`. Every gold and production draw checks it before
+  sampling and appends to it after, so the same window can't be reused across gold
+  natural-core / gold supplemental / production draws.
 - How the 5-criterion binary vector rolls up into a single config-level
   score for ranking/choosing a winner in step 5 — e.g. pass-all, weighted
   sum, worst-criterion-wins, or something else. Deliberately deferred

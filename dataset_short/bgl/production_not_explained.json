@@ -1,0 +1,882 @@
+[
+    {
+        "input": [
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "CE sym <*>, at <*>, mask <*>",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr."
+        ],
+        "classification": "normal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "98b7c081-f170-4368-827f-a88565412f81",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:12.647692"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1133447939 2005.12.01 R35-M1-NF-C:J07-U01 2005-12-01-06.38.59.199944 R35-M1-NF-C:J07-U01 RAS KERNEL INFO 10666 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R30-M1-N7-C:J11-U11 2005-12-01-06.38.59.209343 R30-M1-N7-C:J11-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R30-M0-N5-C:J16-U01 2005-12-01-06.38.59.218775 R30-M0-N5-C:J16-U01 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R13-M1-NA-C:J02-U11 2005-12-01-06.38.59.220813 R13-M1-NA-C:J02-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R14-M0-N3-C:J16-U11 2005-12-01-06.38.59.225034 R14-M0-N3-C:J16-U11 RAS KERNEL INFO 10714 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R15-M1-N6-C:J06-U11 2005-12-01-06.38.59.226562 R15-M1-N6-C:J06-U11 RAS KERNEL INFO 10754 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R11-M0-N7-C:J16-U11 2005-12-01-06.38.59.227431 R11-M0-N7-C:J16-U11 RAS KERNEL INFO 10714 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R12-M0-NE-C:J10-U11 2005-12-01-06.38.59.241415 R12-M0-NE-C:J10-U11 RAS KERNEL INFO 10676 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R13-M0-NA-C:J16-U11 2005-12-01-06.38.59.246031 R13-M0-NA-C:J16-U11 RAS KERNEL INFO 10680 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R14-M1-NF-C:J17-U11 2005-12-01-06.38.59.265301 R14-M1-NF-C:J17-U11 RAS KERNEL INFO CE sym 5, at 0x0aa33300, mask 0x04",
+                    "- 1133447939 2005.12.01 R36-M0-NB-C:J08-U11 2005-12-01-06.38.59.269415 R36-M0-NB-C:J08-U11 RAS KERNEL INFO 10666 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R12-M1-N6-C:J12-U11 2005-12-01-06.38.59.281744 R12-M1-N6-C:J12-U11 RAS KERNEL INFO 10750 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R16-M1-N5-C:J13-U11 2005-12-01-06.38.59.284471 R16-M1-N5-C:J13-U11 RAS KERNEL INFO 10722 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R13-M0-NA-C:J08-U11 2005-12-01-06.38.59.289134 R13-M0-NA-C:J08-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R30-M0-N5-C:J16-U01 2005-12-01-06.38.59.295093 R30-M0-N5-C:J16-U01 RAS KERNEL INFO 10766 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447939 2005.12.01 R03-M0-N2-C:J07-U11 2005-12-01-06.38.59.295230 R03-M0-N2-C:J07-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R31-M1-N6-C:J14-U11 2005-12-01-06.38.59.296070 R31-M1-N6-C:J14-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R35-M0-NF-C:J08-U11 2005-12-01-06.38.59.309518 R35-M0-NF-C:J08-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R34-M0-NB-C:J06-U11 2005-12-01-06.38.59.309621 R34-M0-NB-C:J06-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447939 2005.12.01 R16-M1-N5-C:J17-U11 2005-12-01-06.38.59.344727 R16-M1-N5-C:J17-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr."
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",
+            "<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr."
+        ],
+        "classification": "normal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "2dc52b09-5eb6-430d-b0b2-61b8fe5e04ea",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:12.327882"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1133447704 2005.12.01 R06-M1-NF-C:J04-U11 2005-12-01-06.35.04.574712 R06-M1-NF-C:J04-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R02-M0-N2-C:J12-U11 2005-12-01-06.35.04.577365 R02-M0-N2-C:J12-U11 RAS KERNEL INFO 10718 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R01-M1-N1-C:J10-U01 2005-12-01-06.35.04.578862 R01-M1-N1-C:J10-U01 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R07-M0-NB-C:J15-U11 2005-12-01-06.35.04.580031 R07-M0-NB-C:J15-U11 RAS KERNEL INFO 10726 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R04-M0-N7-C:J14-U01 2005-12-01-06.35.04.582706 R04-M0-N7-C:J14-U01 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R15-M0-NE-C:J03-U11 2005-12-01-06.35.04.586193 R15-M0-NE-C:J03-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R11-M1-NA-C:J12-U11 2005-12-01-06.35.04.587778 R11-M1-NA-C:J12-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R31-M0-N1-C:J08-U01 2005-12-01-06.35.04.592797 R31-M0-N1-C:J08-U01 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R00-M1-N9-C:J08-U11 2005-12-01-06.35.04.594285 R00-M1-N9-C:J08-U11 RAS KERNEL INFO 10666 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R06-M0-N6-C:J16-U11 2005-12-01-06.35.04.596899 R06-M0-N6-C:J16-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R16-M0-N2-C:J06-U11 2005-12-01-06.35.04.602451 R16-M0-N2-C:J06-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R03-M1-N7-C:J09-U01 2005-12-01-06.35.04.602581 R03-M1-N7-C:J09-U01 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R05-M1-N2-C:J02-U11 2005-12-01-06.35.04.623452 R05-M1-N2-C:J02-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R10-M0-N6-C:J13-U01 2005-12-01-06.35.04.623501 R10-M0-N6-C:J13-U01 RAS KERNEL INFO 10708 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R02-M0-N2-C:J14-U01 2005-12-01-06.35.04.623524 R02-M0-N2-C:J14-U01 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.",
+                    "- 1133447704 2005.12.01 R06-M1-NF-C:J04-U11 2005-12-01-06.35.04.630000 R06-M1-NF-C:J04-U11 RAS KERNEL INFO 10670 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R17-M0-N2-C:J10-U01 2005-12-01-06.35.04.633554 R17-M0-N2-C:J10-U01 RAS KERNEL INFO 10720 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R01-M1-N1-C:J10-U01 2005-12-01-06.35.04.644337 R01-M1-N1-C:J10-U01 RAS KERNEL INFO 10752 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R06-M0-N6-C:J16-U11 2005-12-01-06.35.04.656521 R06-M0-N6-C:J16-U11 RAS KERNEL INFO 10750 total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",
+                    "- 1133447704 2005.12.01 R07-M0-NB-C:J11-U11 2005-12-01-06.35.04.657135 R07-M0-NB-C:J11-U11 RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr."
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "CE sym <*>, at <*>, mask <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "total of <*> ddr error(s) detected and corrected",
+            "CE sym <*>, at <*>, mask <*>",
+            "total of <*> ddr error(s) detected and corrected",
+            "<*> L3 <*> error(s) (dcr <*>) detected and corrected",
+            "critical input interrupt (unit=<*> bit=<*>): warning for torus <*> wire",
+            "suppressing further interrupts of same type",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "total of <*> ddr error(s) detected and corrected"
+        ],
+        "classification": "normal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "413de76d-ac2b-4ed7-8566-e080b213bb11",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:04.195363"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1123702350 2005.08.10 R53-M0-N3-C:J13-U01 2005-08-10-12.32.30.753503 R53-M0-N3-C:J13-U01 RAS KERNEL INFO CE sym 15, at 0x10224fe0, mask 0x10",
+                    "- 1123702350 2005.08.10 R53-M0-N3-C:J13-U01 2005-08-10-12.32.30.786561 R53-M0-N3-C:J13-U01 RAS KERNEL INFO CE sym 15, at 0x10224fe0, mask 0x10",
+                    "- 1123702350 2005.08.10 R53-M1-NB-C:J13-U01 2005-08-10-12.32.30.786924 R53-M1-NB-C:J13-U01 RAS KERNEL INFO 2 ddr errors(s) detected and corrected on rank 0, symbol 25, bit 5",
+                    "- 1123702350 2005.08.10 R53-M0-N3-C:J13-U01 2005-08-10-12.32.30.809490 R53-M0-N3-C:J13-U01 RAS KERNEL INFO CE sym 15, at 0x10224fe0, mask 0x10",
+                    "- 1123702350 2005.08.10 R53-M1-NB-C:J13-U01 2005-08-10-12.32.30.818222 R53-M1-NB-C:J13-U01 RAS KERNEL INFO CE sym 25, at 0x174c8d20, mask 0x04",
+                    "- 1123702350 2005.08.10 R53-M0-N3-C:J13-U01 2005-08-10-12.32.30.834678 R53-M0-N3-C:J13-U01 RAS KERNEL INFO total of 3 ddr error(s) detected and corrected",
+                    "- 1123702350 2005.08.10 R53-M1-NB-C:J13-U01 2005-08-10-12.32.30.843676 R53-M1-NB-C:J13-U01 RAS KERNEL INFO CE sym 25, at 0x174c8d20, mask 0x04",
+                    "- 1123702350 2005.08.10 R53-M1-NB-C:J13-U01 2005-08-10-12.32.30.866798 R53-M1-NB-C:J13-U01 RAS KERNEL INFO total of 2 ddr error(s) detected and corrected",
+                    "- 1123702351 2005.08.10 R52-M0-NB-C:J02-U01 2005-08-10-12.32.31.082177 R52-M0-NB-C:J02-U01 RAS KERNEL INFO 2 L3 directory error(s) (dcr 0x0152) detected and corrected",
+                    "- 1123702471 2005.08.10 R53-M0-N4-C:J17-U01 2005-08-10-12.34.31.277331 R53-M0-N4-C:J17-U01 RAS KERNEL INFO critical input interrupt (unit=0x0b bit=0x03): warning for torus x- wire",
+                    "- 1123702471 2005.08.10 R53-M0-N4-C:J17-U01 2005-08-10-12.34.31.371919 R53-M0-N4-C:J17-U01 RAS KERNEL INFO suppressing further interrupts of same type",
+                    "- 1123702975 2005.08.10 R47-M0-N4-C:J07-U01 2005-08-10-12.42.55.851276 R47-M0-N4-C:J07-U01 RAS KERNEL INFO 4 ddr errors(s) detected and corrected on rank 0, symbol 8, bit 3",
+                    "- 1123702975 2005.08.10 R47-M0-NF-C:J02-U11 2005-08-10-12.42.55.922277 R47-M0-NF-C:J02-U11 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 18, bit 4",
+                    "- 1123702976 2005.08.10 R47-M0-N4-C:J07-U01 2005-08-10-12.42.56.001098 R47-M0-N4-C:J07-U01 RAS KERNEL INFO CE sym 8, at 0x0a2ae600, mask 0x10",
+                    "- 1123702976 2005.08.10 R46-M0-NC-C:J07-U01 2005-08-10-12.42.56.094125 R46-M0-NC-C:J07-U01 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 21, bit 6",
+                    "- 1123702976 2005.08.10 R47-M0-NF-C:J02-U11 2005-08-10-12.42.56.095806 R47-M0-NF-C:J02-U11 RAS KERNEL INFO CE sym 18, at 0x15afb0a0, mask 0x08",
+                    "- 1123702976 2005.08.10 R46-M0-N4-C:J08-U11 2005-08-10-12.42.56.128280 R46-M0-N4-C:J08-U11 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 14, bit 6",
+                    "- 1123702976 2005.08.10 R47-M0-N4-C:J07-U01 2005-08-10-12.42.56.147417 R47-M0-N4-C:J07-U01 RAS KERNEL INFO CE sym 8, at 0x0a2ae600, mask 0x10",
+                    "- 1123702976 2005.08.10 R46-M0-NC-C:J07-U01 2005-08-10-12.42.56.166002 R46-M0-NC-C:J07-U01 RAS KERNEL INFO CE sym 21, at 0x10b59900, mask 0x02",
+                    "- 1123702976 2005.08.10 R47-M0-NF-C:J02-U11 2005-08-10-12.42.56.172341 R47-M0-NF-C:J02-U11 RAS KERNEL INFO total of 1 ddr error(s) detected and corrected"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "write buffer commit threshold............<*>",
+            "size of DDR we are caching...............<*> (<*>)",
+            "prefetch depth for core <*>................<*>",
+            "prefetch depth for core <*>................<*>",
+            "max number of outstanding prefetches.....<*>",
+            "turn on hidden refreshes.................<*>",
+            "disable write lines <*>..................<*>",
+            "L3 ecc control register: <*>",
+            "disable flagging of DDR UE's as major internal error.<*>",
+            "L3 ecc status register: <*>",
+            "correctable error detected in directory <*>",
+            "correctable error detected in directory <*>",
+            "uncorrectable error detected in directory <*>....<*>",
+            "uncorrectable error detected in directory <*>....<*>",
+            "correctable error detected in EDRAM bank <*>",
+            "correctable error detected in EDRAM bank <*>",
+            "uncorrectable error detected in EDRAM bank <*>...<*>",
+            "uncorrectable error detected in EDRAM bank <*>...<*>",
+            "parity error in bank <*>.........................<*>",
+            "parity error in bank <*>.........................<*>"
+        ],
+        "classification": "normal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "25f8ce74-a55e-43b1-8a43-20f1ccd2d410",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:11.602371"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1132230140 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.20.690196 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL write buffer commit threshold............2",
+                    "- 1132230140 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.20.862432 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL size of DDR we are caching...............1 (512M)",
+                    "- 1132230141 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.21.018676 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL prefetch depth for core 0................1",
+                    "- 1132230141 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.21.185071 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL prefetch depth for core 1................1",
+                    "- 1132230141 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.21.494762 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL max number of outstanding prefetches.....7",
+                    "- 1132230141 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.21.646403 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL turn on hidden refreshes.................1",
+                    "- 1132230141 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.21.819519 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL disable write lines 2:4..................0",
+                    "- 1132230141 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.21.978380 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL L3 ecc control register: 00000000",
+                    "- 1132230143 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.23.198499 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL disable flagging of DDR UE's as major internal error.0",
+                    "- 1132230143 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.23.361429 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL L3 ecc status register: 00200000",
+                    "- 1132230143 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.23.516055 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL correctable error detected in directory 0......0",
+                    "- 1132230143 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.23.675645 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL correctable error detected in directory 1......0",
+                    "- 1132230143 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.23.837574 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL uncorrectable error detected in directory 0....0",
+                    "- 1132230143 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.23.986520 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL uncorrectable error detected in directory 1....0",
+                    "- 1132230144 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.24.115105 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL correctable error detected in EDRAM bank 0.....0",
+                    "- 1132230144 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.24.261699 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL correctable error detected in EDRAM bank 1.....0",
+                    "- 1132230144 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.24.404797 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL uncorrectable error detected in EDRAM bank 0...0",
+                    "- 1132230144 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.24.556707 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL uncorrectable error detected in EDRAM bank 1...0",
+                    "- 1132230144 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.24.698694 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL parity error in bank 0.........................0",
+                    "- 1132230144 2005.11.17 R36-M1-N0-C:J16-U11 2005-11-17-04.22.24.842237 R36-M1-N0-C:J16-U11 RAS KERNEL FATAL parity error in bank 1.........................0"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "CE sym <*>, at <*>, mask <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "iar <*> dear <*>",
+            "total of <*> ddr error(s) detected and corrected",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "total of <*> ddr error(s) detected and corrected",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>",
+            "iar <*> dear <*>"
+        ],
+        "classification": "normal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "5ab06607-2802-4f63-a88e-3a2df933dde3",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:05.598438"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1125220657 2005.08.28 R04-M0-N1-C:J10-U01 2005-08-28-02.17.37.292982 R04-M0-N1-C:J10-U01 RAS KERNEL INFO CE sym 11, at 0x117ed620, mask 0x10",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J16-U11 2005-08-28-02.17.37.352849 R73-M0-ND-C:J16-U11 RAS KERNEL INFO iar 0014a150 dear 00820138",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J16-U11 2005-08-28-02.17.37.380434 R73-M0-ND-C:J16-U11 RAS KERNEL INFO iar 0014a150 dear 0075a618",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J08-U11 2005-08-28-02.17.37.405587 R73-M0-ND-C:J08-U11 RAS KERNEL INFO iar 0014a1e4 dear 00761478",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J08-U11 2005-08-28-02.17.37.476610 R73-M0-ND-C:J08-U11 RAS KERNEL INFO iar 0014a150 dear 00749278",
+                    "- 1125220657 2005.08.28 R01-M1-ND-C:J15-U11 2005-08-28-02.17.37.480987 R01-M1-ND-C:J15-U11 RAS KERNEL INFO CE sym 5, at 0x11042a80, mask 0x04",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J14-U11 2005-08-28-02.17.37.501240 R73-M0-ND-C:J14-U11 RAS KERNEL INFO iar 0014a150 dear 0072b368",
+                    "- 1125220657 2005.08.28 R04-M0-N1-C:J10-U01 2005-08-28-02.17.37.519415 R04-M0-N1-C:J10-U01 RAS KERNEL INFO total of 5 ddr error(s) detected and corrected",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J14-U11 2005-08-28-02.17.37.530150 R73-M0-ND-C:J14-U11 RAS KERNEL INFO iar 0014a1e4 dear 007f8378",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J10-U11 2005-08-28-02.17.37.568601 R73-M0-ND-C:J10-U11 RAS KERNEL INFO iar 0014a1e4 dear 008368f8",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J10-U11 2005-08-28-02.17.37.636647 R73-M0-ND-C:J10-U11 RAS KERNEL INFO iar 0014a150 dear 0074b348",
+                    "- 1125220657 2005.08.28 R01-M1-ND-C:J15-U11 2005-08-28-02.17.37.645982 R01-M1-ND-C:J15-U11 RAS KERNEL INFO total of 6 ddr error(s) detected and corrected",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J06-U11 2005-08-28-02.17.37.664769 R73-M0-ND-C:J06-U11 RAS KERNEL INFO iar 00149f88 dear 00760638",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J06-U11 2005-08-28-02.17.37.684983 R73-M0-ND-C:J06-U11 RAS KERNEL INFO iar 0014a150 dear 007243d8",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J12-U11 2005-08-28-02.17.37.710730 R73-M0-ND-C:J12-U11 RAS KERNEL INFO iar 0014a150 dear 00818488",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J12-U11 2005-08-28-02.17.37.780164 R73-M0-ND-C:J12-U11 RAS KERNEL INFO iar 0014a150 dear 00735e08",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J14-U01 2005-08-28-02.17.37.806257 R73-M0-ND-C:J14-U01 RAS KERNEL INFO iar 0014a150 dear 0071ba08",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J14-U01 2005-08-28-02.17.37.881541 R73-M0-ND-C:J14-U01 RAS KERNEL INFO iar 00149f88 dear 0073a3e8",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J16-U01 2005-08-28-02.17.37.908040 R73-M0-ND-C:J16-U01 RAS KERNEL INFO iar 00149ee0 dear 007fc438",
+                    "- 1125220657 2005.08.28 R73-M0-ND-C:J16-U01 2005-08-28-02.17.37.977594 R73-M0-ND-C:J16-U01 RAS KERNEL INFO iar 0014a1e4 dear 00727db8"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "Node card VPD check: <*> node in processor card slot <*> do not match. VPD ecid <*>, found <*>",
+            "MidplaneSwitchController::receiveTrain() iap failed: <*>, status=<*>",
+            "MidplaneSwitchController::receiveTrain() iap failed: <*>, status=<*>",
+            "MidplaneSwitchController::receiveTrain() iap failed: <*>, status=<*>",
+            "MidplaneSwitchController::receiveTrain() iap failed: <*>, status=<*>",
+            "MidplaneSwitchController::receiveTrain() iap failed: <*>, status=<*>",
+            "MidplaneSwitchController::receiveTrain() iap failed: <*>, status=<*>",
+            "PrepareForService shutting down NodeCard(<*>, <*>, <*>, <*>, <*>) as part of Service Action <*>",
+            "PrepareForService shutting down NodeCard(<*>, <*>, <*>, <*>, <*>) as part of Service Action <*>",
+            "PrepareForService shutting down NodeCard(<*>, <*>, <*>, <*>, <*>) as part of Service Action <*>"
+        ],
+        "classification": "abnormal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "fc1aacc7-a56e-475e-9c5c-e0bf3b05dae6",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:04.054779"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1123533125 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.05.097728 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U11 node in processor card slot J14 do not match. VPD ecid 04C58127032FFFFF08061BB042E5, found 04E180D7102FFFFF07101AE118D0",
+                    "- 1123533125 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.05.565811 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U01 node in processor card slot J15 do not match. VPD ecid 04C48127042FFFFF04081BB05AE4, found 074504D6CA7BFFFF06091BA090E0",
+                    "- 1123533125 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.05.589090 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U11 node in processor card slot J15 do not match. VPD ecid 04C88125942FFFFF0A0B1BA09AE4, found 075A04D6DA7BFFFF040A1BD08AE3",
+                    "- 1123533126 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.06.122515 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U01 node in processor card slot J16 do not match. VPD ecid 04D481255B2FFFFF04041B7090E0, found 04D980D7462FFFFF06081B505ED8",
+                    "- 1123533126 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.06.140097 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U11 node in processor card slot J16 do not match. VPD ecid 04C381259A2FFFFF02071BC09AE7, found 04D280D74C2FFFFF09071C0048E7",
+                    "- 1123533126 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.06.653717 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U01 node in processor card slot J17 do not match. VPD ecid 04C28127062FFFFF0A091BB04CE4, found 074404D6CB7BFFFF0D041B00C4D4",
+                    "- 1123533126 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.06.666857 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U11 node in processor card slot J17 do not match. VPD ecid 04C58127032FFFFF07021C005AEC, found 074404D6CB7BFFFF0C0A1A6148C6",
+                    "- 1123533127 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.07.234654 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U01 node in processor card slot J18 do not match. VPD ecid 0000000000000000000000000000, found 075A04D2CF7BFFFF05091A710CC8",
+                    "- 1123533127 2005.08.08 UNKNOWN_LOCATION 2005-08-08-13.32.07.259902 UNKNOWN_LOCATION NULL DISCOVERY INFO Node card VPD check: U11 node in processor card slot J18 do not match. VPD ecid 0000000000000000000000000000, found 074A04D40A7BFFFF0E091BB08CE4",
+                    "- 1123533229 2005.08.08 R72-M1-N9 2005-08-08-13.33.49.717732 R72-M1-N9 NULL DISCOVERY INFO Node card VPD check: U01 node in processor card slot J16 do not match. VPD ecid 04E081B3CA2FFFFF02091AD08ED1, found 04C57E30D12FFFFF0B041BF046EA",
+                    "- 1123533229 2005.08.08 R72-M1-N9 2005-08-08-13.33.49.729246 R72-M1-N9 NULL DISCOVERY INFO Node card VPD check: U11 node in processor card slot J16 do not match. VPD ecid 04C581B3932FFFFF050D1B2090D7, found 04D67E30922FFFFF0B0C1BC08EE3",
+                    "LINKIAP 1123533667 2005.08.08 R72-M1-L1-U18-A 2005-08-08-13.41.07.529829 R72-M1-L1-U18-A RAS LINKCARD FATAL MidplaneSwitchController::receiveTrain() iap failed: R72-M1-L1-U18-A, status=beeaabff ec000000",
+                    "LINKIAP 1123533668 2005.08.08 R72-M1-L1-U18-A 2005-08-08-13.41.08.319828 R72-M1-L1-U18-A RAS LINKCARD FATAL MidplaneSwitchController::receiveTrain() iap failed: R72-M1-L1-U18-A, status=beeaabff ec000000",
+                    "LINKIAP 1123534021 2005.08.08 R72-M1-L1-U18-A 2005-08-08-13.47.01.011839 R72-M1-L1-U18-A RAS LINKCARD FATAL MidplaneSwitchController::receiveTrain() iap failed: R72-M1-L1-U18-A, status=beeaabff ec000000",
+                    "LINKIAP 1123534021 2005.08.08 R72-M1-L1-U18-A 2005-08-08-13.47.01.974173 R72-M1-L1-U18-A RAS LINKCARD FATAL MidplaneSwitchController::receiveTrain() iap failed: R72-M1-L1-U18-A, status=beeaabff ec000000",
+                    "LINKIAP 1123536376 2005.08.08 R72-M1-L1-U18-A 2005-08-08-14.26.16.260872 R72-M1-L1-U18-A RAS LINKCARD FATAL MidplaneSwitchController::receiveTrain() iap failed: R72-M1-L1-U18-A, status=beeaabff ec000000",
+                    "LINKIAP 1123536377 2005.08.08 R72-M1-L1-U18-A 2005-08-08-14.26.17.104706 R72-M1-L1-U18-A RAS LINKCARD FATAL MidplaneSwitchController::receiveTrain() iap failed: R72-M1-L1-U18-A, status=beeaabff ec000000",
+                    "- 1123536535 2005.08.08 R72-M1-N6 2005-08-08-14.28.55.124958 R72-M1-N6 NULL HARDWARE WARNING PrepareForService shutting down NodeCard(mLctn(R72-M1-N6), mCardSernum(203231503833343000000000594c31304b34333233303142), mLp(FF:F2:9F:16:D4:41:00:0D:60:E9:2B:BE), mIp(10.7.0.10), mType(4)) as part of Service Action 340",
+                    "- 1123536540 2005.08.08 R72-M1-N1 2005-08-08-14.29.00.980334 R72-M1-N1 NULL HARDWARE WARNING PrepareForService shutting down NodeCard(mLctn(R72-M1-N1), mCardSernum(203231503833343000000000594c31304b34333137323154), mLp(FF:F2:9F:16:D7:BC:00:0D:60:E9:28:43), mIp(10.7.0.13), mType(4)) as part of Service Action 340",
+                    "- 1123536546 2005.08.08 R72-M1-N8 2005-08-08-14.29.06.837684 R72-M1-N8 NULL HARDWARE WARNING PrepareForService shutting down NodeCard(mLctn(R72-M1-N8), mCardSernum(203231503833343000000000594c31304b3433323330314a), mLp(FF:F2:9F:16:D4:1E:00:0D:60:E9:2B:E1), mIp(10.7.0.14), mType(4)) as part of Service Action 340"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution",
+            "machine check enable..............<*>",
+            "rts panic! - stopping execution"
+        ],
+        "classification": "abnormal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "1e38dbfd-f7be-467b-8dd7-3ec1c15ac29d",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:50:45.082526"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N1-C:J02-U11 2005-06-14-11.16.22.255376 R26-M0-N1-C:J02-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J16-U11 2005-06-14-11.16.22.276252 R21-M1-N0-C:J16-U11 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J09-U11 2005-06-14-11.16.22.283542 R26-M0-N5-C:J09-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J08-U11 2005-06-14-11.16.22.383646 R21-M1-N0-C:J08-U11 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J15-U11 2005-06-14-11.16.22.385224 R26-M0-N5-C:J15-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J11-U11 2005-06-14-11.16.22.407454 R26-M0-N5-C:J11-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J14-U11 2005-06-14-11.16.22.413741 R21-M1-N0-C:J14-U11 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J13-U11 2005-06-14-11.16.22.429536 R26-M0-N5-C:J13-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J10-U11 2005-06-14-11.16.22.435811 R21-M1-N0-C:J10-U11 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J17-U11 2005-06-14-11.16.22.493781 R26-M0-N5-C:J17-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J06-U11 2005-06-14-11.16.22.511593 R21-M1-N0-C:J06-U11 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J05-U01 2005-06-14-11.16.22.519180 R26-M0-N5-C:J05-U01 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J12-U11 2005-06-14-11.16.22.537893 R21-M1-N0-C:J12-U11 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J03-U01 2005-06-14-11.16.22.542153 R26-M0-N5-C:J03-U01 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J14-U01 2005-06-14-11.16.22.559942 R21-M1-N0-C:J14-U01 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J05-U11 2005-06-14-11.16.22.563855 R26-M0-N5-C:J05-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J16-U01 2005-06-14-11.16.22.581299 R21-M1-N0-C:J16-U01 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J03-U11 2005-06-14-11.16.22.585560 R26-M0-N5-C:J03-U11 RAS KERNEL FATAL rts panic! - stopping execution",
+                    "- 1118772982 2005.06.14 R21-M1-N0-C:J10-U01 2005-06-14-11.16.22.602877 R21-M1-N0-C:J10-U01 RAS KERNEL FATAL machine check enable..............0",
+                    "KERNRTSP 1118772982 2005.06.14 R26-M0-N5-C:J07-U11 2005-06-14-11.16.22.607189 R26-M0-N5-C:J07-U11 RAS KERNEL FATAL rts panic! - stopping execution"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "data storage interrupt",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>",
+            "data storage interrupt",
+            "instruction address: <*>"
+        ],
+        "classification": "abnormal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "59740765-bc7b-48c7-ad39-d7370bab1d96",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:50:43.802045"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "KERNSTOR 1118768053 2005.06.14 R06-M0-N5-C:J13-U01 2005-06-14-09.54.13.900085 R06-M0-N5-C:J13-U01 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768053 2005.06.14 R25-M0-N9-C:J14-U11 2005-06-14-09.54.13.911384 R25-M0-N9-C:J14-U11 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768053 2005.06.14 R06-M0-N5-C:J09-U01 2005-06-14-09.54.13.926734 R06-M0-N5-C:J09-U01 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768053 2005.06.14 R25-M0-N9-C:J10-U11 2005-06-14-09.54.13.933942 R25-M0-N9-C:J10-U11 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "- 1118768053 2005.06.14 R25-M0-N9-C:J06-U11 2005-06-14-09.54.13.956747 R25-M0-N9-C:J06-U11 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768053 2005.06.14 R06-M0-N5-C:J16-U11 2005-06-14-09.54.13.963738 R06-M0-N5-C:J16-U11 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768053 2005.06.14 R25-M0-N9-C:J12-U11 2005-06-14-09.54.13.979436 R25-M0-N9-C:J12-U11 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768053 2005.06.14 R06-M0-N5-C:J08-U11 2005-06-14-09.54.13.991146 R06-M0-N5-C:J08-U11 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J14-U01 2005-06-14-09.54.14.015373 R25-M0-N9-C:J14-U01 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768054 2005.06.14 R06-M0-N5-C:J14-U11 2005-06-14-09.54.14.022309 R06-M0-N5-C:J14-U11 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J16-U01 2005-06-14-09.54.14.038408 R25-M0-N9-C:J16-U01 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768054 2005.06.14 R06-M0-N5-C:J10-U11 2005-06-14-09.54.14.049460 R06-M0-N5-C:J10-U11 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J10-U01 2005-06-14-09.54.14.061580 R25-M0-N9-C:J10-U01 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768054 2005.06.14 R06-M0-N5-C:J06-U11 2005-06-14-09.54.14.084353 R06-M0-N5-C:J06-U11 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J12-U01 2005-06-14-09.54.14.085091 R25-M0-N9-C:J12-U01 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J08-U01 2005-06-14-09.54.14.107751 R25-M0-N9-C:J08-U01 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768054 2005.06.14 R06-M0-N5-C:J12-U11 2005-06-14-09.54.14.111943 R06-M0-N5-C:J12-U11 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J04-U01 2005-06-14-09.54.14.130670 R25-M0-N9-C:J04-U01 RAS KERNEL FATAL instruction address: 0x00004ed8",
+                    "KERNSTOR 1118768054 2005.06.14 R06-M0-N5-C:J14-U01 2005-06-14-09.54.14.138941 R06-M0-N5-C:J14-U01 RAS KERNEL FATAL data storage interrupt",
+                    "- 1118768054 2005.06.14 R25-M0-N9-C:J06-U01 2005-06-14-09.54.14.153371 R25-M0-N9-C:J06-U01 RAS KERNEL FATAL instruction address: 0x00004ed8"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "machine check interrupt",
+            "instruction address: <*>",
+            "machine check status register: <*>",
+            "summary...........................<*>",
+            "instruction plb error.............<*>",
+            "data read plb error...............<*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "data write plb error..............<*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "<*> torus sender <*> retransmission error(s) (dcr <*>) detected and corrected",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "CE sym <*>, at <*>, mask <*>",
+            "<*> torus sender <*> retransmission error(s) (dcr <*>) detected and corrected",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "<*> tree receiver <*> in re-synch state event(s) (dcr <*>) detected",
+            "CE sym <*>, at <*>, mask <*>",
+            "<*> ddr errors(s) detected and corrected on rank <*>, symbol <*> bit <*>",
+            "tlb error.........................<*>"
+        ],
+        "classification": "abnormal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "7b02afd4-4ee1-47ac-a06a-07ed306b0038",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:04.138052"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "KERNMC 1123617628 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.28.635550 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL machine check interrupt",
+                    "- 1123617628 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.28.859618 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL instruction address: 0x0010d128",
+                    "- 1123617629 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.29.120480 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL machine check status register: 0x82000000",
+                    "- 1123617629 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.29.400244 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL summary...........................1",
+                    "- 1123617629 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.29.745429 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL instruction plb error.............0",
+                    "- 1123617630 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.30.345538 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL data read plb error...............0",
+                    "- 1123617631 2005.08.09 R67-M0-NE-C:J11-U11 2005-08-09-13.00.31.498903 R67-M0-NE-C:J11-U11 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 34, bit 1",
+                    "- 1123617631 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.31.617563 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL data write plb error..............0",
+                    "- 1123617631 2005.08.09 R37-M0-N5-C:J10-U11 2005-08-09-13.00.31.720108 R37-M0-N5-C:J10-U11 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 11, bit 5",
+                    "- 1123617632 2005.08.09 R60-M1-N0-C:J12-U01 2005-08-09-13.00.32.679071 R60-M1-N0-C:J12-U01 RAS KERNEL INFO 2 torus sender z- retransmission error(s) (dcr 0x02f9) detected and corrected",
+                    "- 1123617634 2005.08.09 R67-M0-NA-C:J11-U01 2005-08-09-13.00.34.241034 R67-M0-NA-C:J11-U01 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 9, bit 1",
+                    "- 1123617634 2005.08.09 R67-M0-NE-C:J11-U11 2005-08-09-13.00.34.325361 R67-M0-NE-C:J11-U11 RAS KERNEL INFO CE sym 34, at 0x173e1420, mask 0x40",
+                    "- 1123617634 2005.08.09 R60-M1-NA-C:J11-U11 2005-08-09-13.00.34.453688 R60-M1-NA-C:J11-U11 RAS KERNEL INFO 3 torus sender y+ retransmission error(s) (dcr 0x02f6) detected and corrected",
+                    "- 1123617634 2005.08.09 R00-M1-NE-C:J15-U01 2005-08-09-13.00.34.548712 R00-M1-NE-C:J15-U01 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 3, bit 6",
+                    "- 1123617634 2005.08.09 R66-M0-N1-C:J03-U01 2005-08-09-13.00.34.638072 R66-M0-N1-C:J03-U01 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 15, bit 5",
+                    "- 1123617634 2005.08.09 R42-M1-ND-C:J07-U11 2005-08-09-13.00.34.703807 R42-M1-ND-C:J07-U11 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 20, bit 6",
+                    "- 1123617634 2005.08.09 R73-M1-NA-C:J07-U01 2005-08-09-13.00.34.782724 R73-M1-NA-C:J07-U01 RAS KERNEL INFO 3 tree receiver 1 in re-synch state event(s) (dcr 0x0185) detected",
+                    "- 1123617634 2005.08.09 R37-M0-N5-C:J10-U11 2005-08-09-13.00.34.834546 R37-M0-N5-C:J10-U11 RAS KERNEL INFO CE sym 11, at 0x0d1865e0, mask 0x04",
+                    "- 1123617634 2005.08.09 R72-M0-N2-C:J12-U11 2005-08-09-13.00.34.934055 R72-M0-N2-C:J12-U11 RAS KERNEL INFO 1 ddr errors(s) detected and corrected on rank 0, symbol 7, bit 3",
+                    "- 1123617639 2005.08.09 R07-M0-N4-C:J07-U01 2005-08-09-13.00.39.124278 R07-M0-N4-C:J07-U01 RAS KERNEL FATAL tlb error.........................0"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "data read plb error...............<*>",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed",
+            "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to <*>: Link has been severed"
+        ],
+        "classification": "abnormal",
+        "explanation": "",
+        "metadata": {
+            "identity": {
+                "id": "c6544394-9956-4015-8722-7113d8eb6b6f",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "bgl",
+                "collection_date": "2026-06-29 12:51:07.708942"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "APPSEV 1128269428 2005.10.02 R23-M1-N0-I:J18-U11 2005-10-02-09.10.28.971966 R23-M1-N0-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33360: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R23-M0-N4-I:J18-U01 2005-10-02-09.10.29.096506 R23-M0-N4-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33423: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R23-M1-N8-I:J18-U11 2005-10-02-09.10.29.181762 R23-M1-N8-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33356: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R24-M0-NC-I:J18-U11 2005-10-02-09.10.29.374821 R24-M0-NC-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33450: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R24-M0-NC-I:J18-U01 2005-10-02-09.10.29.450571 R24-M0-NC-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33451: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R23-M0-N8-I:J18-U11 2005-10-02-09.10.29.568304 R23-M0-N8-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33420: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R23-M0-N8-I:J18-U01 2005-10-02-09.10.29.665758 R23-M0-N8-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33421: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R33-M0-N0-I:J18-U01 2005-10-02-09.10.29.800439 R33-M0-N0-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33353: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R35-M1-NC-I:J18-U01 2005-10-02-09.10.29.889052 R35-M1-NC-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33379: Link has been severed",
+                    "APPSEV 1128269429 2005.10.02 R35-M0-NC-I:J18-U11 2005-10-02-09.10.29.959293 R35-M0-NC-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33314: Link has been severed",
+                    "APPSEV 1128269430 2005.10.02 R35-M0-N8-I:J18-U11 2005-10-02-09.10.30.063648 R35-M0-N8-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33316: Link has been severed",
+                    "APPSEV 1128269430 2005.10.02 R24-M0-N8-I:J18-U11 2005-10-02-09.10.30.393795 R24-M0-N8-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33452: Link has been severed",
+                    "APPSEV 1128269430 2005.10.02 R35-M0-N0-I:J18-U01 2005-10-02-09.10.30.563606 R35-M0-N0-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33321: Link has been severed",
+                    "- 1128269430 2005.10.02 R21-M0-NB-C:J07-U01 2005-10-02-09.10.30.979984 R21-M0-NB-C:J07-U01 RAS KERNEL FATAL data read plb error...............0",
+                    "APPSEV 1128269431 2005.10.02 R37-M0-NC-I:J18-U11 2005-10-02-09.10.31.410790 R37-M0-NC-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33330: Link has been severed",
+                    "APPSEV 1128269431 2005.10.02 R37-M0-NC-I:J18-U01 2005-10-02-09.10.31.466798 R37-M0-NC-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33331: Link has been severed",
+                    "APPSEV 1128269431 2005.10.02 R37-M0-N8-I:J18-U01 2005-10-02-09.10.31.579429 R37-M0-N8-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33333: Link has been severed",
+                    "APPSEV 1128269431 2005.10.02 R27-M1-N8-I:J18-U01 2005-10-02-09.10.31.776383 R27-M1-N8-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33341: Link has been severed",
+                    "APPSEV 1128269431 2005.10.02 R27-M1-N4-I:J18-U11 2005-10-02-09.10.31.938534 R27-M1-N4-I:J18-U11 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33342: Link has been severed",
+                    "APPSEV 1128269432 2005.10.02 R27-M1-N4-I:J18-U01 2005-10-02-09.10.32.009918 R27-M1-N4-I:J18-U01 RAS APP FATAL ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:33343: Link has been severed"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": null,
+                "generation_timestamp": null,
+                "prompt_template_id": null,
+                "generation_params": null
+            },
+            "hallucination-check": {
+                "verification_status": null,
+                "verification_method": null,
+                "verifier_model": null,
+                "hallucination_flags": null,
+                "corrected_reasoning_text": null,
+                "human_reviewed": null,
+                "reviewer_id": null,
+                "review_notes": null
+            },
+            "dataset_split": null
+        }
+    }
+]

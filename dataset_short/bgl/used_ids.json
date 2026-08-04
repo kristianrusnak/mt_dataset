@@ -1,0 +1,402 @@
+[
+  {
+    "id": "0a636876-45bd-4ccd-8571-c9b1b9eaa469",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "ae9df656-a582-45b1-94ac-4f49a91ea9a2",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "016782c4-caaf-45b0-9ac5-9d913c3cb092",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "89d0f9f3-15dd-4d69-bf24-c8759e3e17ac",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "e8086a98-3a54-485a-8b49-2647993bda08",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "fa399ffc-0c27-46b1-80b1-c5a199da3794",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "b71498b6-72ac-4ad9-ac44-4890627fd545",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "7024d1c0-19af-460c-8c67-6da717e7f5b9",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "81bf5971-bc58-480b-98ae-c5c1f79b13bd",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "b160ef24-6c99-43fe-b10b-94c77bf335b0",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "8da27e65-2658-4b64-9313-61320cd03bf2",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a678a033-7ddb-4720-ad4a-2f57f0453ec7",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "0f5fc56f-0d3d-44f8-801d-eeee7a776f7d",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "3ee28de1-ef78-40e7-880b-ee81df4fcdd8",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "9c081a58-4ff7-40c8-95c1-ff95fc395d74",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "99d5c12a-8faa-4df0-8658-2b94cec1a2d8",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "d0ebbf6a-8a45-4546-bc50-5d15d9aed650",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "946d7094-7673-406f-8970-046a11714329",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a52021e0-ea29-4d12-9aa4-afb72eeb46f1",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "28b6f4af-6ee7-4221-9f33-82343f802ea8",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "10d9fc41-d6f1-45e6-8765-31c491f9d4b0",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "5e30f28c-ed7c-425d-842b-0cca09089ac7",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "c640a179-9e15-4b55-bea9-e96ad50bff5d",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "f343c703-bd55-458e-80e5-5420461be147",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a459858d-b520-4ec3-834c-6f78956e91b8",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "25201a95-b980-4fec-a91e-cc0d7452efc2",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "0aa40e03-09ec-4a58-9c86-db4da27fe7c0",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "cee42f1a-ba3a-470f-83af-f4da1d39ab7c",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "f8806791-efc3-4f6a-b0ba-4e90801dac5b",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "e2406226-f4f9-466a-a41e-3c7381f235dd",
+    "purpose": "gold_natural",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "3bc682af-e8a0-4445-9fc0-3e8e88dd5e91",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "ef9acf89-3324-4af0-b71e-cce055346aa6",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "9483c352-42d8-49e1-9b40-4ec92f0c79ca",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "ac7a808f-84f3-4fa0-ae53-8cc78da1821b",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a3f59d42-b1de-423b-a3c9-f2dccbdfe88b",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "5fdbd4c5-d50a-474a-8c6a-4a24dc0aa7c3",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a1f996ba-85e5-42e4-b1af-e6d482628edb",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "6b7d87cb-59c2-4f63-b379-a62a3693f005",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a69f79cf-3af4-43f7-93c7-89bdb98b008f",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "5f09a10c-5d8d-4962-8db4-603b9635ff85",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "c6be2dc0-d381-4a2d-aade-eb6f8c0e305e",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a91a3248-d66b-44b4-87c8-ab5e2e969893",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "c12215ec-bcd7-4e5d-9ea7-cd8a806f6ee7",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "bd35be3f-7768-41f5-97f7-00e80eb059a0",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "c57655a3-b6a1-4fe4-af32-68881c6868b0",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "7360171e-1f24-4cf4-be42-aec64d98c152",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "808a81aa-3372-4969-894c-e4fb4ca94bbe",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "4d255bd1-456c-4175-abf6-7e55539d723b",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "5fa5e919-c0b4-4a7b-9cc4-dfc371d2b979",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "e84f8eef-9d0c-4052-836d-4dde533ab803",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a9933c38-987f-461c-a422-2940ad91f325",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "94c53db4-b76a-4c44-9bd8-4f793b6d5f64",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "c09ff600-da4b-4f05-b5c2-d3f42a4c14a9",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "aae8c42c-0067-4ec6-b6b8-66397642f1cb",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "57355eea-ee02-4280-b2e3-1be1d47ae431",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "435fcd10-b416-43da-9841-5464cc5899d0",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "31203a46-3472-4c74-a5a0-0c768fed2b5d",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "e8819629-4017-4015-a73e-f2420ff4fd4d",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "abcecb07-2878-4bfe-81cd-e3370e735a1e",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "711659b3-6ea4-41b7-b0e0-c8256de32074",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "5a3b0bd0-af38-4a26-8006-91925ee1de80",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "3b70248e-fa4b-4afe-8158-e96a78432b54",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "e8738802-7755-48a1-83a1-a134953c69a6",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "6551600f-7715-4a05-bd24-57d8c5cffa98",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "15dd2cad-982f-41e7-992f-bd93983645b0",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "12c0fe8a-eb1a-49dd-bf17-25a26d7b3be0",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "a7e26d1f-3835-4614-ab73-f9a1f5f2d829",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "6005015e-e028-4c7f-a5e4-6f106687513c",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "11ba13bb-f354-4b1d-b553-854377e41cdf",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "e2d1444c-1850-4ba8-aec8-ac7fc6e2c5c6",
+    "purpose": "gold_supplemental",
+    "drawn_at": "2026-08-04T16:24:27Z"
+  },
+  {
+    "id": "98b7c081-f170-4368-827f-a88565412f81",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "2dc52b09-5eb6-430d-b0b2-61b8fe5e04ea",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "413de76d-ac2b-4ed7-8566-e080b213bb11",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "25f8ce74-a55e-43b1-8a43-20f1ccd2d410",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "5ab06607-2802-4f63-a88e-3a2df933dde3",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "fc1aacc7-a56e-475e-9c5c-e0bf3b05dae6",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "1e38dbfd-f7be-467b-8dd7-3ec1c15ac29d",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "59740765-bc7b-48c7-ad39-d7370bab1d96",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "7b02afd4-4ee1-47ac-a06a-07ed306b0038",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  },
+  {
+    "id": "c6544394-9956-4015-8722-7113d8eb6b6f",
+    "purpose": "production",
+    "drawn_at": "2026-08-04T16:26:13Z"
+  }
+]
