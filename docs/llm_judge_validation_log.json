@@ -151,5 +151,24 @@
     ],
     "metrics": {},
     "notes": "Supplemental oversample pool, drawn but NOT yet selected into the gold set (topup selection is a follow-up step, pending step 2 human scores): 20 normal / 20 abnormal. ids=['99b142e5-0b3c-4135-b1bf-50fce873a39a', '2fd40a0b-5f26-49b7-9aa1-775281e73d3e', '9903bdbf-bf08-448a-a950-35fcfb23176d', '75d7b089-d00c-408e-be20-bfc3fd223275', '9cd03bb3-7351-4f23-8666-1acb570c4065', 'a1e3908e-5782-4f25-b261-0a38d09ae92e', '359b7eda-c75f-4531-8ca0-67165130276d', '2ef64e31-234b-4517-ac06-c65af9bcd1e7', '981b3f07-d152-43c9-a1d0-c62788afb7ec', 'e5586ca0-1344-45cd-bbfc-3e222a18d91a', '6d0eecad-d23c-4a67-9345-74a01a79e443', '5b22ea38-ce77-4331-8e74-fcd5631c0037', 'f0ac61b6-e582-4d0e-8e97-a0d4c4640547', '8f558e3d-eb15-401f-9a8e-4c85c4e1a969', '61671e80-67ce-4312-9f29-146669b28dc1', 'fea004c1-c646-4a40-8bb0-41f63fa1c1f2', 'bf327ea6-94a2-4f06-bf8b-eed3996bd7b8', 'a61c4226-95c6-4245-a497-c0750616de48', '715feb75-2ac7-41b5-8cd4-5e199836c150', '91e10d68-1ae4-479e-bd3f-40a43a27553d', '624d5659-89aa-44c3-b37f-8ecd131a395e', '67d93b68-245c-42cb-830e-082349969e8b', 'f61b7a44-d779-4c21-83cf-1191f1ced977', '0d7ce2f5-ae7e-4d72-8175-f3e3b26506b0', '784d877e-7de9-49a1-9b1f-bf20ecff0720', 'e8374a25-d933-452e-889c-010c495f3d1d', '69963578-6ef9-4b8d-b780-e8345f4e162f', 'a759bfa3-06f3-4802-8929-596406eb94a1', '6ef7d845-a09e-479b-8c66-587d28d83f90', '4f377847-1f7a-4686-afb7-fd98afe57d87', 'da5719af-f987-45f4-8e4d-65ade39766e2', 'c56a8793-91c6-4350-a639-07f513dadff9', '40b2ccbb-2313-46af-b47f-0dd63d30929c', '8b26400a-77c6-4f25-aa04-165c396541a8', '117efacb-0dd0-4134-94f1-01577588adb8', 'bd545945-4182-4126-bc33-d44595867ae4', 'ad2e6194-3140-475e-8458-d6d51656c8a3', 'd95bc83d-8dc2-4bb2-96eb-361cd8d436af', 'd3f04698-fc85-437e-8e3e-af9a102b9033', '849c8d6e-6750-45ef-b631-40e2251ee142']"
+  },
+  {
+    "step": 2,
+    "action": "explanation_generation_run",
+    "timestamp": "2026-08-08T07:17:36Z",
+    "dataset": "bgl",
+    "stratum": "natural",
+    "params": {
+      "model": "gpt-5.4-mini",
+      "prompt_template_id": "bgl/prompt1"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_natural_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/bgl/gold_natural_explained.json"
+    ],
+    "metrics": {},
+    "notes": "30 explanations generated, 0 skipped (already had an explanation, or past --limit) out of 30 records read. Feeds step 2 human review."
   }
 ]

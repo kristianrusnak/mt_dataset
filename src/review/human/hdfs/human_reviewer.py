@@ -1,126 +1,140 @@
 import json
-import random
-from datetime import datetime
+import argparse
+from datetime import datetime, timezone
+
 from src.help_functions.json_deep_convert import deep_convert
+from src.help_functions.manifest_log import append_manifest_entry
+from src.help_functions.human_review_io import (
+    get_user_input,
+    format_logs_for_review,
+    prompt_criteria_scores,
+    failed_criteria_flags,
+)
 from json_stream import streamable_list, load
 
-
-def get_user_input(prompt, default_value):
-    """
-    Prompts the user for input with a default value.
-    """
-    if default_value:
-        return input(f"{prompt} [default: {default_value}]: ") or default_value
-    else:
-        return input(f"{prompt}: ")
-
-
-def get_logs(parsed_logs: list):
-    result = []
-    for i, parsed_log in enumerate(parsed_logs):
-        result.append(f"{i}. log: {parsed_log}")
-    return result
-
-
-def sample_entries(data, sample_ratio, seed=42):
-    """
-    Randomly sample entries with 50/50 split by classification.
-    """
-    random.seed(seed)
-    
-    normal_entries = [entry for entry in data if entry.get('classification') == 'normal']
-    anomaly_entries = [entry for entry in data if entry.get('classification') == 'anomaly']
-    
-    total_samples = int(len(data) * sample_ratio)
-    samples_per_class = total_samples // 2
-    
-    sampled_normal = random.sample(normal_entries, min(samples_per_class, len(normal_entries)))
-    sampled_anomaly = random.sample(anomaly_entries, min(samples_per_class, len(anomaly_entries)))
-    
-    sampled = sampled_normal + sampled_anomaly
-    random.shuffle(sampled)
-    
-    return sampled
+DATASET_NAME = "hdfs"
+SESSION_BASED = True  # HDFS blocks only carry a block-level label, no per-line ground truth (see judge_prompt.py)
 
 
 @streamable_list
-def review_sequences(input_path: str, sample_ratio: float = 0.1):
+def review_sequences(input_path: str, reviewer_id: str, stats: dict):
     """
-    Iterates through sampled sequences, prompts for review, and yields updated sequences.
+    Iterates through every sequence in input_path (already the pre-selected
+    gold/production set -- see docs/llm_judge_validation_plan.md -- no
+    re-sampling happens here), prompts the human reviewer to score the
+    5-criterion binary vector, and yields updated sequences. Sequences
+    already human-reviewed are skipped so an interrupted review session can
+    be resumed by re-running against the same input/output pair.
     """
     with open(input_path, 'r', encoding='utf-8') as input_file:
-        all_data = list(load(input_file).persistent())
-        all_data = [deep_convert(entry) for entry in all_data]
-    
-    sampled_entries = sample_entries(all_data, sample_ratio)
-    sampled_ids = {entry['metadata']['identity']['id'] for entry in sampled_entries}
-    
-    print(f"Total entries: {len(all_data)}")
-    print(f"Sampled for review: {len(sampled_entries)} ({sample_ratio*100}%)")
-    print(f"  Normal: {sum(1 for e in sampled_entries if e.get('classification') == 'normal')}")
-    print(f"  Anomaly: {sum(1 for e in sampled_entries if e.get('classification') == 'anomaly')}")
-    print()
-    
-    for i, sequence_data_raw in enumerate(all_data):
-        sequence_data = deep_convert(sequence_data_raw)
-        seq_id = sequence_data.get('metadata', {}).get('identity', {}).get('id')
-        
-        if seq_id not in sampled_ids:
+        for sequence_data_raw in load(input_file).persistent():
+            sequence_data = deep_convert(sequence_data_raw)
+            stats["total"] += 1
+
+            sequence_id = sequence_data.get("metadata", {}).get("identity", {}).get("id")
+            hallucination_check = sequence_data.get('metadata', {}).get('hallucination-check', {}) or {}
+
+            if hallucination_check.get("verification_method") == "human" and hallucination_check.get("human_reviewed"):
+                stats["skipped"] += 1
+                yield sequence_data
+                continue
+
+            if not sequence_data.get('explanation'):
+                print(f"Skipping sequence_id: {sequence_id} -- no explanation to review yet.")
+                stats["skipped"] += 1
+                yield sequence_data
+                continue
+
+            parsed_logs = sequence_data.get('input')
+            logs = format_logs_for_review(parsed_logs, raw_logs=None, session_based=SESSION_BASED)
+
+            print("\n" + "=" * 70)
+            print(f"Reviewing sequence_id: {sequence_id}")
+            print(f"Classification: {sequence_data.get('classification')}")
+            print("Input (session-based -- no per-line ground truth, block-level label only):")
+            print("\n".join(logs))
+            print(f"\nExplanation: {sequence_data.get('explanation')}")
+            print("=" * 70)
+
+            criteria_scores = prompt_criteria_scores(hallucination_check.get('criteria_scores'))
+            hallucination_flags = failed_criteria_flags(criteria_scores)
+
+            corrected_reasoning_text = get_user_input(
+                "Enter corrected_reasoning_text (blank if not needed)",
+                hallucination_check.get('corrected_reasoning_text')
+            )
+            review_notes = get_user_input(
+                "Enter review_notes",
+                hallucination_check.get('review_notes')
+            )
+
+            sequence_data['metadata']['hallucination-check'] = {
+                "verification_status": "verified",
+                "verification_method": "human",
+                "verifier_model": "review/human/hdfs/human_reviewer.py",
+                "criteria_scores": criteria_scores,
+                "hallucination_flags": hallucination_flags,
+                "corrected_reasoning_text": corrected_reasoning_text or None,
+                "human_reviewed": True,
+                "reviewer_id": reviewer_id,
+                "review_notes": review_notes or None,
+                "review_timestamp": str(datetime.now())
+            }
+            stats["reviewed"] += 1
+
             yield sequence_data
-            continue
-        
-        parsed_logs = sequence_data.get('input')
-        logs = get_logs(parsed_logs)
-        
-        hallucination_check = sequence_data.get('metadata', {}).get('hallucination-check', {})
-        
-        print("\n" + "="*50)
-        print(f"Reviewing sequence {i+1}/{len(sampled_entries)} (ID: {seq_id})")
-        print(f"Classification: {sequence_data.get('classification')}")
-        print(f"Input:\n{'\n'.join(logs)}")
-        print(f"Explanation: {sequence_data.get('explanation')}")
-        print("="*50 + "\n")
-        
-        hallucination_flags = get_user_input(
-            "Enter hallucination_flags (comma-separated)",
-            hallucination_check.get('hallucination_flags') or ""
-        )
-        corrected_reasoning_text = get_user_input(
-            "Enter corrected_reasoning_text",
-            hallucination_check.get('corrected_reasoning_text') or ""
-        )
-        review_notes = get_user_input(
-            "Enter review_notes",
-            hallucination_check.get('review_notes') or ""
-        )
-        
-        sequence_data['metadata']['hallucination-check'] = {
-            "verification_status": "verified",
-            "verification_method": "human",
-            "verifier_model": "hdfs/human/human_reviewer.py",
-            "hallucination_flags": hallucination_flags.split(',') if hallucination_flags else None,
-            "corrected_reasoning_text": corrected_reasoning_text or None,
-            "human_reviewed": True,
-            "reviewer_id": "Kristian Rusnak",
-            "review_notes": review_notes or None,
-            "review_timestamp": str(datetime.now())
-        }
-        
-        yield sequence_data
 
 
-def main():
-    input_file = "dataset_short/hdfs/sampled_50_explained.json"
-    output_file = "dataset_short/hdfs/sampled_50_human_reviewed.json"
-    sample_ratio = 0.2
-    
-    reviewed_data_stream = review_sequences(input_file, sample_ratio)
-    
-    with open(output_file, 'w', encoding='utf-8') as f:
+def main(input_path: str, output_path: str, reviewer_id: str, manifest_path: str, stratum: str = None):
+    stats = {"total": 0, "reviewed": 0, "skipped": 0}
+
+    reviewed_data_stream = review_sequences(input_path, reviewer_id, stats)
+
+    with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(reviewed_data_stream, f, indent=4)
-    
-    print(f"\nReview process complete. Reviewed data saved to {output_file}")
+
+    print(f"\nReview process complete. Reviewed data saved to {output_path}")
+
+    append_manifest_entry(manifest_path, {
+        "step": 2,
+        "action": "human_review_run",
+        "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "dataset": DATASET_NAME,
+        "stratum": stratum,
+        "params": {
+            "reviewer_id": reviewer_id,
+            "criteria": "5-binary-criteria (see docs/llm_judge_validation_plan.md)",
+        },
+        "inputs": [input_path],
+        "outputs": [output_path],
+        "metrics": {},
+        "notes": (
+            f"{stats['reviewed']} sequences scored, {stats['skipped']} skipped "
+            f"(already reviewed, or no explanation yet) out of {stats['total']} records read. "
+            "Feeds step 3/4 judge-vs-human agreement scoring."
+        ),
+    })
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Human review of HDFS log-sequence explanations against the 5-criterion binary vector.")
+    parser.add_argument("--input", default="dataset_short/hdfs/gold_natural_explained.json", help="Input JSON file path")
+    parser.add_argument("--output", default="dataset_short/hdfs/gold_natural_human_reviewed.json", help="Output JSON file path")
+    parser.add_argument("--reviewer_id", default="Kristian Rusnak", help="Identifier of the human reviewer, logged per-record and to the manifest.")
+    parser.add_argument("--manifest_path", default="docs/llm_judge_validation_log.json", help="Path to the append-only sampling/validation manifest.")
+    parser.add_argument(
+        "--stratum",
+        default=None,
+        choices=[None, "natural", "supplemental", "production"],
+        help="Which gold stratum (or 'production') this input file is, logged to the manifest."
+    )
+
+    args = parser.parse_args()
+
+    main(
+        input_path=args.input,
+        output_path=args.output,
+        reviewer_id=args.reviewer_id,
+        manifest_path=args.manifest_path,
+        stratum=args.stratum,
+    )
