@@ -102,6 +102,22 @@ this way (block-level classification only). The judge prompt
 labels, since its job is fact-checking against ground truth, not reasoning
 about the sequence.
 
+**Clarification (2026-08-08): this blind-generation choice is scoped to
+gold-set generation only, not the eventual delivered dataset.** It exists
+purely to maximize the diversity of naturally-occurring failures available
+for judge calibration in this doc (see "Sampling population" below) — it is
+not a requirement that the final large-scale dataset's generation must also
+be blind. That dataset (step 6's "production set") is never read by whatever
+it's used to evaluate — it's ground-truth explanation text used to score an
+agentic AI's own output, not an input the agentic AI reasons over — so there
+is no realism/parity constraint on how it's generated. Feeding per-log
+ground-truth labels into *that* generation step is expected, and intended:
+it directly attacks this project's dominant observed failure mode
+(root_cause_correctness) and produces a more accurate answer key. See the
+terminology note under step 6 and the new Open Question on judge-calibration
+transfer for the one consequence this has on how step 4/5's agreement
+numbers should be read.
+
 ## Judging criteria (binary vector)
 
 Both the human reviewer (step 2) and `llm_as_judge` (step 3) score every
@@ -358,6 +374,24 @@ single draw's feasibility.
    review. `--num_per_class` has no default on purpose (see Open questions) so it must
    be passed explicitly each run.
 
+   **Terminology note (2026-08-08):** "production set" here means the
+   larger-scale, human-review-free deliverable dataset — concretely, the
+   ground-truth explanations used downstream to score an agentic AI's own
+   output, not a live deployed system, and not something the agentic AI
+   itself ever reads. Because of that, its generation is **not** bound by
+   the gold set's blind, no-per-log-label constraint (see "Explanation
+   template" above) — that constraint exists only to keep the gold set's
+   failure distribution rich enough for judge calibration. For this set,
+   feeding per-log ground-truth classification into
+   `src/explanation_creation/<dataset>/creation1.py` is the intended
+   approach: since these explanations are an answer key rather than a
+   test of blind reasoning, minimizing hallucination matters more than
+   matching the difficulty of the gold-set task. Watch the generation
+   prompt in this mode for a new failure shape: the model restating the
+   per-line label itself ("line N is marked abnormal") instead of writing
+   a causal sentence, which would trip criterion 1's circular-restatement
+   FAIL condition at the line level instead of the sequence level.
+
 ## Open questions / things to decide later
 
 - **Production-set size.** The 30-40/dataset gold set (step 1) is only the
@@ -414,3 +448,44 @@ single draw's feasibility.
   all three datasets (BGL, Thunderbird, HDFS), or each dataset needs its
   own calibration since log structure/vocabulary differs a lot (especially
   HDFS's session-based sampling vs. the other two's fixed windows).
+- **Judge-calibration transfer once production generation adds per-log
+  labels (raised 2026-08-08).** Step 5 picks a judge config validated
+  against the gold set's *blind*-generation failure distribution, which in
+  the BGL natural-core pilot (2026-08-08, 15/15 abnormal) is dominated by
+  root_cause_correctness (12/15 fails) vs. contrast_correctness (5),
+  groundedness (5), and speculation_bounded (8). Once the production set's
+  generation step is given per-log ground-truth labels (see step 6's
+  terminology note), root_cause_correctness fails there should largely
+  disappear, so the judge's real workload on the delivered dataset will
+  skew toward the criteria that made up a smaller share of the gold set's
+  calibration evidence. Not a flaw in the plan, but the eventual writeup
+  should say this explicitly rather than let the single headline
+  agreement number imply equal confidence across all 5 criteria for the
+  dataset actually being shipped.
+- **Gold-set fail concentration / limited spread (raised 2026-08-09).**
+  Counted over the full BGL gold set (natural + supplemental, 70 records):
+  71% of abnormal-class records (25/35) are windows with only 2 unique
+  Drain3 templates — one ground-truth-normal template interleaved with one
+  ground-truth-abnormal template — where the generator tends to fold both
+  into the stated cause instead of isolating the abnormal one (the
+  "mixing" pattern noted throughout the human review). Of the 21
+  root_cause_correctness fails coming from that pattern, only 7 distinct
+  template-pairs are responsible, and two pairs alone (`instruction
+  address` / `data storage interrupt`, and `ciod ... Link has been
+  severed` / `ciod: Received signal ...`) account for 62% of them. This
+  isn't a sampling bug — BGL genuinely has few distinct abnormal templates
+  overall (2,640 total, see the population table above) — so it can't be
+  fixed by redrawing, and the existing template-hash dedup cap (K=3 in
+  `dedup_pool.py`) doesn't catch it either, since that hashes the full
+  ordered window, not the unique-template-pair "shape" this pattern
+  depends on. Feeding per-log ground-truth labels into *gold-set*
+  generation would suppress this failure mode rather than diversify it,
+  which would work against the gold set's purpose (see "Explanation
+  template" above) — that fix is scoped to production-set generation
+  (step 6) only, and is orthogonal to this issue. **Decision: not fixing
+  this via a targeted/stratified resampling pass — out of scope for this
+  project's size.** Instead, disclose it directly in the final writeup:
+  agreement/kappa on root_cause_correctness and contrast_correctness
+  should be read as validated mainly against this repeating mixing
+  pattern, not as evidence the judge generalizes to every possible way a
+  root cause or contrast can be wrong.
