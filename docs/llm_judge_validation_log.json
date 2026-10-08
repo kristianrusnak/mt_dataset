@@ -227,5 +227,119 @@
     ],
     "metrics": {},
     "notes": "40 sequences scored, 0 skipped (already reviewed, or no explanation yet) out of 40 records read. Feeds step 3/4 judge-vs-human agreement scoring."
+  },
+  {
+    "step": 2,
+    "action": "explanation_generation_run",
+    "timestamp": "2026-10-01T10:06:32Z",
+    "dataset": "hdfs",
+    "stratum": "natural",
+    "params": {
+      "model": "gpt-5.4-mini",
+      "prompt_template_id": "hdfs/prompt1"
+    },
+    "inputs": [
+      "dataset_short/hdfs/gold_natural_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/gold_natural_explained.json"
+    ],
+    "metrics": {},
+    "notes": "30 explanations generated, 0 skipped (already had an explanation, or past --limit) out of 30 records read. Feeds step 2 human review."
+  },
+  {
+    "step": 2,
+    "action": "explanation_generation_run",
+    "timestamp": "2026-10-01T10:07:49Z",
+    "dataset": "hdfs",
+    "stratum": "supplemental",
+    "params": {
+      "model": "gpt-5.4-mini",
+      "prompt_template_id": "hdfs/prompt1"
+    },
+    "inputs": [
+      "dataset_short/hdfs/gold_supplemental_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/gold_supplemental_explained.json"
+    ],
+    "metrics": {},
+    "notes": "40 explanations generated, 0 skipped (already had an explanation, or past --limit) out of 40 records read. Feeds step 2 human review."
+  },
+  {
+    "step": 2,
+    "action": "explanation_generation_run",
+    "timestamp": "2026-10-01T10:08:49Z",
+    "dataset": "thunderbird",
+    "stratum": "natural",
+    "params": {
+      "model": "gpt-5.4-mini",
+      "prompt_template_id": "thunderbird/prompt1"
+    },
+    "inputs": [
+      "dataset_short/thunderbird/gold_natural_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_natural_explained.json"
+    ],
+    "metrics": {},
+    "notes": "30 explanations generated, 0 skipped (already had an explanation, or past --limit) out of 30 records read. Feeds step 2 human review."
+  },
+  {
+    "step": 2,
+    "action": "explanation_generation_run",
+    "timestamp": "2026-10-01T10:10:04Z",
+    "dataset": "thunderbird",
+    "stratum": "supplemental",
+    "params": {
+      "model": "gpt-5.4-mini",
+      "prompt_template_id": "thunderbird/prompt1"
+    },
+    "inputs": [
+      "dataset_short/thunderbird/gold_supplemental_not_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_supplemental_explained.json"
+    ],
+    "metrics": {},
+    "notes": "40 explanations generated, 0 skipped (already had an explanation, or past --limit) out of 40 records read. Feeds step 2 human review."
+  },
+  {
+    "step": 2,
+    "action": "human_review_run",
+    "timestamp": "2026-10-01T17:24:28Z",
+    "dataset": "thunderbird",
+    "stratum": "natural",
+    "params": {
+      "reviewer_id": "Kristian Rusnak",
+      "criteria": "5-binary-criteria (see docs/llm_judge_validation_plan.md)"
+    },
+    "inputs": [
+      "dataset_short/thunderbird/gold_natural_prescored.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_natural_human_reviewed.json"
+    ],
+    "metrics": {},
+    "notes": "30 sequences scored, 0 skipped (already reviewed, or no explanation yet) out of 30 records read. Feeds step 3/4 judge-vs-human agreement scoring."
+  },
+  {
+    "step": 2,
+    "action": "human_review_run",
+    "timestamp": "2026-10-01T17:49:56Z",
+    "dataset": "thunderbird",
+    "stratum": "supplemental",
+    "params": {
+      "reviewer_id": "Kristian Rusnak",
+      "criteria": "5-binary-criteria (see docs/llm_judge_validation_plan.md)"
+    },
+    "inputs": [
+      "dataset_short/thunderbird/gold_supplemental_prescored.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_supplemental_human_reviewed.json"
+    ],
+    "metrics": {},
+    "notes": "40 sequences scored, 0 skipped (already reviewed, or no explanation yet) out of 40 records read. Feeds step 3/4 judge-vs-human agreement scoring."
   }
 ]

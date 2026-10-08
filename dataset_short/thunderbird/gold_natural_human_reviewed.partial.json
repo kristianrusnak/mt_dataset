@@ -1,0 +1,492 @@
+[
+    {
+        "input": [
+            "Got trap from peer on fd <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[INFO]: Configuration caused by some ports in INIT state",
+            "[<*>]: No topology change",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)"
+        ],
+        "classification": "normal",
+        "explanation": "This log sequence is normal because it shows a peer trap followed by repeated failed node-discovery and GetNodeInfo attempts, then an INFO message stating the configuration was caused by some ports in INIT state. The sequence moves from the initial trap and several identical discovery/no-response messages through a topology-no-change notice and ends with a kernel IB dispatch failure record. The opposite label is not supported because the only explicit state summary in the window says INIT-state ports caused the configuration and there is no log entry showing a successful discovery, recovery, or other concrete fault escalation beyond the repeated probe failures.",
+        "metadata": {
+            "identity": {
+                "id": "fca01c79-1902-4758-bd22-7ba6848f1808",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "thunderbird",
+                "collection_date": "2026-06-29 13:05:18.850297"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1135567133 2005.12.25 bn201 Dec 25 19:18:53 bn201/bn201 snmpd[1279]: Got trap from peer on fd 13",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad00000270ac, port_num= 22, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027170, port_num= 8, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027275, port_num= 17, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad000002777c, port_num= 10, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027788, port_num= 7, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027794, port_num= 18, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027858, port_num= 7, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027b60, port_num= 5, error code 1",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567135 2005.12.25 tbird-sm1 Dec 25 19:18:55 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1135567136 2005.12.25 tbird-sm1 Dec 25 19:18:56 src@tbird-sm1 ib_sm.x[24904]: [INFO]: Configuration caused by some ports in INIT state",
+                    "- 1135567136 2005.12.25 tbird-sm1 Dec 25 19:18:56 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_sweep.c:1455]: No topology change",
+                    "- 1135567141 2005.12.25 an690 Dec 25 19:19:01 an690/an690 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": "gpt-5.4-mini",
+                "generation_timestamp": "2026-10-01 12:07:51.297122",
+                "prompt_template_id": "thunderbird/prompt1",
+                "generation_params": {}
+            },
+            "hallucination-check": {
+                "verification_status": "verified",
+                "verification_method": "human",
+                "verifier_model": "review/human/thunderbird/human_reviewer.py",
+                "criteria_scores": {
+                    "root_cause_correctness": true,
+                    "sequence_summary_correctness": true,
+                    "contrast_correctness": true,
+                    "groundedness": true,
+                    "speculation_bounded": true
+                },
+                "hallucination_flags": [
+                    "valid"
+                ],
+                "corrected_reasoning_text": null,
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": null,
+                "review_timestamp": "2026-10-01 12:21:02.130132"
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "[<*>]: Failed discover node test, node <*>, port_num= <*>, error code <*>",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: Failed to GetNodeInfo() because of NO RESPONSE",
+            "[<*>]: No topology change",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "[KERNEL_IB][ib_mad_dispatch][<*>]mad_process failed (<*>) for <*> port <*> QPN <*> (class <*>, aid <*>)",
+            "data_thread() got not answer from any [<*>] datasource",
+            "data_thread() got not answer from any [<*>] datasource",
+            "Instrumentation Service EventID: <*> Temperature sensor returned to a normal value Sensor location: <*> Chassis location: <*> Previous state was: <*> Temperature sensor value (in Degrees Celsius): <*>",
+            "Got trap from peer on fd <*>",
+            "data_thread() got not answer from any [<*>] datasource",
+            "data_thread() got not answer from any [<*>] datasource",
+            "Instrumentation Service EventID: <*> Temperature sensor detected a warning value Sensor location: <*> Chassis location: <*> Previous state was: <*> (Normal) Temperature sensor value (in Degrees Celsius): <*>"
+        ],
+        "classification": "normal",
+        "explanation": "This log sequence is normal because the main failure pattern is repeated discovery and MAD-processing timeouts\u2014\u201cFailed to GetNodeInfo() because of NO RESPONSE,\u201d multiple \u201cmad_process failed\u201d entries, and \u201cdata_thread() got not answer from any datasource\u201d\u2014followed by a recovery message that the temperature sensor returned to a normal value. The sequence moves from a failed node discovery, through several kernel IB dispatch failures and datasource no-response messages, to a trap from a peer and then a later temperature warning/return-to-normal pair. What keeps it normal is that the sequence includes explicit recovery and \u201cNo topology change,\u201d so the error-looking lines reflect transient communication issues rather than a persistent unresolved fault.",
+        "metadata": {
+            "identity": {
+                "id": "3d044e85-152a-45cb-a5e7-9ddc21efeba7",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "thunderbird",
+                "collection_date": "2026-06-29 13:03:52.926789"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1131986370 2005.11.14 tbird-sm1 Nov 14 08:39:30 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:1103]: Failed discover node test, node 5ad0000027b60, port_num= 22, error code 1",
+                    "- 1131986370 2005.11.14 tbird-sm1 Nov 14 08:39:30 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1131986370 2005.11.14 tbird-sm1 Nov 14 08:39:30 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1131986370 2005.11.14 tbird-sm1 Nov 14 08:39:30 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1131986370 2005.11.14 tbird-sm1 Nov 14 08:39:30 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_discovery.c:470]: Failed to GetNodeInfo() because of NO RESPONSE",
+                    "- 1131986370 2005.11.14 tbird-sm1 Nov 14 08:39:30 src@tbird-sm1 ib_sm.x[24904]: [ib_sm_sweep.c:1455]: No topology change",
+                    "- 1131986371 2005.11.14 an416 Nov 14 08:39:31 an416/an416 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 an416 Nov 14 08:39:31 an416/an416 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 an933 Nov 14 08:39:31 an933/an933 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 an933 Nov 14 08:39:31 an933/an933 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 an933 Nov 14 08:39:31 an933/an933 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 dn30 Nov 14 08:39:31 dn30/dn30 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 dn30 Nov 14 08:39:31 dn30/dn30 kernel: [KERNEL_IB][ib_mad_dispatch][/mnt_projects/sysapps/src/ib/topspin/topspin-src-3.2.0-16/ib/ts_api_ng/mad/obj_host_amd64_custom1_rhel4/ts_ib_mad/mad_filter.c:292]mad_process failed (0) for InfiniHost0 port 1 QPN 0 (class 0x81, aid 0x0011)",
+                    "- 1131986371 2005.11.14 tbird-admin1 Nov 14 08:39:31 local@tbird-admin1 /apps/x86_64/system/ganglia-3.0.1/sbin/gmetad[1684]: data_thread() got not answer from any [Thunderbird_A3] datasource",
+                    "- 1131986371 2005.11.14 tbird-admin1 Nov 14 08:39:31 local@tbird-admin1 /apps/x86_64/system/ganglia-3.0.1/sbin/gmetad[1684]: data_thread() got not answer from any [Thunderbird_B7] datasource",
+                    "- 1131986372 2005.11.14 bn199 Nov 14 08:39:32 bn199/bn199 Server Administrator: Instrumentation Service EventID: 1052 Temperature sensor returned to a normal value Sensor location: BMC Ambient Temp Chassis location: Main System Chassis Previous state was: Non-Critical (Warning) Temperature sensor value (in Degrees Celsius): 11.0",
+                    "- 1131986372 2005.11.14 bn199 Nov 14 08:39:32 bn199/bn199 snmpd[1992]: Got trap from peer on fd 13",
+                    "- 1131986372 2005.11.14 tbird-admin1 Nov 14 08:39:32 local@tbird-admin1 /apps/x86_64/system/ganglia-3.0.1/sbin/gmetad[1684]: data_thread() got not answer from any [Thunderbird_A5] datasource",
+                    "- 1131986372 2005.11.14 tbird-admin1 Nov 14 08:39:32 local@tbird-admin1 /apps/x86_64/system/ganglia-3.0.1/sbin/gmetad[1684]: data_thread() got not answer from any [Thunderbird_B3] datasource",
+                    "- 1131986373 2005.11.14 an336 Nov 14 08:39:33 an336/an336 Server Administrator: Instrumentation Service EventID: 1053 Temperature sensor detected a warning value Sensor location: BMC Ambient Temp Chassis location: Main System Chassis Previous state was: OK (Normal) Temperature sensor value (in Degrees Celsius): 10.0"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": "gpt-5.4-mini",
+                "generation_timestamp": "2026-10-01 12:07:53.066492",
+                "prompt_template_id": "thunderbird/prompt1",
+                "generation_params": {}
+            },
+            "hallucination-check": {
+                "verification_status": "verified",
+                "verification_method": "human",
+                "verifier_model": "review/human/thunderbird/human_reviewer.py",
+                "criteria_scores": {
+                    "root_cause_correctness": true,
+                    "sequence_summary_correctness": true,
+                    "contrast_correctness": true,
+                    "groundedness": true,
+                    "speculation_bounded": true
+                },
+                "hallucination_flags": [
+                    "valid"
+                ],
+                "corrected_reasoning_text": null,
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": null,
+                "review_timestamp": "2026-10-01 12:23:07.146439"
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "EXT3-fs: mounted filesystem with ordered data mode.",
+            "EXT3-fs: mounted filesystem with ordered data mode.",
+            "EXT3-fs: recovery complete.",
+            "EXT3-fs: write access <*> be enabled during recovery.",
+            "Freeing unused kernel memory: <*> freed",
+            "IP: routing cache hash table of <*> buckets, <*>",
+            "Initializing IPsec netlink socket",
+            "Intel(R) PRO/<*> Network Driver - version <*>",
+            "Mellanox Tavor Device Driver is creating device <*> (domain=<*>, bus=<*>, devfn=<*>)",
+            "NET: Registered protocol family <*>",
+            "NET: Registered protocol family <*>",
+            "NET: Registered protocol family <*>",
+            "NET: Registered protocol family <*>",
+            "PCI0 PALO PBLO VPR0 PBHI PICH",
+            "PCI: Setting latency timer of device <*> to <*>",
+            "PCI: Setting latency timer of device <*> to <*>",
+            "PCI: Setting latency timer of device <*> to <*>",
+            "PCI: Setting latency timer of device <*> to <*>",
+            "PCI: Setting latency timer of device <*> to <*>",
+            "PCI: cache line size of <*> is not supported by device <*>"
+        ],
+        "classification": "normal",
+        "explanation": "This log sequence is normal because it shows routine system startup activity: EXT3 filesystems mount and complete recovery, unused kernel memory is freed, networking subsystems initialize, and PCI/network drivers register devices. The sequence moves in order from filesystem recovery and memory cleanup to IP and protocol-family setup, then to Intel and Mellanox driver initialization and PCI configuration messages. Nothing in the window shows a failure, panic, repeated retry, or explicit error beyond an informational PCI cache-line-size compatibility message, so the entries read as standard boot-time initialization rather than a fault.",
+        "metadata": {
+            "identity": {
+                "id": "e5c0c38b-882b-4d76-9ed2-d88b789d3f01",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "thunderbird",
+                "collection_date": "2026-06-29 13:03:38.833014"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: EXT3-fs: mounted filesystem with ordered data mode.",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: EXT3-fs: mounted filesystem with ordered data mode.",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: EXT3-fs: recovery complete.",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: EXT3-fs: write access #15# be enabled during recovery.",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: Freeing unused kernel memory: 188k freed",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: IP: routing cache hash table of 32768 buckets, 512Kbytes",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: Initializing IPsec netlink socket",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: Intel(R) PRO/1000 Network Driver - version 6.0.54-k2-NAPI",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: Mellanox Tavor Device Driver is creating device \"InfiniHost0\" (domain=00, bus=08, devfn=00)",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: NET: Registered protocol family 1",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: NET: Registered protocol family 17",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: NET: Registered protocol family 2",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: NET: Registered protocol family 26",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI0 PALO PBLO VPR0 PBHI PICH",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI: Setting latency timer of device 0000:00:1d.0 to 64",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI: Setting latency timer of device 0000:00:1d.1 to 64",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI: Setting latency timer of device 0000:00:1d.2 to 64",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI: Setting latency timer of device 0000:00:1d.7 to 64",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI: Setting latency timer of device 0000:08:00.0 to 64",
+                    "- 1131671962 2005.11.10 bn320 Nov 10 17:19:22 bn320/bn320 kernel: PCI: cache line size of 128 is not supported by device 0000:00:1d.7"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": "gpt-5.4-mini",
+                "generation_timestamp": "2026-10-01 12:07:55.034509",
+                "prompt_template_id": "thunderbird/prompt1",
+                "generation_params": {}
+            },
+            "hallucination-check": {
+                "verification_status": "verified",
+                "verification_method": "human",
+                "verifier_model": "review/human/thunderbird/human_reviewer.py",
+                "criteria_scores": {
+                    "root_cause_correctness": true,
+                    "sequence_summary_correctness": true,
+                    "contrast_correctness": true,
+                    "groundedness": true,
+                    "speculation_bounded": true
+                },
+                "hallucination_flags": [
+                    "valid"
+                ],
+                "corrected_reasoning_text": null,
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": null,
+                "review_timestamp": "2026-10-01 12:23:52.129779"
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "device-mapper: <*> initialised: dm-<*>",
+            "ehci_hcd <*>: USB <*> enabled, EHCI <*>, driver <*>",
+            "hub <*>: USB hub found",
+            "hub <*>: <*> ports detected",
+            "hub <*>: USB hub found",
+            "hub <*>: <*> ports detected",
+            "hub <*>: <*> ports detected",
+            "hub <*>: USB hub found",
+            "ip_tables: <*> Netfilter core team",
+            "ip_tables: <*> Netfilter core team",
+            "ip_tables: <*> Netfilter core team",
+            "<*> starting. Commit interval <*> seconds",
+            "md: Autodetecting RAID arrays.",
+            "md: autorun ...",
+            "uhci_hcd <*>: UHCI Host Controller",
+            "uhci_hcd <*>: new USB bus registered, assigned bus number <*>",
+            "uhci_hcd <*>: UHCI Host Controller",
+            "uhci_hcd <*>: irq <*>, io base <*>",
+            "uhci_hcd <*>: new USB bus registered, assigned bus number <*>",
+            "<*> startup succeeded"
+        ],
+        "classification": "normal",
+        "explanation": "This log sequence is normal because the system is bringing up storage, USB, and networking components cleanly, ending with a startup success message and no error, failure, or retry indicators. The sequence shows device-mapper initialization, multiple USB host controller and hub detections, repeated ip_tables Netfilter registrations, RAID autodetection, and then successful startup completion. The presence of routine initialization messages and the absence of any failed device probe, kernel warning, or incomplete setup detail supports normal rather than abnormal behavior.",
+        "metadata": {
+            "identity": {
+                "id": "0febd531-a3d0-4cd1-aa20-17cc20cc7af8",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "thunderbird",
+                "collection_date": "2026-06-29 13:04:19.711131"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: device-mapper: 4.4.0-ioctl (2005-01-12) initialised: dm-#16#@#17#",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: ehci_hcd 0000:00:1d.7: USB 2.0 enabled, EHCI 1.00, driver 2004-May-10",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: hub 1-0:1.0: USB hub found",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: hub 1-3:1.0: 2 ports detected",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: hub 1-3:1.0: USB hub found",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: hub 2-0:1.0: 2 ports detected",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: hub 4-0:1.0: 2 ports detected",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: hub 4-0:1.0: USB hub found",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: ip_tables: (C) 2000-2002 Netfilter core team",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: ip_tables: (C) 2000-2002 Netfilter core team",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: ip_tables: (C) 2000-2002 Netfilter core team",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: kjournald starting. Commit interval 5 seconds",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: md: Autodetecting RAID arrays.",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: md: autorun ...",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: uhci_hcd 0000:00:1d.0: UHCI Host Controller",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: uhci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 2",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: uhci_hcd 0000:00:1d.2: UHCI Host Controller",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: uhci_hcd 0000:00:1d.2: irq 185, io base 000000000000aca0",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 kernel: uhci_hcd 0000:00:1d.2: new USB bus registered, assigned bus number 4",
+                    "- 1132704610 2005.11.22 cn129 Nov 22 16:10:10 cn129/cn129 rpcidmapd: rpc.idmapd startup succeeded"
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": "gpt-5.4-mini",
+                "generation_timestamp": "2026-10-01 12:07:56.777720",
+                "prompt_template_id": "thunderbird/prompt1",
+                "generation_params": {}
+            },
+            "hallucination-check": {
+                "verification_status": "verified",
+                "verification_method": "human",
+                "verifier_model": "review/human/thunderbird/human_reviewer.py",
+                "criteria_scores": {
+                    "root_cause_correctness": true,
+                    "sequence_summary_correctness": true,
+                    "contrast_correctness": true,
+                    "groundedness": true,
+                    "speculation_bounded": true
+                },
+                "hallucination_flags": [
+                    "valid"
+                ],
+                "corrected_reasoning_text": null,
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": null,
+                "review_timestamp": "2026-10-01 12:24:46.799302"
+            },
+            "dataset_split": null
+        }
+    },
+    {
+        "input": [
+            "Exiting...",
+            "<*> shutdown succeeded",
+            "<*> shutdown succeeded",
+            "Unmounting <*> filesystems: <*>",
+            "<*> shutdown succeeded",
+            "<*> exiting on signal <*>",
+            "<*> shutdown succeeded",
+            "Received <*> signal... shutting down...",
+            "<*> shutdown succeeded",
+            "Exiting...",
+            "<*> shutdown succeeded",
+            "Unmounting <*> filesystems: <*>",
+            "<*> shutdown succeeded",
+            "<*> exiting on signal <*>",
+            "<*> shutdown succeeded",
+            "<*> shutdown succeeded",
+            "Exiting...",
+            "<*> shutdown succeeded",
+            "<*> shutdown succeeded",
+            "Received <*> signal... shutting down..."
+        ],
+        "classification": "normal",
+        "explanation": "This log sequence is normal because it shows repeated orderly shutdown completion messages such as \u201cshutdown succeeded,\u201d \u201cExiting...,\u201d \u201cUnmounting <*> filesystems: <*>,\u201d and \u201cReceived <*> signal... shutting down...\u201d with no errors or failures. The window is a series of exit-and-shutdown events, including several successful shutdowns and filesystem unmounts, followed by signal-triggered shutdown handling. The opposite verdict is not supported because the only notable events are clean termination steps that are explicitly marked successful, and there are no error codes, crash traces, or failed unmounts in the sequence.",
+        "metadata": {
+            "identity": {
+                "id": "b41e6f79-0f30-4d8d-8f00-25738ff765a2",
+                "source_dataset": "logpai/loghub",
+                "source_file": "https://zenodo.org/records/8275861",
+                "system_component": "thunderbird",
+                "collection_date": "2026-06-29 13:04:13.337063"
+            },
+            "raw_content": {
+                "raw_log_sequence": [
+                    "- 1132678791 2005.11.22 cn945 Nov 22 08:59:51 cn945/cn945 xinetd[2230]: Exiting...",
+                    "- 1132678791 2005.11.22 cn946 Nov 22 08:59:51 cn946/cn946 syslog: klogd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 acpid: acpid shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 netfs: Unmounting NFS filesystems: succeeded",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 ntpd: ntpd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 ntpd[2257]: ntpd exiting on signal 15",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 snmpd: snmpd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 snmpd[1990]: Received TERM or STOP signal... shutting down...",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 xinetd: xinetd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn957 Nov 22 08:59:51 cn957/cn957 xinetd[2241]: Exiting...",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 acpid: acpid shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 netfs: Unmounting NFS filesystems: succeeded",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 ntpd: ntpd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 ntpd[2257]: ntpd exiting on signal 15",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 snmpd: snmpd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 xinetd: xinetd shutdown succeeded",
+                    "- 1132678791 2005.11.22 cn991 Nov 22 08:59:51 cn991/cn991 xinetd[2241]: Exiting...",
+                    "- 1132678791 2005.11.22 dn21 Nov 22 08:59:51 dn21/dn21 syslog: klogd shutdown succeeded",
+                    "- 1132678791 2005.11.22 dn22 Nov 22 08:59:51 dn22/dn22 snmpd: snmpd shutdown succeeded",
+                    "- 1132678791 2005.11.22 dn22 Nov 22 08:59:51 dn22/dn22 snmpd[1990]: Received TERM or STOP signal... shutting down..."
+                ],
+                "start_timestamp": null,
+                "end_timestamp": null,
+                "log_template_id": null,
+                "session_id": null
+            },
+            "augmentation": {
+                "is_synthetic": false,
+                "augmentation_method": null,
+                "original_sample_id": [],
+                "augmentation_model": null,
+                "augmentation_model_version": null,
+                "augmentation_prompt_id": null
+            },
+            "llm": {
+                "model": "gpt-5.4-mini",
+                "generation_timestamp": "2026-10-01 12:07:58.568257",
+                "prompt_template_id": "thunderbird/prompt1",
+                "generation_params": {}
+            },
+            "hallucination-check": {
+                "verification_status": "verified",
+                "verification_method": "human",
+                "verifier_model": "review/human/thunderbird/human_reviewer.py",
+                "criteria_scores": {
+                    "root_cause_correctness": true,
+                    "sequence_summary_correctness": true,
+                    "contrast_correctness": true,
+                    "groundedness": true,
+                    "speculation_bounded": true
+                },
+                "hallucination_flags": [
+                    "valid"
+                ],
+                "corrected_reasoning_text": null,
+                "human_reviewed": true,
+                "reviewer_id": "Kristian Rusnak",
+                "review_notes": null,
+                "review_timestamp": "2026-10-01 12:25:29.635194"
+            },
+            "dataset_split": null
+        }
+    }
+]
