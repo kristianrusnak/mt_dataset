@@ -379,5 +379,74 @@
     ],
     "metrics": {},
     "notes": "40 sequences scored, 0 skipped (already reviewed, or no explanation yet) out of 40 records read. Feeds step 3/4 judge-vs-human agreement scoring."
+  },
+  {
+    "step": 2,
+    "action": "gold_merge",
+    "timestamp": "2026-10-08T13:06:52Z",
+    "dataset": "bgl",
+    "params": {
+      "natural": 30,
+      "supplemental": 40
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_natural_human_reviewed.json",
+      "dataset_short/bgl/gold_supplemental_human_reviewed.json"
+    ],
+    "outputs": [
+      "dataset_short/bgl/gold_all_human_reviewed.json"
+    ],
+    "metrics": {
+      "agreement": null,
+      "kappa": null,
+      "false_negative_rate": null
+    },
+    "notes": "Natural core and supplemental pool merged into one scoring pool. The headline numbers can still be reported on the natural core alone by filtering ids through used_ids.json."
+  },
+  {
+    "step": 2,
+    "action": "gold_merge",
+    "timestamp": "2026-10-08T13:06:52Z",
+    "dataset": "hdfs",
+    "params": {
+      "natural": 30,
+      "supplemental": 40
+    },
+    "inputs": [
+      "dataset_short/hdfs/gold_natural_human_reviewed.json",
+      "dataset_short/hdfs/gold_supplemental_human_reviewed.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/gold_all_human_reviewed.json"
+    ],
+    "metrics": {
+      "agreement": null,
+      "kappa": null,
+      "false_negative_rate": null
+    },
+    "notes": "Natural core and supplemental pool merged into one scoring pool. The headline numbers can still be reported on the natural core alone by filtering ids through used_ids.json."
+  },
+  {
+    "step": 2,
+    "action": "gold_merge",
+    "timestamp": "2026-10-08T13:06:52Z",
+    "dataset": "thunderbird",
+    "params": {
+      "natural": 30,
+      "supplemental": 40
+    },
+    "inputs": [
+      "dataset_short/thunderbird/gold_natural_human_reviewed.json",
+      "dataset_short/thunderbird/gold_supplemental_human_reviewed.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/gold_all_human_reviewed.json"
+    ],
+    "metrics": {
+      "agreement": null,
+      "kappa": null,
+      "false_negative_rate": null
+    },
+    "notes": "Natural core and supplemental pool merged into one scoring pool. The headline numbers can still be reported on the natural core alone by filtering ids through used_ids.json."
   }
 ]
