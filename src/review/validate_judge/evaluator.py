@@ -13,7 +13,7 @@ and doubles as the resume point:
 
 Scoring of failures: an item whose output stayed invalid after the retry counts as wrong on all 5
 criteria (the model failed the task). Items with only transport errors are left out, and if more than
-MAX_ERROR_RATE of the pool is missing the config is discarded (fitness 0).
+MAX_ERROR_RATE of the pool is missing the config is discarded (fitness -1, the worst possible).
 """
 
 import json
@@ -43,14 +43,13 @@ def atomic_write_json(path: str, data) -> None:
 
 class Evaluator:
     def __init__(self, items, runs_dir="dataset_short/judge_runs", manifest_path="docs/llm_judge_validation_log.json",
-                 judge_fn=call_judge, max_workers=8, fn_weight=0.7, search_algorithm=None, gold_inputs=None,
+                 judge_fn=call_judge, max_workers=8, search_algorithm=None, gold_inputs=None,
                  checkpoint_every=20):
         self.items = items
         self.runs_dir = runs_dir
         self.manifest_path = manifest_path
         self.judge_fn = judge_fn
         self.max_workers = max_workers
-        self.fn_weight = fn_weight
         self.search_algorithm = search_algorithm
         self.gold_inputs = gold_inputs or []
         self.checkpoint_every = checkpoint_every
@@ -134,17 +133,17 @@ class Evaluator:
         missing = sum(1 for it in self.items if it["key"] not in verdicts)
         error_rate = missing / max(len(self.items), 1)
 
-        metrics = score_config(self.items, verdicts, self.fn_weight)
+        metrics = score_config(self.items, verdicts)
         natural = [it for it in self.items if it["stratum"] == "natural"]
-        metrics["natural_only"] = score_config(natural, verdicts, self.fn_weight)["overall"]
+        metrics["natural_only"] = score_config(natural, verdicts)["overall"]
         metrics["by_dataset"] = {
-            ds: score_config([it for it in self.items if it["dataset"] == ds], verdicts, self.fn_weight)["overall"]
+            ds: score_config([it for it in self.items if it["dataset"] == ds], verdicts)["overall"]
             for ds in sorted({it["dataset"] for it in self.items})
         }
         metrics["invalid_output_rate"] = invalid / max(len(self.items), 1)
         metrics["error_rate"] = error_rate
         if error_rate > MAX_ERROR_RATE or metrics["overall"]["fitness"] is None:
-            metrics["overall"]["fitness"] = 0.0
+            metrics["overall"]["fitness"] = -1.0
             metrics["discarded"] = f"{error_rate:.2%} of items unscored (transport errors), above {MAX_ERROR_RATE:.0%}"
 
         # One manifest entry per config's real work; a pure cache read only logs if nothing was logged before.
@@ -154,7 +153,7 @@ class Evaluator:
                 "action": "llm_as_judge_run",
                 "timestamp": _now_iso(),
                 "dataset": "all" if len({it["dataset"] for it in self.items}) > 1 else self.items[0]["dataset"],
-                "params": {**config.as_params(), "search_algorithm": self.search_algorithm, "fn_weight": self.fn_weight},
+                "params": {**config.as_params(), "search_algorithm": self.search_algorithm},
                 "inputs": self.gold_inputs,
                 "outputs": [self.run_path(config)],
                 "metrics": {

@@ -8,6 +8,10 @@ letting a bad explanation through. Verdicts are booleans, True = PASS.
   false_positive_rate  P(judge says FAIL | human says PASS)   -- good explanation rejected
   kappa                Cohen's kappa: agreement beyond what two raters with these pass rates
                        would reach by chance. None when undefined (e.g. everyone always says PASS).
+  youden_j             1 - FNR - FPR: share of human fails the judge catches, minus share of human
+                       passes it wrongly rejects. 0 for any judge that ignores the input (always PASS,
+                       always FAIL, coin flip), 1 for a perfect one. Computed within each human class,
+                       so it does not move with how many fails the pool happens to contain.
 """
 
 from src.help_functions.review_criteria import CRITERIA_KEYS
@@ -22,7 +26,7 @@ def criterion_metrics(pairs: list[tuple[bool, bool]]) -> dict:
     n = len(pairs)
     if n == 0:
         return {"n": 0, "agreement": None, "kappa": None, "false_negative_rate": None,
-                "false_positive_rate": None, "human_fails": 0}
+                "false_positive_rate": None, "youden_j": None, "human_fails": 0}
 
     both_pass = sum(1 for h, j in pairs if h and j)
     both_fail = sum(1 for h, j in pairs if not h and not j)
@@ -37,12 +41,15 @@ def criterion_metrics(pairs: list[tuple[bool, bool]]) -> dict:
     expected = human_pass_rate * judge_pass_rate + (1 - human_pass_rate) * (1 - judge_pass_rate)
     kappa = (observed - expected) / (1 - expected) if expected < 1 else None
 
+    fnr = _rate(missed_fails, human_fails)
+    fpr = _rate(false_alarms, human_passes)
     return {
         "n": n,
         "agreement": observed,
         "kappa": kappa,
-        "false_negative_rate": _rate(missed_fails, human_fails),
-        "false_positive_rate": _rate(false_alarms, human_passes),
+        "false_negative_rate": fnr,
+        "false_positive_rate": fpr,
+        "youden_j": 1 - fnr - fpr if fnr is not None and fpr is not None else None,
         "human_fails": human_fails,
     }
 
@@ -52,14 +59,14 @@ def _mean(values: list):
     return sum(values) / len(values) if values else None
 
 
-def score_config(items: list[dict], judge_verdicts: dict, fn_weight: float = 0.7) -> dict:
+def score_config(items: list[dict], judge_verdicts: dict) -> dict:
     """
     items: gold items (gold.load_gold). judge_verdicts: item key -> {criterion: bool}; items the
     judge failed to score are simply absent and left out of every number.
 
-    fitness = mean over criteria of (1 - (fn_weight * FNR + (1 - fn_weight) * FPR)),
-    i.e. a balanced accuracy that counts a missed fail fn_weight / (1 - fn_weight) times as heavily as a
-    false alarm. Criteria where no human fail exists in the scored set are skipped.
+    fitness = mean over criteria of Youden's J (1 - FNR - FPR), range [-1, 1], higher is better, 0 =
+    no better than a judge that ignores the input. A criterion with no human fail (or no human pass)
+    in the scored set has no J and is skipped.
     """
     scored = [it for it in items if it["key"] in judge_verdicts]
 
@@ -69,8 +76,8 @@ def score_config(items: list[dict], judge_verdicts: dict, fn_weight: float = 0.7
         pairs = [(it["human"][criterion], judge_verdicts[it["key"]][criterion]) for it in scored]
         m = criterion_metrics(pairs)
         per_criterion[criterion] = m
-        if m["false_negative_rate"] is not None and m["false_positive_rate"] is not None:
-            fitness_terms.append(1 - (fn_weight * m["false_negative_rate"] + (1 - fn_weight) * m["false_positive_rate"]))
+        if m["youden_j"] is not None:
+            fitness_terms.append(m["youden_j"])
 
     all_pairs = [(it["human"][c], judge_verdicts[it["key"]][c]) for it in scored for c in CRITERIA_KEYS]
     pooled = criterion_metrics(all_pairs)

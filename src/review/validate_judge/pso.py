@@ -10,7 +10,7 @@ Search space notes for whoever implements it:
     by SearchSpace.decode. Model and prompt are categories encoded as a position on an axis, so list
     order in search_space.json has no real meaning; a variant that handles categorical axes natively
     (e.g. discrete/binary PSO) avoids that.
-  - Fitness is higher-is-better, in [0, 1].
+  - Fitness is higher-is-better, in [-1, 1] (mean Youden's J; 0 = no better than ignoring the input).
   - Repeated configs are free (cached), so a swarm converging onto one config costs nothing extra.
 """
 
