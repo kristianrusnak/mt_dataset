@@ -27,7 +27,7 @@ def review_sequences(input_path: str, reviewer_id: str, stats: dict):
     be resumed by re-running against the same input/output pair.
     """
     with open(input_path, 'r', encoding='utf-8') as input_file:
-        for sequence_data_raw in load(input_file).persistent():
+        for i, sequence_data_raw in enumerate(load(input_file).persistent()):
             sequence_data = deep_convert(sequence_data_raw)
             stats["total"] += 1
 
@@ -50,6 +50,7 @@ def review_sequences(input_path: str, reviewer_id: str, stats: dict):
 
             print("\n" + "=" * 70)
             print(f"Reviewing sequence_id: {sequence_id}")
+            print(f"Reviewing sequence nubmer {i+1}.")
             print(f"Classification: {sequence_data.get('classification')}")
             print("Input (session-based -- no per-line ground truth, block-level label only):")
             print("\n".join(logs))
