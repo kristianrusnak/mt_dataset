@@ -11,3 +11,7 @@ full_not_explained.json
 /test.py
 
 build/
+
+.vscode
+.kilo
+.memory
