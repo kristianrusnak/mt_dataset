@@ -11,6 +11,8 @@ Two kinds of failure, handled differently on purpose:
     retry. That is the model's fault, so the evaluator scores the item as wrong on every criterion.
   - any other exception (timeout, 5xx, proxy down): transport trouble, not evidence about the model.
     Retried with backoff here, and if it still fails the item is left unscored and retried next run.
+
+Generated/modified by AI Kilo Code 7.5.6-gratex-017, used model gti-litellm/deepseek-v4.1-flash.
 """
 
 import hashlib
@@ -27,7 +29,11 @@ from src.prompts.judge_criteria import JudgePrompt, get_criteria_judge_prompt
 
 TRANSPORT_ATTEMPTS = 3
 REQUEST_TIMEOUT_S = 180
-MAX_OUTPUT_TOKENS = 4096  # headroom for models that think out loud before answering
+# Reasoning models spend output tokens on a hidden thinking block before the answer; at medium effort
+# that block alone exceeded 4096 tokens (qwen3.8-flash-next: 19,973 chars) and the reply was cut off
+# with finish_reason=length before any answer was emitted. 16k leaves room for thinking + a long
+# per-criterion audit from every model in the grid.
+MAX_OUTPUT_TOKENS = 16384
 
 
 @dataclass(frozen=True)
@@ -122,7 +128,14 @@ _llm_cache: dict = {}
 def _structured_llm(model: str, temperature: float, effort: str):
     key = (model, temperature, effort)
     if key not in _llm_cache:
-        from langchain_litellm import ChatLiteLLM  # lazy: tests that mock the judge need no LLM stack
+        import litellm  # lazy: tests that mock the judge need no LLM stack
+        from langchain_litellm import ChatLiteLLM
+
+        # The proxy passes `reasoning_effort` through to the model, but langchain_litellm validates
+        # params against the generic "openai" provider first, which rejects it before sending.
+        # drop_params stops that pre-send check; the spy test showed reasoning_effort is still
+        # forwarded to litellm.completion (it is not actually dropped).
+        litellm.drop_params = True
 
         llm = ChatLiteLLM(
             model=model,
@@ -149,11 +162,28 @@ def _invoke(structured_llm, messages) -> dict:
             time.sleep(2 ** attempt * 2)
 
 
+def _content_text(content) -> str:
+    """Flatten a reply's content to plain text. Some models (and litellm) return a list of typed
+    blocks -- a hidden `thinking` block plus the answer in a `text` block -- so str() would produce a
+    Python-repr of the list and the JSON fallback could not find the answer. Keep only text blocks."""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for block in content:
+            if isinstance(block, dict):
+                parts.append(block.get("text") or "")
+            else:
+                parts.append(str(block))
+        return "\n".join(p for p in parts if p)
+    return str(content)
+
+
 def _review_from(result: dict):
     """result = {"raw": AIMessage, "parsed": CriteriaReview | None, "parsing_error": Exception | None}"""
     if result.get("parsed") is not None:
         return result["parsed"]
-    raw_text = result["raw"].content if isinstance(result["raw"].content, str) else str(result["raw"].content)
+    raw_text = _content_text(result["raw"].content)
     try:
         return parse_review(raw_text)
     except InvalidJudgeOutput as e:
