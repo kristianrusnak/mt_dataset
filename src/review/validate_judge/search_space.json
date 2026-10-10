@@ -1,24 +1,13 @@
 {
   "_ai": "Generated/modified by AI Kilo Code 7.5.6-gratex-017, used model gti-litellm/glm-5.3-flash. Efforts per model follow /v1/model/info of the LiteLLM proxy: minimax-m2.5 does not list reasoning_effort, the others accept none/low/medium (verified live on 2026-10-10, incl. qwen3.8-flash-next).",
+  "_prompts": "One prompt per model, each in its own file under src/prompts/judge_criteria/ (prompt_id = PROMPT_ID in that file). Modified by Claude Code (Sonnet 5.5) on 2026-10-10: replaced the 3 shared prompt variants per model with one model-specific prompt.",
   "modes": [
-    {"model": "deepseek-v4.1-flash", "prompt_id": "direct", "efforts": ["none", "low", "medium"]},
-    {"model": "deepseek-v4.1-flash", "prompt_id": "evidence_first", "efforts": ["none", "low", "medium"]},
-    {"model": "deepseek-v4.1-flash", "prompt_id": "claim_audit", "efforts": ["none", "low", "medium"]},
-    {"model": "minimax-m2.5", "prompt_id": "direct", "efforts": ["none"]},
-    {"model": "minimax-m2.5", "prompt_id": "evidence_first", "efforts": ["none"]},
-    {"model": "minimax-m2.5", "prompt_id": "claim_audit", "efforts": ["none"]},
-    {"model": "glm-5.3-flash", "prompt_id": "direct", "efforts": ["none", "low", "medium"]},
-    {"model": "glm-5.3-flash", "prompt_id": "evidence_first", "efforts": ["none", "low", "medium"]},
-    {"model": "glm-5.3-flash", "prompt_id": "claim_audit", "efforts": ["none", "low", "medium"]},
-    {"model": "qwen3.8-27b", "prompt_id": "direct", "efforts": ["none", "low", "medium"]},
-    {"model": "qwen3.8-27b", "prompt_id": "evidence_first", "efforts": ["none", "low", "medium"]},
-    {"model": "qwen3.8-27b", "prompt_id": "claim_audit", "efforts": ["none", "low", "medium"]},
-    {"model": "qwen3.8-flash-next", "prompt_id": "direct", "efforts": ["none", "low", "medium"]},
-    {"model": "qwen3.8-flash-next", "prompt_id": "evidence_first", "efforts": ["none", "low", "medium"]},
-    {"model": "qwen3.8-flash-next", "prompt_id": "claim_audit", "efforts": ["none", "low", "medium"]},
-    {"model": "laguna-s-2.1", "prompt_id": "direct", "efforts": ["none", "low", "medium"]},
-    {"model": "laguna-s-2.1", "prompt_id": "evidence_first", "efforts": ["none", "low", "medium"]},
-    {"model": "laguna-s-2.1", "prompt_id": "claim_audit", "efforts": ["none", "low", "medium"]}
+    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek", "efforts": ["none", "low", "medium"]},
+    {"model": "minimax-m2.5", "prompt_id": "minimax", "efforts": ["none"]},
+    {"model": "glm-5.3-flash", "prompt_id": "glm", "efforts": ["none", "low", "medium"]},
+    {"model": "qwen3.8-27b", "prompt_id": "qwen27b", "efforts": ["none", "low", "medium"]},
+    {"model": "qwen3.8-flash-next", "prompt_id": "qwen_next", "efforts": ["none", "low", "medium"]},
+    {"model": "laguna-s-2.1", "prompt_id": "laguna", "efforts": ["none", "low", "medium"]}
   ],
   "temperature": {"min": 0.0, "max": 1.0, "step": 0.25}
 }

@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from pydantic import BaseModel, Field, ValidationError, create_model
 
 from src.help_functions.review_criteria import CRITERIA_KEYS
-from src.prompts.judge_criteria_prompt import get_criteria_judge_prompt
+from src.prompts.judge_criteria import JudgePrompt, get_criteria_judge_prompt
 
 TRANSPORT_ATTEMPTS = 3
 REQUEST_TIMEOUT_S = 180
@@ -66,8 +66,8 @@ CriteriaReview = create_model(
     **{key: (CriterionVerdict, ...) for key in CRITERIA_KEYS},
 )
 
-def build_prompt(config: JudgeConfig, item: dict) -> str:
-    prompt = get_criteria_judge_prompt(
+def build_prompt(config: JudgeConfig, item: dict) -> JudgePrompt:
+    return get_criteria_judge_prompt(
         prompt_id=config.prompt_id,
         log_lines=item["log_lines"],
         session_based=item["session_based"],
@@ -75,15 +75,23 @@ def build_prompt(config: JudgeConfig, item: dict) -> str:
         dataset_name=item["dataset"],
         explanation=item["explanation"],
     )
-    return prompt
+
+
+def build_messages(config: JudgeConfig, item: dict) -> list:
+    from langchain_core.messages import HumanMessage, SystemMessage
+
+    prompt = build_prompt(config, item)
+    messages = [SystemMessage(prompt.system)] if prompt.system else []
+    return messages + [HumanMessage(prompt.user)]
 
 
 def prompt_fingerprint(prompt_id: str) -> str:
-    """Hash of the prompt template (rubric + instructions, with dummy input) and the output schema. Stored
+    """Hash of the prompt template (system + user text, with dummy input) and the output schema. Stored
     with each run file so edited wording invalidates cached verdicts instead of silently reusing them."""
     dummy = {"log_lines": ["1. x"], "session_based": False, "sequence_classification": "normal",
              "dataset": "d", "explanation": "e"}
-    text = build_prompt(JudgeConfig("m", 0.0, prompt_id, "low"), dummy) + json.dumps(CriteriaReview.model_json_schema())
+    prompt = build_prompt(JudgeConfig("m", 0.0, prompt_id, "low"), dummy)
+    text = f"{prompt.system}\n---\n{prompt.user}" + json.dumps(CriteriaReview.model_json_schema())
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
@@ -158,7 +166,7 @@ def call_judge(config: JudgeConfig, item: dict) -> dict:
     from langchain_core.messages import HumanMessage
 
     llm = _structured_llm(config.model, config.temperature, config.effort)
-    messages = [HumanMessage(build_prompt(config, item))]
+    messages = build_messages(config, item)
 
     result = _invoke(llm, messages)
     try:

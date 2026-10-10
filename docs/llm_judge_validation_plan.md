@@ -438,6 +438,10 @@ single draw's feasibility.
 - Whether to test prompt variants at all, or hold the prompt fixed (per the
   CLAUDE.md contract that the judge prompt's flag vocabulary/output shape
   must stay stable) and only search over model + temperature.
+  *Resolved (2026-10-10):* the rubric, scoring rules and output shape are held
+  fixed in `src/prompts/judge_criteria/common.py`; only the wording around them
+  varies, one prompt per model, each in its own file in that package. Prompt
+  and model are therefore confounded in the search by design.
 - Compute/cost budget: the full Cartesian product baseline plus multiple
   metaheuristic runs (per-algorithm and combined) over 30×3 datasets could
   get expensive — worth estimating call counts before running.
