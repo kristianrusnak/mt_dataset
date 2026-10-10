@@ -4,7 +4,7 @@ Plug-in interface for metaheuristic searches over the judge-config space, plus t
 An algorithm only decides *where to look next*; scoring, caching and logging stay in the Evaluator.
 The loop is "ask, evaluate, tell":
 
-    positions = algo.ask()                  # points in the unit cube [0,1]^3: (model, temperature, prompt)
+    positions = algo.ask()                  # points in the unit cube [0,1]^3: (mode, temperature, effort)
     fitnesses = [evaluator.fitness(space.decode(p)) for p in positions]
     algo.tell(fitnesses)                    # algorithm updates itself (best points, velocities, ...)
 

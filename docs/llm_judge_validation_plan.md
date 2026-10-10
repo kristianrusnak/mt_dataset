@@ -297,8 +297,9 @@ single draw's feasibility.
    to the manifest.
 
 3. **Search the `llm_as_judge` configuration space against the human sample.**
-   Rather than a manual sweep, search the space of (model, temperature,
-   prompt) using a swarm/colony-style metaheuristic optimizer — candidate:
+   Rather than a manual sweep, search the space of (mode, temperature,
+   effort) — a mode is a model and prompt tied together, and each mode has its
+   own list of reasoning efforts to try — using a swarm/colony-style metaheuristic optimizer — candidate:
    PSO, or another ant/particle-colony-style algorithm (not chosen yet).
    Fitness of a candidate configuration = its similarity to the step-2
    human verdicts on the same 30-per-dataset sample, compared per-criterion
@@ -309,7 +310,7 @@ single draw's feasibility.
    - once per candidate algorithm, separately,
    - once with all candidate algorithms combined,
    - and separately, run the full **Cartesian product** of every
-     (model × temperature × prompt) combination as a brute-force baseline
+     (mode × temperature × effort) combination as a brute-force baseline
      to sanity-check the metaheuristic search against.
 
    Each run/config's judge output must be kept separate (distinct output

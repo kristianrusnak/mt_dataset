@@ -6,10 +6,11 @@ resume. See the resume contract there: ask() repeatable and RNG-free, all random
 RNG state saved via rng_state_to_json.
 
 Search space notes for whoever implements it:
-  - Positions live in the unit cube [0,1]^3 (model, temperature, prompt) and are mapped to a config
-    by SearchSpace.decode. Model and prompt are categories encoded as a position on an axis, so list
-    order in search_space.json has no real meaning; a variant that handles categorical axes natively
-    (e.g. discrete/binary PSO) avoids that.
+  - Positions live in the unit cube [0,1]^3 (mode, temperature, effort) and are mapped to a config
+    by SearchSpace.decode. A mode is a model + prompt pair. Mode and effort are categories encoded as a
+    position on an axis, so list order in search_space.json has no real meaning; the effort axis is
+    also relative to the chosen mode (each mode has its own list of efforts). A variant that handles
+    categorical axes natively (e.g. discrete/binary PSO) avoids that.
   - Fitness is higher-is-better, in [-1, 1] (mean Youden's J; 0 = no better than ignoring the input).
   - Repeated configs are free (cached), so a swarm converging onto one config costs nothing extra.
 """

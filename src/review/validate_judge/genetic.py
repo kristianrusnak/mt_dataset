@@ -1,15 +1,18 @@
 """
 Genetic algorithm over the judge-config space.
 
-A config ("genome") is (model index, temperature, prompt index); temperature is a real number in the
-space's range, rounded to TEMP_DECIMALS. Each generation keeps the best configs, then breeds the rest
+A config ("genome") is (mode index, temperature, effort index); a mode is a model + prompt pair, the effort
+index points into that mode's own list of efforts, and temperature is a real number in the space's range,
+rounded to TEMP_DECIMALS. Each generation keeps the best configs, then breeds the rest
 from the fitter ones:
   - elitism: the top `elite_count` configs carry over unchanged (their results are cached, so free)
   - selection: a parent is the best of `tournament_size` randomly drawn configs
-  - crossover: model and prompt come from one parent or the other with equal chance; temperature is a
-    random point between the two parents' temperatures
-  - mutation: model and prompt are unordered, so a mutated one is swapped for a different random value;
-    temperature is a number, so it gets a small random nudge (std. dev. = `temp_sigma` x the range)
+  - crossover: mode and effort come from one parent or the other with equal chance; temperature is a
+    random point between the two parents' temperatures. Effort is carried over by name ("high" stays
+    "high"); if the child's mode doesn't offer that effort, a random one of its efforts is used instead
+  - mutation: mode and effort are unordered, so a mutated one is swapped for a different random value
+    (a new mode keeps the current effort by name where it can); temperature is a number, so it gets a
+    small random nudge (std. dev. = `temp_sigma` x the range)
 Children never repeat a config that was already evaluated while an unseen one exists, so the
 budget is spent on new configs. The search also stops early once every config has been tried.
 
@@ -23,7 +26,7 @@ from dataclasses import asdict, dataclass
 from src.review.validate_judge.search_algorithm import SearchAlgorithm, rng_state_from_json, rng_state_to_json
 from src.review.validate_judge.search_space import TEMP_DECIMALS, SearchSpace
 
-TEMPERATURE_GENE = 1  # position of the temperature in a genome; the other two genes are category indices
+MODE_GENE, TEMPERATURE_GENE, EFFORT_GENE = 0, 1, 2  # positions in a genome; mode and effort are indices
 
 
 @dataclass
@@ -102,16 +105,29 @@ class GeneticAlgorithm(SearchAlgorithm):
         a, b = self._tournament(scored), self._tournament(scored)
         child = list(a)
         if self.rng.random() < self.p.crossover_rate:
-            for gene in (0, 2):
-                child[gene] = a[gene] if self.rng.random() < 0.5 else b[gene]
+            child[MODE_GENE] = a[MODE_GENE] if self.rng.random() < 0.5 else b[MODE_GENE]
+            donor = a if self.rng.random() < 0.5 else b
+            child[EFFORT_GENE] = self._carry_effort(donor, child[MODE_GENE])
             child[TEMPERATURE_GENE] = round(a[TEMPERATURE_GENE] + self.rng.random() * (b[TEMPERATURE_GENE] - a[TEMPERATURE_GENE]),
                                             TEMP_DECIMALS)
-        for gene, n in ((0, len(self.space.models)), (2, len(self.space.prompt_ids))):
-            if n > 1 and self.rng.random() < self.p.mutation_rate:
-                child[gene] = self.rng.choice([v for v in range(n) if v != child[gene]])
+        n_modes = len(self.space.modes)
+        if n_modes > 1 and self.rng.random() < self.p.mutation_rate:
+            new_mode = self.rng.choice([m for m in range(n_modes) if m != child[MODE_GENE]])
+            child[EFFORT_GENE] = self._carry_effort(child, new_mode)
+            child[MODE_GENE] = new_mode
+        n_efforts = len(self.space.modes[child[MODE_GENE]].efforts)
+        if n_efforts > 1 and self.rng.random() < self.p.mutation_rate:
+            child[EFFORT_GENE] = self.rng.choice([e for e in range(n_efforts) if e != child[EFFORT_GENE]])
         if self.space.temp_max > self.space.temp_min and self.rng.random() < self.p.mutation_rate:
             child[TEMPERATURE_GENE] = self._nudge(child[TEMPERATURE_GENE])
         return child
+
+    def _carry_effort(self, genome: list, mode_index: int) -> int:
+        """Effort index in `mode_index` for the effort `genome` uses: the same effort by name if that mode
+        offers it, otherwise a random one."""
+        efforts = self.space.modes[mode_index].efforts
+        name = self.space.effort_of(genome)
+        return efforts.index(name) if name in efforts else self.rng.randrange(len(efforts))
 
     def _nudge(self, temperature: float) -> float:
         sigma = self.p.temp_sigma * (self.space.temp_max - self.space.temp_min)

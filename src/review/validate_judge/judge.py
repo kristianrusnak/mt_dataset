@@ -1,5 +1,5 @@
 """
-One judge call: a (model, temperature, prompt) config scoring one gold item on the 5 criteria.
+One judge call: a (model, prompt, temperature, effort) config scoring one gold item on the 5 criteria.
 
 Models are open-source ones served behind one LiteLLM proxy (LITELLM_API_BASE / LITELLM_API_KEY),
 the same setup the llm_as_judge scripts use. The reply is requested with LangChain's
@@ -35,14 +35,17 @@ class JudgeConfig:
     model: str
     temperature: float
     prompt_id: str
+    effort: str  # reasoning effort, sent to the model as `reasoning_effort`
 
     @property
     def key(self) -> str:
         model = re.sub(r"[^A-Za-z0-9._-]+", "-", self.model)
-        return f"{model}__t{self.temperature:.2f}__{self.prompt_id}"
+        effort = re.sub(r"[^A-Za-z0-9._-]+", "-", self.effort)
+        return f"{model}__t{self.temperature:.2f}__{self.prompt_id}__e{effort}"
 
     def as_params(self) -> dict:
-        return {"model": self.model, "temperature": self.temperature, "prompt_id": self.prompt_id}
+        return {"model": self.model, "temperature": self.temperature, "prompt_id": self.prompt_id,
+                "effort": self.effort}
 
 
 class InvalidJudgeOutput(Exception):
@@ -80,7 +83,7 @@ def prompt_fingerprint(prompt_id: str) -> str:
     with each run file so edited wording invalidates cached verdicts instead of silently reusing them."""
     dummy = {"log_lines": ["1. x"], "session_based": False, "sequence_classification": "normal",
              "dataset": "d", "explanation": "e"}
-    text = build_prompt(JudgeConfig("m", 0.0, prompt_id), dummy) + json.dumps(CriteriaReview.model_json_schema())
+    text = build_prompt(JudgeConfig("m", 0.0, prompt_id, "low"), dummy) + json.dumps(CriteriaReview.model_json_schema())
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 
@@ -108,8 +111,8 @@ def parse_review(raw: str):
 _llm_cache: dict = {}
 
 
-def _structured_llm(model: str, temperature: float):
-    key = (model, temperature)
+def _structured_llm(model: str, temperature: float, effort: str):
+    key = (model, temperature, effort)
     if key not in _llm_cache:
         from langchain_litellm import ChatLiteLLM  # lazy: tests that mock the judge need no LLM stack
 
@@ -121,6 +124,7 @@ def _structured_llm(model: str, temperature: float):
             custom_llm_provider="openai",
             request_timeout=REQUEST_TIMEOUT_S,
             max_tokens=MAX_OUTPUT_TOKENS,
+            model_kwargs={"reasoning_effort": effort},
             max_retries=0,  # retries are handled in _invoke so transport and format failures stay separate
         )
         _llm_cache[key] = llm.with_structured_output(CriteriaReview, include_raw=True)
@@ -153,7 +157,7 @@ def call_judge(config: JudgeConfig, item: dict) -> dict:
     """Returns {"scores", "evidence", "scratchpad"}. Raises InvalidJudgeOutput or a transport exception."""
     from langchain_core.messages import HumanMessage
 
-    llm = _structured_llm(config.model, config.temperature)
+    llm = _structured_llm(config.model, config.temperature, config.effort)
     messages = [HumanMessage(build_prompt(config, item))]
 
     result = _invoke(llm, messages)

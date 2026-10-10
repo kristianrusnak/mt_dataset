@@ -1,10 +1,14 @@
 """
-The (model x temperature x prompt) space the searches explore.
+The (mode x temperature x effort) space the searches explore.
+
+A "mode" is a model and a prompt tied together (they are tuned as one unit, not independently). Each mode
+lists the reasoning efforts it can be run at, so the effort axis is different for every mode.
 
 Temperature is a continuous axis: a search position maps linearly onto [temp_min, temp_max] and is
 rounded to TEMP_DECIMALS decimals (so a config still has a stable name and cache file). The grid
 search cannot enumerate a continuous axis, so it uses `temp_step` instead and visits only those values.
-A "genome" is the index-based form the GA and random search work in: (model index, temperature, prompt index).
+A "genome" is the index-based form the GA and random search work in: (mode index, temperature, index into
+that mode's efforts).
 """
 
 import itertools
@@ -17,19 +21,29 @@ TEMP_DECIMALS = 2
 
 
 @dataclass(frozen=True)
+class Mode:
+    model: str
+    prompt_id: str
+    efforts: list  # reasoning efforts this mode is tried at, e.g. ["low", "medium", "high"]
+
+
+@dataclass(frozen=True)
 class SearchSpace:
-    models: list
+    modes: list
     temp_min: float
     temp_max: float
     temp_step: float
-    prompt_ids: list
 
     @classmethod
     def from_json(cls, path: str) -> "SearchSpace":
         with open(path, "r", encoding="utf-8") as f:
             raw = json.load(f)
+        modes = [Mode(m["model"], m["prompt_id"], m["efforts"]) for m in raw["modes"]]
+        for mode in modes:
+            if not mode.efforts:
+                raise ValueError(f"Mode {mode.model}/{mode.prompt_id} has no efforts to try.")
         t = raw["temperature"]
-        return cls(raw["models"], t["min"], t["max"], t["step"], raw["prompt_ids"])
+        return cls(modes, t["min"], t["max"], t["step"])
 
     @property
     def temperatures(self) -> list:
@@ -46,31 +60,42 @@ class SearchSpace:
 
     def all_configs(self) -> list:
         """Grid search's configs (temperatures at temp_step)."""
-        return [JudgeConfig(m, t, p) for m, t, p in
-                itertools.product(self.models, self.temperatures, self.prompt_ids)]
+        return [JudgeConfig(mode.model, t, mode.prompt_id, effort)
+                for mode in self.modes
+                for t in self.temperatures
+                for effort in mode.efforts]
 
     def all_genomes(self) -> list:
-        """Every (model index, temperature, prompt index) the continuous searches can reach."""
-        return list(itertools.product(range(len(self.models)), self.fine_temperatures, range(len(self.prompt_ids))))
+        """Every (mode index, temperature, effort index) the continuous searches can reach."""
+        return [(mi, t, ei)
+                for mi, mode in enumerate(self.modes)
+                for t in self.fine_temperatures
+                for ei in range(len(mode.efforts))]
+
+    def effort_of(self, genome) -> str:
+        """The effort name a genome's effort index stands for (the index alone means nothing across modes)."""
+        return self.modes[genome[0]].efforts[genome[2]]
 
     def signature(self) -> list:
         """What a saved algorithm state depends on; a state made for a different space must not be resumed."""
-        return [len(self.models), self.temp_min, self.temp_max, len(self.prompt_ids)]
+        return [len(self.modes), [len(m.efforts) for m in self.modes], self.temp_min, self.temp_max]
 
     def decode(self, position: list) -> JudgeConfig:
-        """Maps a point in the unit cube [0,1]^3 to a config: model and prompt by nearest cell,
-        temperature linearly onto [temp_min, temp_max]."""
+        """Maps a point in the unit cube [0,1]^3 (mode, temperature, effort) to a config: mode by nearest
+        cell, temperature linearly onto [temp_min, temp_max], effort by nearest cell among the chosen
+        mode's efforts."""
         def pick(values, x):
             return values[min(int(x * len(values)), len(values) - 1)]
+        mode = pick(self.modes, position[0])
         x = min(max(position[1], 0.0), 1.0)
         temperature = round(self.temp_min + x * (self.temp_max - self.temp_min), TEMP_DECIMALS)
-        return JudgeConfig(pick(self.models, position[0]), temperature, pick(self.prompt_ids, position[2]))
+        return JudgeConfig(mode.model, temperature, mode.prompt_id, pick(mode.efforts, position[2]))
 
     def encode(self, genome) -> list:
-        """Inverse of decode for a (model index, temperature, prompt index) genome: the centre of the
-        model and prompt cells, and the temperature's relative position in its range."""
-        model_index, temperature, prompt_index = genome
+        """Inverse of decode for a (mode index, temperature, effort index) genome: the centre of the
+        mode and effort cells, and the temperature's relative position in its range."""
+        mode_index, temperature, effort_index = genome
         span = self.temp_max - self.temp_min
-        return [(model_index + 0.5) / len(self.models),
+        return [(mode_index + 0.5) / len(self.modes),
                 (temperature - self.temp_min) / span if span else 0.0,
-                (prompt_index + 0.5) / len(self.prompt_ids)]
+                (effort_index + 0.5) / len(self.modes[mode_index].efforts)]

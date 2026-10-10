@@ -58,8 +58,10 @@ def main():
 
     if args.mode == "estimate":
         print(f"Gold pool: {len(items)} items across {args.datasets}")
-        print(f"Grid space: {len(space.models)} models x {len(space.temperatures)} temperatures (step {space.temp_step}) x "
-              f"{len(space.prompt_ids)} prompts = {n_configs} configs -> {n_configs * len(items)} judge calls")
+        mode_efforts = sum(len(m.efforts) for m in space.modes)
+        print(f"Grid space: {len(space.modes)} modes (model + prompt) with {mode_efforts} mode-effort pairs in total x "
+              f"{len(space.temperatures)} temperatures (step {space.temp_step}) = {n_configs} configs "
+              f"-> {n_configs * len(items)} judge calls")
         print(f"GA / random space: temperature {space.temp_min}-{space.temp_max} at 2 decimals -> "
               f"{len(space.all_genomes())} possible configs")
         print(f"Search algorithm upper bound (population x rounds, ignoring repeats): "

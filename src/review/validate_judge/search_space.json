@@ -1,5 +1,8 @@
 {
-  "models": ["qwen3.6-27b"],
-  "temperature": {"min": 0.0, "max": 1.0, "step": 0.25},
-  "prompt_ids": ["direct", "evidence_first", "claim_audit"]
+  "modes": [
+    {"model": "qwen3.6-27b", "prompt_id": "direct", "efforts": ["low", "medium", "high"]},
+    {"model": "qwen3.6-27b", "prompt_id": "evidence_first", "efforts": ["low", "medium", "high"]},
+    {"model": "qwen3.6-27b", "prompt_id": "claim_audit", "efforts": ["low", "medium", "high"]}
+  ],
+  "temperature": {"min": 0.0, "max": 1.0, "step": 0.25}
 }
