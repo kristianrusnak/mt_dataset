@@ -131,11 +131,12 @@ def _structured_llm(model: str, temperature: float, effort: str):
         import litellm  # lazy: tests that mock the judge need no LLM stack
         from langchain_litellm import ChatLiteLLM
 
-        # The proxy passes `reasoning_effort` through to the model, but langchain_litellm validates
-        # params against the generic "openai" provider first, which rejects it before sending.
-        # drop_params stops that pre-send check; the spy test showed reasoning_effort is still
-        # forwarded to litellm.completion (it is not actually dropped).
-        litellm.drop_params = True
+        # langchain_litellm validates params against the generic "openai" provider first, which
+        # rejects `reasoning_effort` with UnsupportedParamsError before the request is sent. The fix
+        # is allowed_openai_params (sent with the call) -- NOT litellm.drop_params: drop_params also
+        # silences the error but then silently strips reasoning_effort from the outgoing body, which
+        # made every effort level produce the identical request (verified via an httpx send spy).
+        litellm.drop_params = False
 
         llm = ChatLiteLLM(
             model=model,
@@ -145,7 +146,7 @@ def _structured_llm(model: str, temperature: float, effort: str):
             custom_llm_provider="openai",
             request_timeout=REQUEST_TIMEOUT_S,
             max_tokens=MAX_OUTPUT_TOKENS,
-            model_kwargs={"reasoning_effort": effort},
+            model_kwargs={"reasoning_effort": effort, "allowed_openai_params": ["reasoning_effort"]},
             max_retries=0,  # retries are handled in _invoke so transport and format failures stay separate
         )
         _llm_cache[key] = llm.with_structured_output(CriteriaReview, include_raw=True)

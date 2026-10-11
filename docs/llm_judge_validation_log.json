@@ -448,5 +448,341 @@
       "false_negative_rate": null
     },
     "notes": "Natural core and supplemental pool merged into one scoring pool. The headline numbers can still be reported on the natural core alone by filtering ids through used_ids.json."
+  },
+  {
+    "step": 3,
+    "action": "llm_as_judge_run",
+    "timestamp": "2026-10-10T18:35:19Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.0,
+      "prompt_id": "deepseek",
+      "effort": "none",
+      "search_algorithm": "grid"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_human_reviewed.json",
+      "dataset_short/hdfs/gold_all_human_reviewed.json",
+      "dataset_short/thunderbird/gold_all_human_reviewed.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.00__deepseek__enone.json"
+    ],
+    "metrics": {
+      "agreement": 0.8580952380952381,
+      "kappa": 0.1846607575368057,
+      "false_negative_rate": 0.8411764705882353,
+      "fitness": 0.12872995183194222,
+      "detail": {
+        "n_scored": 210,
+        "overall": {
+          "agreement": 0.8580952380952381,
+          "kappa": 0.1846607575368057,
+          "false_negative_rate": 0.8411764705882353,
+          "fitness": 0.12872995183194222
+        },
+        "per_criterion": {
+          "root_cause_correctness": {
+            "n": 210,
+            "agreement": 0.7523809523809524,
+            "kappa": 0.1911111111111111,
+            "false_negative_rate": 0.85,
+            "false_positive_rate": 0.006666666666666667,
+            "youden_j": 0.14333333333333337,
+            "human_fails": 60
+          },
+          "sequence_summary_correctness": {
+            "n": 210,
+            "agreement": 0.9380952380952381,
+            "kappa": 0.11878631375080667,
+            "false_negative_rate": 0.9230769230769231,
+            "false_positive_rate": 0.005076142131979695,
+            "youden_j": 0.07184693479109718,
+            "human_fails": 13
+          },
+          "contrast_correctness": {
+            "n": 210,
+            "agreement": 0.8095238095238095,
+            "kappa": 0.2893401015228428,
+            "false_negative_rate": 0.78,
+            "false_positive_rate": 0.00625,
+            "youden_j": 0.21374999999999997,
+            "human_fails": 50
+          },
+          "groundedness": {
+            "n": 210,
+            "agreement": 0.9142857142857143,
+            "kappa": 0.09178279673233954,
+            "false_negative_rate": 0.9473684210526315,
+            "false_positive_rate": 0.0,
+            "youden_j": 0.052631578947368474,
+            "human_fails": 19
+          },
+          "speculation_bounded": {
+            "n": 210,
+            "agreement": 0.8761904761904762,
+            "kappa": 0.2322834645669284,
+            "false_negative_rate": 0.8214285714285714,
+            "false_positive_rate": 0.016483516483516484,
+            "youden_j": 0.16208791208791212,
+            "human_fails": 28
+          }
+        },
+        "natural_only": {
+          "agreement": 0.8377777777777777,
+          "kappa": 0.17319378176955746,
+          "false_negative_rate": 0.8888888888888888,
+          "fitness": 0.11554174220840889
+        },
+        "by_dataset": {
+          "bgl": {
+            "agreement": 0.8542857142857143,
+            "kappa": 0.14538039585371493,
+            "false_negative_rate": 0.8333333333333334,
+            "fitness": 0.10814041031432338
+          },
+          "hdfs": {
+            "agreement": 0.8828571428571429,
+            "kappa": 0.19664153003562962,
+            "false_negative_rate": 0.8478260869565217,
+            "fitness": 0.15645367503726637
+          },
+          "thunderbird": {
+            "agreement": 0.8371428571428572,
+            "kappa": 0.19391585670817443,
+            "false_negative_rate": 0.84375,
+            "fitness": 0.13406248079168975
+          }
+        },
+        "invalid_output_rate": 0.0,
+        "error_rate": 0.0
+      }
+    },
+    "notes": "210 judge calls made this time, 0 served from the run file."
+  },
+  {
+    "step": 3,
+    "action": "llm_as_judge_run",
+    "timestamp": "2026-10-10T18:48:52Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.0,
+      "prompt_id": "deepseek",
+      "effort": "low",
+      "search_algorithm": "grid"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_human_reviewed.json",
+      "dataset_short/hdfs/gold_all_human_reviewed.json",
+      "dataset_short/thunderbird/gold_all_human_reviewed.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.00__deepseek__elow.json"
+    ],
+    "metrics": {
+      "agreement": 0.8333333333333334,
+      "kappa": 0.24279708409646056,
+      "false_negative_rate": 0.7235294117647059,
+      "fitness": 0.2177846339588163,
+      "detail": {
+        "n_scored": 210,
+        "overall": {
+          "agreement": 0.8333333333333334,
+          "kappa": 0.24279708409646056,
+          "false_negative_rate": 0.7235294117647059,
+          "fitness": 0.2177846339588163
+        },
+        "per_criterion": {
+          "root_cause_correctness": {
+            "n": 210,
+            "agreement": 0.7619047619047619,
+            "kappa": 0.24242424242424201,
+            "false_negative_rate": 0.8,
+            "false_positive_rate": 0.013333333333333334,
+            "youden_j": 0.18666666666666662,
+            "human_fails": 60
+          },
+          "sequence_summary_correctness": {
+            "n": 210,
+            "agreement": 0.9095238095238095,
+            "kappa": 0.1919805589307417,
+            "false_negative_rate": 0.7692307692307693,
+            "false_positive_rate": 0.04568527918781726,
+            "youden_j": 0.18508395158141347,
+            "human_fails": 13
+          },
+          "contrast_correctness": {
+            "n": 210,
+            "agreement": 0.8047619047619048,
+            "kappa": 0.3608017817371938,
+            "false_negative_rate": 0.64,
+            "false_positive_rate": 0.05625,
+            "youden_j": 0.30374999999999996,
+            "human_fails": 50
+          },
+          "groundedness": {
+            "n": 210,
+            "agreement": 0.8476190476190476,
+            "kappa": 0.15429146740498426,
+            "false_negative_rate": 0.7368421052631579,
+            "false_positive_rate": 0.09424083769633508,
+            "youden_j": 0.16891705704050708,
+            "human_fails": 19
+          },
+          "speculation_bounded": {
+            "n": 210,
+            "agreement": 0.8428571428571429,
+            "kappa": 0.26448736998514116,
+            "false_negative_rate": 0.6785714285714286,
+            "false_positive_rate": 0.07692307692307693,
+            "youden_j": 0.24450549450549447,
+            "human_fails": 28
+          }
+        },
+        "natural_only": {
+          "agreement": 0.8088888888888889,
+          "kappa": 0.22349058167847105,
+          "false_negative_rate": 0.7654320987654321,
+          "fitness": 0.2045219369410546
+        },
+        "by_dataset": {
+          "bgl": {
+            "agreement": 0.8057142857142857,
+            "kappa": 0.1285919991708159,
+            "false_negative_rate": 0.8333333333333334,
+            "fitness": 0.09535939987303287
+          },
+          "hdfs": {
+            "agreement": 0.8657142857142858,
+            "kappa": 0.19742420086985518,
+            "false_negative_rate": 0.7608695652173914,
+            "fitness": 0.19803536476137096
+          },
+          "thunderbird": {
+            "agreement": 0.8285714285714286,
+            "kappa": 0.348836393867357,
+            "false_negative_rate": 0.59375,
+            "fitness": 0.30961077352196614
+          }
+        },
+        "invalid_output_rate": 0.0,
+        "error_rate": 0.0
+      }
+    },
+    "notes": "210 judge calls made this time, 0 served from the run file."
+  },
+  {
+    "step": 3,
+    "action": "llm_as_judge_run",
+    "timestamp": "2026-10-11T08:30:54Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.0,
+      "prompt_id": "deepseek",
+      "effort": "medium",
+      "search_algorithm": "grid"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_human_reviewed.json",
+      "dataset_short/hdfs/gold_all_human_reviewed.json",
+      "dataset_short/thunderbird/gold_all_human_reviewed.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.00__deepseek__emedium.json"
+    ],
+    "metrics": {
+      "agreement": 0.8419047619047619,
+      "kappa": 0.27265818223782456,
+      "false_negative_rate": 0.6941176470588235,
+      "fitness": 0.24340286436989497,
+      "detail": {
+        "n_scored": 210,
+        "overall": {
+          "agreement": 0.8419047619047619,
+          "kappa": 0.27265818223782456,
+          "false_negative_rate": 0.6941176470588235,
+          "fitness": 0.24340286436989497
+        },
+        "per_criterion": {
+          "root_cause_correctness": {
+            "n": 210,
+            "agreement": 0.7714285714285715,
+            "kappa": 0.29113924050632944,
+            "false_negative_rate": 0.75,
+            "false_positive_rate": 0.02,
+            "youden_j": 0.23,
+            "human_fails": 60
+          },
+          "sequence_summary_correctness": {
+            "n": 210,
+            "agreement": 0.9,
+            "kappa": 0.16886543535620113,
+            "false_negative_rate": 0.7692307692307693,
+            "false_positive_rate": 0.05583756345177665,
+            "youden_j": 0.17493166731745408,
+            "human_fails": 13
+          },
+          "contrast_correctness": {
+            "n": 210,
+            "agreement": 0.819047619047619,
+            "kappa": 0.4026946107784433,
+            "false_negative_rate": 0.62,
+            "false_positive_rate": 0.04375,
+            "youden_j": 0.33625,
+            "human_fails": 50
+          },
+          "groundedness": {
+            "n": 210,
+            "agreement": 0.861904761904762,
+            "kappa": 0.18034993270524913,
+            "false_negative_rate": 0.7368421052631579,
+            "false_positive_rate": 0.07853403141361257,
+            "youden_j": 0.18462386332322958,
+            "human_fails": 19
+          },
+          "speculation_bounded": {
+            "n": 210,
+            "agreement": 0.8571428571428571,
+            "kappa": 0.3202416918428999,
+            "false_negative_rate": 0.6428571428571429,
+            "false_positive_rate": 0.06593406593406594,
+            "youden_j": 0.2912087912087912,
+            "human_fails": 28
+          }
+        },
+        "natural_only": {
+          "agreement": 0.8177777777777778,
+          "kappa": 0.23994030620693926,
+          "false_negative_rate": 0.7530864197530864,
+          "fitness": 0.20650404624424232
+        },
+        "by_dataset": {
+          "bgl": {
+            "agreement": 0.8114285714285714,
+            "kappa": 0.11996020341608574,
+            "false_negative_rate": 0.8333333333333334,
+            "fitness": 0.07268697741708059
+          },
+          "hdfs": {
+            "agreement": 0.8657142857142858,
+            "kappa": 0.19942793699860656,
+            "false_negative_rate": 0.782608695652174,
+            "fitness": 0.19349342836958935
+          },
+          "thunderbird": {
+            "agreement": 0.8485714285714285,
+            "kappa": 0.4329455727692356,
+            "false_negative_rate": 0.5,
+            "fitness": 0.4004537635255251
+          }
+        },
+        "invalid_output_rate": 0.0,
+        "error_rate": 0.0
+      }
+    },
+    "notes": "189 judge calls made this time, 21 served from the run file."
   }
 ]
