@@ -1,0 +1,240 @@
+{
+  "k": 3,
+  "cross_class_sequences_dropped": 231,
+  "blocks_counted": {
+    "normal": 24477,
+    "anomaly": 4785
+  },
+  "templates": [
+    {
+      "template": "<*> Served block <*> to <*>",
+      "normal_share": 0.8412795685745802,
+      "anomaly_share": 0.6167189132706374
+    },
+    {
+      "template": "<*> Starting thread to transfer block <*> to <*>, <*>",
+      "normal_share": 0.0010622216774931568,
+      "anomaly_share": 0.015464994775339603
+    },
+    {
+      "template": "<*>:Exception writing block <*> to mirror <*>",
+      "normal_share": 0.0,
+      "anomaly_share": 0.005433646812957158
+    },
+    {
+      "template": "<*>:Failed to transfer <*> to <*> got java.io.IOException: Connection reset by peer",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0018808777429467085
+    },
+    {
+      "template": "<*>:Got exception while serving <*> to <*>:",
+      "normal_share": 0.7821219920741921,
+      "anomaly_share": 0.5310344827586206
+    },
+    {
+      "template": "<*>:Transmitted block <*> to <*>",
+      "normal_share": 0.028312293173182988,
+      "anomaly_share": 0.48401253918495296
+    },
+    {
+      "template": "Adding an already existing block <*>",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0010449320794148381
+    },
+    {
+      "template": "BLOCK* NameSystem.addStoredBlock: addStoredBlock request received for <*> on <*> size <*> But it does not belong to any file.",
+      "normal_share": 0.00044940147893941253,
+      "anomaly_share": 0.14858934169278998
+    },
+    {
+      "template": "BLOCK* NameSystem.addStoredBlock: blockMap updated: <*> is added to <*> size <*>",
+      "normal_share": 1.0,
+      "anomaly_share": 0.9920585161964472
+    },
+    {
+      "template": "BLOCK* NameSystem.allocateBlock: <*> <*>",
+      "normal_share": 1.0,
+      "anomaly_share": 1.0
+    },
+    {
+      "template": "BLOCK* NameSystem.delete: <*> is added to invalidSet of <*>",
+      "normal_share": 0.9317318298811129,
+      "anomaly_share": 0.9719958202716823
+    },
+    {
+      "template": "BLOCK* Removing block <*> from neededReplications as it does not belong to any file.",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0008359456635318704
+    },
+    {
+      "template": "BLOCK* ask <*> to replicate <*> to datanode(s) <*>",
+      "normal_share": 0.028353147853086572,
+      "anomaly_share": 0.4890282131661442
+    },
+    {
+      "template": "Changing block file offset of block <*> from <*> to <*> meta file offset to <*>",
+      "normal_share": 0.0,
+      "anomaly_share": 0.007941483803552769
+    },
+    {
+      "template": "Deleting block <*> file <*>",
+      "normal_share": 0.9539976304285656,
+      "anomaly_share": 0.9822361546499477
+    },
+    {
+      "template": "Exception in receiveBlock for block <*> java.io.EOFException",
+      "normal_share": 0.0,
+      "anomaly_share": 0.007523510971786834
+    },
+    {
+      "template": "Exception in receiveBlock for block <*> java.io.IOException: Broken pipe",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0006269592476489029
+    },
+    {
+      "template": "Exception in receiveBlock for block <*> java.io.IOException: Connection reset by peer",
+      "normal_share": 0.0,
+      "anomaly_share": 0.010031347962382446
+    },
+    {
+      "template": "Exception in receiveBlock for block <*> java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=<*> remote=<*>]. <*> millis timeout left.",
+      "normal_share": 0.0,
+      "anomaly_share": 0.003134796238244514
+    },
+    {
+      "template": "Exception in receiveBlock for block <*> java.net.SocketTimeoutException: <*> millis timeout while waiting for channel to be ready for write. ch : java.nio.channels.SocketChannel[connected local=<*> remote=<*>]",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0010449320794148381
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.io.EOFException",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0029258098223615466
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.io.IOException: Broken pipe",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0012539184952978057
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.io.IOException: Connection reset by peer",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0022988505747126436
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.io.IOException: The stream is closed",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0004179728317659352
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[closed]. <*> millis timeout left.",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0010449320794148381
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=<*> remote=<*>]. <*> millis timeout left.",
+      "normal_share": 0.0,
+      "anomaly_share": 0.004597701149425287
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.net.SocketTimeoutException: <*> millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=<*> remote=<*>]",
+      "normal_share": 0.0,
+      "anomaly_share": 0.004597701149425287
+    },
+    {
+      "template": "PacketResponder <*> <*> Exception java.nio.channels.ClosedByInterruptException",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0020898641588296763
+    },
+    {
+      "template": "PacketResponder <*> for block <*> terminating",
+      "normal_share": 1.0,
+      "anomaly_share": 0.9962382445141066
+    },
+    {
+      "template": "PendingReplicationMonitor timed out block <*>",
+      "normal_share": 0.0,
+      "anomaly_share": 0.008986415882967606
+    },
+    {
+      "template": "Received block <*> of size <*> from <*>",
+      "normal_share": 1.0,
+      "anomaly_share": 0.9920585161964472
+    },
+    {
+      "template": "Received block <*> src: <*> dest: <*> of size <*>",
+      "normal_share": 0.028312293173182988,
+      "anomaly_share": 0.48401253918495296
+    },
+    {
+      "template": "Receiving block <*> src: <*> dest: <*>",
+      "normal_share": 1.0,
+      "anomaly_share": 1.0
+    },
+    {
+      "template": "Receiving empty packet for block <*>",
+      "normal_share": 0.0,
+      "anomaly_share": 0.05203761755485893
+    },
+    {
+      "template": "Reopen Block <*>",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0008359456635318704
+    },
+    {
+      "template": "Unexpected error trying to delete block <*>. BlockInfo not found in volumeMap.",
+      "normal_share": 0.007966662581198677,
+      "anomaly_share": 0.3962382445141066
+    },
+    {
+      "template": "Verification succeeded for <*>",
+      "normal_share": 0.4958532499897863,
+      "anomaly_share": 0.328944618599791
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.EOFException",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0073145245559038665
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.IOException: Block <*> is valid, and cannot be written to.",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0018808777429467085
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.IOException: Broken pipe",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0010449320794148381
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.IOException: Connection reset by peer",
+      "normal_share": 0.0,
+      "anomaly_share": 0.010031347962382446
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.IOException: Could not read from stream",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0020898641588296763
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.IOException: Interrupted receiveBlock",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0020898641588296763
+    },
+    {
+      "template": "writeBlock <*> received exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=<*> remote=<*>]. <*> millis timeout left.",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0014629049111807733
+    },
+    {
+      "template": "writeBlock <*> received exception java.net.NoRouteToHostException: No route to host",
+      "normal_share": 0.0,
+      "anomaly_share": 0.0002089864158829676
+    },
+    {
+      "template": "writeBlock <*> received exception java.net.SocketTimeoutException: <*> millis timeout while waiting for channel to be ready for <*> ch : java.nio.channels.SocketChannel[connected local=<*> remote=<*>]",
+      "normal_share": 0.0,
+      "anomaly_share": 0.003134796238244514
+    }
+  ]
+}

@@ -10,13 +10,22 @@ model has its own file holding only what is tuned to it, with the reasons in its
 add a file with PROMPT_ID and build(), register it below, and point a search_space.json mode at the id.
 """
 
-from src.prompts.judge_criteria import deepseek, glm, laguna, minimax, qwen27b, qwen_next
+from src.prompts.judge_criteria import (
+    deepseek, deepseek_v2, deepseek_v2_cot, glm, laguna, minimax, qwen27b, qwen_next,
+)
 from src.prompts.judge_criteria.common import JudgePrompt, PromptInput
 
-_MODULES = [deepseek, minimax, glm, qwen27b, qwen_next, laguna]
+_MODULES = [deepseek, minimax, glm, qwen27b, qwen_next, laguna, deepseek_v2, deepseek_v2_cot]
 _BUILDERS = {m.PROMPT_ID: m.build for m in _MODULES}
 
 PROMPT_IDS = list(_BUILDERS)
+
+
+def fingerprint_extra(prompt_id: str) -> str:
+    """Text a prompt wants included in its cache fingerprint beyond the tagged dummy render (e.g. an HDFS-only
+    section). Prompts that don't define it return "", which leaves their existing fingerprints unchanged."""
+    module = next(m for m in _MODULES if m.PROMPT_ID == prompt_id)
+    return module.fingerprint_extra() if hasattr(module, "fingerprint_extra") else ""
 
 
 def get_criteria_judge_prompt(

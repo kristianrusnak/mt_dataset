@@ -2,6 +2,12 @@
 
 Status: raw idea / draft plan, not implemented yet. Written down for later work.
 
+**Update (2026-10-16):** steps 1-3 are done and the first judge-config grid search (80 configs) has run. Result
+and interpretation: [llm_judge_grid_search_run1.md](llm_judge_grid_search_run1.md). Short version: best fitness
+0.275, no config is a safe stand-in for the human reviewer; the gold labels were seeded by a Claude pre-review
+(see that doc's label audit); a v2 deepseek prompt is queued in `search_space.json` but not yet run; criterion-1 ambiguous cases are now FAIL
+(8 labels revised in `gold_all_relabeled.json`, originals untouched).
+
 ## Problem
 
 The pipeline generates a causal explanation for each sampled window/block

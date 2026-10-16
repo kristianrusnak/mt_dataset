@@ -25,7 +25,7 @@ from dataclasses import dataclass
 from pydantic import BaseModel, Field, ValidationError, create_model
 
 from src.help_functions.review_criteria import CRITERIA_KEYS
-from src.prompts.judge_criteria import JudgePrompt, get_criteria_judge_prompt
+from src.prompts.judge_criteria import JudgePrompt, fingerprint_extra, get_criteria_judge_prompt
 
 TRANSPORT_ATTEMPTS = 3
 REQUEST_TIMEOUT_S = 180
@@ -98,6 +98,7 @@ def prompt_fingerprint(prompt_id: str) -> str:
              "dataset": "d", "explanation": "e"}
     prompt = build_prompt(JudgeConfig("m", 0.0, prompt_id, "low"), dummy)
     text = f"{prompt.system}\n---\n{prompt.user}" + json.dumps(CriteriaReview.model_json_schema())
+    text += fingerprint_extra(prompt_id)  # "" for prompts without dataset-specific sections, so old hashes hold
     return hashlib.sha256(text.encode()).hexdigest()[:16]
 
 

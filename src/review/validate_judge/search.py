@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 from src.help_functions.manifest_log import append_manifest_entry
 from src.review.validate_judge.evaluator import Evaluator
 from src.review.validate_judge.genetic import GAParams, GeneticAlgorithm
-from src.review.validate_judge.gold import DATASETS, load_gold
+from src.review.validate_judge.gold import DATASETS, DEFAULT_GOLD_FILE, load_gold
 from src.review.validate_judge.grid_search import run_grid
 from src.review.validate_judge.pso import PSO, PSOParams
 from src.review.validate_judge.random_search import RandomParams, RandomSearch
@@ -43,6 +43,8 @@ def main():
     parser.add_argument("--runs_dir", default="dataset_short/judge_runs")
     parser.add_argument("--manifest", default="docs/llm_judge_validation_log.json")
     parser.add_argument("--datasets", nargs="+", default=DATASETS)
+    parser.add_argument("--gold_file", default=DEFAULT_GOLD_FILE,
+                        help="Gold file name inside each dataset folder, e.g. gold_all_relabeled.json.")
     parser.add_argument("--max_workers", type=int, default=8, help="Parallel judge calls per config.")
     parser.add_argument("--state_path", default=None,
                         help="Where the algorithm saves its progress. Default: <runs_dir>/<mode>_seed<seed>_state.json")
@@ -53,7 +55,7 @@ def main():
 
     load_dotenv()
     space = SearchSpace.from_json(args.space)
-    items = load_gold(args.datasets, args.root)
+    items = load_gold(args.datasets, args.root, args.gold_file)
     n_configs = len(space.all_configs())
 
     if args.mode == "estimate":
@@ -68,7 +70,7 @@ def main():
               f"{args.pop_size * (args.generations + 1) * len(items)} judge calls")
         return
 
-    gold_inputs = [f"{args.root}/{d}/gold_all_human_reviewed.json" for d in args.datasets]
+    gold_inputs = [f"{args.root}/{d}/{args.gold_file}" for d in args.datasets]
     evaluator = Evaluator(items, args.runs_dir, args.manifest, max_workers=args.max_workers,
                           search_algorithm=args.mode, gold_inputs=gold_inputs)
 

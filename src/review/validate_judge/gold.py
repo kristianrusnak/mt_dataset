@@ -10,6 +10,7 @@ from src.help_functions.human_review_io import format_logs_for_review
 from src.help_functions.review_criteria import CRITERIA_KEYS
 
 DATASETS = ["bgl", "hdfs", "thunderbird"]
+DEFAULT_GOLD_FILE = "gold_all_human_reviewed.json"
 SESSION_BASED = {"bgl": False, "thunderbird": False, "hdfs": True}
 
 
@@ -22,7 +23,7 @@ def _natural_ids(dataset: str, root: str) -> set[str]:
         return {e["id"] for e in json.load(f) if e["purpose"] == "gold_natural"}
 
 
-def load_gold(datasets: list[str] = None, root: str = "dataset_short") -> list[dict]:
+def load_gold(datasets: list[str] = None, root: str = "dataset_short", gold_file: str = DEFAULT_GOLD_FILE) -> list[dict]:
     """
     One item per gold record:
       key, dataset, id, stratum ("natural" | "supplemental"), session_based,
@@ -31,7 +32,7 @@ def load_gold(datasets: list[str] = None, root: str = "dataset_short") -> list[d
     """
     items = []
     for dataset in datasets or DATASETS:
-        with open(f"{root}/{dataset}/gold_all_human_reviewed.json", "r", encoding="utf-8") as f:
+        with open(f"{root}/{dataset}/{gold_file}", "r", encoding="utf-8") as f:
             records = json.load(f)
         natural = _natural_ids(dataset, root)
         session_based = SESSION_BASED[dataset]
