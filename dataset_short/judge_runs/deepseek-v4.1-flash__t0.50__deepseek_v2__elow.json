@@ -1,0 +1,10 @@
+{
+  "config": {
+    "model": "deepseek-v4.1-flash",
+    "temperature": 0.5,
+    "prompt_id": "deepseek_v2",
+    "effort": "low"
+  },
+  "prompt_fingerprint": "8b02596897a64500",
+  "results": {}
+}

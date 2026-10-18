@@ -2799,35 +2799,147 @@
     },
     "thunderbird:cfa094dd-7a34-4577-84ab-0c7a8b28caa5": {
       "input_fingerprint": "46ffb09b39df0fa0",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - Rate limit exceeded for api_key: 41217f0e6e3eab834870f43550497781f23c78f124a38d9bebebf16fd56b70de. Limit type: max_parallel_requests. Current limit: 30, Remaining: 0. Limit resets at: 2026-10-11 15:07:20 UTC"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames repeated storage/connectivity failures, which are present: EXT3-fs journal aborts at lines 2 and 9, rejecting I/O to offline device at line 10, and GetNodeInfo/discover-node failures at lines 1, 4, 5. These abnormal-tagged events are plausibly what drove the abnormal classification.",
+        "sequence_summary_correctness": "The summary says the window moves from node-discovery/topology messages (lines 1, 3, 4, 6) into filesystem journal aborts and offline-device I/O rejection (lines 2, 9, 10), interleaved with peer traps, temperature-sensor notices, and later SSH session openings (lines 15-16). This matches the actual ordering and flow of the sequence.",
+        "contrast_correctness": "Sentence 3 argues the interleaved normal/recovery events do not outweigh the recurring journal-abort, offline-device, and no-response errors. These fault indicators are real (lines 2, 9, 10, 1, 4, 5) and genuinely distinguish the sequence from a normal one, so the contrast is true and discriminating.",
+        "groundedness": "Every specific claim \u2014 EXT3-fs journal abort, rejecting I/O to offline device, Failed to GetNodeInfo() NO RESPONSE, Failed discover node test, peer traps, temperature-sensor recovery, SSH session openings \u2014 traces to lines 1-20. No invented details.",
+        "speculation_bounded": "The explanation describes observed events and calls them fault indicators without asserting unsupported mechanisms, intent, or downstream consequences. Confidence matches what the logs show."
+      },
+      "scratchpad": ""
     },
     "thunderbird:3163b498-3dbb-4206-bcf0-00509ae9118f": {
       "input_fingerprint": "6bb6d2a15c029834",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - Rate limit exceeded for api_key: 41217f0e6e3eab834870f43550497781f23c78f124a38d9bebebf16fd56b70de. Limit type: max_parallel_requests. Current limit: 30, Remaining: 0. Limit resets at: 2026-10-11 15:08:20 UTC"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the storage failure chain: Buffer I/O errors (lines 9-11), EXT3 read failure (line 12), aborted journal (lines 13-14), and remount read-only (line 15). These abnormal-tagged events are present and plausibly what drove the abnormal verdict.",
+        "sequence_summary_correctness": "Lines 1-6 do alternate instrumentation messages and peer traps; lines 7-14 show the new sweep, buffer I/O errors, and EXT3-fs errors; lines 16-20 end with lost page writes and I/O rejections. The described flow matches the logs.",
+        "contrast_correctness": "Sentence 3 contrasts the normal temperature-sensor returns (lines 1, 3, 5) with the concrete abnormal events (lines 12-14, 18-20). This distinction is real and genuinely separates the sequence from a routine monitoring case.",
+        "groundedness": "Every named detail \u2014 alternating instrumentation/trap lines, new sweep, buffer I/O errors, EXT3-fs errors, aborted journal, remount read-only, lost page writes, offline-device rejections \u2014 maps to lines 1-20. No invented specifics.",
+        "speculation_bounded": "The causal chain (I/O errors \u2192 read failure \u2192 journal abort \u2192 read-only remount) is directly evidenced by the ordered lines 9-15; no unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": ""
     },
     "thunderbird:dcd69dc0-2c1e-46f6-97ef-af26b3bcd135": {
       "input_fingerprint": "d3ecbc24abe571bd",
-      "error": "InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]. Received Model Group=glm-5.3-flash\nAvailable Model Group Fallbacks=None\nError doing the fallback: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3 journal-aborted error at line 1, the only [abnormal]-tagged line and the distinguishing event in the sequence. This is a concrete, log-grounded cause, not circular.",
+        "sequence_summary_correctness": "Lines 2-20 do show peer traps interleaved with temperature sensor events, mostly warnings (lines 3,5,9,13,15,17,19) with two returns to normal (lines 7,11). 'Alternates between warning and normal' and 'only brief returns to normal' match this pattern; the flow description is accurate even if compressed.",
+        "contrast_correctness": "Sentence 3 rules out 'normal' by pointing to the journal-aborted error (line 1) and the repeated warnings, which are real and genuinely distinguish this sequence from a clean steady-state run. No cherry-picking: the sequence contains no evidence contradicting this contrast.",
+        "groundedness": "Every specific claim traces to the logs: the EXT3 journal-aborted error (line 1), peer traps (lines 2,4,6,...), and chassis temperature warnings/returns to normal (lines 3-19). No invented details, counts, or error codes.",
+        "speculation_bounded": "Claims are stated at the level the logs support: the journal error and repeated warnings are directly observed, and 'unresolved faults rather than a fully routine run' is a fair characterization of an aborted journal plus recurring warnings. No unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": ""
     },
     "thunderbird:07b52bf5-dd13-4994-ab78-98f4991a1a17": {
       "input_fingerprint": "6279e51bfc6abf8b",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the temperature sensor warning (lines 3, 17) that returns to normal (lines 7, 9, 11, 14, 20), which is the concrete distinguishing event in the sequence and plausibly what makes it normal.",
+        "sequence_summary_correctness": "Sentence 2 describes alternating datasource timeouts (lines 1, 2, 5, 6, 13, 16), trap messages (lines 4, 8, 10, 12, 15, 18), and sensor updates moving from warning back to normal, ending with a normal reading (line 20). This matches the actual order and pattern.",
+        "contrast_correctness": "Sentence 3 cites recovery messages, the final return to normal (line 20), and the successful synchronization (line 19) as distinguishing this from an unresolved/escalating error state. These details are real and genuinely separate normal from abnormal here.",
+        "groundedness": "Every specific claim \u2014 datasource timeouts, 'Got trap from peer' messages, Instrumentation Service sensor updates, warning-to-normal transitions, and the synchronization message \u2014 is traceable to lines in the sequence (e.g. lines 1, 4, 3, 7, 19). No invented details.",
+        "speculation_bounded": "The claim of a 'transient condition rather than a persistent fault' is directly supported by the warning-then-recovery pattern in the logs; no unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": ""
     },
     "thunderbird:64c60a0f-f3b8-40cd-a60a-a40d3d0b9fcb": {
       "input_fingerprint": "98884ccc790a29e3",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the 'Fault Status assert (Drive Array,Slot/Connector Number: <*>)' message at line 3, which is the only line tagged [abnormal] in the sequence and is a concrete, log-grounded event that plausibly drove the abnormal classification.",
+        "sequence_summary_correctness": "Sentence 2 says the fault appears after two successful logins (lines 1-2 precede line 3) and before more routine access activity continues (lines 4-20 are normal SSH/session lines), which matches the actual ordering.",
+        "contrast_correctness": "Sentence 3 contrasts routine login traffic with the explicit drive-array fault at line 3; this distinction is real and genuinely separates this sequence from a purely normal one, and no conflicting signals are ignored.",
+        "groundedness": "All named details \u2014 the fault message wording (line 3), repeated SSH public-key acceptances (lines 1, 2, 5, 7-11, 13-14, 16, 18-19), and session-opened messages (lines 4, 6, 12, 15, 17, 20) \u2014 are traceable to the input.",
+        "speculation_bounded": "The explanation asserts only that the fault is a non-routine error breaking the ordinary pattern, which the logs directly support; no unsupported mechanism, intent, or downstream consequence is claimed."
+      },
+      "scratchpad": ""
     },
     "thunderbird:1258081d-ce6d-4450-97a9-5943a65159e1": {
       "input_fingerprint": "90ca59f2e17a0942",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - Rate limit exceeded for api_key: 41217f0e6e3eab834870f43550497781f23c78f124a38d9bebebf16fd56b70de. Limit type: max_parallel_requests. Current limit: 30, Remaining: 0. Limit resets at: 2026-10-11 15:09:20 UTC"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites repeated lost page write errors (lines 1\u20136, 15\u201316), rejections of I/O to an offline device (lines 7\u201312, 17), and buffer I/O errors (lines 13\u201314), all present and tagged abnormal or part of the failure cluster. These are the concrete events driving the abnormal verdict, not a restatement of the label.",
+        "sequence_summary_correctness": "The described flow \u2014 page-write failures (lines 1\u20136), then offline-device rejections (lines 7\u201312), then buffer I/O errors (lines 13\u201314), then a sweep message with no topology/configuration change (lines 18\u201320) \u2014 matches the actual ordering of the logs.",
+        "contrast_correctness": "Sentence 3 contrasts a cluster of repeated storage I/O failures (lines 1\u201317) against a single isolated warning, which is real and discriminating, and it acknowledges the final no-change lines (18\u201320) rather than cherry-picking.",
+        "groundedness": "Every named detail \u2014 lost page writes, offline-device rejections, buffer I/O errors, the sweep message, and no topology/configuration change \u2014 appears in lines 1\u201320. No invented codes, counts, or components.",
+        "speculation_bounded": "The explanation describes only what the logs show (error patterns and their order) without asserting mechanisms, intent, or downstream consequences beyond the evidence."
+      },
+      "scratchpad": ""
     },
     "thunderbird:fcc23e26-1bd4-4b42-b00f-0519ece277f9": {
       "input_fingerprint": "c80dd3c21363cef0",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - Rate limit exceeded for api_key: 41217f0e6e3eab834870f43550497781f23c78f124a38d9bebebf16fd56b70de. Limit type: max_parallel_requests. Current limit: 30, Remaining: 0. Limit resets at: 2026-10-11 15:09:20 UTC"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Line 1 is the sole abnormal line: EXT3-fs journal aborted. This concrete filesystem failure is plausibly what drove the abnormal verdict.",
+        "sequence_summary_correctness": "Lines 2\u201320 are indeed repeated session openings and publickey authentications, with mail queue lines at 10\u201311. The described flow matches.",
+        "contrast_correctness": "The contrast correctly notes the only non-routine event is the filesystem error (line 1) and that routine logins/queue messages don't negate it. This is real and discriminating.",
+        "groundedness": "EXT3-fs journal abort (line 1), SSH publickey auths and session openings (lines 2\u201320), mail queue lines (10\u201311) all appear in the sequence. No invented details.",
+        "speculation_bounded": "Claims are limited to what the logs show: a filesystem error and otherwise routine activity. No unsupported mechanism or consequence is asserted."
+      },
+      "scratchpad": "S1: EXT3-fs journal abort (line 1) is the abnormal line and plausible driver \u2014 pass. S2: rest is repeated SSH logins/sessions with mail queue lines in between \u2014 matches lines 2\u201320 \u2014 pass. S3: contrast cites the real filesystem error vs routine logins \u2014 true and discriminating \u2014 pass. S4: all details traceable \u2014 pass. S5: no unsupported mechanism/intent claims \u2014 pass."
     },
     "thunderbird:e82b9ade-2431-4dc2-bcdf-62614ad94a79": {
       "input_fingerprint": "82f61dcca5da8e49",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - Rate limit exceeded for api_key: 41217f0e6e3eab834870f43550497781f23c78f124a38d9bebebf16fd56b70de. Limit type: max_parallel_requests. Current limit: 30, Remaining: 0. Limit resets at: 2026-10-11 15:09:20 UTC"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Line 8 is the only abnormal-tagged line, an EXT3 'Journal has aborted' error, and the explanation cites it as the cause.",
+        "sequence_summary_correctness": "Lines 1-7 alternate temperature notices and peer traps, line 8 is the EXT3 error, lines 14-16 are IB failures, line 17 rediscovery, line 18 new sweep, line 19 INIT state, line 20 another failure \u2014 matching the described order.",
+        "contrast_correctness": "Temperature lines (1,3,5,10,12) are all normal-tagged, while line 8 is the sole abnormal event; the contrast correctly distinguishes routine monitoring from the concrete fault.",
+        "groundedness": "Every named detail (EXT3 journal abort, mad_process failed, Rediscover the subnet, temperature warnings, peer traps, new sweep, INIT state) appears in lines 1-20.",
+        "speculation_bounded": "Claims are limited to what the logs show; 'error chain' is a mild framing but the co-occurrence of storage and IB errors is directly evidenced."
+      },
+      "scratchpad": ""
     },
     "thunderbird:fcebf9d2-235b-4519-a881-f6def63826a3": {
       "input_fingerprint": "08879f9be5394d1e",
@@ -2903,7 +3015,21 @@
     },
     "thunderbird:0d91a42b-544a-4b03-bd14-9bf413160b3e": {
       "input_fingerprint": "5c4f436d2de41f3d",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3-fs journal-abort error at line 20, the only [abnormal] line in the sequence, so it is the concrete event driving the classification and not a restatement of the verdict.",
+        "sequence_summary_correctness": "Lines 1-19 indeed show repeated trap messages and temperature sensor warnings (lines 4,6,8,10,12,15,17), one return-to-normal reading (line 2), a NEW SWEEP marker (line 14), and the BMC ambient temp message (line 19) immediately precedes the filesystem error (line 20).",
+        "contrast_correctness": "Sentence 3 contrasts the routine temperature warnings (lines 4-17, all tagged normal) with the ext3 journal-abort error (line 20), which is real and genuinely separates this window from a normal monitoring stream; no conflicting signals are ignored.",
+        "groundedness": "Every named detail \u2014 repeated traps, temperature warnings, return-to-normal reading (line 2), NEW SWEEP (line 14), BMC ambient temp (line 19), and the EXT3-fs journal abort (line 20) \u2014 appears in the sequence.",
+        "speculation_bounded": "The explanation states the ext3 error is a concrete filesystem failure and the decisive difference, which the logs directly support; no unsupported mechanism or downstream consequence is asserted."
+      },
+      "scratchpad": ""
     },
     "thunderbird:2fd40a0b-5f26-49b7-9aa1-775281e73d3e": {
       "input_fingerprint": "4fddf4c72865301e",
@@ -3627,7 +3753,21 @@
     },
     "thunderbird:715feb75-2ac7-41b5-8cd4-5e199836c150": {
       "input_fingerprint": "ea661b3e67f4e65a",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the RRD_update warnings (lines 10-12) as the only concrete fault, alongside the regular sync messages, which matches the sequence and plausibly explains the normal verdict.",
+        "sequence_summary_correctness": "Lines 1-8 and 15-20 do alternate between 'kernel time sync disabled' and 'synchronized to stratum', with exactly one 'kernel time sync enabled' at line 13, matching the described pattern.",
+        "contrast_correctness": "Successful synchronizations occur both before (lines 2, 4, 6, 8, 9) and after (lines 14, 16, 18, 20) the RRD warnings, and the RRD messages are indeed limited to minimum one-second step violations (lines 10-12), genuinely ruling out the abnormal verdict.",
+        "groundedness": "Every named detail \u2014 RRD_update illegal timestamp warnings, kernel time sync disable/enable, synchronized to stratum messages, the single enable event \u2014 is traceable to lines 1-20.",
+        "speculation_bounded": "Claims are limited to what the logs show: the RRD messages are described only as one-second step violations, and the absence of crash/outage/persistent failure is directly supported by the sequence."
+      },
+      "scratchpad": ""
     },
     "thunderbird:69963578-6ef9-4b8d-b780-e8345f4e162f": {
       "input_fingerprint": "9d55cbd9dd60f86e",

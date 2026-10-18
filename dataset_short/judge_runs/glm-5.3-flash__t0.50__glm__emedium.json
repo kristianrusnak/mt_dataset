@@ -2139,47 +2139,201 @@
     },
     "hdfs:f16f9fb5-094c-436a-b5fc-e864eccbc754": {
       "input_fingerprint": "b15e9f718b6a38f9",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - Rate limit exceeded for api_key: 41217f0e6e3eab834870f43550497781f23c78f124a38d9bebebf16fd56b70de. Limit type: max_parallel_requests. Current limit: 30, Remaining: 0. Limit resets at: 2026-10-11 19:48:08 UTC"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the repeated PacketResponder terminating events (lines 5, 9, 11, interleaved with the block receipts at 6, 10, 12) and the explicit replication request (line 14). Both are present in the sequence and are the standout non-routine events, so they plausibly drove the abnormal classification.",
+        "sequence_summary_correctness": "Lines 1-13 do open with several Receiving block entries (1-3), Received block completions (6, 10, 12) and addStoredBlock updates (7, 8, 13); replication/transmission activity follows (14, 15-17); the window ends with Deleting block (20, 24, 25, 26) and NameSystem.delete invalidSet messages (21-23). The described order matches the logs.",
+        "contrast_correctness": "The contrast cites real, present events (terminations at 5/9/11, replication request at 14) and explicitly concedes the routine receive-and-store pattern in the surrounding lines (1-13) instead of ignoring it, so it is neither circular nor cherry-picked and plausibly separates this window from pure bookkeeping.",
+        "groundedness": "Every specific claim traces to a line: three responder terminations (5, 9, 11), one replication request (14), several Receiving block (1-3), Received block completions (6, 10, 12, 16), addStoredBlock updates (7, 8, 13, 18, 19), Transmitted block (17), multiple Deleting block (20, 24, 25, 26) and invalidSet entries (21-23). 'Interrupted and retried' is an interpretive mechanism gloss, not an invented specific event, code, count, component, or timing, so it is scored under criterion 5.",
+        "speculation_bounded": "Sentence 1 asserts the replication path 'had to be interrupted and retried', but no line shows any interruption, error, or failure \u2014 only a replication request (line 14) and a subsequent transfer (15-17). Sentence 3 likewise states flatly that the routine 'terminating' messages are 'failure-handling signals', an intent claim the logs never evidence."
+      },
+      "scratchpad": "Checking sentence 1: the cited causes are repeated PacketResponder terminating events (lines 5, 9, 11, interleaved with receipts at 6, 10, 12) and the replication request (line 14). Both are present in the logs and are the non-routine events in the window, so they plausibly drove the abnormal label \u2014 not circular, not a wrong event. The gloss 'interrupted and retried' is a mechanism claim, which belongs to criterion 5, not criterion 1. PASS.\n\nChecking sentence 2: the described flow \u2014 starts with several Receiving block entries (1-3), Received block completions (6, 10, 12), addStoredBlock updates (7, 8, 13), then replication/transmission (14, 17, with 15-16), then ends with multiple Deleting block (20, 24, 25, 26) and invalidSet messages (21-23) \u2014 matches the actual ordering. PASS.\n\nChecking sentence 3: the contrast cites real events (responder terminations, line 14 replication request) and explicitly acknowledges the routine receive-and-store pattern in the surrounding lines rather than ignoring it, so it is not circular and not cherry-picked; it plausibly separates this window from pure bookkeeping. PASS.\n\nChecking groundedness: every named specific claim is traceable \u2014 three responder terminations (5, 9, 11), one replication request (14), several Receiving block (1-3), Received block completions (6, 10, 12, 16), addStoredBlock updates (7, 8, 13, 18, 19), Transmitted block (17), multiple Deleting block (20, 24, 25, 26) and invalidSet entries (21-23). 'Interrupted and retried' is an interpretive mechanism gloss, not a fabricated specific event/code/count/component/timing, so it is judged under criterion 5. PASS.\n\nChecking speculation: 'a block transfer/replication path that had to be interrupted and retried' asserts an interruption mechanism no line evidences \u2014 there is no error, exception, or interruption event anywhere, only a replication request (14). Sentence 3 also flatly labels the routine 'terminating' messages 'failure-handling signals' without hedging. The logs justify 'a replication request was issued', not 'had to be interrupted'. FAIL."
     },
     "hdfs:c2143db1-b9ac-4ed0-bafb-43eedb142e53": {
       "input_fingerprint": "695e95f3685a889b",
-      "error": "InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]. Received Model Group=glm-5.3-flash\nAvailable Model Group Fallbacks=None\nError doing the fallback: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 grounds the normal verdict in the routine intake/bookkeeping pattern: Receiving/Received block lines (1, 2, 4, 6, 9, 11), PacketResponder terminations (5, 8, 10), and NameSystem addStoredBlock updates (7, 12, 13). These events are present and plausibly what makes the sequence normal, and the sentence cites concrete log events rather than restating the label.",
+        "sequence_summary_correctness": "Sentence 2 claims \"one serving exception,\" but the sequence contains two exception lines (14 and 19), and the second one (19) is not followed by any verification message, so the described pattern contradicts the logs. It also lists \"block deletions and invalidSet updates\" in that order, while the logs show the invalidSet updates (21-23) preceding the deletions (24-26).",
+        "contrast_correctness": "The contrast is real and discriminating: the exceptions (14, 19) are each followed by successful \"Served block\" lines (15, 16, 18, 20), a \"Verification succeeded\" (17), and completed deletes (24-26), which genuinely explains why an abnormal verdict does not apply. The exceptions are the only potentially conflicting signal in the window, and the contrast addresses them directly rather than cherry-picking.",
+        "groundedness": "Every named detail is traceable: Receiving/Received block (1, 2, 4, 6, 9, 11), PacketResponder terminating (5, 8, 10), allocateBlock (3), addStoredBlock (7, 12, 13), Served block (15, 16, 18, 20), Verification succeeded (17), NameSystem.delete/invalidSet (21-23), Deleting block (24-26). Nothing is imported from typical error patterns or exaggerated; the \"one vs. two\" exception miscount is a summary-flow error scored under criterion 2, not a fabricated event, since the exceptions themselves exist at lines 14 and 19.",
+        "speculation_bounded": "The claims are hedged at the level the logs justify: \"routine intake and bookkeeping\" matches lines 1-13, and \"not a sustained failure pattern or unrecovered error\" is backed by successful serves after each exception (15, 16, 18, 20) and the verification success (17). No intent, mechanism, or downstream consequence is asserted beyond what the log lines show."
+      },
+      "scratchpad": ""
     },
     "hdfs:5729e535-e6fa-48ee-9848-c68137da772b": {
       "input_fingerprint": "8218a0c10778a642",
-      "error": "InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]. Received Model Group=glm-5.3-flash\nAvailable Model Group Fallbacks=None\nError doing the fallback: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": false,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the deletion/invalidation tail: 'Deleting block' (lines 19, 24-26) and 'NameSystem.delete ... added to invalidSet' (lines 21-23). This event is present in the logs and is the distinctive feature of the window, so it is a concrete, non-circular cause, not a restatement of the label.",
+        "sequence_summary_correctness": "The described flow matches the logs: allocation/receipt (1-4), packet responder terminations (5, 7, 9), addStoredBlock updates (12-14, 18), a deletion (19) with one verification success (20), then repeated NameSystem.delete entries (21-23). The later deletions (24-26) are omitted, which is permitted; no ordering contradiction.",
+        "contrast_correctness": "The contrast cites the real repeated invalidSet additions (21-23) following deletes (19) and explicitly acknowledges the routine replication/commit activity (11-18) instead of ignoring it, so the distinguishing detail is genuine and separates this window from a normal one.",
+        "groundedness": "'The same block being added to the invalidSet repeatedly' asserts a block identity that cannot be pointed to in the input: all block IDs are masked, and lines 21-23 could be different blocks. All other named details (allocation, responder terminations, one verification success, deletes, replication) are traceable.",
+        "speculation_bounded": "The causal claims (delete operations leading to invalidSet additions; this pattern being the abnormal indicator) match what lines 19-26 show and the given label. No mechanism, intent, or downstream consequence beyond the logs is asserted; the 'same block' issue is a traceability problem under criterion 4, not unsupported causal confidence."
+      },
+      "scratchpad": "Reading the explanation against the masked sequence.\n\nCriterion 1: Sentence 1 blames the deletion tail \u2014 'Deleting block' (19, 24-26) and 'NameSystem.delete ... added to invalidSet' (21-23). That event is present in the logs and is the distinctive feature of this window, so it is a concrete, non-circular cause. The 'same block' wording is a detail problem, not a wrong-cause problem \u2014 criterion 4 territory.\n\nCriterion 2: Described flow: allocation/receipt (1-4), responder terminations (5/7/9), stored-block updates (12-14, 18), deletion activity (19) with one verification success (20), then repeated NameSystem.delete entries (21-23). This matches the actual ordering. The trailing deletions (24-26) are omitted, which is allowed. No order/timing contradiction.\n\nCriterion 3: The contrast cites the real repeated invalidSet additions (21-23) following deletes (19) and explicitly addresses the routine replication/commit activity (11-18) rather than ignoring it. Discriminating and not cherry-picked.\n\nCriterion 4: 'The same block being added to the invalidSet repeatedly' asserts a block identity that cannot be pointed to in the input \u2014 all block IDs are masked, and lines 21-23 could be different blocks. Every other named detail (allocation, responder terminations, one verification success, deletes, replication) is traceable. One unverifiable specific detail is enough to fail.\n\nCriterion 5: The causal claims (deletes leading to invalidSet additions; this pattern being the abnormal indicator) are supported by lines 19-26 and the given label. No mechanism, intent, or downstream consequence beyond the logs is asserted. The 'same block' issue is traceability (criterion 4), not overconfidence about a causal claim.\n\nRe-check: Criterion 1 \u2014 cause is the delete/invalidSet pattern, present and plausibly distinguishing: pass stands. Criterion 2 \u2014 compressed order matches: pass stands. Criterion 3 \u2014 real, discriminating, addresses the routine signal: pass stands. Criterion 4 \u2014 'the same block' not traceable: fail stands. Criterion 5 \u2014 no unsupported mechanism/intent/consequence: pass stands."
     },
     "hdfs:dd517e8b-f08f-454f-941e-b3bf75aedf15": {
       "input_fingerprint": "14be631ccd43331f",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the addStoredBlock message stating the block \"does not belong to any file\" (line 22) together with the invalidSet deletions (lines 17-19) and deleting-block activity (lines 20, 21, 24). These events are present in the sequence and are the concrete anomalies that plausibly drove the abnormal label; the cause is log-grounded, not circular, and not a routine event (the tail ordering is slightly compressed, but the blamed events are the right ones).",
+        "sequence_summary_correctness": "Sentence 2's phase description matches the logs as a compressed summary: reception/registration early (lines 1-13, including allocateBlock at 3 and blockMap updates at 8, 9, 13), PacketResponder terminations (6, 10, 11) and serving exceptions (14, 16) in the middle, and invalidation/deletion messages later (17-24). No stated order or pattern contradicts the logs.",
+        "contrast_correctness": "Sentence 3's distinguishing detail is real: line 22's \"does not belong to any file\" sits against blockMap-update activity (line 23), and such an explicit inconsistency is a genuine failure marker absent from normal block-handling flows. The contrast is not circular and does not ignore counter-evidence, since the early routine activity does not outweigh the failure state.",
+        "groundedness": "Every named detail traces to the input: reception and storage (lines 1-13), PacketResponder terminations (6, 10, 11), serving exceptions (14, 16), repeated invalidSet deletions (17-19, three occurrences justify \"repeated\"), block deletions (20, 21, 24), and the quoted \"does not belong to any file\" wording (line 22). No invented codes, counts, components, or timings.",
+        "speculation_bounded": "The only interpretive claim, that the mismatch is \"a concrete failure state rather than routine block handling,\" is directly supported by line 22's explicit error text. No mechanism, intent, or downstream consequence is asserted beyond what the logs show."
+      },
+      "scratchpad": ""
     },
     "hdfs:3bef7c06-10a6-4af5-8784-2d52a99b23cc": {
       "input_fingerprint": "46d2abed259f0060",
-      "error": "InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]. Received Model Group=glm-5.3-flash\nAvailable Model Group Fallbacks=None\nError doing the fallback: litellm.InternalServerError: InternalServerError: Hosted_vllmException - Cannot connect to host 172.25.2.196:5000 ssl:<ssl.SSLContext object at 0x7d6d0fab3b10> [Connect call failed ('172.25.2.196', 5000)]No fallback model group found for original model_group=glm-5.3-flash. Fallbacks=[{'google/gemini-2.5-pro': ['google/gemini-2.5-flash']}, {'azure/gpt-5.1': ['azure/gpt-5']}, {'azure/gpt-5': ['azure/gpt-5-mini']}, {'ornith-1.5': ['qwen3.8-flash-next']}, {'vision/Qwen3-32b-VL': ['qwen3.8-27b']}, {'azure/gpt-6-sol': ['azure/gpt-5.6-sol']}]"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "The cited cause is grounded: NameSystem.delete adds blocks to the invalidSet (lines 22\u201324) with deletions at 19 and 25\u201327, and the PacketResponder terminations (5, 7, 13) are also present. The invalidSet/delete path is plausibly the distinguishing event behind the abnormal label, not a circular restatement of it.",
+        "sequence_summary_correctness": "The described flow \u2014 allocation (1), receiving/replication (2\u20134, 9, 15, 18), PacketResponder terminating (5, 7, 13), addStoredBlock updates (10\u201312, 16), transmission (17) and verification (21), then deleting-block messages (19, 25\u201327) \u2014 matches the actual ordering in compressed form.",
+        "contrast_correctness": "The contrast cites the three invalidSet insertions (22\u201324) and repeated block deletions (19, 25\u201327) at the window's end, which are real and genuinely separate this from a routine receipt/storage-only sequence; the routine signals it acknowledges do not outweigh this evidence.",
+        "groundedness": "Every specific claim traces to the input: allocation (1), receiving/replication (2\u20134, 9, 15, 18), PacketResponder terminations (5, 7, 13), addStoredBlock (10\u201312, 16), transmitted block (17), verification (21), exactly three invalidSet lines (22\u201324), and deleting-block messages (19, 25\u201327). 'The same blocks' is a summary reference to the blocks handled earlier in the sequence \u2014 paraphrase, not fabrication.",
+        "speculation_bounded": "'Indicating blocks were marked invalid' is directly supported by lines 22\u201324, and 'signals a failure-oriented cleanup pattern' is hedged ('signals') and rests on the evidenced invalidation/deletion events. No unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": "Sentence 1 cites the invalidSet/delete path (lines 22\u201324) plus repeated PacketResponder terminations (5, 7, 13). The invalidSet path is present and plausibly the distinguishing driver of the abnormal label; the terminations are secondary context, not a wrong blame. Sentence 2's stage order (allocation \u2192 receiving/replication \u2192 PacketResponder \u2192 addStoredBlock \u2192 transmission/verification \u2192 deletions) matches the actual flow of lines 1\u201327 in compressed form. Sentence 3's contrast (three invalidSet insertions at 22\u201324 plus repeated deletions at 19, 25\u201327 vs routine receipt/storage) is real and discriminating; the routine signals it acknowledges don't call the abnormal verdict into question. Groundedness: every named detail traces to a line \u2014 allocation (1), receiving (2\u20134, 15, 18), PacketResponder (5, 7, 13), addStoredBlock (10\u201312, 16), transmitted (17), verification (21), exactly three invalidSet lines (22\u201324), deleting block (19, 25\u201327); 'the same blocks' reads as a summary reference to the blocks handled earlier in the sequence, i.e., paraphrase, not an invented count/code/component. Speculation: 'signals a failure-oriented cleanup pattern' is hedged ('signals') and rests on the evidenced invalidation/deletion events; 'blocks were marked invalid' is directly supported by 22\u201324. No unsupported mechanism, intent, or downstream consequence is asserted. All five pass."
     },
     "hdfs:cb1b102f-59d4-4c0c-a397-964be9298fc7": {
       "input_fingerprint": "9f05ff36e06ae858",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the explicit failure at line 19 (\"Unexpected error trying to delete block <*>. BlockInfo not found in volumeMap.\"), which is present in the sequence and is the only error-type event in the window, making it plausibly what drove the abnormal label. It cites a concrete log-grounded event rather than restating the verdict, so it is not circular.",
+        "sequence_summary_correctness": "Sentence 2 describes receive/store/add-to-block-map first, then mark-invalid and delete. Lines 1-4 and 6/10/12 show blocks being received, lines 7/8/13 show addStoredBlock blockMap updates, lines 14-16 show blocks added to invalidSet, and lines 17-20 show block deletion. The described order and pattern match the logs.",
+        "contrast_correctness": "Sentence 3 claims normal block handling would not include a deletion error about missing volumeMap metadata after deletes had begun. This is true (line 19 is the sole error, occurring after the delete/invalidSet operations start at lines 14-18) and genuinely discriminating, since that error template is the distinguishing feature versus normal sequences; no conflicting evidence in the window is ignored.",
+        "groundedness": "Every specific claim traces to the input: the quoted error to line 19, receiving to lines 1/2/4/6/10/12, storing and blockMap updates to lines 7/8/13, invalidSet marking to lines 14-16, deletion to lines 17/18/20, and \"after the delete operations had begun\" matches line 19's position after lines 14-18. No invented details.",
+        "speculation_bounded": "The only causal claim is that the explicit error at line 19 made the sequence abnormal, which the logs directly evidence; stating a well-evidenced cause plainly is not overreach. The contrast's claim about normal handling is a mild, justified generalization, not an asserted mechanism, intent, or downstream consequence."
+      },
+      "scratchpad": ""
     },
     "hdfs:87da429f-e471-4c52-8d67-dbdc7db2c7dd": {
       "input_fingerprint": "ad16b798289f5b3c",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Lines 22-24 (BLOCK* NameSystem.delete ... added to invalidSet) followed by file deletions at lines 25-27, occurring after the reception and addStoredBlock updates at lines 1-18, are the distinctive events and a plausible driver of the abnormal label; the cause is concrete and log-grounded, not a restatement of the verdict.",
+        "sequence_summary_correctness": "The described order matches the logs: receives (1-4), responder terminations (5,7,9), received-block confirmations (6,8,10), addStoredBlock updates (11,12,14,18), replication request (13), transmission (16), served block (20), verification success (21), then multiple deletes (22-27). Line 19's earlier delete is omitted, but omissions are permitted and the 'finally multiple delete operations' claim is still accurate for lines 22-27.",
+        "contrast_correctness": "The contrast rests on the real invalidSet additions (lines 22-24) and successive deletions (lines 25-27) coming after storage updates (lines 11-18), which genuinely supports why the normal verdict does not apply; it is non-circular, and the routine signals present (served block at 20, verification success at 21) do not constitute conflicting evidence that would call the abnormal verdict into question.",
+        "groundedness": "Every named detail traces to a line: NameSystem.delete/invalidSet at 22-24, block receives at 1/3/4/15/17, responder terminations at 5/7/9, received-block confirmations at 6/8/10, addStoredBlock at 11/12/14/18, replication request at 13, transmission at 16, served block at 20, verification success at 21, and deletions at 19/25-27. No invented events, counts, or timings.",
+        "speculation_bounded": "Sentence 1 states a well-evidenced cause (the delete/invalidSet entries plainly present at lines 22-24) without added mechanism or intent, which the rubric permits; sentence 3's comparative claim is a reasonable inference from the flow and the ground-truth label, with no downstream consequences or intent asserted beyond the evidence."
+      },
+      "scratchpad": "Checking each criterion against the rubric wording and the log lines.\n\n1. Root cause: Sentence 1 blames the repeated NameSystem.delete/invalidSet additions at lines 22-24. These lines exist verbatim in the sequence, they are the most distinctive events in it, and the delete-after-store pattern (storage updates at 11-18 followed by invalidSet additions at 22-24 and file deletions at 25-27) is a plausible driver of the abnormal label. Not circular \u2014 a concrete log-grounded event is cited. PASS.\n\n2. Summary: The described flow \u2014 block receives (1-4), responder terminations (5,7,9), received-block confirmations (6,8,10), addStoredBlock updates (11,12,14,18), replication request (13), transmission (16), served block (20), verification success (21), then multiple deletes (22-27) \u2014 matches the actual order. Line 19 is an earlier delete the summary omits, but omissions are allowed and 'finally multiple delete operations' is still true of 22-27. PASS.\n\n3. Contrast: The contrast cites a real feature (invalidSet additions at 22-24 plus successive deletions at 25-27 occurring after storage at 11-18) and explains why 'normal' doesn't apply. It is not circular, and the only routine-looking signals (served block at 20, verification success at 21) don't call the abnormal verdict into question, so it isn't cherry-picking. PASS.\n\n4. Groundedness: Every specific claim maps to a line: delete/invalidSet at 22-24, receives at 1/3/4/15/17, terminations at 5/7/9, confirmations at 6/8/10, addStoredBlock at 11/12/14/18, replication at 13, transmission at 16, served block at 20, verification at 21, deletions at 19/25-27. 'After being stored' is a fair reading of the flow order, not fabrication. PASS.\n\n5. Speculation: Sentence 1 states a well-evidenced cause plainly, which the rubric explicitly permits; no mechanism, intent, or downstream consequence is asserted beyond what the logs show, and the comparative claim in sentence 3 is a reasonable inference given the ground-truth label. PASS.\n\nRe-read against PASS/FAIL wording: all five verdicts hold; no changes needed."
     },
     "hdfs:a086ef20-a9da-4c5b-a200-53dbadb06a91": {
       "input_fingerprint": "ad02ca43dd383a1b",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Line 15 \":Got exception while serving\" is the concrete error event the explanation blames, and it is the standout failure in an otherwise routine block-handling sequence, so it plausibly drives the abnormal label. The supplementary PacketResponder terminations (lines 5, 7, 12) are also present in the logs, so the cited cause is log-grounded rather than circular or misattributed.",
+        "sequence_summary_correctness": "The described flow matches the logs in order: allocation at line 1, receiving at lines 2-4/18/25, transmissions at lines 20/26, addStoredBlock updates at lines 9-11/21-22/28-29, replication requests at lines 17/24, and deletions at lines 23/30-36 appearing later. Nothing in sentence 2 contradicts the sequence's ordering or pattern.",
+        "contrast_correctness": "The contrast rests on the real exception at line 15, which is exactly the kind of explicit error absent from routine sequences, and the 'mostly successful block handling' framing is confirmed by the surrounding successful Served/Received/addStoredBlock lines (e.g., 14, 16, 21-22). The contrast is not circular and no evidence in the window points toward a normal verdict being ignored.",
+        "groundedness": "Every specific claim traces to the input: 'Got exception while serving' (line 15) sits between two 'Served block' lines (14, 16); three PacketResponder terminations (5, 7, 12) justify 'repeated'; allocation (1), receiving/transmission (2-4, 18, 20, 25, 26), addStoredBlock updates (9-11, 21-22, 28-29), replication requests (17, 24), and deletions (23, 30-36) all appear as described.",
+        "speculation_bounded": "The only causal claim is that the explicit exception and the surrounding error pattern make the sequence abnormal, which the logs directly support; no mechanism, intent, or downstream consequence is asserted beyond what lines 14-16 and the terminations at 5/7/12 show."
+      },
+      "scratchpad": ""
     },
     "hdfs:33f4be38-d6f6-4c44-ad90-b3ecc97c1c68": {
       "input_fingerprint": "b7629841e1edd9f4",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the invalidSet markings, block deletions, and the addStoredBlock request for a block that 'does not belong to any file' \u2014 all directly present at lines 23\u201325, 26\u201327/30, and 28. These are concrete, log-grounded events and are exactly the kind of signals that distinguish an abnormal HDFS window; the cause is not circular and does not restate the label.",
+        "sequence_summary_correctness": "The described flow matches the actual order: early allocate/receive/update activity (lines 1\u20136, 13\u201314), repeated PacketResponder terminatings (7, 9, 11), three 'Got exception while serving' messages (15, 18, 20), invalidSet additions (23\u201325), deletions (26\u201327), then the stray registration (28). Calling line 28 the 'final' registration is mild compression since lines 29\u201330 follow, but no described order or pattern is inverted or contradicted.",
+        "contrast_correctness": "Sentence 3 contrasts the serving exceptions (15, 18, 20), invalid block deletion (23\u201327), and orphaned-block message (28) against a clean allocate-store-serve flow (lines 1\u201314). These details are real and genuinely separate this window from a routine sequence; the explanation also acknowledges the early normal activity, so it is not cherry-picking, and it is not circular.",
+        "groundedness": "Every named detail traces to the input: allocation (1), receptions (2\u20134), stored-block updates (5\u20136, 13), PacketResponder terminatings (7, 9, 11), exceptions (15, 18, 20), invalidSet additions (23\u201325), deletions (26\u201327, 30), and the quoted 'does not belong to any file' phrase matches line 28 verbatim. 'Several block allocations, receptions, and stored-block updates' is a loose collective summary of lines 1\u201313, within paraphrase tolerance, not an invented detail.",
+        "speculation_bounded": "The only causal claim ('abnormal because...') rests on well-evidenced lines 23\u201328, and 'inconsistent block handling' is a direct characterization of lines 15\u201330. No mechanism, intent, or downstream consequence (e.g., data loss, node failure) is asserted beyond what the logs show."
+      },
+      "scratchpad": ""
     },
     "hdfs:e08aef50-97dc-4e2f-b846-f85faaf9857c": {
       "input_fingerprint": "6ff33c078ef423fc",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the 'Got exception while serving' events (lines 16, 33) together with the invalidSet additions (lines 34-36) and block deletions (lines 23, 30, 37-39). These are concrete, log-grounded failure signals and are plausibly what drives the abnormal label; the cause is not circular and does not merely restate the verdict.",
+        "sequence_summary_correctness": "Sentence 2's described flow matches the logs: allocation (line 1), repeated receiving (lines 2-4, 18, 25) and addStoredBlock updates (lines 9-11, 21-22, 28-29), responder terminations (lines 5, 7, 12), serving (lines 14-15, 31-32), replication requests (lines 17, 24), transmissions (lines 19, 26), and deletes near the end (lines 34-39). No ordering or pattern claim contradicts the sequence.",
+        "contrast_correctness": "Sentence 3's distinguishing detail (an exception during serving at lines 16/33 combined with repeated invalidSet/delete updates at lines 34-39) is real and genuinely separates this from a clean normal exchange. It also explicitly acknowledges the conflicting successful receives and stored-block updates (lines 2-4, 6, 8, 9-11, etc.) rather than cherry-picking.",
+        "groundedness": "Every specific claim is traceable: exception while serving (lines 16, 33), deletions (lines 23, 30, 37-39), invalidSet entries (lines 34-36), allocation (line 1), terminations (lines 5, 7, 12), replication requests (lines 17, 24), transmissions (lines 19, 26), and successful receives/updates (lines 2-4, 6-13, 20-22, 27-29). Nothing is invented or exaggerated.",
+        "speculation_bounded": "The interpretive claim 'failure path rather than a clean block transfer flow' is a modest characterization directly supported by the exception (lines 16, 33) and invalidSet lines (34-36), and the normality claim is hedged with 'would not typically'. No unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": ""
     },
     "hdfs:ace1283a-f26b-403e-ba53-1e45d0739d90": {
       "input_fingerprint": "b99c9ad652340d9c",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Lines 5-6 (java.io.IOException: Connection reset by peer) and lines 9-13 (repeated java.io.EOFException in receiveBlock/writeBlock) are present and are the concrete error events that plausibly drove the abnormal classification; the cause is not circular and not a non-distinguishing event.",
+        "sequence_summary_correctness": "The described flow matches the logs: NameSystem.allocateBlock (line 1) and several Receiving block entries (lines 2-4), then exceptions on the block-receive path (lines 5, 9, 12), repeated writeBlock failures (lines 6, 10, 13), and interrupted PacketResponder waits on the socket channel (lines 8, 15). No stated order or pattern contradicts the sequence.",
+        "contrast_correctness": "The contrast cites sustained I/O failures across receiveBlock, writeBlock, and PacketResponder (lines 5-15) versus a single isolated timeout or clean allocation/receipt flow; this distinction is real (multiple exception rounds, not one) and genuinely separates abnormal from normal, with no conflicting signal in the window ignored.",
+        "groundedness": "Every specific claim traces to the input: allocateBlock (line 1), Receiving block entries (lines 2-4), Connection reset by peer (lines 5-6), EOFException in receiveBlock/writeBlock (lines 9-13), PacketResponder terminating (lines 7, 11, 14), and interrupted waits on the socket channel (lines 8, 15). 'Multiple retries' is a reasonable paraphrase of the repeated exception rounds rather than an invented detail.",
+        "speculation_bounded": "The causal claim that the failures cause the PacketResponder to terminate is supported by the terminating lines (7, 11, 14) immediately following exceptions and the PacketResponder's own InterruptedIOException (lines 8, 15); no mechanism, intent, or downstream consequence is asserted beyond what the logs show."
+      },
+      "scratchpad": "Re-checking each verdict against the rubric wording: (1) The cited cause \u2014 Connection reset by peer + EOFExceptions in receiveBlock/writeBlock \u2014 appears verbatim in lines 5-6 and 9-13 and is plausibly what drives the abnormal label; not circular, not a wrong event. (2) Sentence 2's flow (allocateBlock \u2192 Receiving block \u2192 exceptions \u2192 writeBlock failures \u2192 interrupted PacketResponder waits) matches lines 1-4 then 5-15; the interleaved 'terminating' lines are omitted, which is allowed brevity, and no stated ordering contradicts the logs. (3) The contrast (sustained multi-stage I/O failures vs. a single isolated timeout or clean flow) is real and discriminating; no conflicting signal in the window is ignored. (4) Every named detail is traceable: allocateBlock (1), Receiving block (2-4), Connection reset (5-6), EOFException (9-13), PacketResponder terminating (7, 11, 14), interrupted waits on socket channel (8, 15); 'multiple retries' is a reasonable paraphrase of the repeated exception rounds, not an invented detail. (5) The causal claim that failures cause PacketResponder termination is evidenced by terminating lines (7, 11, 14) immediately following exceptions plus the PacketResponder's own InterruptedIOException (8, 15); no mechanism, intent, or downstream consequence goes beyond the logs."
     },
     "hdfs:faacdb89-1223-4b49-bf8c-1ff1a7a28dbd": {
       "input_fingerprint": "cb9a7aa2891a925b",
@@ -2201,7 +2355,21 @@
     },
     "hdfs:f87ac717-6626-4049-9cb9-0b6e9054204b": {
       "input_fingerprint": "be80125d5115f162",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the delete cluster culminating in the failure: lines 18-20 (NameSystem.delete adding to invalidSet), lines 21-23 (Deleting block), and line 24 (Unexpected error trying to delete block ... BlockInfo not found in volumeMap). This is a concrete, log-grounded error event and a plausible driver of the abnormal label, not a restatement of the verdict.",
+        "sequence_summary_correctness": "Sentence 2's flow (block reception lines 1-11, storage updates lines 9-13, PacketResponder terminations lines 5/7/10, serving/verification lines 14-17, then the delete cluster lines 18-24 ending in the failure at line 24) matches the actual ordering of the sequence. The compression is allowed and nothing contradicts the logs.",
+        "contrast_correctness": "Sentence 3 acknowledges the routine lines (Receiving block, addStoredBlock, Served block, Verification succeeded at lines 1-13, 15, 17) and identifies the explicit exceptions (lines 14, 16) and the missing BlockInfo error (line 24) as what separates this from a normal run. It does not cherry-pick: it addresses the normal-looking signals and explains why the error signals override them, and the errors genuinely discriminate abnormal from normal.",
+        "groundedness": "Every named detail traces to the input: invalidSet additions (lines 18-20), block deletions (lines 21-23), the exact 'Unexpected error ... BlockInfo not found in volumeMap' wording (line 24), PacketResponder terminations (lines 5, 7, 10), and the exception/serving/verification lines (14-17). 'Failed cleanup path' is an interpretation of line 24, not an invented event, code, count, or timing.",
+        "speculation_bounded": "The causal claim (failed cleanup) is directly evidenced by line 24's explicit error, and the 'decisive details' claim in sentence 3 rests on the actual exception and error lines. No intent, downstream consequence, or mechanism beyond what the logs show is asserted."
+      },
+      "scratchpad": ""
     },
     "hdfs:b5c14eb9-4e20-4a2e-8a34-a1043d35748e": {
       "input_fingerprint": "47d17cf7546d6c3f",
@@ -2313,7 +2481,21 @@
     },
     "thunderbird:fca01c79-1902-4758-bd22-7ba6848f1808": {
       "input_fingerprint": "4d75add29c31d882",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the peer trap (line 1), repeated failed node-discovery tests (lines 2-9), GetNodeInfo no-response failures (lines 10-17), and the INFO message attributing the configuration to INIT-state ports (line 18). All cited events are present, and the INIT-state explanation plausibly accounts for why this failure burst is still classified normal; the cause is concrete log-grounded events, not a restatement of the verdict.",
+        "sequence_summary_correctness": "The described flow \u2014 initial trap (line 1), several identical discovery/no-response messages (lines 2-17), topology-no-change notice (line 19), ending with a kernel IB dispatch failure record (line 20) \u2014 matches the actual order. The INFO line (18) is omitted from this sentence but covered in sentence 1, and omissions do not contradict the flow.",
+        "contrast_correctness": "Line 18 is the only explicit state summary in the window and does attribute the configuration to INIT-state ports; lines 1-20 contain no successful discovery, recovery, or fault-escalation entry. The contrast acknowledges the repeated probe failures rather than ignoring them, and the line-20 dispatch failure is a same-kind failure record, not an escalation, so the distinction genuinely supports rejecting the opposite label.",
+        "groundedness": "Every specific claim traces to the input: peer trap (line 1), failed node-discovery tests (lines 2-9), GetNodeInfo no-response (lines 10-17), INIT-state INFO (line 18), 'No topology change' (line 19), kernel IB dispatch failure (line 20). No invented error codes, counts, components, or timings; 'several identical messages' is fair compression of the repeated identical templates.",
+        "speculation_bounded": "The INIT-state causal claim is attributed to the log itself ('an INFO message stating...'), and the contrast rests on verifiable absence of success/recovery/escalation entries rather than asserted mechanisms, intent, or downstream consequences. Confidence matches what the logs show."
+      },
+      "scratchpad": "Sentence 1 cites concrete events: peer trap (line 1), repeated failed node-discovery tests (lines 2-9), GetNodeInfo no-response failures (lines 10-17), and the INFO message attributing the configuration to INIT-state ports (line 18). All are present, and the INIT-state explanation plausibly accounts for why this failure burst is still normal \u2014 not circular, not a mere restatement of the verdict. PASS.\n\nSentence 2's flow \u2014 initial trap, several identical discovery/no-response messages, topology-no-change notice, ending with a kernel IB dispatch failure record \u2014 matches lines 1, 2-17, 19, and 20 in that order. The INFO line (18) is omitted from sentence 2 but covered in sentence 1; omissions are allowed and the described ordering does not contradict the logs. PASS.\n\nSentence 3's contrast: line 18 is indeed the only explicit state summary in the window and does say INIT-state ports caused the configuration; there is no successful discovery, recovery, or escalation entry anywhere in lines 1-20. The contrast explicitly acknowledges the repeated probe failures rather than ignoring them, and the line-20 dispatch failure is a same-kind failure record, not an escalation, so it does not undermine the contrast. The distinction (benign explicit explanation + no escalation) genuinely separates this from an abnormal reading. PASS.\n\nGroundedness: every specific detail \u2014 peer trap (1), failed discovery tests (2-9), GetNodeInfo no-response (10-17), INIT-state INFO (18), 'No topology change' (19), kernel IB dispatch failure (20) \u2014 traces to a log line; no invented codes, counts, components, or timings. 'Several identical messages' is fair compression of the repeated identical templates. PASS.\n\nSpeculation: the causal claim about INIT-state ports is attributed to the INFO message ('stating...'), and the contrast rests on verifiable absence of success/recovery/escalation entries rather than asserted mechanisms, intent, or downstream consequences. PASS."
     },
     "hdfs:c811a08a-7e73-46fd-b1e7-7c963a6fc2de": {
       "input_fingerprint": "5db3e736a26b724f",
@@ -2353,7 +2535,21 @@
     },
     "hdfs:250b1744-9e18-43e5-a986-1f7f0b7475c0": {
       "input_fingerprint": "175ecd1d6eeb142d",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeated 'Receiving empty packet for block' messages (lines 5\u20137) followed by PacketResponder terminations (lines 8, 11, 13). These events are present in the sequence and are the salient anomaly signature here, not a circular restatement of the 'abnormal' label.",
+        "sequence_summary_correctness": "The described flow \u2014 allocation (line 2) with multiple block-receive events (lines 1, 3\u20134), then empty packet receipts (5\u20137), responder shutdowns (8, 11, 13), and later NameSystem addStoredBlock updates (10, 15\u201316) \u2014 matches the actual ordering in compressed form; nothing described contradicts the logs.",
+        "contrast_correctness": "The contrast cites a concrete, position-specific distinction (empty-packet handling and terminations mid-reception, lines 5\u20138, before the received blocks at 9, 12, 14) and explicitly concedes the conflicting normal-looking signal ('block map is still being updated afterward,' lines 10, 15\u201316) rather than ignoring it, so it is non-circular and discriminating.",
+        "groundedness": "Every named detail traces to the input: repeated empty packets (5\u20137), responder terminations (8, 11, 13), allocation (2), block receives (1, 3\u20134, 9, 12, 14), and addStoredBlock/blockMap updates by the NameSystem (10, 15\u201316). 'Stalled or broke' is an interpretation, not a fabricated log detail, so nothing invented is asserted.",
+        "speculation_bounded": "The mechanism claim is hedged ('indicates ... stalled or broke') and the normal-sequence claim is hedged ('would not typically'), matching what the empty-packet-plus-early-termination pattern supports; no unevidenced intent or downstream consequence is asserted."
+      },
+      "scratchpad": "Re-reading each verdict against the rubric wording before finalizing.\n\nCriterion 1: Sentence 1 blames the repeated 'Receiving empty packet for block' messages (lines 5\u20137) followed by PacketResponder terminations (lines 8, 11, 13). These events are present in the logs and are the salient anomaly signature in this sequence \u2014 not a restatement of the 'abnormal' label, and not an event absent from the window. Plausibly the driver of the abnormal verdict. PASS.\n\nCriterion 2: The described flow \u2014 allocation (line 2) plus multiple block-receive events (lines 1, 3\u20134), then several empty packet receipts (5\u20137), responder shutdowns (8, 11, 13), and later addStoredBlock updates (10, 15\u201316) \u2014 matches the actual ordering as a compressed summary. The first addStoredBlock (line 10) is indeed 'later' relative to the empty packets, and the summary does not assert a strict ordering that the logs contradict. PASS.\n\nCriterion 3: The contrast cites a concrete, position-specific distinction (empty-packet handling and terminations occurring mid-reception, lines 5\u20138, before the received blocks at 9, 12, 14) rather than a circular restatement. Critically, it explicitly concedes the conflicting normal-looking signal ('even though the block map is still being updated afterward,' lines 10, 15\u201316), so it does not cherry-pick. PASS.\n\nCriterion 4: Every specific detail traces to the input: repeated empty packets (5\u20137), responder terminations (8, 11, 13), allocation (2), block receives (1, 3\u20134, 9, 12, 14), NameSystem addStoredBlock/blockMap updates (10, 15\u201316). 'Stalled or broke' is a mechanism interpretation, not a fabricated log detail, so it belongs to criterion 5, not 4. No invented codes, counts, or components. PASS.\n\nCriterion 5: The mechanism claim is hedged ('indicates ... stalled or broke') and the normal-sequence claim is hedged ('would not typically'), which matches the confidence the empty-packet-plus-early-termination pattern justifies. No unevidenced intent or downstream consequence is asserted. PASS.\n\nAll five verdicts are supported by the evidence I wrote; no changes needed."
     },
     "thunderbird:3d044e85-152a-45cb-a5e7-9ddc21efeba7": {
       "input_fingerprint": "95245666c6e5d45f",
@@ -2519,7 +2715,21 @@
     },
     "thunderbird:e252befe-d754-48bb-bacd-023378572b34": {
       "input_fingerprint": "06a605c1fb390d44",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3-fs \"Journal has aborted\" error at line 2, which is the only [abnormal]-tagged line in the sequence and a concrete, log-grounded event plausibly driving the abnormal verdict. It is not circular \u2014 it cites a specific event rather than restating the label.",
+        "sequence_summary_correctness": "Lines 1, 4, 6, 8, 9, 11, 13, 16, 18, 20 (accepted publickey) and 3, 5, 7, 10, 12, 14, 15, 17, 19 (session opened) do dominate the rest of the window, and line 2 sits between authentication lines 1 and 3, matching \"the disk error appearing amid otherwise routine authentication activity.\" No order or pattern described contradicts the logs.",
+        "contrast_correctness": "The cited distinguishing detail \u2014 the explicit EXT3-fs journal-aborted error at line 2 \u2014 is real and is the only abnormal-tagged event, genuinely explaining why a normal verdict does not apply. Sentence 3 also acknowledges the surrounding successful SSH/session lines rather than ignoring conflicting signals, so it is not cherry-picked or circular.",
+        "groundedness": "Every named detail is traceable: the error text, device, and start_transaction to line 2; the repeated publickey acceptances to lines 1, 4, 6, 8, 9, 11, 13, 16, 18, 20; the session-opened messages to lines 3, 5, 7, 10, 12, 14, 15, 17, 19. No invented or exaggerated details.",
+        "speculation_bounded": "Claims are limited to what the logs show: the fault event (line 2), routine authentication traffic (lines 1, 3\u201320), and sessions still being handled (session-opened lines). No mechanism, intent, or downstream consequence is asserted beyond the evidence."
+      },
+      "scratchpad": "Re-checking each criterion against the rubric wording.\n\n1. Root cause: Sentence 1 blames the EXT3-fs \"Journal has aborted\" error at line 2 \u2014 the only [abnormal]-tagged line and a concrete, log-grounded event. Not circular (it names an event, not the label). PASS.\n\n2. Summary: \"Dominated by repeated SSH public-key acceptances and corresponding session-opened messages\" matches lines 1,4,6,8,9,11,13,16,18,20 and 3,5,7,10,12,14,15,17,19; \"disk error appearing amid otherwise routine authentication activity\" matches line 2 sitting between auth lines 1 and 3. No ordering/timing contradiction. PASS.\n\n3. Contrast: The distinguishing detail (line 2's journal-aborted error) is real and genuinely separates this from a normal window; sentence 3 also acknowledges the surrounding successful logins rather than cherry-picking. Not circular \u2014 it cites a concrete event. PASS.\n\n4. Groundedness: Error text, device, start_transaction, repeated acceptances, session-opened messages all traceable to lines 2, 1/4/6/8/9/11/13/16/18/20, 3/5/7/10/12/14/15/17/19. Nothing invented. PASS.\n\n5. Speculation: Claims stay within evidence \u2014 fault event, routine auth traffic, sessions still handled. No asserted mechanism, intent, or downstream consequence beyond what the logs show. PASS.\n\nAll evidence supports all five passes; no changes needed."
     },
     "hdfs:582346ae-c1dd-42d1-847e-7049e976161a": {
       "input_fingerprint": "224ba453a1f671d2",
@@ -2631,7 +2841,21 @@
     },
     "thunderbird:0d91a42b-544a-4b03-bd14-9bf413160b3e": {
       "input_fingerprint": "5c4f436d2de41f3d",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3-fs 'Journal has aborted' error, which is line 20 \u2014 the only line tagged [abnormal] in the sequence. It is a concrete, log-grounded event and plausibly what drove the abnormal verdict, not a restatement of the label.",
+        "sequence_summary_correctness": "Sentence 2's described flow matches the logs: repeated 'Got trap from peer' lines (1, 3, 5, 7, 9, 11, 13, 16, 18), many warning-value sensor events (4, 6, 8, 10, 12, 15, 17), the return-to-normal reading earlier at line 2, the NEW SWEEP marker at line 14, the BMC Ambient Temp message at line 19, and the filesystem error at line 20. No stated order or timing contradicts the sequence.",
+        "contrast_correctness": "Sentence 3 contrasts routine sensor warnings (all tagged [normal], lines 4-17) against the ext3 journal-abort error (line 20), which is real and is the only abnormal-tagged event, so it genuinely separates this window from a normal monitoring stream. There are no conflicting signals being ignored, so it is not cherry-picked or circular.",
+        "groundedness": "Every specific claim traces to the input: the EXT3-fs journal-abort error (line 20), repeated trap messages (1, 3, 5, ...), many temperature warnings (4, 6, 8, 10, 12, 15, 17), one return-to-normal reading (line 2), the NEW SWEEP marker (line 14), and the BMC Ambient Temp message (line 19). No invented or exaggerated details.",
+        "speculation_bounded": "The only strong claim \u2014 that the ext3 journal-abort error is the decisive difference \u2014 is directly supported by line 20 being the sole [abnormal] line under the ground-truth abnormal verdict. The claim that sensor warnings 'could fit routine monitoring noise' is explicitly hedged, and no unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": "Re-reading each verdict against the rubric before finalizing."
     },
     "thunderbird:cfa094dd-7a34-4577-84ab-0c7a8b28caa5": {
       "input_fingerprint": "46ffb09b39df0fa0",
@@ -2653,7 +2877,21 @@
     },
     "thunderbird:d167162b-ad00-42ec-99cc-7cda64dcf8ea": {
       "input_fingerprint": "2d5b7f08c9f9a6c4",
-      "error": "RateLimitError: litellm.RateLimitError: RateLimitError: OpenAIException - No deployments available for selected model, Try again in 60 seconds. Passed model=glm-5.3-flash. pre-call-checks=True, cooldown_list=['18f1f237-c511-4a71-8be9-01faf99d900a']"
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames repeated low-level storage failures: Buffer I/O errors (lines 3\u20136), SCSI errors (lines 9\u201312), end_request I/O errors (lines 13\u201316), the EXT3 journal abort (line 7, the one abnormal-tagged line), and the read-only remount (line 8). All of these are present in the sequence, and the journal abort plus read-only remount are plausibly what made the sequence abnormal, so the cause is concrete and distinguishing rather than circular.",
+        "sequence_summary_correctness": "Sentence 2's described order matches the logs: the sequence starts with 'Aborted' and 'Can't open ... for job' (lines 1\u20132), moves through the clustered disk/filesystem errors (lines 3\u201316), and ends with 'lost page write due to I/O error' (lines 18\u201320, the final lines). No ordering, timing, or pattern claim in sentence 2 contradicts the logs.",
+        "contrast_correctness": "Sentence 3 rules out 'normal' by pointing to errors recurring across device (lines 3\u20136), request (lines 13\u201316), and filesystem layers (line 7) culminating in the read-only remount (line 8) and lost page writes (lines 18\u201320). These details are real, genuinely separate a cascading failure from isolated/recoverable messages, and no conflicting recovery signal in the window is being ignored.",
+        "groundedness": "Every named detail traces to a line: Buffer I/O errors (3\u20136), SCSI errors (9\u201312), end_request I/O error (13\u201316), EXT3 journal abort (7), remounting read-only (8), 'Aborted'/'Can't open' (1\u20132), lost page writes (18\u201320). 'Aborted job' is a reasonable paraphrase of line 1 given 'job' appears in line 2, and 'protective remounting' restates line 8; nothing is invented or exaggerated.",
+        "speculation_bounded": "The causal claim (storage failures made the sequence abnormal) is well-evidenced and stated plainly, which the rubric allows; 'protective remounting' is directly supported by line 8 immediately following the journal abort, and 'data-write loss' is literal (lines 18\u201320). No mechanism, intent, or downstream consequence goes beyond what the logs show."
+      },
+      "scratchpad": ""
     },
     "thunderbird:e82b9ade-2431-4dc2-bcdf-62614ad94a79": {
       "input_fingerprint": "82f61dcca5da8e49",
@@ -2969,7 +3207,21 @@
     },
     "thunderbird:99b142e5-0b3c-4135-b1bf-50fce873a39a": {
       "input_fingerprint": "e0e7e9277f376c7b",
-      "error": "Timeout: litellm.Timeout: APITimeoutError - Request timed out. Error_str: Request timed out."
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the transient data_thread() notices (lines 5, 10, 11) followed by 'Rediscover the subnet'/'NEW SWEEP' and the INIT-state node (lines 12-14) as recovery/discovery activity rather than sustained failure; this pattern is present in the logs and plausibly drives the normal verdict, and it is not circular.",
+        "sequence_summary_correctness": "The described flow matches the logs: intermittent timeouts (5, 10, 11), then the rediscovery sweep (12-13), then the single kernel IB dispatch failure (17), then more successful logins (18-20), with logins/sessions dominating (lines 1-4, 6-9, 15-16, 18-20). Omitting the logins at 15-16 between sweep and failure is compression, not a contradiction of order.",
+        "contrast_correctness": "Every auth line is 'Accepted publickey' (2, 4, 7, 9, 16, 19) with no failures, errors are scattered (5, 10, 11, 17) rather than progressing, and mad_process failed occurs exactly once (17). These are real, discriminating facts that genuinely explain why 'abnormal' does not apply, and the contrast addresses the fault-like signals rather than cherry-picking.",
+        "groundedness": "All named details trace to lines: data_thread notices (5, 10, 11), subnet rediscovery and new sweep (12-13), IB node INIT state (14), publickey logins/session openings (1-4, 6-9, 15-16, 18-20), and the single mad_process failed kernel IB dispatch line (17). 'Datasource timeouts' is a fair paraphrase of 'got not answer from any datasource', not an invention.",
+        "speculation_bounded": "The recovery/discovery reading is hedged ('read as'), and discovery is literally evidenced by lines 12-13; the absence claims are explicitly bounded to 'the window'. No unsupported mechanism, intent, or downstream consequence is asserted."
+      },
+      "scratchpad": "Re-checking each criterion against the rubric wording.\n\n1. Root cause: Sentence 1 cites the transient `data_thread() got not answer` notices (lines 5, 10, 11) followed by rediscovery/sweep/INIT-state activity (lines 12-14) as the reason the sequence reads normal rather than a sustained failure. That pattern is present in the logs and is a plausible driver of the normal verdict; it is not circular and does not blame a wrong event. The 'only fault-like messages' phrasing slightly undercounts (line 17 is also fault-like), but that line is itself acknowledged in sentence 3, and the cited cause (transient notices + recovery/discovery activity) is still the right, log-grounded driver. PASS.\n\n2. Summary: Named events in the described order all hold in the logs: intermittent timeouts (5, 10, 11) \u2192 rediscovery sweep (12-13) \u2192 one kernel IB dispatch failure (17) \u2192 more successful logins (18-20), with logins/sessions dominating (lines 1-4, 6-9, 15-16, 18-20). The compression skips the logins at 15-16 between sweep and failure, but the relative order of every named event matches; no contradiction. PASS.\n\n3. Contrast: The claims \u2014 no persistent error progression, no outage, no repeated auth failure pattern, successful access interleaved with transient messages and a single mad_process failed line \u2014 are all true: every auth line is 'Accepted publickey' (2, 4, 7, 9, 16, 19), errors are scattered (5, 10, 11, 17), and mad_process failed occurs exactly once (17). This genuinely separates the window from an abnormal case and does not cherry-pick, since the fault-like signals are addressed head-on and no abnormal-tagged lines exist to ignore. PASS.\n\n4. Groundedness: Every named detail is traceable: data_thread notices (5, 10, 11), 'Rediscover the subnet'/'NEW SWEEP' (12-13), IB node INIT state (14), publickey logins and session openings (1-4, 6-9, 15-16, 18-20), kernel IB dispatch failure / mad_process failed (17, single occurrence). 'Datasource timeouts' is a fair paraphrase of 'got not answer from any datasource'. Nothing invented or imported. PASS.\n\n5. Speculation: The recovery interpretation is hedged ('read as'), and discovery activity is literally evidenced by lines 12-13; absence claims are bounded to 'the window'. No unsupported mechanism, intent, or downstream consequence is asserted. PASS."
     },
     "thunderbird:8f558e3d-eb15-401f-9a8e-4c85c4e1a969": {
       "input_fingerprint": "1f577e408da38093",

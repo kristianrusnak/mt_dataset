@@ -8,8 +8,8 @@
     {"model": "qwen3.8-27b", "prompt_id": "qwen27b", "efforts": ["none", "low", "medium"]},
     {"model": "qwen3.8-flash-next", "prompt_id": "qwen_next", "efforts": ["none", "low", "medium"]},
     {"model": "laguna-s-2.1", "prompt_id": "laguna", "efforts": ["none", "low", "medium"]},
-    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v2", "efforts": ["low", "medium"]},
-    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v2_cot", "efforts": ["low", "medium"]}
+    {"model": "mimo-2.6-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]},
+    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]}
   ],
-  "temperature": {"min": 0.0, "max": 1.0, "step": 0.25}
+  "temperature": {"min": 0.25, "max": 0.5, "step": 0.25}
 }
