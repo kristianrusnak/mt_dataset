@@ -16,13 +16,7 @@ What the grid showed, and what each addition answers:
     sentence 3 usually repeats sentence 1's cause. The shared rule "score every criterion independently" is
     replaced by: work out what separates this sequence from the opposite verdict once, then test sentence 1
     and sentence 3 against it.
-  - Two worked examples per dataset type (synthetic, so no gold record is used as a shot), plus one normal
-    HDFS block (example E).
-  - Fix (2026-10-18): the first version applied the HDFS "every named event is common in normal blocks ->
-    criterion 1 fails" rule to normal blocks too, so the judge failed criterion 1 on all 24 normal HDFS blocks
-    of the search split (and criterion 3 on 12), since a normal block is explained by routine events. The HDFS
-    cause check now has separate anomalous and normal branches, like the tagged check. This changes the
-    fingerprint, so every cached deepseek_v2 / deepseek_v2_cot run is set aside as stale and re-run.
+  - Two worked examples per dataset type (synthetic, so no gold record is used as a shot).
   - `deepseek_v2_cot` additionally asks for the `scratchpad` audit before the verdicts. Kept as a separate
     prompt because R1-style reasoning models are reported to do worse with explicit step-by-step
     instructions [medium confidence]; the grid can settle it.
@@ -68,21 +62,13 @@ _TAGGED_CHECK = [
 _UNTAGGED_CHECK = [
     "Find the discriminating evidence: the events in this block that are rare in normal blocks and common in "
     "anomalous ones, using the REFERENCE TABLE. An event that most normal blocks contain does not "
-    "discriminate, however alarming it sounds. For a normal block the evidence is that it contains none of "
-    "those anomaly-typical events.",
-    "If the block is classified abnormal: take sentence 1 and list the events it names as the cause. If every "
-    "one of them is common in normal blocks (roughly 50% or more of normal blocks), criterion 1 FAILS: the cause "
-    "does not distinguish this block. If at least one named event is genuinely discriminating, criterion 1 can "
-    "pass even if routine events are named too.",
-    "If the block is classified abnormal, do the same for sentence 3: if it says a normal block would not "
-    "contain an event that the table shows most normal blocks do contain, that claim is false and criterion 3 "
-    "FAILS.",
-    "If the block is normal: its cause IS routine block handling, so a sentence 1 built from events common in "
-    "normal blocks is correct and passes. Criterion 1 fails only if it names an event that is not in the block, "
-    "or calls an event routine that the table shows is rare in normal blocks and common in anomalous ones. "
-    "Sentence 3 passes when it truthfully says the block lacks anomaly-typical events, has no error lines, or "
-    "that its alarming-looking events are common in normal blocks; it fails only if such a statement is false "
-    "for this block or by the table.",
+    "discriminate, however alarming it sounds.",
+    "Take sentence 1 and list the events it names as the cause. If every one of them is common in normal "
+    "blocks (roughly 50% or more of normal blocks), criterion 1 FAILS: the cause does not distinguish this "
+    "block. If at least one named event is genuinely discriminating, criterion 1 can pass even if routine "
+    "events are named too.",
+    "Do the same for sentence 3: if it says a normal block would not contain an event that the table shows "
+    "most normal blocks do contain, that claim is false and criterion 3 FAILS.",
     "An event missing from the table, or rare in both classes, is not routine. Judge a cause built on it on "
     "whether the cited event really is in the block.",
 ]
@@ -115,11 +101,7 @@ Correct scoring:
 - Sequence summary and groundedness: PASS if the order and the count of four are right.
 
 Example D (illustrative). Same block, explanation: "This log sequence is abnormal because the namenode asks for the block to be replicated right after the write (a request only 3% of normal blocks contain), which then precedes the usual deletions. The sequence shows allocation, receipt, the replication request and then four deletions. A normal block goes straight from storage to deletion without any replication request."
-Correct scoring: root cause, contrast, groundedness and summary PASS; the cause is the discriminating event and the contrast is true by the table.
-
-Example E (illustrative). Sequence is normal. The block shows allocation, three Receiving block, three PacketResponder terminating, three addStoredBlock, one "Got exception while serving" (78% of normal blocks) and then Deleting block entries; no replication request.
-Explanation: "This log sequence is normal because it shows routine block handling: the block is allocated, received by three nodes, stored and later deleted. The sequence moves from allocation and receipt through the block-map updates to one serving exception and the final deletions. The single serving exception does not make it abnormal, because such exceptions appear in most normal blocks and nothing anomaly-typical, such as a replication request, occurs."
-Correct scoring: all five criteria PASS. For a normal block, routine events are the right cause; sentence 3 is true by the table and by the block."""
+Correct scoring: root cause, contrast, groundedness and summary PASS; the cause is the discriminating event and the contrast is true by the table."""
 
 _COT_INSTRUCTIONS = (
     "Fill `scratchpad` before the verdicts, as a short audit: (1) the discriminating evidence, (2) for each of "
