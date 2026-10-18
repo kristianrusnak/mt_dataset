@@ -171,6 +171,12 @@ Useful options (all optional; defaults target the checked-in `dataset_short` sna
 - `--max_workers 8` — parallel judge calls per config (lower it if the proxy rate-limits you).
 - `--datasets bgl hdfs thunderbird` — restrict the gold pool to a subset.
 - `--root dataset_short` — directory holding the per-dataset gold files.
+- `--gold_file gold_all_relabeled.json` — the final gold file (with the criterion-1 relabeling applied).
+- `--split search|held_out|all` — which part of the gold split to score (default `all`). Rank configs with
+  `--split search` (140 records, 2/3), then check the winner with `--split held_out` (70 records, 1/3).
+  The split lives in `dataset_short/judge_split.json`; recreate it with
+  `uv run python -m src.sampling.split_gold --gold_file gold_all_relabeled.json`. It is balanced on
+  dataset x classification, with the human-fail counts per criterion spread evenly across both parts.
 
 The search is resumable: it caches every config's judge output under `dataset_short/judge_runs/`
 and continues where it left off, so a crash or `Ctrl-C` loses at most a few calls. Re-running the

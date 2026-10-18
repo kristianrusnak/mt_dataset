@@ -55,3 +55,26 @@ def load_gold(datasets: list[str] = None, root: str = "dataset_short", gold_file
                 "human": {k: bool(human[k]) for k in CRITERIA_KEYS},
             })
     return items
+
+
+DEFAULT_SPLIT_FILE = "dataset_short/judge_split.json"
+SPLIT_PARTS = ["all", "search", "held_out"]
+
+
+def select_split(items: list[dict], part: str, split_file: str = DEFAULT_SPLIT_FILE) -> list[dict]:
+    """
+    Keeps the items of one part of the split written by src/sampling/split_gold.py: "search" (2/3, where
+    configs are compared), "held_out" (1/3, to confirm the winner) or "all" (no filtering). Every item
+    must appear in the split file, otherwise it was made from a different gold pool.
+    """
+    if part == "all":
+        return items
+    with open(split_file, "r", encoding="utf-8") as f:
+        split = json.load(f)
+    known = set(split["search"]) | set(split["held_out"])
+    unknown = [it["key"] for it in items if it["key"] not in known]
+    if unknown:
+        raise ValueError(f"{len(unknown)} gold items are missing from {split_file} (e.g. {unknown[0]}); "
+                         f"re-run src.sampling.split_gold.")
+    wanted = set(split[part])
+    return [it for it in items if it["key"] in wanted]

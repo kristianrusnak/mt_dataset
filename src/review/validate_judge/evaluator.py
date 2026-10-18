@@ -113,15 +113,8 @@ class Evaluator:
             return any(e.get("action") == "llm_as_judge_run" and self.run_path(config) in e.get("outputs", [])
                        for e in json.load(f))
 
-    def evaluate(self, config: JudgeConfig) -> dict:
-        if config.key in self._memo:
-            return self._memo[config.key]
-
-        run = self._load_run(config)
-        todo = [it for it in self.items if not self._is_done(run, it)]
-        if todo:
-            self._run_missing(config, run, todo)
-
+    def _score(self, run: dict) -> dict:
+        """Metrics for the pool from a run's stored results (no judge calls, no files written)."""
         verdicts, invalid = {}, 0
         for it in self.items:
             r = run["results"].get(it["key"], {})
@@ -145,6 +138,18 @@ class Evaluator:
         if error_rate > MAX_ERROR_RATE or metrics["overall"]["fitness"] is None:
             metrics["overall"]["fitness"] = -1.0
             metrics["discarded"] = f"{error_rate:.2%} of items unscored (transport errors), above {MAX_ERROR_RATE:.0%}"
+        return metrics
+
+    def evaluate(self, config: JudgeConfig) -> dict:
+        if config.key in self._memo:
+            return self._memo[config.key]
+
+        run = self._load_run(config)
+        todo = [it for it in self.items if not self._is_done(run, it)]
+        if todo:
+            self._run_missing(config, run, todo)
+
+        metrics = self._score(run)
 
         # One manifest entry per config's real work; a pure cache read only logs if nothing was logged before.
         if todo or not self._already_logged(config):
@@ -171,3 +176,21 @@ class Evaluator:
 
     def fitness(self, config: JudgeConfig) -> float:
         return self.evaluate(config)["overall"]["fitness"]
+
+    def score_cached(self, config: JudgeConfig) -> dict | None:
+        """
+        Scores the pool from the config's existing run file only: no judge calls, no manifest entry, and the
+        file is left untouched. Returns None when there is no run file or its prompt wording has changed since
+        (the cached verdicts are then not valid for this config). Items without a usable cached result count
+        as unscored (changed item content included), exactly as in evaluate().
+        """
+        path = self.run_path(config)
+        if not os.path.exists(path):
+            return None
+        with open(path, "r", encoding="utf-8") as f:
+            run = json.load(f)
+        if run.get("prompt_fingerprint") != prompt_fingerprint(config.prompt_id):
+            return None
+        run["results"] = {k: r for k, r in run["results"].items()
+                          if k in self._fingerprints and r.get("input_fingerprint") == self._fingerprints[k]}
+        return self._score(run)

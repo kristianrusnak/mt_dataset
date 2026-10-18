@@ -3,6 +3,8 @@ CLI for the judge-config search (plan steps 3-5). Run from the repo root:
 
     uv run python -m src.review.validate_judge.search estimate
     uv run python -m src.review.validate_judge.search grid
+    uv run python -m src.review.validate_judge.search grid --split search     # rank on the 2/3 search part
+    uv run python -m src.review.validate_judge.search grid --split held_out   # check on the 1/3 held-out part
     uv run python -m src.review.validate_judge.search ga --seed 0
     uv run python -m src.review.validate_judge.search random --seed 0
     uv run python -m src.review.validate_judge.search pso --seed 0   # once pso.py is filled in
@@ -23,7 +25,9 @@ from dotenv import load_dotenv
 from src.help_functions.manifest_log import append_manifest_entry
 from src.review.validate_judge.evaluator import Evaluator
 from src.review.validate_judge.genetic import GAParams, GeneticAlgorithm
-from src.review.validate_judge.gold import DATASETS, DEFAULT_GOLD_FILE, load_gold
+from src.review.validate_judge.gold import (
+    DATASETS, DEFAULT_GOLD_FILE, DEFAULT_SPLIT_FILE, SPLIT_PARTS, load_gold, select_split,
+)
 from src.review.validate_judge.grid_search import run_grid
 from src.review.validate_judge.pso import PSO, PSOParams
 from src.review.validate_judge.random_search import RandomParams, RandomSearch
@@ -45,6 +49,11 @@ def main():
     parser.add_argument("--datasets", nargs="+", default=DATASETS)
     parser.add_argument("--gold_file", default=DEFAULT_GOLD_FILE,
                         help="Gold file name inside each dataset folder, e.g. gold_all_relabeled.json.")
+    parser.add_argument("--split", choices=SPLIT_PARTS, default="all",
+                        help="Which part of the gold split to score: 'search' (2/3, rank configs here), "
+                             "'held_out' (1/3, confirm the winner) or 'all'. Make the split with "
+                             "`python -m src.sampling.split_gold`.")
+    parser.add_argument("--split_file", default=DEFAULT_SPLIT_FILE)
     parser.add_argument("--max_workers", type=int, default=8, help="Parallel judge calls per config.")
     parser.add_argument("--state_path", default=None,
                         help="Where the algorithm saves its progress. Default: <runs_dir>/<mode>_seed<seed>_state.json")
@@ -55,11 +64,11 @@ def main():
 
     load_dotenv()
     space = SearchSpace.from_json(args.space)
-    items = load_gold(args.datasets, args.root, args.gold_file)
+    items = select_split(load_gold(args.datasets, args.root, args.gold_file), args.split, args.split_file)
     n_configs = len(space.all_configs())
 
     if args.mode == "estimate":
-        print(f"Gold pool: {len(items)} items across {args.datasets}")
+        print(f"Gold pool: {len(items)} items across {args.datasets} (split: {args.split})")
         mode_efforts = sum(len(m.efforts) for m in space.modes)
         print(f"Grid space: {len(space.modes)} modes (model + prompt) with {mode_efforts} mode-effort pairs in total x "
               f"{len(space.temperatures)} temperatures (step {space.temp_step}) = {n_configs} configs "
@@ -71,6 +80,8 @@ def main():
         return
 
     gold_inputs = [f"{args.root}/{d}/{args.gold_file}" for d in args.datasets]
+    if args.split != "all":
+        gold_inputs.append(args.split_file)
     evaluator = Evaluator(items, args.runs_dir, args.manifest, max_workers=args.max_workers,
                           search_algorithm=args.mode, gold_inputs=gold_inputs)
 
@@ -99,11 +110,12 @@ def main():
         "action": f"{args.mode}_search",
         "timestamp": _now_iso(),
         "dataset": "all" if len(args.datasets) > 1 else args.datasets[0],
-        "params": {**best.as_params(), "search_algorithm": args.mode, "search_params": params},
+        "params": {**best.as_params(), "search_algorithm": args.mode, "search_params": params, "split": args.split},
         "inputs": [args.space] + gold_inputs,
         "outputs": [args.runs_dir],
         "metrics": {"fitness": best_fit, "detail": search_notes},
-        "notes": "Best config found by this search run (params above are the winner's, search_params the search's).",
+        "notes": "Best config found by this search run (params above are the winner's, search_params the search's). "
+                 f"Scored on the '{args.split}' part of the gold pool ({len(items)} items).",
     })
 
 

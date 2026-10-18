@@ -19369,5 +19369,122 @@
       }
     },
     "notes": "Best config found by this search run (params above are the winner's, search_params the search's)."
+  },
+  {
+    "step": 3,
+    "action": "gold_split",
+    "timestamp": "2026-10-18T13:00:29Z",
+    "dataset": "all",
+    "params": {
+      "seed": 0,
+      "iterations": 40000,
+      "held_out_fraction": "1/3"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_relabeled.json",
+      "dataset_short/hdfs/gold_all_relabeled.json",
+      "dataset_short/thunderbird/gold_all_relabeled.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_split.json"
+    ],
+    "metrics": {
+      "agreement": null,
+      "kappa": null,
+      "false_negative_rate": null,
+      "detail": {
+        "search": {
+          "records": 140,
+          "by_dataset": {
+            "bgl": 46,
+            "hdfs": 47,
+            "thunderbird": 47
+          },
+          "by_classification": {
+            "normal": 70,
+            "abnormal": 70
+          },
+          "human_fails_per_criterion": {
+            "root_cause_correctness": 45,
+            "sequence_summary_correctness": 9,
+            "contrast_correctness": 33,
+            "groundedness": 13,
+            "speculation_bounded": 19
+          },
+          "records_with_a_fail": 64
+        },
+        "held_out": {
+          "records": 70,
+          "by_dataset": {
+            "bgl": 24,
+            "hdfs": 23,
+            "thunderbird": 23
+          },
+          "by_classification": {
+            "normal": 35,
+            "abnormal": 35
+          },
+          "human_fails_per_criterion": {
+            "root_cause_correctness": 23,
+            "sequence_summary_correctness": 4,
+            "contrast_correctness": 17,
+            "groundedness": 6,
+            "speculation_bounded": 9
+          },
+          "records_with_a_fail": 30
+        }
+      }
+    },
+    "notes": "2/3 search, 1/3 held-out split of the gold pool; rank configs on 'search', confirm the winner on 'held_out'."
+  },
+  {
+    "step": 3,
+    "action": "grid_rescore",
+    "timestamp": "2026-10-18T13:09:57Z",
+    "dataset": "all",
+    "params": {
+      "split": "search",
+      "records": 140,
+      "configs_scored": 89,
+      "skipped": []
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_relabeled.json",
+      "dataset_short/hdfs/gold_all_relabeled.json",
+      "dataset_short/thunderbird/gold_all_relabeled.json",
+      "dataset_short/judge_split.json",
+      "dataset_short/judge_runs"
+    ],
+    "outputs": [
+      "docs/llm_judge_grid_results_search.json"
+    ],
+    "metrics": {
+      "fitness": 0.3956621487392588,
+      "detail": {
+        "top5": [
+          [
+            "deepseek-v4.1-flash__t0.25__deepseek_v2__emedium",
+            0.3956621487392588
+          ],
+          [
+            "deepseek-v4.1-flash__t0.50__deepseek_v2__ehigh",
+            0.3794954675477669
+          ],
+          [
+            "deepseek-v4.1-flash__t0.00__deepseek_v2__emedium",
+            0.37672223596981325
+          ],
+          [
+            "deepseek-v4.1-flash__t0.25__deepseek_v2__elow",
+            0.3733014711596178
+          ],
+          [
+            "deepseek-v4.1-flash__t0.00__deepseek_v2__elow",
+            0.3662871823202377
+          ]
+        ]
+      }
+    },
+    "notes": "Cached judge runs re-scored on the 'search' part of the gold split; no judge calls made."
   }
 ]
