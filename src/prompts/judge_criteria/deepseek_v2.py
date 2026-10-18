@@ -120,12 +120,17 @@ def hdfs_reference_table() -> str:
     return "\n".join(lines)
 
 
-def _build(inp: PromptInput, cot: bool) -> JudgePrompt:
+def _untagged_section(inp: PromptInput) -> tuple[list, str]:
+    """HDFS cause-check steps and worked examples. The same for both verdicts here; deepseek_v3 splits them."""
+    return _UNTAGGED_CHECK, _UNTAGGED_EXAMPLES
+
+
+def _build(inp: PromptInput, cot: bool, untagged_section=_untagged_section) -> JudgePrompt:
     if inp.session_based:
+        untagged_check, examples = untagged_section(inp)
         check = ("## REFERENCE TABLE\nHow many HDFS blocks of each class contain each event (measured on other "
                  "blocks, not this one):\n" + hdfs_reference_table()
-                 + "\n\n## CAUSE CHECK (before scoring criteria 1 and 3)\n" + numbered(_UNTAGGED_CHECK))
-        examples = _UNTAGGED_EXAMPLES
+                 + "\n\n## CAUSE CHECK (before scoring criteria 1 and 3)\n" + numbered(untagged_check))
     else:
         check = ("## CAUSE CHECK (before scoring criteria 1 and 3)\nThe tags show which lines drove the "
                  "classification, so use them to test what the explanation blames.\n" + numbered(_TAGGED_CHECK))

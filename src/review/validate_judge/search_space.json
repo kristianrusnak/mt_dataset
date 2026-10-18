@@ -1,6 +1,6 @@
 {
   "_ai": "Generated/modified by AI Kilo Code 7.5.6-gratex-017, used model gti-litellm/glm-5.3-flash. Efforts per model follow /v1/model/info of the LiteLLM proxy: minimax-m2.5 does not list reasoning_effort, the others accept none/low/medium (verified live on 2026-10-10, incl. qwen3.8-flash-next).",
-  "_prompts": "One prompt per model, each in its own file under src/prompts/judge_criteria/ (prompt_id = PROMPT_ID in that file). Modified by Claude Code (Sonnet 5.5) on 2026-10-10: replaced the 3 shared prompt variants per model with one model-specific prompt. Modified by Claude Code (Sonnet 5.5) on 2026-10-16: added deepseek_v2 and deepseek_v2_cot (see docs/llm_judge_grid_search_run1.md); only efforts low and medium, because effort none scored about half as well as either in the first grid.",
+  "_prompts": "One prompt per model, each in its own file under src/prompts/judge_criteria/ (prompt_id = PROMPT_ID in that file). Modified by Claude Code (Sonnet 5.5) on 2026-10-10: replaced the 3 shared prompt variants per model with one model-specific prompt. Modified by Claude Code (Sonnet 5.5) on 2026-10-16: added deepseek_v2 and deepseek_v2_cot (see docs/llm_judge_grid_search_run1.md); only efforts low and medium, because effort none scored about half as well as either in the first grid. Modified by Claude Code on 2026-10-18: dropped mimo-2.6-flash (behind deepseek on the same prompt) and added deepseek_v3 (HDFS cause check split by verdict, see its docstring).",
   "modes": [
     {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek", "efforts": ["none", "low", "medium"]},
     {"model": "minimax-m2.5", "prompt_id": "minimax", "efforts": ["none"]},
@@ -8,8 +8,8 @@
     {"model": "qwen3.8-27b", "prompt_id": "qwen27b", "efforts": ["none", "low", "medium"]},
     {"model": "qwen3.8-flash-next", "prompt_id": "qwen_next", "efforts": ["none", "low", "medium"]},
     {"model": "laguna-s-2.1", "prompt_id": "laguna", "efforts": ["none", "low", "medium"]},
-    {"model": "mimo-2.6-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]},
-    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]}
+    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]},
+    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v3", "efforts": ["low", "medium"]}
   ],
   "temperature": {"min": 0.25, "max": 0.5, "step": 0.25}
 }
