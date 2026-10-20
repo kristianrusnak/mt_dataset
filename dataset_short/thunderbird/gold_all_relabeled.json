@@ -1555,12 +1555,13 @@
         "criteria_scores": {
           "root_cause_correctness": false,
           "sequence_summary_correctness": true,
-          "contrast_correctness": true,
+          "contrast_correctness": false,
           "groundedness": false,
           "speculation_bounded": true
         },
         "hallucination_flags": [
           "root_cause_correctness",
+          "contrast_correctness",
           "groundedness"
         ],
         "corrected_reasoning_text": null,
@@ -1575,6 +1576,14 @@
             "to": false,
             "rule": "Criterion 1 fails when sentence 1 names a [normal]-tagged line as part of the cause, even alongside the real abnormal driver (ambiguous cause -> fail).",
             "revised_on": "2026-10-16",
+            "applied_by": "Claude (Sonnet 5.5); rule confirmed by Kristian Rusnak"
+          },
+          {
+            "criterion": "contrast_correctness",
+            "from": true,
+            "to": false,
+            "rule": "Criterion 3 fails when sentence 3 offers a [normal]-tagged line as part of what rules out the normal verdict (the contrast then does not discriminate). A sentence 3 that names only the real driver stays PASS even if sentence 1 was mixed.",
+            "revised_on": "2026-10-20",
             "applied_by": "Claude (Sonnet 5.5); rule confirmed by Kristian Rusnak"
           }
         ]
@@ -2267,12 +2276,13 @@
         "criteria_scores": {
           "root_cause_correctness": false,
           "sequence_summary_correctness": true,
-          "contrast_correctness": true,
+          "contrast_correctness": false,
           "groundedness": true,
           "speculation_bounded": true
         },
         "hallucination_flags": [
-          "root_cause_correctness"
+          "root_cause_correctness",
+          "contrast_correctness"
         ],
         "corrected_reasoning_text": null,
         "human_reviewed": true,
@@ -2286,6 +2296,14 @@
             "to": false,
             "rule": "Criterion 1 fails when sentence 1 names a [normal]-tagged line as part of the cause, even alongside the real abnormal driver (ambiguous cause -> fail).",
             "revised_on": "2026-10-16",
+            "applied_by": "Claude (Sonnet 5.5); rule confirmed by Kristian Rusnak"
+          },
+          {
+            "criterion": "contrast_correctness",
+            "from": true,
+            "to": false,
+            "rule": "Criterion 3 fails when sentence 3 offers a [normal]-tagged line as part of what rules out the normal verdict (the contrast then does not discriminate). A sentence 3 that names only the real driver stays PASS even if sentence 1 was mixed.",
+            "revised_on": "2026-10-20",
             "applied_by": "Claude (Sonnet 5.5); rule confirmed by Kristian Rusnak"
           }
         ]
