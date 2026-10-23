@@ -19486,5 +19486,118 @@
       }
     },
     "notes": "Cached judge runs re-scored on the 'search' part of the gold split; no judge calls made."
+  },
+  {
+    "step": 3,
+    "action": "llm_as_judge_run",
+    "timestamp": "2026-10-21T19:37:13Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v3",
+      "effort": "high",
+      "search_algorithm": "grid"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_human_reviewed.json",
+      "dataset_short/hdfs/gold_all_human_reviewed.json",
+      "dataset_short/thunderbird/gold_all_human_reviewed.json",
+      "dataset_short/judge_split.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.25__deepseek_v3__ehigh.json"
+    ],
+    "metrics": {
+      "agreement": 0.7985714285714286,
+      "kappa": 0.3993771694767963,
+      "false_negative_rate": 0.26548672566371684,
+      "fitness": 0.5257446590915839,
+      "detail": {
+        "n_scored": 140,
+        "overall": {
+          "agreement": 0.7985714285714286,
+          "kappa": 0.3993771694767963,
+          "false_negative_rate": 0.26548672566371684,
+          "fitness": 0.5257446590915839
+        },
+        "per_criterion": {
+          "root_cause_correctness": {
+            "n": 140,
+            "agreement": 0.9428571428571428,
+            "kappa": 0.8642424242424241,
+            "false_negative_rate": 0.02564102564102564,
+            "false_positive_rate": 0.06930693069306931,
+            "youden_j": 0.9050520436659051,
+            "human_fails": 39
+          },
+          "sequence_summary_correctness": {
+            "n": 140,
+            "agreement": 0.6857142857142857,
+            "kappa": 0.14893617021276606,
+            "false_negative_rate": 0.2222222222222222,
+            "false_positive_rate": 0.32061068702290074,
+            "youden_j": 0.45716709075487705,
+            "human_fails": 9
+          },
+          "contrast_correctness": {
+            "n": 140,
+            "agreement": 0.7571428571428571,
+            "kappa": 0.35308507746670287,
+            "false_negative_rate": 0.45454545454545453,
+            "false_positive_rate": 0.17757009345794392,
+            "youden_j": 0.36788445199660147,
+            "human_fails": 33
+          },
+          "groundedness": {
+            "n": 140,
+            "agreement": 0.8357142857142857,
+            "kappa": 0.32692307692307687,
+            "false_negative_rate": 0.38461538461538464,
+            "false_positive_rate": 0.14173228346456693,
+            "youden_j": 0.4736523319200485,
+            "human_fails": 13
+          },
+          "speculation_bounded": {
+            "n": 140,
+            "agreement": 0.7714285714285715,
+            "kappa": 0.3036990985390116,
+            "false_negative_rate": 0.3684210526315789,
+            "false_positive_rate": 0.2066115702479339,
+            "youden_j": 0.42496737712048716,
+            "human_fails": 19
+          }
+        },
+        "natural_only": {
+          "agreement": 0.7639344262295082,
+          "kappa": 0.32563742980341165,
+          "false_negative_rate": 0.3148148148148148,
+          "fitness": 0.4144746681248198
+        },
+        "by_dataset": {
+          "bgl": {
+            "agreement": 0.7869565217391304,
+            "kappa": 0.3041716351954703,
+            "false_negative_rate": 0.425,
+            "fitness": 0.17907685881370092
+          },
+          "hdfs": {
+            "agreement": 0.8212765957446808,
+            "kappa": 0.4100497217666807,
+            "false_negative_rate": 0.0967741935483871,
+            "fitness": 0.6564100576888301
+          },
+          "thunderbird": {
+            "agreement": 0.7872340425531915,
+            "kappa": 0.4373657080193121,
+            "false_negative_rate": 0.23809523809523808,
+            "fitness": 0.6008725508725509
+          }
+        },
+        "invalid_output_rate": 0.0,
+        "error_rate": 0.0
+      }
+    },
+    "notes": "140 judge calls made this time, 0 served from the run file."
   }
 ]

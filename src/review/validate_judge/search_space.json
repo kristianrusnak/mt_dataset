@@ -10,8 +10,7 @@
     {"model": "laguna-s-2.1", "prompt_id": "laguna", "efforts": ["none", "low", "medium"]},
     {"model": "mimo-2.6-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]},
     {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v2", "efforts": ["high"]},
-    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v3", "efforts": ["medium"]},
-    {"model": "mimo-2.6-flash", "prompt_id": "deepseek_v3", "efforts": ["medium"]}
+    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v3", "efforts": ["high"]}
   ],
   "temperature": {"min": 0.25, "max": 0.5, "step": 0.25}
 }
