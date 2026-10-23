@@ -11,11 +11,11 @@ add a file with PROMPT_ID and build(), register it below, and point a search_spa
 """
 
 from src.prompts.judge_criteria import (
-    deepseek, deepseek_v2, deepseek_v2_cot, deepseek_v3, glm, laguna, minimax, qwen27b, qwen_next,
+    deepseek, deepseek_v2, deepseek_v2_cot, deepseek_v3, deepseek_v4, glm, laguna, minimax, qwen27b, qwen_next,
 )
 from src.prompts.judge_criteria.common import JudgePrompt, PromptInput
 
-_MODULES = [deepseek, minimax, glm, qwen27b, qwen_next, laguna, deepseek_v2, deepseek_v2_cot, deepseek_v3]
+_MODULES = [deepseek, minimax, glm, qwen27b, qwen_next, laguna, deepseek_v2, deepseek_v2_cot, deepseek_v3, deepseek_v4]
 _BUILDERS = {m.PROMPT_ID: m.build for m in _MODULES}
 
 PROMPT_IDS = list(_BUILDERS)
