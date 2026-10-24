@@ -1,0 +1,7 @@
+{
+  "_note": "Single-config space for the deepseek_v7 check (temperature 0.25, effort high). Use it instead of search_space.json to avoid re-running the whole grid.",
+  "modes": [
+    {"model": "deepseek-v4.1-flash", "prompt_id": "deepseek_v7", "efforts": ["high"]}
+  ],
+  "temperature": {"min": 0.25, "max": 0.25, "step": 0.25}
+}
