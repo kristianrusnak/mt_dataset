@@ -20444,5 +20444,273 @@
       }
     },
     "notes": "Best config found by this search run (params above are the winner's, search_params the search's). Scored on the 'search' part of the gold pool (140 items)."
+  },
+  {
+    "step": 3,
+    "action": "llm_as_judge_run",
+    "timestamp": "2026-10-24T10:27:19Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v5",
+      "effort": "high",
+      "search_algorithm": "grid"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_relabeled.json",
+      "dataset_short/hdfs/gold_all_relabeled.json",
+      "dataset_short/thunderbird/gold_all_relabeled.json",
+      "dataset_short/judge_split.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.25__deepseek_v5__ehigh.json"
+    ],
+    "metrics": {
+      "agreement": 0.9,
+      "kappa": 0.5554195617521885,
+      "false_negative_rate": 0.18333333333333332,
+      "fitness": 0.6245942829246465,
+      "detail": {
+        "n_scored": 70,
+        "overall": {
+          "agreement": 0.9,
+          "kappa": 0.5554195617521885,
+          "false_negative_rate": 0.18333333333333332,
+          "fitness": 0.6245942829246465
+        },
+        "per_criterion": {
+          "root_cause_correctness": {
+            "n": 70,
+            "agreement": 0.9714285714285714,
+            "kappa": 0.9337748344370861,
+            "false_negative_rate": 0.08695652173913043,
+            "false_positive_rate": 0.0,
+            "youden_j": 0.9130434782608696,
+            "human_fails": 23
+          },
+          "sequence_summary_correctness": {
+            "n": 70,
+            "agreement": 0.9,
+            "kappa": 0.313725490196079,
+            "false_negative_rate": 0.5,
+            "false_positive_rate": 0.07575757575757576,
+            "youden_j": 0.42424242424242425,
+            "human_fails": 4
+          },
+          "contrast_correctness": {
+            "n": 70,
+            "agreement": 0.8857142857142857,
+            "kappa": 0.7211155378486055,
+            "false_negative_rate": 0.1111111111111111,
+            "false_positive_rate": 0.11538461538461539,
+            "youden_j": 0.7735042735042734,
+            "human_fails": 18
+          },
+          "groundedness": {
+            "n": 70,
+            "agreement": 0.8857142857142857,
+            "kappa": 0.2708333333333336,
+            "false_negative_rate": 0.6666666666666666,
+            "false_positive_rate": 0.0625,
+            "youden_j": 0.27083333333333337,
+            "human_fails": 6
+          },
+          "speculation_bounded": {
+            "n": 70,
+            "agreement": 0.8571428571428571,
+            "kappa": 0.5376486129458385,
+            "false_negative_rate": 0.1111111111111111,
+            "false_positive_rate": 0.14754098360655737,
+            "youden_j": 0.7413479052823315,
+            "human_fails": 9
+          }
+        },
+        "natural_only": {
+          "agreement": 0.896551724137931,
+          "kappa": 0.6517745706635171,
+          "false_negative_rate": 0.20689655172413793,
+          "fitness": 0.6879850825503
+        },
+        "by_dataset": {
+          "bgl": {
+            "agreement": 0.925,
+            "kappa": 0.6385622346519307,
+            "false_negative_rate": 0.18181818181818182,
+            "fitness": 0.6643217893217893
+          },
+          "hdfs": {
+            "agreement": 0.8695652173913043,
+            "kappa": 0.4586514129214686,
+            "false_negative_rate": 0.13333333333333333,
+            "fitness": 0.6324980901451489
+          },
+          "thunderbird": {
+            "agreement": 0.9043478260869565,
+            "kappa": 0.6271521812438067,
+            "false_negative_rate": 0.21739130434782608,
+            "fitness": 0.6361300309597524
+          }
+        },
+        "invalid_output_rate": 0.0,
+        "error_rate": 0.0
+      }
+    },
+    "notes": "70 judge calls made this time, 0 served from the run file."
+  },
+  {
+    "step": 3,
+    "action": "llm_as_judge_run",
+    "timestamp": "2026-10-24T10:44:15Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v6",
+      "effort": "high",
+      "search_algorithm": "grid"
+    },
+    "inputs": [
+      "dataset_short/bgl/gold_all_relabeled.json",
+      "dataset_short/hdfs/gold_all_relabeled.json",
+      "dataset_short/thunderbird/gold_all_relabeled.json",
+      "dataset_short/judge_split.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.25__deepseek_v6__ehigh.json"
+    ],
+    "metrics": {
+      "agreement": 0.88,
+      "kappa": 0.5401931506368312,
+      "false_negative_rate": 0.15,
+      "fitness": 0.6523796237222823,
+      "detail": {
+        "n_scored": 70,
+        "overall": {
+          "agreement": 0.88,
+          "kappa": 0.5401931506368312,
+          "false_negative_rate": 0.15,
+          "fitness": 0.6523796237222823
+        },
+        "per_criterion": {
+          "root_cause_correctness": {
+            "n": 70,
+            "agreement": 0.9714285714285714,
+            "kappa": 0.9337748344370861,
+            "false_negative_rate": 0.08695652173913043,
+            "false_positive_rate": 0.0,
+            "youden_j": 0.9130434782608696,
+            "human_fails": 23
+          },
+          "sequence_summary_correctness": {
+            "n": 70,
+            "agreement": 0.8857142857142857,
+            "kappa": 0.27835051546391787,
+            "false_negative_rate": 0.5,
+            "false_positive_rate": 0.09090909090909091,
+            "youden_j": 0.40909090909090906,
+            "human_fails": 4
+          },
+          "contrast_correctness": {
+            "n": 70,
+            "agreement": 0.9,
+            "kappa": 0.75177304964539,
+            "false_negative_rate": 0.1111111111111111,
+            "false_positive_rate": 0.09615384615384616,
+            "youden_j": 0.7927350427350427,
+            "human_fails": 18
+          },
+          "groundedness": {
+            "n": 70,
+            "agreement": 0.8142857142857143,
+            "kappa": 0.22487223168654202,
+            "false_negative_rate": 0.5,
+            "false_positive_rate": 0.15625,
+            "youden_j": 0.34375,
+            "human_fails": 6
+          },
+          "speculation_bounded": {
+            "n": 70,
+            "agreement": 0.8285714285714286,
+            "kappa": 0.5121951219512196,
+            "false_negative_rate": 0.0,
+            "false_positive_rate": 0.19672131147540983,
+            "youden_j": 0.8032786885245902,
+            "human_fails": 9
+          }
+        },
+        "natural_only": {
+          "agreement": 0.896551724137931,
+          "kappa": 0.6632640996705239,
+          "false_negative_rate": 0.1724137931034483,
+          "fitness": 0.7154576100228274
+        },
+        "by_dataset": {
+          "bgl": {
+            "agreement": 0.9416666666666667,
+            "kappa": 0.7149843505477309,
+            "false_negative_rate": 0.13636363636363635,
+            "fitness": 0.762085137085137
+          },
+          "hdfs": {
+            "agreement": 0.8695652173913043,
+            "kappa": 0.4586514129214686,
+            "false_negative_rate": 0.13333333333333333,
+            "fitness": 0.6324980901451489
+          },
+          "thunderbird": {
+            "agreement": 0.8260869565217391,
+            "kappa": 0.5194659991656236,
+            "false_negative_rate": 0.17391304347826086,
+            "fitness": 0.6006914344685244
+          }
+        },
+        "invalid_output_rate": 0.0,
+        "error_rate": 0.0
+      }
+    },
+    "notes": "70 judge calls made this time, 0 served from the run file."
+  },
+  {
+    "step": 3,
+    "action": "grid_search",
+    "timestamp": "2026-10-24T10:44:15Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v6",
+      "effort": "high",
+      "search_algorithm": "grid",
+      "search_params": {},
+      "split": "held_out"
+    },
+    "inputs": [
+      "src/review/validate_judge/search_space_heldout.json",
+      "dataset_short/bgl/gold_all_relabeled.json",
+      "dataset_short/hdfs/gold_all_relabeled.json",
+      "dataset_short/thunderbird/gold_all_relabeled.json",
+      "dataset_short/judge_split.json"
+    ],
+    "outputs": [
+      "dataset_short/judge_runs"
+    ],
+    "metrics": {
+      "fitness": 0.6523796237222823,
+      "detail": {
+        "configs_evaluated": 2,
+        "top5": [
+          [
+            "deepseek-v4.1-flash__t0.25__deepseek_v6__ehigh",
+            0.6523796237222823
+          ],
+          [
+            "deepseek-v4.1-flash__t0.25__deepseek_v5__ehigh",
+            0.6245942829246465
+          ]
+        ]
+      }
+    },
+    "notes": "Best config found by this search run (params above are the winner's, search_params the search's). Scored on the 'held_out' part of the gold pool (70 items)."
   }
 ]

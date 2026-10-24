@@ -2526,6 +2526,1266 @@
         "speculation_bounded": "The explanation describes the sequence and severity without asserting an unsupported causal mechanism or recovery beyond what the lines show; 'escalating' is a qualitative summary of the observed error progression."
       },
       "scratchpad": ""
+    },
+    "bgl:ae9df656-a582-45b1-94ac-4f49a91ea9a2": {
+      "input_fingerprint": "b12fd48270bd0d71",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Lines 1-20 are all [normal], and sentence 1 cites the repeated i-fetch/store entries plus the absence of failure, halt, or recovery messages, which matches the normal classification.",
+        "sequence_summary_correctness": "Sentence 2 says the window is dominated by i-fetch and store entries across all 20 lines and ends on a store operation; this matches lines 1-20, including line 20 being a store operation.",
+        "contrast_correctness": "Sentence 3 contrasts with an abnormal fault sequence by citing the lack of escalating error text or disruptive transition, and lines 1-20 contain no [abnormal] failure/halt/recovery signal.",
+        "groundedness": "Every named detail\u2014i-fetch, store operation, all 20 lines, ending on a store operation, and no failure/halt/recovery message\u2014is traceable to lines 1-20, with no invented code, component, or count.",
+        "speculation_bounded": "The explanation stays within the observed normal entries and absence of error signals, without asserting an unshown mechanism, recovery, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "bgl:0a636876-45bd-4ccd-8571-c9b1b9eaa469": {
+      "input_fingerprint": "df49b2612dc72104",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeated messages at lines 1-20 and the absence of escalation/additional error types; all lines are [normal], so this is a plausible log-grounded reason for the normal verdict.",
+        "sequence_summary_correctness": "Sentence 2's \u201calternating repetition across all 20 entries\u201d matches the overall pattern (lines 1-4 have repeated pairs, then lines 5-20 alternate), and no specific line position is contradicted.",
+        "contrast_correctness": "Sentence 3's contrast relies on the absence of follow-on faults/interrupts/system-wide symptoms, and no such abnormal lines appear in lines 1-20, so it genuinely supports normal over abnormal.",
+        "groundedness": "The two quoted messages appear in lines 1-20, the \u201c20 entries\u201d count is correct, and the claimed absences are not contradicted by any line; no invented code/component/number is present.",
+        "speculation_bounded": "The explanation limits itself to observed repetition and absence of abnormal lines; \u201cmaintenance-style\u201d and \u201croutine normal-state\u201d are interpretive summaries supported by all lines being [normal], not unsupported mechanism/downstream claims."
+      },
+      "scratchpad": "Scoring the five criteria for the given normal bgl sequence and explanation.\n\n1. Root cause correctness: PASS \u2014 Sentence 1 cites the repeated two messages at lines 1-20 and the absence of escalation/additional error types; with every line tagged [normal], this is a plausible log-grounded reason for the normal verdict.\n2. Sequence summary correctness: PASS \u2014 Sentence 2's \u201calternating repetition across all 20 entries\u201d matches the overall pattern (lines 1-4 contain repeated pairs, then lines 5-20 alternate), and no specific line position is contradicted.\n3. Contrast correctness: PASS \u2014 Sentence 3's contrast relies on the absence of follow-on faults/interrupts/system-wide symptoms, and no such abnormal lines appear in lines 1-20, so it genuinely supports normal over abnormal.\n4. Groundedness: PASS \u2014 The two quoted messages appear in lines 1-20, the \u201c20 entries\u201d count is correct, and the claimed absences are not contradicted by any line; no invented code/component/number is present.\n5. Speculation bounded: PASS \u2014 The explanation limits itself to observed repetition and absence of abnormal lines; \u201cmaintenance-style\u201d and \u201croutine normal-state\u201d are interpretive summaries supported by all lines being [normal], not unsupported mechanism/downstream claims."
+    },
+    "bgl:016782c4-caaf-45b0-9ac5-9d913c3cb092": {
+      "input_fingerprint": "170d9bafa8c138a5",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 correctly ties normality to corrected DDR/L3/CE and tree re-synch events (lines 1-20) and the absence of any uncorrected failure/panic, matching the all-[normal] sequence.",
+        "sequence_summary_correctness": "Sentence 2's flow matches the window: DDR at lines 1-3, two L3 at 4-5, CE at 8-11/15, totals at 12-14/16, ending with tree re-synch at 19-20; omitted DDR lines 6-7/17-18 are acceptable.",
+        "contrast_correctness": "Sentence 3's contrast is true: the window contains corrected/re-synch or CE-correctable entries (lines 1-20) and no line shows an uncorrected, fatal, or escalating condition, so the abnormal verdict is ruled out.",
+        "groundedness": "All named events and counts are traceable: DDR lines 1-3/6-7/12-14/16-18, L3 lines 4-5, CE lines 8-11/15, and tree re-synch lines 19-20; reading CE as correctable is reasonable paraphrase.",
+        "speculation_bounded": "No unsupported recovery or causal mechanism is asserted; 'detected and corrected' and 'in re-synch state' come directly from lines 1-20, and the absence claims are bounded to the shown window."
+      },
+      "scratchpad": ""
+    },
+    "bgl:0f5fc56f-0d3d-44f8-801d-eeee7a776f7d": {
+      "input_fingerprint": "52f2080c75dd5e44",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "All lines 1-20 are [normal]; sentence 1 cites the repeated illegal-instruction/auxiliary-processor pattern and the absence of failure/termination/recovery messages, which is present and plausibly why the normal verdict applies.",
+        "sequence_summary_correctness": "Sentence 2 describes the two message types as recurring in a back-and-forth/interleaved pattern from line 1 to line 20; occasional consecutive same-type lines (e.g., 4-5, 8-9, 10-11) are allowed under the loose alternation/interleaving reading, and no specific order is contradicted.",
+        "contrast_correctness": "Sentence 3 contrasts the normal verdict with an abnormal one by citing the absence of escalation, missing component, or break in the pattern; since every line 1-20 is [normal], there is no abnormal signal supporting the opposite verdict, and the contrast does not rely on a normal line as a fault.",
+        "groundedness": "The named message types appear throughout lines 1-20, and the claimed absence of failure/termination/recovery messages is consistent with the given sequence; no specific invented code, component, count, or timing is asserted.",
+        "speculation_bounded": "Sentence 3 calls the pattern a 'transient repeated state,' but no line says the condition was transient, recovered, or resolved, and the window ends on an illegal-instruction line at line 20 with no recovery line."
+      },
+      "scratchpad": ""
+    },
+    "bgl:a52021e0-ea29-4d12-9aa4-afb72eeb46f1": {
+      "input_fingerprint": "6bd69840118ab550",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the real abnormal socket-closed mailbox error at line 16, but it also includes the \u201crepeated Ido chip status changes\u201d at lines 17-20, which are tagged [normal], as part of the cause.",
+        "sequence_summary_correctness": "Sentence 2 correctly places the DDR/CE entries (lines 1-15) before the mailbox/socket failure (line 16) and the Ido status changes (lines 17-20) after it; \u201cseveral bursts\u201d and \u201cmultiple\u201d are consistent with the repeated lines.",
+        "contrast_correctness": "Sentence 3 offers \u201crepeated chip status transitions\u201d (lines 17-20, all [normal]) as part of why a normal verdict is ruled out, even though the only [abnormal] line is the socket-closed mailbox error at line 16.",
+        "groundedness": "Every specific event/code/component named\u2014MailboxMonitor lib_ido_error socket closed at line 16, DDR/CE entries at lines 1-15, and Ido status changes at lines 17-20\u2014appears in the sequence; no invented code, count, or component is present.",
+        "speculation_bounded": "Sentence 3 asserts that the repeated Ido chip status changes (lines 17-20, [normal]) indicate a \u201creal component communication fault,\u201d but no line states those status changes are faulty or caused by the socket closure."
+      },
+      "scratchpad": ""
+    },
+    "bgl:89d0f9f3-15dd-4d69-bf24-c8759e3e17ac": {
+      "input_fingerprint": "d0439a3526f02b7f",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": false,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites corrected hardware events and the absence of unresolved fault, which is consistent with the all-[normal] window and plausibly explains the normal classification.",
+        "sequence_summary_correctness": "Sentence 2 describes repeated correction messages, DDR totals at lines 6/10/13, and several L3 corrected-error lines at 14/15/19/20, matching the sequence without a contradicted order.",
+        "contrast_correctness": "Sentence 3's universal claim that every error-like message is explicitly paired with 'detected and corrected' wording is false for the CE sym lines 2/4/7/11, so the stated contrast is not fully true; the real normal discriminator is simply the absence of any [abnormal] line.",
+        "groundedness": "The claim that every error-like message is explicitly paired with 'detected and corrected' or 'detected and corrected on rank' is not traceable: CE sym lines 2/4/7/11 lack that wording, and tree receiver lines 1/5/8/9/12 say only 'detected'.",
+        "speculation_bounded": "No unsupported causal or downstream claim is made; 'routine error handling' is a reasonable summary of the corrected-error lines and the absence of any [abnormal] line."
+      },
+      "scratchpad": ""
+    },
+    "bgl:5e30f28c-ed7c-425d-842b-0cca09089ac7": {
+      "input_fingerprint": "de0963399dc0c24e",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the data TLB error interrupt at line 10 and the repeated kernel-termination messages at lines 1-9 and 11-20; all are tagged [abnormal], so the cited cause is log-grounded and plausible.",
+        "sequence_summary_correctness": "Sentence 2 correctly places the single TLB interrupt at line 10, with kernel-termination lines before it (1-9) and after it (11-20).",
+        "contrast_correctness": "Sentence 3 says the repetition alone could fit a routine shutdown pattern, but that repetition is the kernel-termination lines 1-9 and 11-20, all tagged [abnormal], so the contrast relies on calling abnormal events routine.",
+        "groundedness": "The named details are traceable: data TLB error interrupt at line 10, repeated kernel terminations at lines 1-9 and 11-20, and the single interrupt position at line 10.",
+        "speculation_bounded": "The claim that the repeated kernel terminations could fit a routine shutdown pattern is unsupported because lines 1-9 and 11-20 are all tagged [abnormal]."
+      },
+      "scratchpad": ""
+    },
+    "bgl:cee42f1a-ba3a-470f-83af-f4da1d39ab7c": {
+      "input_fingerprint": "2b575fc998b8d2bd",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the repeated `ciod` link-severed failures, which are the [abnormal] lines 1-8 and 10-20; it does not include the [normal] line 9 as part of the cause.",
+        "sequence_summary_correctness": "Sentence 2 accurately says the window is dominated by identical `ciod` errors from start to finish, with only one intervening `general purpose registers:` line at line 9 and no recovery/success line.",
+        "contrast_correctness": "Sentence 3 contrasts the persistent link-severed failures with a routine healthy exchange and does not offer any [normal] event as a positive distinguishing signal; the only normal line, line 9, is not named as the separator.",
+        "groundedness": "Every specific detail is traceable: repeated `ciod` link-severed errors appear in lines 1-8 and 10-20, the single `general purpose registers:` line is line 9, and no recovery/success line appears.",
+        "speculation_bounded": "The explanation stays within what the logs show: repeated identical `ciod` link-severed errors and absence of recovery/success lines, without asserting an unsupported downstream mechanism or outcome."
+      },
+      "scratchpad": ""
+    },
+    "bgl:f8806791-efc3-4f6a-b0ba-4e90801dac5b": {
+      "input_fingerprint": "1fa5cfac12e2c0a3",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames repeated data storage interrupts (abnormal lines 3, 5, 7, 10, 12, 14, 16, 18) but also includes instruction address entries via 'interleaved with' (normal lines 1, 2, 4, 6, 8, 9, 11, 13, 15, 17, 19, 20), mixing a normal event into the stated cause.",
+        "sequence_summary_correctness": "Sentence 2 correctly describes the window as mostly instruction address records and lists data storage interrupt at exactly lines 3, 5, 7, 10, 12, 14, 16, and 18, with no contradicted order or count.",
+        "contrast_correctness": "Sentence 3's actual separating signal is the recurring data storage interrupt (abnormal lines 3, 5, 7, 10, 12, 14, 16, 18), while instruction-address traces are named only as what normal sequences would show, not offered as abnormal evidence.",
+        "groundedness": "Every specific event and line reference is traceable: data storage interrupt lines 3, 5, 7, 10, 12, 14, 16, 18 and instruction-address records at the remaining normal lines; no invented code, component, or count appears.",
+        "speculation_bounded": "The claims of an 'ongoing fault pattern' and recurrence are supported by the repeated abnormal data storage interrupt lines, and the explanation does not assert an unsupported recovery, mechanism, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "bgl:f343c703-bd55-458e-80e5-5420461be147": {
+      "input_fingerprint": "dad9638e89e9b9d9",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": false,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names DDR errors (lines 1,3,5,9,11,13,18,20), tree receiver re-synch events (lines 7-8), and a job timeout (line 15), all tagged [normal], alongside the actual [abnormal] ciod link-severed lines 16-17.",
+        "sequence_summary_correctness": "Sentence 2 matches the order: lines 1-6 alternate DDR/total messages, lines 7-8 are two re-synch notices, lines 9-14 are more DDR/total messages, line 15 is the job timeout, lines 16-17 are two ciod link-severed errors, and lines 18-20 continue DDR reporting.",
+        "contrast_correctness": "Sentence 3 offers repeated hardware/corrected-error activity (DDR lines 1,3,5,9,11,13,18,20) and job interruption events including the job timeout at line 15, all [normal], as part of why the window is not normal.",
+        "groundedness": "The phrase 'multiple ranks and symbols' is not traceable because the rank and symbol values are hidden as <*> in lines 1,3,5,9,11,13,18,20, so distinctness cannot be known.",
+        "speculation_bounded": "The explanation does not assert that lines 16-17 caused line 15 or any recovery/aftermath, so its causal confidence stays within the shown co-occurrence."
+      },
+      "scratchpad": ""
+    },
+    "bgl:a1f996ba-85e5-42e4-b1af-e6d482628edb": {
+      "input_fingerprint": "72f27d2877dab03b",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to routine rbs/correctable-DDR timing reports (e.g., lines 1-2, 4, 6, 11, 13-17, 19-20) and total/critical input interrupt summaries (lines 3, 5, 7-10, 12, 18) with no fault/crash/escalation, matching the all-[normal] sequence and absence of abnormal drivers.",
+        "sequence_summary_correctness": "The window contains only the two status-line types across lines 1-20, mixed with runs such as lines 7-10 and 13-17, so the compressed 'alternates' description does not contradict a specific order.",
+        "contrast_correctness": "Sentence 3 distinguishes the normal window by the absence of any unrecoverable error, service interruption, or abnormal termination, and all lines 1-20 are routine status/timing reports.",
+        "groundedness": "Every named detail\u2014rbs signal-handler timing, correctable DDR timing, total/critical input interrupt summaries, and the count of 20 entries\u2014is traceable to lines 1-20; the negative claims are also true of the sequence.",
+        "speculation_bounded": "The explanation stays at the level of repeated status reporting and absence of fault signals, without asserting an unsupported recovery, mechanism, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "bgl:6b7d87cb-59c2-4f63-b379-a62a3693f005": {
+      "input_fingerprint": "32d95794a5d80254",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to the repeated routine iar/double-hummer messages and absence of failure indicators, which matches all lines 1-20 being [normal] with no abnormal driver.",
+        "sequence_summary_correctness": "Sentence 2's steady repetitive pattern across all 20 entries, with double-hummer exceptions at intervals and iar entries filling gaps, matches lines 1-20, including exceptions at 3,6,10,13,16,19 and final iar at 20.",
+        "contrast_correctness": "Sentence 3 distinguishes normal from abnormal by no new error types/deviation and final return to iar at line 20; since all lines 1-20 are [normal], this is a real absence of abnormal evidence.",
+        "groundedness": "Named messages, count of 20, final iar line, and exception positions are traceable to lines 1-20; 'missing-end state' is stated only as an absence, not a fabricated event.",
+        "speculation_bounded": "'Fits a stable operational trace' is hedged and supported by the all-normal repetitive sequence; no unsupported mechanism or downstream consequence is asserted."
+      },
+      "scratchpad": ""
+    },
+    "bgl:9483c352-42d8-49e1-9b40-4ec92f0c79ca": {
+      "input_fingerprint": "8070d36e2faa4ef9",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeating alternation of the two normal message types across lines 1-20 and the absence of new event types/escalation, which is consistent with the all-normal window.",
+        "sequence_summary_correctness": "Sentence 2 correctly describes lines 1-20 as the same two messages repeated in order, with data store interrupt followed by illegal instruction over and over.",
+        "contrast_correctness": "Sentence 3 contrasts the stable, uniform repetition with a one-off fault or developing incident, which is true for this all-normal sequence and does not rely on any abnormal line.",
+        "groundedness": "The named messages, line range 1-20, alternation, and absence of escalation are traceable to the logs; no specific component, code, or count is invented.",
+        "speculation_bounded": "The explanation limits itself to the observed stable pattern and does not assert an unsupported mechanism, recovery, or downstream consequence."
+      },
+      "scratchpad": "Scoring the explanation against the five criteria for a normal sequence where all 20 lines are tagged [normal]."
+    },
+    "bgl:c57655a3-b6a1-4fe4-af32-68881c6868b0": {
+      "input_fingerprint": "6a26d76f13981f75",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeated floating point alignment exceptions (e.g., lines 1-3, 5, 7-10, 12, 14-16, 19-20) interleaved with iar <*> dear <*> entries (lines 4, 6, 11, 13, 17-18) and the absence of failure/crash/escalation markers, which matches the all-normal window.",
+        "sequence_summary_correctness": "Sentence 2's loose 'alternates/interleaved' description matches the mixed recurring patterns across lines 1-20, and it gives no specific order or position that contradicts the logs.",
+        "contrast_correctness": "Sentence 3 contrasts the normal verdict with an abnormal one by pointing to the absence of progression, new error types, or termination behavior beyond the two observed forms, which is true for this all-normal sequence.",
+        "groundedness": "Every named detail is traceable: the two recurring patterns appear throughout lines 1-20, and 'dominated by' is supported by 14 floating-point-alignment lines versus 6 iar <*> dear <*> lines.",
+        "speculation_bounded": "The explanation limits itself to observed repetition and absence of failure markers and does not assert unsupported recovery, causal mechanisms, or post-window behavior."
+      },
+      "scratchpad": ""
+    },
+    "bgl:a3f59d42-b1de-423b-a3c9-f2dccbdfe88b": {
+      "input_fingerprint": "8ca109d673cf8423",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites corrected DDR errors (lines 1-2, 7, 10; totals 5-6, 9, 12) and critical input interrupts reported as warnings and suppressed (lines 13-20), all present and consistent with the normal classification.",
+        "sequence_summary_correctness": "Sentence 2 matches the flow: repeated DDR/CE activity in lines 1-12, then several torus/tree critical input warnings each followed by suppression in lines 13-20.",
+        "contrast_correctness": "Sentence 3 correctly says the abnormal verdict is unsupported because the window shows corrected DDR errors and suppressed interrupts (lines 1-20), with no uncorrected fault, escalation, or failure line.",
+        "groundedness": "The named DDR corrections, CE/total lines, torus/tree warnings, and suppression messages are all traceable to lines 1-20; no invented code, component, or count is present.",
+        "speculation_bounded": "The phrase 'explicitly downgraded to warnings' asserts a severity-reduction mechanism not stated in the logs; lines 13, 15, 17, and 19 only report 'warning' and lines 14, 16, 18, 20 report suppression, so the downgrade claim is unsupported."
+      },
+      "scratchpad": "Scoring the five criteria for the given explanation against the bgl log sequence. The sequence is overall normal, and all log lines are tagged [normal]. The explanation has three sentences: (1) root cause, (2) sequence summary, (3) contrast. I will evaluate each criterion independently, citing line numbers. For criterion 5, I need to check for unsupported mechanisms. The phrase 'explicitly downgraded to warnings' in sentence 1 asserts a severity-reduction mechanism not stated in the logs; lines 13, 15, 17, 19 only say 'warning', and lines 14, 16, 18, 20 say 'suppressing further interrupts'. This is an unsupported mechanism, so criterion 5 fails. Other criteria pass."
+    },
+    "bgl:5fa5e919-c0b4-4a7b-9cc4-dfc371d2b979": {
+      "input_fingerprint": "ee8411a38217c227",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeated floating-point alignment exceptions (lines 1\u201310, 13, 16\u201320) and iar lines (11\u201312, 14\u201315), plus the absence of a fatal/recovery failure, which is consistent with every line being [normal].",
+        "sequence_summary_correctness": "Sentence 2 correctly says the floating-point exception message dominates most entries (16 of 20) and the iar lines appear in the middle (lines 11\u201312 and 14\u201315), with no contradicted order or position claim.",
+        "contrast_correctness": "Sentence 3 distinguishes the normal window as repetitive, non-escalating event churn rather than an escalating or changing fault, and there are no [abnormal] lines that this contrast mislabels or ignores.",
+        "groundedness": "Every named detail is traceable: repeated floating-point alignment exceptions (lines 1\u201310, 13, 16\u201320), several iar lines (11\u201312, 14\u201315), and no fatal/recovery-failure line appears in the sequence.",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery, mechanism, or downstream consequence; \u201croutine event churn\u201d is a bounded characterization of the all-[normal] sequence."
+      },
+      "scratchpad": "Scored against the all-[normal] sequence. Sentence 1 cites the repeated floating-point alignment exceptions and iar lines plus absence of fatal/recovery failure; for a normal sequence, that is a plausible normal-window cause. Sentence 2 matches the counts and middle placement of iar lines. Sentence 3\u2019s contrast is about repetitive non-escalating churn rather than an abnormal transition, which is consistent with the all-normal tags. No invented specific details or unsupported recovery/mechanism claims."
+    },
+    "bgl:e84f8eef-9d0c-4052-836d-4dde533ab803": {
+      "input_fingerprint": "48ee38438b581a35",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites corrected CE symbol lines (1-3,5,8-16,20), corrected torus receiver input pipe errors (4,17), and corrected DDR errors (6,19), plus absence of uncorrected failure/shutdown, which matches the all-normal tags and is concrete rather than circular.",
+        "sequence_summary_correctness": "Sentence 2 accurately summarizes the window as mostly CE symbol lines interrupted by corrected torus/DDR notices and DDR totals (4,6-7,17-19) and ending with a CE line (20), with no contradicted ordering.",
+        "contrast_correctness": "Sentence 3 distinguishes the normal window by corrective wording (4,6,7,17,18,19) and absence of escalating/unrecovered faults, which is true for this all-normal sequence and does not offer a normal event as a fault.",
+        "groundedness": "Every named detail\u2014CE symbol lines, torus receiver input pipe errors, DDR errors, detected-and-corrected wording, and DDR totals\u2014is traceable to lines 1-20; the negative absence claims are consistent with the all-normal sequence.",
+        "speculation_bounded": "The explanation does not claim a specific recovery mechanism or downstream event occurred in this window; the abnormal-sequence wording is a general contrast, not an unsupported claim about these logs."
+      },
+      "scratchpad": "Scoring based on all lines tagged [normal] and the explanation's three sentences."
+    },
+    "bgl:a9933c38-987f-461c-a422-2940ad91f325": {
+      "input_fingerprint": "fb81c1148acc9313",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the repeated critical input interrupt warnings (lines 11\u201315 and 17\u201320, all [normal]) as part of the cause alongside the rts panic (line 16, [abnormal]), so it blames normal events together with the real driver.",
+        "sequence_summary_correctness": "Sentence 2's order matches the logs: lines 1\u201310 suppression, lines 11\u201315 critical warnings, line 16 panic, then lines 17\u201320 more warnings; 'before more warnings' is accurate.",
+        "contrast_correctness": "Sentence 3 offers persistent interrupt suppression (lines 1\u201310, [normal]) and repeated critical hardware warnings (lines 11\u201315, 17\u201320, [normal]) as part of what rules out normal, even though it also names the panic (line 16, [abnormal]); the contrast leans on normal events.",
+        "groundedness": "All named details are traceable: suppression lines 1\u201310, critical input interrupt warnings lines 11\u201315/17\u201320, and rts panic line 16; 'fatal runtime halt' paraphrases 'stopping execution'.",
+        "speculation_bounded": "No unsupported recovery or mechanism is asserted; the fatal-halt wording is directly supported by line 16, and the rest is summary/contrast rather than an unsupported causal claim."
+      },
+      "scratchpad": ""
+    },
+    "bgl:94c53db4-b76a-4c44-9bd8-4f793b6d5f64": {
+      "input_fingerprint": "d9086e598d750ca7",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 includes \u201cReceived signal\u2026\u201d entries via \u201cinterleaved with\u201d; those are [normal] at lines 2, 7, 9, 11, 13, 19.",
+        "sequence_summary_correctness": "Repeated socket-read failures with interspersed signal notifications matches lines 1\u201320.",
+        "contrast_correctness": "Sentence 3 relies on the persistent severed-link read error, which is [abnormal] at lines 1, 3\u20136, 8, 10, 12, 14\u201318, 20, and does not offer normal Received-signal lines as a distinguishing signal.",
+        "groundedness": "All named details are traceable to the given lines; no invented code, component, or count.",
+        "speculation_bounded": "No unsupported mechanism or positive recovery claim; the absence-of-recovery claim is limited to the observed window."
+      },
+      "scratchpad": "1. Root cause correctness: Sentence 1 names the socket-read failures but also includes the \u201cReceived signal\u2026\u201d entries via \u201cinterleaved with\u201d; those entries are tagged [normal] at lines 2, 7, 9, 11, 13, and 19, so a normal event is blamed as part of the cause. Verdict: FAIL.\n\n2. Sequence summary correctness: The description of repeated socket-read failures with signal notifications interspersed matches the actual pattern across lines 1\u201320, e.g. failures at 1, 3\u20136, 8, 10, 12, 14\u201318, 20 and signals at 2, 7, 9, 11, 13, 19. Verdict: PASS.\n\n3. Contrast correctness: Sentence 3 relies on the persistent severed-link read error, which is [abnormal] at lines 1, 3\u20136, 8, 10, 12, 14\u201318, and 20, and does not offer the normal Received-signal lines as a distinguishing signal. Verdict: PASS.\n\n4. Groundedness: The named ciod message, repeated/persistent occurrences, and interspersed signal notifications are all traceable to the given lines, with no invented code, component, or count. Verdict: PASS.\n\n5. Speculation bounded: The explanation does not assert an unsupported mechanism or positive recovery; its \u201cwithout \u2026 recovery\u201d claim is limited to the observed window and is not contradicted by any line. Verdict: PASS."
+    },
+    "bgl:aae8c42c-0067-4ec6-b6b8-66397642f1cb": {
+      "input_fingerprint": "94452ecbfadc8ab6",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames ciod \u201cError loading...\u201d lines 2,4,7,9,12,14,17,20, which are tagged [normal], alongside the actual [abnormal] rts kernel terminations at lines 1,3,5,6,8,10,11,13,15,16,18,19.",
+        "sequence_summary_correctness": "The loose \u201calternates\u201d summary is acceptable despite consecutive rts lines at 5-6, 10-11, 15-16, 18-19, and the claim that all 20 lines are covered by these two templates with no success/recovery message is true.",
+        "contrast_correctness": "Sentence 3\u2019s distinguishing signal is the \u201cpersistent repeated failure to load the program image,\u201d i.e. the ciod errors at lines 2,4,7,9,12,14,17,20, which are tagged [normal].",
+        "groundedness": "Every named event is traceable: ciod load errors and rts terminations appear in the listed lines, all 20 lines are covered by those templates, and no successful startup/recovery line is present.",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery, mechanism, or downstream consequence; \u201cpersistent repeated\u201d is supported by the repeated ciod lines, and the absence of success/recovery messages is true for this window."
+      },
+      "scratchpad": ""
+    },
+    "bgl:31203a46-3472-4c74-a5a0-0c768fed2b5d": {
+      "input_fingerprint": "f0b69948bcf55b35",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the torus wire interrupt warning (line 1, [normal]) and repeated ciod core-file generation (lines 2-5, [normal]) alongside the real abnormal events, so the stated cause mixes in normal events.",
+        "sequence_summary_correctness": "Sentence 2's flow from the line 1 input interrupt through the line 7/9 panics to the line 10-20 communication errors matches the log order; omitted lines are allowed.",
+        "contrast_correctness": "Sentence 3 offers 'core dumps' as part of what a normal sequence would not include, but the ciod core-file lines 2-5 are tagged [normal], so the contrast leans on a non-discriminating event.",
+        "groundedness": "Every named detail is traceable: torus warning line 1, core files lines 2-5, panics lines 7/9, severed CioStream links lines 10-17, IAP failures lines 18-20, and corrected retransmissions lines 6/8.",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery, mechanism, or downstream consequence; 'process crashes' and 'sustained communication errors' are reasonable summaries of lines 7/9 and 10-20."
+      },
+      "scratchpad": ""
+    },
+    "bgl:e8738802-7755-48a1-83a1-a134953c69a6": {
+      "input_fingerprint": "992e05d560466184",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the repeated data storage interrupts together with the instruction address entries, but the instruction address lines (2,4,6,8,9,11,13,15,16,18,20) are tagged [normal], so a normal event is included in the cited cause.",
+        "sequence_summary_correctness": "The sequence does alternate mostly between data storage interrupts (1,3,5,7,10,12,14,17,19) and instruction address entries (2,4,6,8,9,11,13,15,16,18,20), with no other message types, so 'almost throughout' matches the logs.",
+        "contrast_correctness": "Sentence 3's distinguishing signal is the repeated storage-interrupt condition (lines 1,3,5,7,10,12,14,17,19), all tagged [abnormal], and it does not offer the normal instruction-address entries as part of the contrast.",
+        "groundedness": "Every named event and pattern is traceable to the given lines: data storage interrupts and instruction address entries occur as described, and no specific code, component, or hidden identity is invented.",
+        "speculation_bounded": "The explanation only characterizes the observed repeated interrupts as a persistent fault pattern and does not assert an unshown mechanism, recovery, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "bgl:e2d1444c-1850-4ba8-aec8-ac7fc6e2c5c6": {
+      "input_fingerprint": "da2e2c86b99e2210",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the abnormal \u201crts panic! - stopping execution\u201d together with the normal \u201cfloating pt ex mode <*> enable......<*>\u201d lines (e.g., lines 1, 3, 5) via \u201cinterleaved with,\u201d so it mixes a normal event into the cause even though the panic lines (2, 4, 6, etc.) are the actual abnormal driver.",
+        "sequence_summary_correctness": "The description of alternating panic and floating-point messages across most of the window matches the logs, with panic lines appearing many times (2, 4, 6, 8, 10, 12, 13, 15, 17, 19) and only the two message types present; the one double panic at lines 12\u201313 does not contradict \u201calternates\u201d under the rubric.",
+        "contrast_correctness": "Sentence 3 relies only on the abnormal persistent execution-stopping panics (lines 2, 4, 6, 8, 10, 12, 13, 15, 17, 19) as the distinguishing pattern and does not offer the normal floating-point lines as a separating signal.",
+        "groundedness": "Every named message and count-like claim is traceable: \u201crts panic! - stopping execution\u201d appears on the abnormal lines, \u201cfloating pt ex mode...\u201d on the normal lines, and \u201cmany times\u201d is supported by ten panic occurrences.",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery, mechanism, or downstream consequence; \u201cpersistent\u201d and \u201cexecution-stopping\u201d are supported by repeated panic lines and the line text \u201cstopping execution.\u201d"
+      },
+      "scratchpad": ""
+    },
+    "hdfs:37075517-653d-4938-aaef-f3cfdfb7cae2": {
+      "input_fingerprint": "ebcc548cc082c17d",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to routine block-write handling: allocateBlock line 1, Receiving lines 2\u20134, PacketResponder lines 5/8/9, Received lines 6/10/11, addStoredBlock lines 7/12/13; these are present and common in normal blocks.",
+        "sequence_summary_correctness": "Sentence 2's compressed flow from allocation line 1 through receipt/response handling lines 2\u20136 and 8\u201311 to stored-block confirmations lines 7 and 12\u201313 matches the overall sequence pattern.",
+        "contrast_correctness": "Sentence 3 correctly notes no failure/timeout/corruption/retry/error lines and cites repeated addStoredBlock confirmations at lines 7, 12, and 13 as normal completion evidence, so the abnormal contrast is not supported.",
+        "groundedness": "Every named detail is traceable: multiple Receiving entries lines 2\u20134, PacketResponder terminations lines 5/8/9, Received lines 6/10/11, addStoredBlock lines 7/12/13, and no error lines appear.",
+        "speculation_bounded": "The clean-completion claim is supported by addStoredBlock and PacketResponder termination lines, and it does not assert an unshown mechanism or post-window event."
+      },
+      "scratchpad": "Scoring based on normal HDFS block-write sequence."
+    },
+    "hdfs:bf1a0240-2a41-4631-9d03-137d818dbd35": {
+      "input_fingerprint": "11eb8a48806ecad9",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": false,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "The explanation cites routine HDFS block handling\u2014receiving (lines 1,3,4), PacketResponder termination (7,9,11), addStoredBlock (6,10,13), and delete/invalidSet (14\u201319)\u2014which is the correct cause for a normal sequence.",
+        "sequence_summary_correctness": "The summary's order\u2014receipt/allocation first (lines 1\u20134), storage updates next (5\u201313), then deletion (14\u201319)\u2014matches the log sequence.",
+        "contrast_correctness": "The contrast says the delete/invalidSet entries (14\u201319) are ordinary cleanup and that no error/exception/retry signal appears, which is true for this normal block and supports the normal verdict.",
+        "groundedness": "The phrase 'the same blocks' in sentence 1 asserts block identity between the received/stored blocks (lines 1\u201313) and the deleted blocks (14\u201319), but the block IDs are hidden as <*> and cannot be verified from the logs.",
+        "speculation_bounded": "The explanation does not assert an unsupported mechanism or downstream consequence; 'controlled deletion phase' and 'ordinary block cleanup' are soft descriptions of the shown deletion lines (14\u201319)."
+      },
+      "scratchpad": "Scoring based on rubric and logs."
+    },
+    "bgl:6005015e-e028-4c7f-a5e4-6f106687513c": {
+      "input_fingerprint": "81300e80aabcbadf",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the real severed-link errors but also includes \u201cinterleaved with received signal events\u201d as part of the cause; those received-signal lines (1,3,5,7,9,14,17,19) are tagged [normal].",
+        "sequence_summary_correctness": "Sentence 2 accurately summarizes the window as repeated ciod severed-link read errors across the sequence, matching abnormal lines 2,4,6,8,10-13,15,16,18,20 without a contradicted order claim.",
+        "contrast_correctness": "Sentence 3 contrasts the persistent/repetitive abnormal errors with a single isolated interruption and absence of recovery/completion; it does not offer the normal received-signal lines as a distinguishing signal.",
+        "groundedness": "The named details\u2014ciod, the \u201cError reading message prefix on CioStream socket \u2026 Link has been severed\u201d text, repeated errors, and received-signal events\u2014are all traceable to the listed lines, with no invented code, count, or component.",
+        "speculation_bounded": "The explanation stays with observable repetition and absence of recovery/completion lines and does not assert an unsupported mechanism, intent, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:2598fdfd-ab13-4b73-841c-f478d70f6a71": {
+      "input_fingerprint": "77eef03b70554927",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": false,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to routine block-lifecycle events that are all present and common in normal blocks: allocateBlock (line 1), Receiving block (lines 2-4), PacketResponder terminating (lines 7-8, 12), Verification succeeded (lines 14, 18), and delete/invalidSet activity (lines 19-24).",
+        "sequence_summary_correctness": "The described flow matches the line order: allocation/storage updates (lines 1, 5-6, 11) to receipt/verification (lines 9-10, 13-14, 18), then serving exceptions (lines 15-16) followed by a served block (line 17), and finally deletes (lines 19-24).",
+        "contrast_correctness": "The contrast is true: the exceptions at lines 15-16 are followed by Served block at line 17 and Verification succeeded at line 18, and the window ends with invalidSet/deletion lines 19-24 rather than an anomaly-typical failure or missing-block line.",
+        "groundedness": "Sentence 2's phrase 'the same blocks' asserts identity between earlier block events and the delete operations (e.g., lines 1-18 vs. lines 19-24), but the block IDs are hidden as <*>, so that identity claim is not traceable to the given lines.",
+        "speculation_bounded": "The explanation stays with the shown sequence and absence of anomaly-typical lines; it does not claim recovery/retry/repair or anything after line 24."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:790a00e9-8738-470d-a2ce-1480008e61fd": {
+      "input_fingerprint": "5874e41cf4992430",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the \u201cUnexpected error trying to delete block \u2026 BlockInfo not found in volumeMap\u201d at line 24, which is the anomaly-typical event (1% normal vs 40% anomalous); the serving exceptions at lines 14\u201315 are common in normal blocks but do not negate the discriminating line 24.",
+        "sequence_summary_correctness": "Sentence 2\u2019s flow\u2014reception/storage updates (lines 1\u201313), PacketResponder terminations (lines 6, 9, 11), verification successes (lines 17\u201319), then invalidSet/deletion activity (lines 20\u201326)\u2014matches the log order; omissions are allowed.",
+        "contrast_correctness": "Sentence 3 correctly distinguishes the abnormal case by the rare-in-normal failed delete/BlockInfo-not-found at line 24 (1% normal vs 40% anomalous), even though serving exceptions at lines 14\u201315 are common in normal blocks; the \u201cboth\u201d framing is true and discriminating.",
+        "groundedness": "All named details are traceable: two serving exceptions (lines 14\u201315), three PacketResponder terminations (lines 6, 9, 11), three verification successes (lines 17\u201319), three invalidSet additions (lines 20\u201322), three deletion lines (lines 23, 25, 26), and the BlockInfo error (line 24); \u201csame block\u201d is consistent with the session-based block sequence.",
+        "speculation_bounded": "The explanation labels the observed exceptions/errors and the BlockInfo-not-found state as inconsistent block state handling, without asserting an unshown recovery, retry, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:06c03a10-51df-430b-9ac3-032b6dd695e1": {
+      "input_fingerprint": "a6d2e823eda35d09",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeated \u201cUnexpected error trying to delete block \u2026 BlockInfo not found in volumeMap\u201d events at lines 32 and 34, which are present and anomaly-typical by the reference table (1% normal vs. 40% anomalous).",
+        "sequence_summary_correctness": "The described flow matches the logs: allocation at line 1, receives/stored-block updates through lines 2\u201313, verification at line 14, serving with intermittent exceptions at lines 15\u201326, then invalidSet/delete attempts at lines 27\u201334.",
+        "contrast_correctness": "Sentence 3 correctly distinguishes the abnormal verdict using the later repeated BlockInfo-not-found errors at lines 32 and 34, while acknowledging routine allocation/receive/verification messages.",
+        "groundedness": "Every specific detail is traceable: repeated errors at lines 32 and 34, NameSystem.delete/invalidSet at lines 27\u201329, allocation at line 1, receives at lines 2\u20134/7/11/13, stored updates at lines 5/8/9, verification at line 14, serving/exceptions at lines 15\u201326, and deletion attempts at lines 30\u201334.",
+        "speculation_bounded": "The explanation does not assert unsupported recovery, retry, or causal mechanisms; \u201ctried to remove blocks that were no longer present in the volume map\u201d is a reasonable paraphrase of the BlockInfo-not-found lines 32 and 34 together with the delete lines 27\u201329."
+      },
+      "scratchpad": "1. Root cause correctness \u2014 PASS: Sentence 1 cites the repeated \u201cUnexpected error trying to delete block \u2026 BlockInfo not found in volumeMap\u201d events at lines 32 and 34, which are present and anomaly-typical by the reference table (1% normal vs. 40% anomalous).\n2. Sequence summary correctness \u2014 PASS: The described flow matches the logs: allocation at line 1, receives/stored-block updates through lines 2\u201313, verification at line 14, serving with intermittent exceptions at lines 15\u201326, then invalidSet/delete attempts at lines 27\u201334.\n3. Contrast correctness \u2014 PASS: Sentence 3 correctly distinguishes the abnormal verdict using the later repeated BlockInfo-not-found errors at lines 32 and 34, while acknowledging routine allocation/receive/verification messages.\n4. Groundedness \u2014 PASS: Every specific detail is traceable: repeated errors at lines 32 and 34, NameSystem.delete/invalidSet at lines 27\u201329, allocation at line 1, receives at lines 2\u20134/7/11/13, stored updates at lines 5/8/9, verification at line 14, serving/exceptions at lines 15\u201326, and deletion attempts at lines 30\u201334.\n5. Speculation bounded \u2014 PASS: The explanation does not assert unsupported recovery, retry, or causal mechanisms; \u201ctried to remove blocks that were no longer present in the volume map\u201d is a reasonable paraphrase of the BlockInfo-not-found lines 32 and 34 together with the delete lines 27\u201329."
+    },
+    "hdfs:80dc55a9-f1e9-49a0-adef-4518171c5cc6": {
+      "input_fingerprint": "5fc43ca1923450fe",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the explicit failure to delete a block because its BlockInfo was not found in volumeMap, which corresponds to line 22, a discriminating anomaly-typical event (1% normal vs 40% anomalous); the additional mention of serving exceptions (lines 14,16) and deletions (20-23) does not negate the presence of the correct cause.",
+        "sequence_summary_correctness": "Sentence 2's compressed flow matches the logs: allocation at line 1, receipts/addStoredBlock updates around lines 2-9, PacketResponder terminations at lines 5/10/12, serving exceptions at lines 14/16, successful serve at line 15, and final invalidSet/deletion activity at lines 17-23; the interleaving is simplified but not contradicted.",
+        "contrast_correctness": "Sentence 3 relies on the real discriminating line 22 ('Unexpected error trying to delete block') to rule out normal, and the window indeed ends with deletion/error activity (lines 17-23) rather than a clean store/serve pattern.",
+        "groundedness": "Every specific claim is traceable: repeated serving exceptions (lines 14,16), multiple deletions (lines 20-23), BlockInfo not found (line 22), PacketResponder terminations (lines 5,10,12), successful serve (line 15), and invalidSet additions (lines 17-19); 'DataNode' is a reasonable technical paraphrase for the serving-block component.",
+        "speculation_bounded": "The explanation does not assert an unshown recovery/retry mechanism or downstream consequence; 'actual failure in block handling' is a generic restatement of the abnormal classification supported by the explicit error at line 22."
+      },
+      "scratchpad": "Scoring the five criteria based on the provided explanation and log sequence. The overall classification is abnormal. The key discriminating event is line 22: 'Unexpected error trying to delete block... BlockInfo not found in volumeMap' (1% normal, 40% anomalous). Other events like serving exceptions (lines 14,16) and deletions (20-23) are common in normal blocks. The explanation cites line 22 in both sentence 1 and sentence 3, so root cause and contrast are grounded in the discriminating event. The sequence summary is compressed but matches the log order. No fabricated details or unsupported mechanisms are present. All five criteria pass."
+    },
+    "hdfs:876f9e19-64ca-4f51-9bcf-4f829f14ad19": {
+      "input_fingerprint": "db8e7ed5b374748b",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites line 29\u2019s \u201cUnexpected error trying to delete block ... BlockInfo not found,\u201d which is anomaly-typical (40% anomalous vs 1% normal); although the repeated serving exceptions at lines 15, 18, and 22 are common in normal blocks, at least one named cause is genuinely discriminating.",
+        "sequence_summary_correctness": "Sentence 2\u2019s compressed flow matches the logs: allocation at line 2, storage updates at lines 5\u20137, PacketResponder terminations at lines 8/10/12, multiple serving operations around lines 14\u201323, one verification success at line 20, then invalidation/deletion at lines 24\u201330.",
+        "contrast_correctness": "Sentence 3\u2019s contrast relies on the line 29 missing-BlockInfo delete error, which is rare in normal blocks (1%) and common in anomalous blocks (40%), so it genuinely distinguishes this abnormal window from a routine normal one.",
+        "groundedness": "All specific claims trace to the sequence: receives at lines 1/3/4, addStoredBlock updates at lines 5\u20137, serving exceptions at lines 15/18/22, verification at line 20, invalidation/deletion at lines 24\u201330, and the missing BlockInfo error at line 29.",
+        "speculation_bounded": "The explanation states the delete error and a generic \u201cdid not complete cleanly\u201d conclusion without asserting an unsupported mechanism, retry, recovery, or downstream consequence beyond what line 29 shows."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:e5a03548-aa81-4b41-b009-914fbc85de90": {
+      "input_fingerprint": "77f195cad0df960c",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames \u201cGot exception while serving\u201d (lines 20, 22), repeated \u201cDeleting block\u201d (lines 19, 26\u201328), and invalidSet additions (lines 23\u201325), but the table shows these are common in normal blocks (78%, 95%, 93%), so it does not cite the anomaly-typical replication/transmitted/received events at lines 11, 16, and 18.",
+        "sequence_summary_correctness": "Sentence 2\u2019s flow matches the logs: allocation at line 1, receiving/replication around lines 2\u20134, 11, and 15, transmitted/received at lines 16 and 18, then serving exceptions at lines 20 and 22 followed by invalidSet/deleting lines 23\u201328; the earlier deletion at line 19 is omitted, not contradicted.",
+        "contrast_correctness": "Sentence 3 says a normal window would lack service exceptions and invalidSet deletions, but the table shows \u201cGot exception while serving\u201d appears in 78% of normal blocks and invalidSet additions in 93%, so the stated contrast is false.",
+        "groundedness": "Every named event/count is traceable: multiple exceptions at lines 20 and 22, repeated deletions at lines 19 and 26\u201328, invalidSet additions at lines 23\u201325, allocation at line 1, replication at line 11, transmitted at line 16, received at lines 6, 8, 10, and 18, and addStoredBlock at lines 12\u201314 and 17.",
+        "speculation_bounded": "The explanation uses only generic \u201cfailure path\u201d wording and sequence descriptions, with no unsupported mechanism, recovery, or downstream consequence beyond what lines 1\u201328 show."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:955a515e-1c6d-40c1-95fc-e66a93ce037d": {
+      "input_fingerprint": "3bb01d87d37bda10",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the replication request at line 13, which the reference table marks as rare in normal blocks (3%) and common in anomalous blocks (49%), so at least one cited cause is genuinely discriminating; the PacketResponder terminations are routine but do not negate that.",
+        "sequence_summary_correctness": "Sentence 1 says the replication request is \"followed by\" multiple responder/receiver terminations, but the PacketResponder terminating lines are 7, 9, and 11, all before the replication request at line 13.",
+        "contrast_correctness": "Sentence 3 relies on repeated PacketResponder terminating messages (lines 7, 9, 11) and invalidSet additions (lines 22-24), but the table shows these are common in normal blocks (100% and 93%), so they do not separate normal from abnormal.",
+        "groundedness": "The named templates and counts are traceable: replication request line 13, PacketResponder terminating lines 7/9/11, Received block entries lines 8/10/12/15, invalidSet lines 22-24, and final deletes lines 25-27; \"interrupted\" is an interpretive overreach scored under criterion 5, not an invented specific detail.",
+        "speculation_bounded": "Sentence 1 asserts an \"interrupted block transfer workflow,\" a specific mechanism not stated by any line; the logs show terminating/receiving/replication/deletion events but no line says the transfer was interrupted."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:2b2383f4-945b-4ed2-af24-7e47e0d36da1": {
+      "input_fingerprint": "f93b8924c037c6b4",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites routine block reception, PacketResponder terminations, Received block confirmations, allocate/addStoredBlock, and deletions, all present in lines 1-19 and common for normal HDFS blocks; no anomaly-typical event is blamed.",
+        "sequence_summary_correctness": "Sentence 2's compressed flow from reception (lines 1-10) through NameSystem allocate/addStoredBlock (lines 8, 11-13) to invalidSet/deletion (lines 14-19) matches the overall order; the line 8 allocate is interleaved but not contradicted.",
+        "contrast_correctness": "Sentence 3 correctly notes the delete/invalidSet lines (14-19) are routine cleanup and that no failure/exception/retry messages appear, so the abnormal verdict is not supported.",
+        "groundedness": "Every named event\u2014PacketResponder, Received block, allocateBlock, addStoredBlock, invalidSet, Deleting block\u2014is traceable to lines 1-19; \"several\" fits the multiple reception lines.",
+        "speculation_bounded": "\"Completing successfully\" and \"controlled block cleanup\" are soft descriptions supported by the stored-block and deletion lines, with no unsupported recovery/retry/causal mechanism asserted."
+      },
+      "scratchpad": "1. Root cause correctness \u2014 PASS. Sentence 1 cites routine block reception, PacketResponder terminations, Received block confirmations, allocate/addStoredBlock, and deletions, all present in lines 1-19 and common for normal HDFS blocks; no anomaly-typical event is blamed.  \n2. Sequence summary correctness \u2014 PASS. Sentence 2's compressed flow from reception (lines 1-10) through NameSystem allocate/addStoredBlock (lines 8, 11-13) to invalidSet/deletion (lines 14-19) matches the overall order; the line 8 allocate is interleaved but not contradicted.  \n3. Contrast correctness \u2014 PASS. Sentence 3 correctly notes the delete/invalidSet lines (14-19) are routine cleanup and that no failure/exception/retry messages appear, so the abnormal verdict is not supported.  \n4. Groundedness \u2014 PASS. Every named event\u2014PacketResponder, Received block, allocateBlock, addStoredBlock, invalidSet, Deleting block\u2014is traceable to lines 1-19; \"several\" fits the multiple reception lines.  \n5. Speculation bounded \u2014 PASS. \"Completing successfully\" and \"controlled block cleanup\" are soft descriptions supported by the stored-block and deletion lines, with no unsupported recovery/retry/causal mechanism asserted."
+    },
+    "hdfs:0cd5d6f3-0e32-4976-bc58-47661e291c73": {
+      "input_fingerprint": "92dbab2b88e538b1",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites routine HDFS block handling\u2014receiving blocks (lines 1,3,4,6,8,10), PacketResponder termination (5,7,9), addStoredBlock updates (11-13), and served/deletion messages (15-18,20-25)\u2014all common in normal blocks, and it blames no anomaly-typical event.",
+        "sequence_summary_correctness": "The order claim in sentence 3 that the exception lines are 'followed by successful served-block entries' is contradicted for line 19, which is followed by invalidSet deletions (lines 20-22) and Deleting block lines (23-25), not served-block entries; sentence 2's flow is otherwise accurate.",
+        "contrast_correctness": "The contrast relies on the false claim that the exception lines are followed by successful served-block entries (line 19 is followed by deletions, lines 20-25) and does not cite the actual discriminating fact that 'Got exception while serving' is common in normal blocks (78% normal vs 53% anomalous).",
+        "groundedness": "All named events\u2014receiving (1,3,4,6,8,10), PacketResponder terminating (5,7,9), addStoredBlock (11-13), served blocks (15,16,18), verification (17), invalidSet deletes (20-22), and Deleting block (23-25)\u2014are traceable to the given lines; no invented codes or counts.",
+        "speculation_bounded": "The explanation uses soft/negative descriptions like 'complete without any unresolved failure' and 'no persistent corruption, repeated retries, or missing completion evidence' without asserting an unsupported recovery, retry, or causal mechanism; 'terminate cleanly' is a reasonable paraphrase of the terminating lines."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:bb037d30-1871-4902-a62e-1005fce9abc2": {
+      "input_fingerprint": "4e46217ab2909df0",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "For a normal block, the explanation cites routine HDFS handling present in the logs (Receiving/Received lines 1-4,6,9,11; PacketResponder termination lines 5,8,10; addStoredBlock lines 7,12,13; Served lines 15,16,18; deletions lines 19-24), all common in normal blocks.",
+        "sequence_summary_correctness": "The described flow matches the line order: Receiving/Received and addStoredBlock events first (lines 1-13), then Got exception lines 14 and 17 followed by Served lines 15,16,18, and finally invalidSet/deletion lines 19-24.",
+        "contrast_correctness": "The contrast is true for this normal sequence: the serving exceptions at lines 14 and 17 are common in normal blocks and are interleaved with Served lines 15,16,18, while no anomaly-typical event such as a replication request appears.",
+        "groundedness": "Every specific event/count named is traceable to the logs: multiple Receiving/Received lines (1,2,4,6,9,11), several addStoredBlock lines (7,12,13), a few exceptions (14,17), Served responses (15,16,18), and final invalidSet/deletion lines (19-24), with \u201cbrief\u201d allowed as a qualitative description.",
+        "speculation_bounded": "The explanation stays within routine handling and absence of anomaly-typical evidence, and its \u201cacknowledged by PacketResponder termination\u201d phrasing is a routine paraphrase of lines 5,8,10 rather than an unsupported failure mechanism."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:c2143db1-b9ac-4ed0-bafb-43eedb142e53": {
+      "input_fingerprint": "695e95f3685a889b",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to routine block intake/bookkeeping, citing Receiving/Received (1-4,6,9,11), PacketResponder (5,8,10), addStoredBlock (7,12,13), serving (15-20), and deletions (21-26), all common in normal HDFS blocks.",
+        "sequence_summary_correctness": "Sentence 2's compressed order\u2014allocation/storage (3,7,12-13), serving with an exception followed by successful service and verification (14-17), then deletions/invalidSet (21-26)\u2014matches the log; omitting the second exception at 19 is allowed.",
+        "contrast_correctness": "Sentence 3's contrast against \"sustained failure/unrecovered error\" is not the real discriminator, since the exception lines 14 and 19 are common in normal blocks and the cited contrast does not rule out the anomaly-typical events that define abnormal blocks.",
+        "groundedness": "Every named detail is traceable to the sequence (e.g., multiple Receiving/Received 1-4,6,9,11; PacketResponder 5,8,10; addStoredBlock 7,12,13; exceptions 14,19; serves 15,16,18,20; verification 17; deletes/invalidSet 21-26), and \"one serving exception\" is used for a selected instance, not a false total count.",
+        "speculation_bounded": "The explanation stays descriptive/hedged (\"mixed but self-consistent\") and does not assert an unshown recovery, retry, or causal mechanism; the negated \"unrecovered error\" is not a positive unsupported claim."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:681c04f1-90c1-4d31-b027-34dd10339864": {
+      "input_fingerprint": "72b3cb67239f7526",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "For a normal block, routine allocation/receipt/storage/deletion is the correct cause, and these events appear at lines 1-13 and 22-27.",
+        "sequence_summary_correctness": "The described flow matches the logs: allocation/receipt (1-10), blockMap updates (11-13), serving/exceptions/verification (14-21), then invalidSet/deletion (22-27).",
+        "contrast_correctness": "The serving exceptions at lines 15 and 20 are common in normal blocks and are interleaved with successful serve/verification lines 14-21, while the sequence ends in deletion lines 22-27 with no anomaly-typical replication/error events.",
+        "groundedness": "Every named detail\u2014allocate, Receiving/Received, PacketResponder, blockMap updated, Served, exceptions, Verification succeeded, invalidSet, Deleting\u2014maps to lines 1-27, with no invented code, count, or component.",
+        "speculation_bounded": "The explanation uses soft descriptions like 'routine' and 'orderly deletion' and does not assert an unshown recovery, retry, repair, or causal mechanism beyond the observed sequence."
+      },
+      "scratchpad": "Scoring based on normal classification and the given logs. The explanation's cause is routine block handling, which is correct for a normal HDFS block. The sequence summary matches the order of events. The contrast correctly relies on the serving exceptions being common in normal blocks and interleaved with successful serve/verification lines, with deletion at the end. No fabricated details or unsupported mechanisms are present."
+    },
+    "hdfs:37279274-1bb8-4302-a27e-1cfec9dc0b63": {
+      "input_fingerprint": "15af4bb778681764",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites routine HDFS block handling\u2014allocateBlock (line 1), Receiving block (lines 2\u20134), PacketResponder terminating (lines 5, 9, 12), and addStoredBlock updates (lines 7, 8, 11)\u2014all common in normal blocks, and it does not blame an anomaly-typical event.",
+        "sequence_summary_correctness": "The described flow\u2014allocation, receiving/packet-responder termination, addStoredBlock updates, then invalidSet/delete entries (lines 14\u201319)\u2014matches the log order; the interleaving is compressed but not contradicted.",
+        "contrast_correctness": "Sentence 3 correctly notes the absence of anomaly-typical replication/error lines; the sequence contains no ask-to-replicate, Transmitted block, Unexpected error, addStoredBlock-not-belong, or Receiving empty packet lines, so the normal verdict is genuinely distinguished from an abnormal one.",
+        "groundedness": "Named details are traceable: one allocateBlock (line 1), multiple Receiving block entries (lines 2\u20134), PacketResponder terminating (lines 5, 9, 12), addStoredBlock (lines 7, 8, 11), three invalidSet deletes (lines 14\u201316), and three Deleting block lines (lines 17\u201319); \u201csuccessful Received block\u201d is a reasonable paraphrase of lines 6, 10, and 13.",
+        "speculation_bounded": "No unsupported recovery, retry, or causal mechanism is asserted; the explanation stays at the level of routine logged events and absence of error/replication lines."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:14e48b1e-4b93-40e0-a05f-4d51d98b1cf4": {
+      "input_fingerprint": "5493af9c822f39d0",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites routine allocation, reception, storage updates, serving, verification, and deletion events (lines 1-32), all present and common in normal HDFS blocks; no anomaly-typical event is named as the cause.",
+        "sequence_summary_correctness": "Sentence 2's flow from allocateBlock/Receiving/addStoredBlock/PacketResponder entries (lines 1-12) to Served/exception lines (lines 14-26) and finally to delete/Deleting lines (lines 27-32) matches the log order, and 'multiple'/'several' are supported.",
+        "contrast_correctness": "Sentence 3 correctly treats the Got exception lines (lines 16, 20, 23, 26) as non-decisive, supported by verification success (line 17) and completed deletion lifecycle actions (lines 27-32), with no fatal failure, retry pattern, or unresolved error state shown.",
+        "groundedness": "Every named detail is traceable: allocateBlock (line 1), Receiving (lines 2-4), addStoredBlock (lines 5, 8, 9), PacketResponder (lines 6, 10, 12), Served/exception (lines 14-26), verification (line 17), and delete/Deleting (lines 27-32).",
+        "speculation_bounded": "The explanation stays within observed routine handling and absence of fatal/retry/unresolved-error evidence; it does not assert an unsupported recovery, retry, or downstream mechanism."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:60302ce6-34ec-4578-9d21-415f4e937f20": {
+      "input_fingerprint": "411631a9c93efeb1",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to routine block handling: allocateBlock (line 1), Receiving block (lines 2\u20134), PacketResponder terminating (lines 5, 9, 11), addStoredBlock updates (lines 7\u20138, 13), and Verification succeeded (lines 14\u201315, 19). These are common normal-block events, so the stated cause is correct for a normal sequence.",
+        "sequence_summary_correctness": "Sentence 2 says the \u201cGot exception while serving\u201d messages are followed by the \u201cServed block,\u201d but the logs show exception at line 16, Served block at line 17, then another exception at line 18, so the served block is not after all the exceptions.",
+        "contrast_correctness": "Sentence 3 contrasts with \u201cpersistent failure\u201d by saying the exceptions are isolated and do not prevent verification/storage/deletion, but those routine events (lines 7\u20138, 13\u201315, 19\u201325) also occur in anomalous blocks; the actual normal discriminator is absence of anomaly-typical events such as a replication request, which the explanation does not cite.",
+        "groundedness": "Every specific detail is traceable: allocateBlock line 1, Receiving block lines 2\u20134, PacketResponder lines 5/9/11, addStoredBlock lines 7\u20138/13, Verification succeeded lines 14\u201315/19, exceptions lines 16/18, Served block line 17, invalidSet lines 20\u201322, and Deleting block lines 23\u201325.",
+        "speculation_bounded": "\u201cTransient\u201d and \u201cisolated\u201d are allowed soft descriptions, and the completion claim is supported by the shown verification, storage, and deletion lines; no unsupported retry/recovery mechanism is asserted."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:faacdb89-1223-4b49-bf8c-1ff1a7a28dbd": {
+      "input_fingerprint": "cb9a7aa2891a925b",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the line-21 addStoredBlock request that \u201cdoes not belong to any file,\u201d which is anomaly-typical (0% normal, 15% anomalous); although it also cites routine invalidSet/deletion lines 16\u201320, it includes a genuine discriminating event.",
+        "sequence_summary_correctness": "Sentence 2\u2019s order matches the logs: receptions/terminations/stored updates in lines 1\u201313, served/verified in lines 14\u201315, then invalidSet additions and deletions in lines 16\u201320 before the line-21 addStoredBlock message.",
+        "contrast_correctness": "Sentence 3 says normal traces lack repeated invalidation/deletion activity, but invalidSet additions and Deleting block are common in normal blocks (93% and 95%), so that cited contrast is false/non-discriminating; line 21 is genuinely discriminating, but the sentence also relies on this bad distinction.",
+        "groundedness": "All named details are traceable: multiple receptions/PacketResponder/addStoredBlock lines, served/verified at lines 14\u201315, invalidSet/deletions at lines 16\u201320, and line 21\u2019s \u201cdoes not belong to any file.\u201d",
+        "speculation_bounded": "No unsupported recovery, retry, or causal mechanism is asserted; \u201cout-of-place\u201d and the stated cause are tied to the observed line 21 and sequence without claiming an unshown mechanism."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:b5c14eb9-4e20-4a2e-8a34-a1043d35748e": {
+      "input_fingerprint": "47d17cf7546d6c3f",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": false,
+        "groundedness": false,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames multiple block deletions (lines 23-24, 29-31) and three NameSystem.delete invalidSet messages (lines 26-28), but those events are common in normal blocks (95% and 93% respectively); the discriminating events are the replication request at line 11 and transmitted/received src-dest entries at lines 18-20, which sentence 1 does not name as the cause.",
+        "sequence_summary_correctness": "Sentence 1 says the sequence \"ends with ... three NameSystem.delete messages\" (lines 26-28), but the actual final lines are Deleting block entries at lines 29-31, so the claimed ending position is contradicted.",
+        "contrast_correctness": "Sentence 3 says invalidSet additions rule out the normal verdict, but NameSystem.delete invalidSet additions occur in 93% of normal blocks and are present at lines 26-28, so they do not discriminate normal from abnormal.",
+        "groundedness": "Sentence 3's \"for several blocks\" (lines 26-28) asserts distinct blocks, but the block identifiers are hidden as <*> and the three invalidSet messages could involve the same block, so this distinctness is not traceable.",
+        "speculation_bounded": "Sentence 3 says normal HDFS activity is \"interrupted by\" the invalidSet additions (lines 26-28), but no line states that these additions interrupted or caused anything, so that causal mechanism is unsupported."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:58c87b8c-0bbf-4072-91f9-ebbf29691574": {
+      "input_fingerprint": "1df394b61b7a0e09",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames \u201cGot exception while serving\u201d (lines 22, 24) and NameSystem.delete invalidSet entries (lines 25\u201327), but the table shows those are common in normal blocks (78% and 93%), while the discriminating events here are the replication request/transmission/received-src-dest lines (13, 16, 17).",
+        "sequence_summary_correctness": "Sentence 2\u2019s flow\u2014allocation (line 1), repeated receiving/storing (e.g., lines 2\u201312, 14\u201318), replication request (line 13), transmission/receive activity (lines 16\u201317), verification (lines 20\u201321), and later deletion activity (lines 25\u201330)\u2014matches the log order/pattern without a contradicted order claim.",
+        "contrast_correctness": "Sentence 3 says normal is ruled out by serving exceptions and invalid-set deletions, but those appear in most normal blocks per the table (78% and 93%), so they do not separate this abnormal sequence from normal ones.",
+        "groundedness": "The named events and counts are traceable: two serving exceptions (lines 22, 24), three invalidSet deletes (lines 25\u201327), allocation (line 1), replication request (line 13), transmission/receive activity (lines 16\u201317), verification successes (lines 20\u201321), and deletion lines (19, 25\u201330).",
+        "speculation_bounded": "Sentence 3\u2019s claim that routine steps are \u201cinterrupted by\u201d serving exceptions and invalid-set deletions asserts a causal/mechanism link not stated by any line; the logs only show those events occurring in the window (e.g., lines 20\u201327)."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:9311679d-1e27-464c-a3a2-4aa3a3f035b4": {
+      "input_fingerprint": "8908d30c5deabcf0",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 names the line 21 \u201cUnexpected error trying to delete block \u2026 BlockInfo not found in volumeMap,\u201d which is the anomaly-typical event (1% normal vs. 40% anomalous); the repeated serving exceptions at lines 14\u201315 are common but do not negate the discriminating line 21.",
+        "sequence_summary_correctness": "Sentence 2\u2019s flow matches the logs: receives/allocate at lines 1\u20134, PacketResponder terminations at 5, 7, 13, addStoredBlock at 9, 10, 12, serving exceptions at 14\u201315, served block at 16, NameSystem.delete at 17\u201319, and deletion attempts at 20\u201323.",
+        "contrast_correctness": "Sentence 3\u2019s \u201cnot-found deletion messages\u201d points to line 21, which is rare in normal blocks and common in anomalous ones, so it genuinely distinguishes this abnormal sequence from normal; the common serving exceptions at lines 14\u201315 do not make the contrast false.",
+        "groundedness": "Every named event/count is traceable: repeated serving exceptions at 14\u201315, unexpected not-found deletion error at 21, receives at 1\u20134/6/8/11, addStoredBlock at 9/10/12, terminations at 5/7/13, served block at 16, invalidSet deletes at 17\u201319, and deletion attempts at 20\u201323.",
+        "speculation_bounded": "Sentence 3 says routine reception/addStoredBlock updates \u201care interrupted by\u201d exceptions/not-found messages, asserting an interruption mechanism not stated by lines 9\u201312, 14\u201315, or 21; the logs only show those lines occurring later."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:582346ae-c1dd-42d1-847e-7049e976161a": {
+      "input_fingerprint": "224ba453a1f671d2",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the Deleting block / invalidSet delete activity (lines 19, 22\u201327), but the reference table shows those are common in normal blocks (95%/93%), while the discriminating anomaly-typical events here are the replication request at line 13 and transmitted/received block lines 16/18.",
+        "sequence_summary_correctness": "Sentence 1 says several Deleting block entries are followed by repeated invalidSet updates, but the actual order is one Deleting at line 19, then invalidSet lines 22\u201324, then three Deleting lines 25\u201327, so the claimed order is reversed/mixed.",
+        "contrast_correctness": "Sentence 3 says normal traces would not end with multiple invalidSet additions, but the table shows NameSystem.delete invalidSet appears in 93% of normal blocks, so this does not separate normal from abnormal.",
+        "groundedness": "The named events/counts are traceable to the sequence\u2014allocateBlock line 3, multiple Received block lines 1\u20132/4/6/8/10/15/18, addStoredBlock lines 11\u201312/14/17, one replication request line 13, transmit/serve/verification lines 16/20/21, and delete/invalidSet lines 19/22\u201327\u2014with no invented code or component.",
+        "speculation_bounded": "\u201cindicating blocks could not be cleanly removed\u201d asserts a removal-failure mechanism that no line states; lines 22\u201324 only show delete entries added to invalidSet."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:e5c0c38b-882b-4d76-9ed2-d88b789d3f01": {
+      "input_fingerprint": "a00992aa4953c8ee",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 attributes normality to routine startup events that are all present and tagged normal: EXT3 mount/recovery lines 1-4, memory free line 5, network init lines 6-13, and driver/PCI lines 8-20; for a normal window, the absence of abnormal lines supports this.",
+        "sequence_summary_correctness": "Sentence 2 says the flow goes from IP/protocol-family setup 'then' to Intel/Mellanox driver initialization, but lines 8-9 (Intel/Mellanox) occur before lines 10-13 (protocol-family registration), so the stated order is contradicted.",
+        "contrast_correctness": "Sentence 3 distinguishes the normal window by the absence of failure/panic/retry/error and treats only line 20's cache-line-size message as non-faulty, which is consistent with all lines being tagged normal.",
+        "groundedness": "Every named event is traceable to the sequence: EXT3 mount/recovery lines 1-4, memory free line 5, IP/protocol setup lines 6-13, Intel/Mellanox lines 8-9, and PCI lines 14-20; no specific invented code, count, or component appears.",
+        "speculation_bounded": "The explanation stays at the level of 'routine boot-time initialization' and does not assert an unshown recovery, mechanism, or downstream consequence."
+      },
+      "scratchpad": ""
+    },
+    "hdfs:54db75e7-1d46-49cd-b396-5407bfb940d7": {
+      "input_fingerprint": "211ab23a292b713a",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the line 24 'Unexpected error trying to delete block <*>. BlockInfo not found in volumeMap.', which is rare in normal blocks (1%) and common in anomalous blocks (40%), so it is the discriminating cause; the routine allocation/storage lines 4 and 11-13 do not negate this.",
+        "sequence_summary_correctness": "Sentence 2 describes receiving (lines 1-3, 6, 8, 10), adding to the block map (11-13), serving (14-18), marking in invalidSet (20-22), and then the delete path (23-26), matching the log order.",
+        "contrast_correctness": "Sentence 3 correctly distinguishes the abnormal case by the delete-time inconsistency at line 24 after blocks were stored (11-13), which is the anomaly-typical event; it does not falsely claim normal blocks lack routine serving exceptions.",
+        "groundedness": "All named details are traceable: Namenode/NameSystem (4, 11-13, 20-22), allocate/store (4, 11-13), deletion error (24), invalidSet (20-22), delete path (23-26), and 'served to clients' is a reasonable paraphrase of 'Served block ... to ...' (14-18).",
+        "speculation_bounded": "The explanation states the deletion error as the cause and describes the sequence without asserting an unshown mechanism, recovery, or downstream consequence; 'failure' and 'inconsistency' restate the line 24 error."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:fca01c79-1902-4758-bd22-7ba6848f1808": {
+      "input_fingerprint": "4d75add29c31d882",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the peer trap (line 1), repeated failed discovery/GetNodeInfo attempts (lines 2\u201317), and the INIT-state configuration message (line 18), all present and tagged normal; the INIT-state summary plausibly explains the normal classification.",
+        "sequence_summary_correctness": "Sentence 2 correctly orders the initial trap (line 1), discovery/no-response messages (lines 2\u201317), topology-no-change notice (line 19), and final kernel IB dispatch failure record (line 20), with only an acceptable omission of line 18.",
+        "contrast_correctness": "Sentence 3 uses the explicit INIT-state configuration summary (line 18) and the lack of any abnormal escalation in the all-normal window (lines 1\u201320) to explain why the abnormal label is unsupported; it does not rely on a normal line as if it were abnormal.",
+        "groundedness": "Every named event\u2014trap, failed discovery, GetNodeInfo no-response, INIT-state configuration, topology no-change, and kernel IB dispatch failure\u2014is traceable to lines 1\u201320, and the quantity words match the repeated lines.",
+        "speculation_bounded": "The explanation does not claim recovery, handling, or a causal mechanism beyond what the lines state; the INIT-state cause is directly from line 18, and the absence-of-escalation claim is consistent with the all-normal tags."
+      },
+      "scratchpad": "Scoring based on the provided logs and rubric."
+    },
+    "thunderbird:2c6adfd5-47fc-43b8-a728-bd154b329d0f": {
+      "input_fingerprint": "9bc46712b6ac6a66",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the GetNodeInfo NO RESPONSE/discovery failures (lines 1, 5\u201314) and the \u201cNo topology change\u201d line (15), all present in the normal-tagged window, so it does not blame a wrong abnormal event.",
+        "sequence_summary_correctness": "Sentence 2\u2019s flow matches the logs: MAD failures (2\u20133) and repeated discover/GetNodeInfo failures (5\u201314) before \u201cNo topology change\u201d (15), then SSH activity (16\u201317), then datasource no-answer messages (18\u201320).",
+        "contrast_correctness": "Sentence 3\u2019s contrast relies on the absence of sustained state change/crash/escalation and the explicit \u201cNo topology change\u201d line (15), which is real and supports normal over abnormal; it does not call any abnormal-tagged event routine.",
+        "groundedness": "The named details\u2014MAD failures (2\u20133), discover failures (5\u20139), GetNodeInfo NO RESPONSE (1, 10\u201314), \u201cNo topology change\u201d (15), SSH (16\u201317), and datasource no-answer (18\u201320)\u2014are traceable to the sequence.",
+        "speculation_bounded": "Calling the GetNodeInfo/discovery failures \u201ctransient\u201d and the window \u201cstable, routine\u201d asserts recovery/stability without any line showing those failures cleared or resolved (lines 1, 5\u201314; line 15 only says no topology change, and lines 18\u201320 still show no-answer messages)."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:9c05b14c-a313-44c9-965e-b0d7624aded6": {
+      "input_fingerprint": "76d5677ee805e3fb",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the out-of-memory initialization messages at lines 9\u201314 and the later successful boot steps at lines 15\u201317 and 19\u201320; for this normal sequence, that is a concrete and plausible log-grounded reason the window is normal.",
+        "sequence_summary_correctness": "Sentence 2 describes ACPI/PCI discovery first (lines 1\u20138), then module initialization errors (lines 9\u201314), then storage/CPU startup steps (lines 15\u201320), which matches the actual order.",
+        "contrast_correctness": "Sentence 3 contrasts the normal window with an abnormal one by pointing to the lack of escalation/boot halt and the later successful entries at lines 15\u201317 and 19\u201320, which is consistent with the normal classification and the absence of abnormal-tagged lines.",
+        "groundedness": "The named OOM messages, bindcache/pan-related modules, successful filesystem/quota/swap checks, and CPU boot messages are traceable to lines 9\u201317 and 19\u201320; omissions are allowed.",
+        "speculation_bounded": "Sentence 2\u2019s \u201crecovery\u201d and Sentence 3\u2019s \u201cdo not escalate into a boot halt or persistent subsystem failure\u201d assert resolution/absence of downstream failure for the failed modules at lines 9\u201314 without a line showing those same modules recovered or that no persistent failure occurred; later successes at lines 15\u201317 and 19\u201320 are different subsystems."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:e82b9ade-2431-4dc2-bcdf-62614ad94a79": {
+      "input_fingerprint": "82f61dcca5da8e49",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": false,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3 abort (line 8, [abnormal]) together with repeated `mad_process failed` messages (lines 14-16,20) and `Rediscover the subnet` (line 17), both tagged [normal], so it mixes normal events into the cause.",
+        "sequence_summary_correctness": "The named events occur in the stated order: EXT3 error at line 8 before IB failures at lines 14-16/20, then subnet rediscovery line 17, new sweep line 18, INIT port line 19, and another IB failure line 20; the temp/trap alternation is a reasonable compressed pattern.",
+        "contrast_correctness": "Sentence 3 offers `repeated IB failures` as concrete fault indicators, but those lines (14-16,20) are tagged [normal]; the temperature entries are only dismissed as routine, but the IB failures are not.",
+        "groundedness": "The phrase `persistent filesystem-abort` treats the single EXT3 abort at line 8 as persistent, but there is only one such line; other named details are traceable.",
+        "speculation_bounded": "Sentence 1's `storage and interconnect error chain` asserts a causal link between the EXT3 abort (line 8) and the IB `mad_process failed` messages (lines 14-16,20) that no log line states; they merely co-occur."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:e252befe-d754-48bb-bacd-023378572b34": {
+      "input_fingerprint": "06a605c1fb390d44",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the line 2 [abnormal] EXT3-fs error with \u201cJournal has aborted\u201d during start_transaction, which is the only abnormal line and the concrete fault driving the classification.",
+        "sequence_summary_correctness": "Sentence 2 accurately summarizes that the window is mostly repeated SSH public-key acceptances and session-opened messages (e.g., lines 1, 3-20), with the line 2 disk error amid that routine authentication activity; no order or position claim is contradicted.",
+        "contrast_correctness": "Sentence 3\u2019s distinguishing fault signal is the line 2 EXT3-fs journal-aborted error; the successful SSH logins are described only as benign/normal context, not offered as an abnormal signal.",
+        "groundedness": "All named details\u2014EXT3-fs, \u201cJournal has aborted,\u201d start_transaction, device <*>, SSH public-key acceptances, and session-opened messages\u2014are traceable to lines 1-20.",
+        "speculation_bounded": "The explanation does not assert unsupported recovery, causality, or downstream consequences; \u201cstill handling sessions\u201d is supported by session-opened lines after line 2, and the fault claim is limited to line 2."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:3163b498-3dbb-4206-bcf0-00509ae9118f": {
+      "input_fingerprint": "6bb6d2a15c029834",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 includes repeated Buffer I/O errors (lines 9-11, tagged [normal]) and the filesystem remount read-only (line 15, tagged [normal]) as part of the cause chain alongside the abnormal EXT3/journal lines 12-14, so it blames normal events together with the real abnormal ones.",
+        "sequence_summary_correctness": "Sentence 2 matches the order: lines 1-6 alternate instrumentation messages and peer traps, line 7 is a new sweep, lines 9-14 contain device I/O and EXT3-fs errors, and lines 16-20 show lost page writes followed by I/O rejection to an offline device.",
+        "contrast_correctness": "Sentence 3 offers only the later journal abort (lines 13-14, tagged [abnormal]) and offline-device errors (lines 18-20, tagged [abnormal]) as the separating signs, while the temperature-sensor returns (lines 1, 3, 5, tagged [normal]) are only dismissed as normal-looking.",
+        "groundedness": "Every named detail is traceable: Buffer I/O errors at lines 9-11, EXT3 read failure at line 12, aborted journal at lines 13-14, remount read-only at line 15, alternating messages at lines 1-6, new sweep at line 7, lost page writes at lines 16-17, offline I/O rejection at lines 18-20, and temperature returns at lines 1/3/5.",
+        "speculation_bounded": "Sentence 1 asserts that Buffer I/O errors 'lead to' the EXT3 read failure, journal abort, and remount, but no log line states that causal mechanism, so the causal chain overreaches the evidence."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:0d91a42b-544a-4b03-bd14-9bf413160b3e": {
+      "input_fingerprint": "5c4f436d2de41f3d",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the final EXT3-fs journal-abort error on device <*> at line 20, which is the only [abnormal] line and the actual driver of the abnormal classification.",
+        "sequence_summary_correctness": "Sentence 2 accurately summarizes the window as repeated trap/instrumentation messages, many temperature warnings (e.g., lines 4,6,8,10,12,15,17), one return-to-normal at line 2, NEW SWEEP at line 14, and BMC ambient temp at line 19 before the line 20 error; no order claim is contradicted.",
+        "contrast_correctness": "Sentence 3 dismisses the repeated sensor warnings as routine monitoring noise (they are [normal]) and identifies the explicit EXT3 journal-abort error at line 20 as the decisive abnormal difference, so it does not rely on normal lines as a separating signal.",
+        "groundedness": "All named details are traceable: EXT3-fs journal abort/device <*> at line 20, temperature warnings at lines 4,6,8,10,12,15,17, return-to-normal at line 2, NEW SWEEP at line 14, and BMC ambient temp at line 19; 'instrumentation trap messages' is a loose paraphrase of the repeated trap/Instrumentation Service lines, not an invented code or component.",
+        "speculation_bounded": "The explanation only says the normal sensor warnings 'could fit' routine monitoring and treats the line 20 error as the decisive abnormal event; it does not assert unsupported recovery, causation, or downstream consequences."
+      },
+      "scratchpad": "Scored against the rubric. Sentence 1 correctly isolates the only [abnormal] line, line 20. Sentence 2 summarizes the normal surrounding pattern without contradicting order. Sentence 3 dismisses the [normal] sensor warnings as routine and uses the line 20 EXT3 error as the discriminating abnormal signal. No invented codes/components or unsupported causal/recovery claims."
+    },
+    "thunderbird:3b513260-d247-45eb-975d-b259f0ce463e": {
+      "input_fingerprint": "e205313e9e8fa4e8",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3 journal-aborted error (line 6, [abnormal]) together with repeated `mad_process failed` messages (lines 8 and 20, both [normal]) and temperature sensor warning events (lines 3, 11, 13, all [normal]), so it includes normal events in the stated cause.",
+        "sequence_summary_correctness": "Sentence 2's compressed description of alternating trap/instrumentation temperature updates and later subnet rediscovery/INIT state (especially lines 15-17) is not contradicted by the line order; it does not claim a false last event.",
+        "contrast_correctness": "Sentence 3 offers repeated `mad_process failed` entries (lines 8 and 20, both [normal]) as concrete subsystem faults distinguishing the window, so the contrast leans on normal lines even though it also names the real EXT3 error (line 6).",
+        "groundedness": "Every named detail is traceable: EXT3 journal abort (line 6), `mad_process failed` (lines 8, 20), temperature warning/normal updates (lines 1, 3, 9, 11, 13, 18), traps, subnet rediscovery/sweep (lines 15-16), and INIT state (line 17).",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery, mechanism, or downstream consequence; its main error is treating normal lines as faults, which is already scored under criteria 1 and 3."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:9cd03bb3-7351-4f23-8666-1acb570c4065": {
+      "input_fingerprint": "f88bee86f8049753",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "The explanation cites the single bind failure at line 20 and the surrounding successful initialization (USB registration lines 1/3/5, driver registration line 7, startup successes lines 9/11/17) as why the normal sequence remains normal; this is present and plausible for a normal window with no abnormal-tagged lines.",
+        "sequence_summary_correctness": "The described flow\u2014hardware/USB setup (1-7), restart (12), Topspin entries (13), IPv6/Netfilter registration (14-16), time-server offset (18), and final bind error (20)\u2014matches the log order, with only omitted intervening lines.",
+        "contrast_correctness": "The contrast relies on the absence of sustained/repeated failure and the presence of multiple successful milestones (9,11,17,19) plus only one bind error (20), which is a real distinction from an abnormal repeated-failure window.",
+        "groundedness": "Every named event/detail\u2014single bind failure with \"Address already in use\" (20), USB bus registration (1/3/5), driver registration (7), startup successes (9/11/17), restart (12), Topspin (13), IPv6/Netfilter (14-16), time server offset (18)\u2014is traceable to the given lines.",
+        "speculation_bounded": "The claim of no interruption \"after the bind error\" is unsupported because line 20 is the last line, and \"localized\" address conflict is not stated by any line; these are overreaches beyond the evidence."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:5b22ea38-ce77-4331-8e74-fcd5631c0037": {
+      "input_fingerprint": "e55f037ea722696d",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "All lines 1-20 are [normal] session open/close or CMD records, and the explanation correctly identifies the absence of any error/failure/denied-action line as why the sequence is normal.",
+        "sequence_summary_correctness": "The sequence shows session closes at lines 1, 6, 10, and 14 with multiple session opens between them, and CMD entries exactly at lines 3, 9, 16, and 20, matching the summary.",
+        "contrast_correctness": "The explanation says the opposite verdict is unsupported because there is no abnormal termination, authentication failure, or unexpected pattern, and lines 1-20 contain only normal session-management and CMD activity.",
+        "groundedness": "Every named detail is traceable: session open/close lines throughout 1-20, CMD entries at lines 3, 9, 16, and 20, and no error/failure/denied-action lines appear.",
+        "speculation_bounded": "The explanation makes only bounded claims about routine session activity and absence of abnormal lines, without asserting unsupported mechanisms, recovery, or downstream effects."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:6d0eecad-d23c-4a67-9345-74a01a79e443": {
+      "input_fingerprint": "3a23392ad459407b",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the repeated datasource no-answer lines (1,4,5), the trap line (3), and the temperature sensor return-to-normal line (2), all present and consistent with a normal window with no abnormal-tagged event.",
+        "sequence_summary_correctness": "Sentence 2 describes early datasource/trap notices (lines 1,3,4,5) followed by session closed/opened/CMD activity (lines 6\u201320), matching the actual order.",
+        "contrast_correctness": "Sentence 3 distinguishes from abnormal using recovery text (line 2) and routine session activity (lines 6\u201320) with no persistent failure/crash/escalation, which is true for this all-normal sequence.",
+        "groundedness": "Every named event/count\u2014repeated datasource messages, one trap, temp sensor recovery, session/CMD run\u2014is traceable to lines 1\u201320; no invented component or code.",
+        "speculation_bounded": "It does not assert an unsupported mechanism or recovery for the datasource/trap lines; the recovery claim is limited to the temperature sensor line (2), and the absence claims match the all-normal tags."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:8f558e3d-eb15-401f-9a8e-4c85c4e1a969": {
+      "input_fingerprint": "1f577e408da38093",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "The explanation attributes normality to ordinary CMD entries (e.g., lines 1,2,4,7,9,11,14,16,18) and routine session open/close events (e.g., lines 3,5,6,8,10,12,13,15,17,19,20) with no error/denial/failed action, which matches the all-[normal] sequence and the absence of abnormal evidence.",
+        "sequence_summary_correctness": "The described mix of CMD entries and session open/close messages across lines 1-20 matches the actual interleaving, and \"alternates\" is used loosely without a contradicted specific order.",
+        "contrast_correctness": "The contrast relies on the absence of failed logins, permission problems, or unexpected shutdown messages across lines 1-20, which is true and supports normal over abnormal.",
+        "groundedness": "Every positive detail\u2014CMD entries, session opened/closed messages, and absence of errors\u2014is traceable to lines 1-20, and the named anomalies are only cited as absent, not invented as occurring.",
+        "speculation_bounded": "The explanation makes no unsupported recovery, mechanism, or downstream claim beyond the observed normal session/CMD activity and absence of anomalous indicators."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:f0ac61b6-e582-4d0e-8e97-a0d4c4640547": {
+      "input_fingerprint": "c2cfad825a5f74a4",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites filesystem journal recovery (lines 2 and 4) and the absence of hard errors/failures; since every line is [normal], this is consistent with the normal classification and does not blame an abnormal event.",
+        "sequence_summary_correctness": "The described flow matches the log order: filesystem clean/recovering and checking lines (1-5), then filesystem-related lines 6-9, then ACPI PCI link/routing messages (10-20); the 'before and after' clean statuses are supported by lines 1 and 3 around line 2.",
+        "contrast_correctness": "Sentence 3 contrasts with an abnormal verdict by noting the absence of explicit corruption, panic, or device failure entries, which is true for all lines 1-20 and is the relevant discriminator for this normal window.",
+        "groundedness": "All named details are traceable: journal recovery (2,4), clean statuses (1,3), filesystem checking (5), lines 6-9, and ACPI link/routing messages (10-20); no specific code, count, or component is invented.",
+        "speculation_bounded": "The explanation calls the recovery/initialization pattern routine and bases normality on the absence of explicit failure entries, without asserting unshown mechanisms, completions, or downstream consequences."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:61671e80-67ce-4312-9f29-146669b28dc1": {
+      "input_fingerprint": "da9105dcdf3682a2",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the recurring datasource messages (lines 1,2,6,14,20), sync updates (lines 3-5,8-13,15-17), and no-change results (lines 18-19) as the normal pattern with no failed state, which is plausible for this all-normal sequence.",
+        "sequence_summary_correctness": "Sentence 2's description of several timeouts interleaved with many sync messages, a NEW SWEEP marker, and then no-change status matches the log flow (timeouts at 1,2,6,14,20; sync at 3-5,8-13,15-17; NEW SWEEP at 7; no-change at 18-19), with line20 as an omitted final timeout rather than a contradiction.",
+        "contrast_correctness": "Sentence 3's core contrast is the absence of persistent synchronization failure, abort, or change action, which is true for this all-normal window and distinguishes it from an abnormal failure pattern.",
+        "groundedness": "Every named detail is traceable: recurring datasource messages (1,2,6,14,20), sync messages (3-5,8-13,15-17), NEW SWEEP (7), and no-change results (18-19); 'timeouts' is a reasonable paraphrase of 'got not answer.'",
+        "speculation_bounded": "Sentence 3's claim that the timeout lines are 'bounded by ... a clean no-change conclusion' is unsupported and contradicted by the final datasource timeout at line20 after the no-change lines 18-19; no line says the datasource timeouts were handled or bounded."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:fea004c1-c646-4a40-8bb0-41f63fa1c1f2": {
+      "input_fingerprint": "1c1910060ee92bf6",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": false,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites intermittent temperature-sensor warnings/recoveries (lines 15,17,19 and 3,5,8,10), which are present and plausibly benign for this normal window; it does not blame a wrong abnormal event.",
+        "sequence_summary_correctness": "Sentence 1 says the sensor returns to normal 'after brief warning states,' but the visible warning-value entries are at lines 15,17,19 while the return-to-normal entries are earlier at lines 3,5,8,10, with no return-to-normal after the warning entries.",
+        "contrast_correctness": "Sentence 3 contrasts this with an abnormal window by citing absence of fatal error/sustained failure/escalation and presence of warning/normal entries and traps (lines 3,5,8,10,15,17,19 and 4,6,9,11,16,18,20), which is true for this all-normal sequence.",
+        "groundedness": "All named events and counts are traceable to the log: data_thread no-answer lines (1,2,7,12-14), traps (4,6,9,11,16,18,20), return-to-normal entries (3,5,8,10), and warning entries (15,17,19), with no invented codes or numbers.",
+        "speculation_bounded": "The explanation asserts recovery/self-containment after the warning states, but the warning entries at lines 15,17,19 have no subsequent return-to-normal line (line 20 is a trap), so the recovery-after-warning claim is unsupported."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:67d93b68-245c-42cb-830e-082349969e8b": {
+      "input_fingerprint": "d0bb2cd8dec88155",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames `mad_process failed` lines 1-10,15-16,20 and discovery failures lines 11-13, all tagged [normal], while the only [abnormal] driver is line 19 (`Losing some ticks... checking if CPU frequency changed`), which is not cited.",
+        "sequence_summary_correctness": "The described flow matches the logs: dispatch failures at 1-10, `No topology change` at 14, then more failures/temp warning/peer trap/CPU tick warning at 15-19, with line 20 merely omitted; `near the end` for line 19 of 20 is not contradicted.",
+        "contrast_correctness": "Sentence 3's distinguishing signals are repeated no-response (12-13), failed-dispatch (1-10,15-16,20), `No topology change` (14), and management/discovery errors, all [normal] lines; it does not use the [abnormal] line 19.",
+        "groundedness": "Every named detail is traceable to the sequence: `mad_process failed`/`ib_mad_dispatch` (1-10,15-16,20), discovery failures (11-13), `No topology change` (14), temperature warning (17), peer trap (18), and CPU tick warning (19).",
+        "speculation_bounded": "The explanation does not assert an unsupported causal mechanism for line 19 or claim recovery; `could not complete required node queries` is a reasonable paraphrase of failed discovery/GetNodeInfo lines 11-13, and `do not resolve` is supported by continued failures after line 14 (15-16,20)."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:784d877e-7de9-49a1-9b1f-bf20ecff0720": {
+      "input_fingerprint": "eaa866ca3d31f6f3",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the repeated GetNodeInfo NO RESPONSE messages (lines 1\u20135, all [normal]) and KERNEL_IB mad_process failures (lines 14\u201317, all [normal]) alongside the real abnormal EXT3-fs journal-aborted line 12.",
+        "sequence_summary_correctness": "The summary's order matches the logs: five node-info failures (1\u20135), then topology/temperature/trap lines (6\u201311), then filesystem/InfiniBand errors (12, 14\u201317), ending with sensor/trap lines (18\u201320).",
+        "contrast_correctness": "Sentence 3 offers the repeated no-response events (lines 1\u20135, [normal]) and mad_process failed events (lines 14\u201317, [normal]) as explicit fault conditions, so the contrast relies on normal lines even though line 12 is the only [abnormal] event.",
+        "groundedness": "Every named event/count is traceable: five GetNodeInfo failures (1\u20135), EXT3-fs journal aborted (12), multiple mad_process failures (14\u201317), topology/temp/trap lines (6\u201311), and ending sensor/trap lines (18\u201320).",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery or causal chain beyond summarizing the named failure messages; the sensor recovery is supported by returned-to-normal lines 9, 18, and 20."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:a759bfa3-06f3-4802-8929-596406eb94a1": {
+      "input_fingerprint": "67d93914abfb6d7b",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the EXT3-fs journal-abort error at line 11, the only [abnormal] line and the concrete fault driving the abnormal classification, without adding any normal event as cause.",
+        "sequence_summary_correctness": "Sentence 2 accurately compresses the window as instrumentation/temperature messages (lines 1,10), repeated mad_process failed IB entries (lines 4-9), peer traps (lines 2,12), and then DHCP traffic (lines 13-20), with no contradicted order claim.",
+        "contrast_correctness": "Sentence 3 identifies the aborted EXT3 journal at line 11 as the discriminating detail and treats the DHCP/sensor activity (lines 1,10,13-20) only as normal background, so it does not rely on normal lines to separate the verdict.",
+        "groundedness": "All named details\u2014EXT3 journal abort (line 11), instrumentation/temperature messages (lines 1,10), repeated mad_process failures (lines 4-9), peer traps (lines 2,12), and DHCP traffic (lines 13-20)\u2014are traceable to the logs.",
+        "speculation_bounded": "The explanation states the filesystem fault and normal surrounding activity without asserting unsupported recovery, mechanism, or downstream consequences."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:6ef7d845-a09e-479b-8c66-587d28d83f90": {
+      "input_fingerprint": "ba45512cd7856b51",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the explicit line 16 error 'rejecting I/O to offline device' and does not include any [normal] event as part of the cause.",
+        "sequence_summary_correctness": "Sentence 2 matches the logs: repeated 'session opened for user' lines (2-5, 8-14, 17-20) dominate, with a few 'CMD' lines (1, 6, 7, 15) interspersed around the line 16 failure.",
+        "contrast_correctness": "Sentence 3 relies on the line 16 offline-device rejection as the concrete break from normal, while the 'routine session-only trace' is only the normal alternative being dismissed, not offered as a distinguishing abnormal signal.",
+        "groundedness": "Every specific detail is traceable: the quoted line 16 error, the repeated session-opened lines, the CMD lines, and the qualitative counts all appear in the sequence.",
+        "speculation_bounded": "The explanation does not claim unsupported recovery, handling, or downstream mechanism; 'failed I/O operation against a device that was not available' is a reasonable paraphrase of line 16, and the rest is classification rationale."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:da5719af-f987-45f4-8e4d-65ade39766e2": {
+      "input_fingerprint": "964191afd6b8aeb9",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames both line 11 [abnormal] and line 12 [normal] as part of the cause, since it cites \u201crejecting I/O to offline device\u201d and \u201ccan\u2019t open <*>: Read-only file system\u201d together as the storage failure.",
+        "sequence_summary_correctness": "Sentence 2\u2019s summary of sweep markers, repeated NTP synchronization, topology/configuration checks, temperature warnings, peer traps, and the storage-related error around the middle matches the ordering and pattern of lines 1-20 without a contradicted order claim.",
+        "contrast_correctness": "Sentence 3 offers \u201cconcrete device/filesystem errors\u201d as the distinguishing fault, which includes line 12 [normal] \u201ccan\u2019t open <*>: Read-only file system\u201d alongside line 11 [abnormal], so the contrast leans on a normal-tagged line.",
+        "groundedness": "Every specific detail named in the explanation is traceable to the given lines, including line 11\u2019s rejecting I/O message, line 12\u2019s read-only filesystem message, and the repeated sweep/sync/topology/temperature/trap lines.",
+        "speculation_bounded": "The explanation does not assert an unsupported recovery, downstream consequence, or hidden mechanism; its \u201creal fault\u201d claim is supported by the abnormal line 11, even though line 12 is normal-tagged and affects criteria 1 and 3."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:8b26400a-77c6-4f25-aa04-165c396541a8": {
+      "input_fingerprint": "600706792f327abb",
+      "scores": {
+        "root_cause_correctness": false,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": false,
+        "groundedness": true,
+        "speculation_bounded": true
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 blames the abnormal line 1 together with the normal data_thread() no-answer lines 2-4, 9, 12, and 19, so it mixes a normal event into the cited cause.",
+        "sequence_summary_correctness": "Sentence 2's description of temperature warning/return events (lines 5, 7, 10, 13, 15, 17) mixed with repeated Got trap messages (lines 6, 8, 11, 14, 16, 18) and ending at the NEW SWEEP marker (line 20) matches the sequence's broad ordering.",
+        "contrast_correctness": "Sentence 3 offers multiple datasource failures (normal lines 2-4, 9, 12, 19) and recurring trap notifications (normal lines 6, 8, 11, 14, 16, 18) as part of what rules out a normal verdict, alongside the abnormal line 1.",
+        "groundedness": "Every named event/count is traceable: offline I/O rejection at line 1, datasource no-answer lines 2-4/9/12/19, temperature lines 5/7/10/13/15/17, trap lines 6/8/11/14/16/18, and NEW SWEEP at line 20.",
+        "speculation_bounded": "The only interpretive claim is that no datasource answer means data could not be obtained, directly supported by lines 2-4/9/12/19; no unsupported recovery, mechanism, or downstream consequence is asserted."
+      },
+      "scratchpad": ""
+    },
+    "thunderbird:bf327ea6-94a2-4f06-bf8b-eed3996bd7b8": {
+      "input_fingerprint": "a9e2cd230bab7c47",
+      "scores": {
+        "root_cause_correctness": true,
+        "sequence_summary_correctness": true,
+        "contrast_correctness": true,
+        "groundedness": true,
+        "speculation_bounded": false
+      },
+      "evidence": {
+        "root_cause_correctness": "Sentence 1 cites the kickstart setup (lines 1-3, 12-14), node-discovery failures (lines 7-8), and subsequent no-topology-change/startup-shutdown success (lines 9-11) as the reason the sequence is normal; these events are present and plausibly explain why the error-like lines are not abnormal in this normal-tagged window.",
+        "sequence_summary_correctness": "Sentence 2 describes the flow from initial install/firstboot (lines 1-3, 12-14) through a startup validation (lines 7-10) to repeated temperature warning traps at the end (lines 15-20), which matches the overall order and pattern despite omitting some intermediate lines.",
+        "contrast_correctness": "Sentence 3 contrasts the normal verdict with abnormal by noting the error-like lines (lines 7-8) are followed by a no-change topology result (line 9) and successful startup/shutdown messages (lines 10-11), so there is no sustained failure or crash, which is a real distinguishing detail for this normal sequence.",
+        "groundedness": "All named events\u2014kickstart setup (lines 1-3, 12-14), failed discover/GetNodeInfo (lines 7-8), no topology change (line 9), startup/shutdown success (lines 10-11), ganglia/panasas firstboot (lines 3, 14), and repeated temperature warning traps (lines 15-20)\u2014are traceable to the log lines, with only reasonable paraphrase.",
+        "speculation_bounded": "Sentence 3 asserts the error-like lines are 'bounded by successful completion messages' and that there is 'no unresolved transition,' but lines 10-11 are generic success messages for hidden components and do not state that the node-discovery failures (lines 7-8) were resolved, while line 6 explicitly mentions ports in INIT state with no later line showing resolution."
+      },
+      "scratchpad": ""
     }
   }
 }
