@@ -39,3 +39,23 @@ For reference, the earlier results on the same splits (relabeled gold, temperatu
 |---|---|---|
 | v5 | 0.607 | 0.625 |
 | v6 | 0.718 | 0.652 |
+
+## Generate and judge the production set
+
+The judge is final: `deepseek-v4.1-flash`, temperature 0.25, effort high, prompt `deepseek_v7` (logged as the
+step-5 `decision` entry in `docs/llm_judge_validation_log.json`). Both scripts below need `LITELLM_API_KEY` and
+`LITELLM_API_BASE`, run from the repository root, are resumable (finished results are kept in a `*.jsonl` file next
+to the output, so re-running the same command picks up where it stopped) and append an entry to the manifest.
+
+```bash
+# 1. Explanations. bgl/thunderbird get the per-log [normal]/[abnormal] tags (src/prompts/bgl/prompt2.py);
+#    hdfs gets only the block-level label. --llm_model has no default: it must be a model on the proxy.
+uv run python -m src.explanation_creation.production_creation --dataset bgl --llm_model <model>
+
+# 2. Judge them with the final config. Stores the 5 per-criterion verdicts (and the judge's evidence) in
+#    metadata.hallucination-check; it does not accept or reject anything.
+uv run python -m src.review.llm_as_judge.production_judge --dataset bgl
+```
+
+Defaults: input `dataset_short/<dataset>/production_not_explained.json`, then `production_explained.json`, then
+`production_judged.json`. Add `--limit 5 --output_path <other file>` for a smoke test on the first 5 records.

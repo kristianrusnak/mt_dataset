@@ -23,6 +23,24 @@ def _natural_ids(dataset: str, root: str) -> set[str]:
         return {e["id"] for e in json.load(f) if e["purpose"] == "gold_natural"}
 
 
+def judge_view(dataset: str, record: dict) -> dict:
+    """
+    What the judge is shown for one dataset record: session_based, sequence_classification, log_lines,
+    explanation. Shared by the gold pool (load_gold) and the production judge, so a record reaches the
+    judge in exactly the shape it was validated in.
+    """
+    session_based = SESSION_BASED[dataset]
+    classification = "abnormal" if record["classification"] == "anomaly" else record["classification"]
+    raw_logs = record["metadata"]["raw_content"].get("raw_log_sequence")
+    return {
+        "dataset": dataset,
+        "session_based": session_based,
+        "sequence_classification": classification,
+        "log_lines": format_logs_for_review(record["input"], raw_logs, session_based),
+        "explanation": record["explanation"],
+    }
+
+
 def load_gold(datasets: list[str] = None, root: str = "dataset_short", gold_file: str = DEFAULT_GOLD_FILE) -> list[dict]:
     """
     One item per gold record:
@@ -35,23 +53,16 @@ def load_gold(datasets: list[str] = None, root: str = "dataset_short", gold_file
         with open(f"{root}/{dataset}/{gold_file}", "r", encoding="utf-8") as f:
             records = json.load(f)
         natural = _natural_ids(dataset, root)
-        session_based = SESSION_BASED[dataset]
 
         for record in records:
             record_id = record["metadata"]["identity"]["id"]
-            classification = "abnormal" if record["classification"] == "anomaly" else record["classification"]
-            raw_logs = record["metadata"]["raw_content"].get("raw_log_sequence")
             human = record["metadata"]["hallucination-check"]["criteria_scores"]
 
             items.append({
                 "key": item_key(dataset, record_id),
-                "dataset": dataset,
                 "id": record_id,
                 "stratum": "natural" if record_id in natural else "supplemental",
-                "session_based": session_based,
-                "sequence_classification": classification,
-                "log_lines": format_logs_for_review(record["input"], raw_logs, session_based),
-                "explanation": record["explanation"],
+                **judge_view(dataset, record),
                 "human": {k: bool(human[k]) for k in CRITERIA_KEYS},
             })
     return items

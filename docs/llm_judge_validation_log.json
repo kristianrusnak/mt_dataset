@@ -21014,5 +21014,208 @@
       }
     },
     "notes": "Best config found by this search run (params above are the winner's, search_params the search's). Scored on the 'held_out' part of the gold pool (70 items)."
+  },
+  {
+    "step": 5,
+    "action": "decision",
+    "timestamp": "2026-10-30T13:43:43Z",
+    "dataset": "all",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v7",
+      "effort": "high",
+      "search_algorithm": "grid (manual prompt iteration v2-v7)"
+    },
+    "inputs": [
+      "docs/llm_judge_validation_log.json",
+      "dataset_short/judge_runs/deepseek-v4.1-flash__t0.25__deepseek_v7__ehigh.json",
+      "dataset_short/judge_split.json",
+      "dataset_short/bgl/gold_all_relabeled.json",
+      "dataset_short/hdfs/gold_all_relabeled.json",
+      "dataset_short/thunderbird/gold_all_relabeled.json"
+    ],
+    "outputs": [],
+    "metrics": {
+      "agreement": 0.8885714285714286,
+      "kappa": 0.5549833701559131,
+      "false_negative_rate": 0.15,
+      "fitness": 0.6603006132518784,
+      "detail": {
+        "held_out_70": {
+          "overall": {
+            "agreement": 0.8885714285714286,
+            "kappa": 0.5549833701559131,
+            "false_negative_rate": 0.15,
+            "fitness": 0.6603006132518784
+          },
+          "per_criterion": {
+            "root_cause_correctness": {
+              "n": 70,
+              "human_fails": 23,
+              "agreement": 0.9714,
+              "kappa": 0.9338,
+              "false_negative_rate": 0.087,
+              "false_positive_rate": 0.0,
+              "youden_j": 0.913,
+              "fails_missed_by_judge": 2
+            },
+            "sequence_summary_correctness": {
+              "n": 70,
+              "human_fails": 4,
+              "agreement": 0.8714,
+              "kappa": 0.2482,
+              "false_negative_rate": 0.5,
+              "false_positive_rate": 0.1061,
+              "youden_j": 0.3939,
+              "fails_missed_by_judge": 2
+            },
+            "contrast_correctness": {
+              "n": 70,
+              "human_fails": 18,
+              "agreement": 0.8571,
+              "kappa": 0.6628,
+              "false_negative_rate": 0.1111,
+              "false_positive_rate": 0.1538,
+              "youden_j": 0.735,
+              "fails_missed_by_judge": 2
+            },
+            "groundedness": {
+              "n": 70,
+              "human_fails": 6,
+              "agreement": 0.8571,
+              "kappa": 0.3,
+              "false_negative_rate": 0.5,
+              "false_positive_rate": 0.1094,
+              "youden_j": 0.3906,
+              "fails_missed_by_judge": 3
+            },
+            "speculation_bounded": {
+              "n": 70,
+              "human_fails": 9,
+              "agreement": 0.8857,
+              "kappa": 0.6301,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.1311,
+              "youden_j": 0.8689,
+              "fails_missed_by_judge": 0
+            }
+          },
+          "by_dataset": {
+            "bgl": {
+              "agreement": 0.9166666666666666,
+              "kappa": 0.6383517969414931,
+              "false_negative_rate": 0.13636363636363635,
+              "fitness": 0.72492784992785
+            },
+            "hdfs": {
+              "agreement": 0.8521739130434782,
+              "kappa": 0.5024452818675337,
+              "false_negative_rate": 0.06666666666666667,
+              "fitness": 0.799877769289534
+            },
+            "thunderbird": {
+              "agreement": 0.8956521739130435,
+              "kappa": 0.5975372835053887,
+              "false_negative_rate": 0.21739130434782608,
+              "fitness": 0.6266563467492261
+            }
+          },
+          "natural_only": {
+            "agreement": 0.8896551724137931,
+            "kappa": 0.6363228773492844,
+            "false_negative_rate": 0.1724137931034483,
+            "fitness": 0.7041022986675161
+          }
+        },
+        "search_140": {
+          "overall": {
+            "agreement": 0.8985714285714286,
+            "kappa": 0.6083520446617101,
+            "false_negative_rate": 0.136,
+            "fitness": 0.7086261683416721
+          },
+          "per_criterion": {
+            "root_cause_correctness": {
+              "n": 140,
+              "human_fails": 45,
+              "agreement": 0.9786,
+              "kappa": 0.9506,
+              "false_negative_rate": 0.0444,
+              "false_positive_rate": 0.0105,
+              "youden_j": 0.945,
+              "fails_missed_by_judge": 2
+            },
+            "sequence_summary_correctness": {
+              "n": 140,
+              "human_fails": 9,
+              "agreement": 0.8929,
+              "kappa": 0.3924,
+              "false_negative_rate": 0.3333,
+              "false_positive_rate": 0.0916,
+              "youden_j": 0.5751,
+              "fails_missed_by_judge": 3
+            },
+            "contrast_correctness": {
+              "n": 140,
+              "human_fails": 39,
+              "agreement": 0.8857,
+              "kappa": 0.7364,
+              "false_negative_rate": 0.0769,
+              "false_positive_rate": 0.1287,
+              "youden_j": 0.7944,
+              "fails_missed_by_judge": 3
+            },
+            "groundedness": {
+              "n": 140,
+              "human_fails": 13,
+              "agreement": 0.8571,
+              "kappa": 0.4283,
+              "false_negative_rate": 0.2308,
+              "false_positive_rate": 0.1339,
+              "youden_j": 0.6354,
+              "fails_missed_by_judge": 3
+            },
+            "speculation_bounded": {
+              "n": 140,
+              "human_fails": 19,
+              "agreement": 0.8786,
+              "kappa": 0.5341,
+              "false_negative_rate": 0.3158,
+              "false_positive_rate": 0.0909,
+              "youden_j": 0.5933,
+              "fails_missed_by_judge": 6
+            }
+          },
+          "by_dataset": {
+            "bgl": {
+              "agreement": 0.9260869565217391,
+              "kappa": 0.5711859490314802,
+              "false_negative_rate": 0.1702127659574468,
+              "fitness": 0.6308222479275111
+            },
+            "hdfs": {
+              "agreement": 0.902127659574468,
+              "kappa": 0.49037498318567846,
+              "false_negative_rate": 0.12903225806451613,
+              "fitness": 0.5568750658264725
+            },
+            "thunderbird": {
+              "agreement": 0.8680851063829788,
+              "kappa": 0.6179749924044041,
+              "false_negative_rate": 0.10638297872340426,
+              "fitness": 0.7239517345399699
+            }
+          },
+          "natural_only": {
+            "agreement": 0.9016393442622951,
+            "kappa": 0.6459477793685202,
+            "false_negative_rate": 0.15873015873015872,
+            "fitness": 0.6996749862603522
+          }
+        }
+      }
+    },
+    "notes": "Final judge config: deepseek-v4.1-flash, temperature 0.25, reasoning effort high, prompt deepseek_v7. Prompt iteration (deepseek_v2 to v7) ends here; v7 is the prompt used for the production run. Scores are mean Youden's J over the 5 criteria against the relabeled human gold (gold_all_relabeled.json): 0.709 on the 140-item search split, 0.660 on the 70-item held-out split. The criteria this judge is meant to get right are 1 (root cause) and 3 (contrast), the two the dataset is built around; on the held-out split they have kappa 0.93 and 0.66, agreement 0.97 and 0.86. Criteria 2 (sequence summary) and 4 (groundedness) are weaker, but human fails on them are rare (4 and 6 of 70 held-out records, so the judge missed 2 and 3 fails) and they are not treated as critical for this dataset. This entry does not define an accept/reject rule: production verdicts are stored as-is per criterion (metadata.hallucination-check.criteria_scores) and the rule for keeping or dropping a record is decided later."
   }
 ]

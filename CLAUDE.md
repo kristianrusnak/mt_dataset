@@ -70,6 +70,12 @@ and hardcoded to a placeholder string, while `thunderbird/creation1.py`'s is liv
    objects aren't directly JSON-serializable. Records that already have a non-empty
    `explanation` are passed through unchanged (resumable/idempotent runs).
 
+   - **Production-set variant**: `src/explanation_creation/production_creation.py --dataset <ds> --llm_model <m>`
+     is one shared script (not per-dataset) that calls the LiteLLM proxy instead of OpenAI, runs in parallel and
+     is resumable. BGL/Thunderbird use `src/prompts/bgl/prompt2.py`, which also shows each line's ground-truth
+     `[normal]/[abnormal]` tag; HDFS uses `hdfs/prompt1.py`. The per-dataset `creation1.py` scripts are the
+     gold-set generators and stay as they are.
+
 3. **Sampling** (`src/sampling/explanation_creation/<dataset>/sampling_1.py`) — draws an equal
    number of `normal`/abnormal sequences from a full dataset for cheaper downstream LLM calls
    and human review. Uses `src/help_functions/get_all_sequences.py` to collect sequence IDs by
@@ -87,6 +93,12 @@ and hardcoded to a placeholder string, while `thunderbird/creation1.py`'s is liv
      `input()` prompts in the terminal instead of an LLM call.
    - Both stamp `verification_method` (`"llm_as_judge"` vs `"human"`) and `reviewer_id`
      accordingly so provenance is traceable in the final dataset.
+
+   - `llm_as_judge/production_judge.py --dataset <ds>`: runs the **validated** final judge config (the
+     5-criterion prompt in `src/prompts/judge_criteria/`, via `validate_judge/judge.py::call_judge`) over a
+     whole file and stores per-criterion verdicts + evidence in `metadata.hallucination-check`. It records
+     verdicts only; the accept/reject rule is decided later. The older per-dataset `llm_as_judge.py` scripts
+     use the unvalidated flag-based prompt (`judge_prompt.py`) and are not the production path.
 
 Supporting one-off maintenance scripts live in `src/help_functions/`
 (`create_id.py`, `create_metadata.py`, `remove_augmented_key.py`, `split_output.py`) — small
