@@ -72,12 +72,22 @@ if __name__ == "__main__":
     production_parser.add_argument(
         "--num_per_class",
         type=int,
-        required=True,
-        help="Number of records to draw per classification. Production-set size is "
+        default=None,
+        help="Balanced draw: this many normal AND abnormal records. Production-set size is "
              "not yet decided (see docs/llm_judge_validation_plan.md Open Questions) "
-             "so there is no default -- pass it explicitly. Thunderbird's abnormal "
-             "side is capped by only 422 raw abnormal windows total, minus whatever "
-             "the gold set + supplemental pool already consumed -- check the ledger.")
+             "so there is no default -- pass it explicitly (or --num_normal/--num_abnormal).")
+    production_parser.add_argument(
+        "--num_normal",
+        type=int,
+        default=None,
+        help="Normal records to draw (overrides --num_per_class for the normal class).")
+    production_parser.add_argument(
+        "--num_abnormal",
+        type=int,
+        default=None,
+        help="Abnormal records to draw (overrides --num_per_class for the abnormal class). "
+             "Thunderbird's abnormal side is capped by only 422 raw abnormal windows total, "
+             "minus whatever the gold set already consumed -- check the ledger.")
 
     args = parser.parse_args()
 
@@ -104,6 +114,8 @@ if __name__ == "__main__":
             ledger_path=args.ledger_path,
             manifest_path=args.manifest_path,
             num_per_class=args.num_per_class,
+            num_normal=args.num_normal,
+            num_abnormal=args.num_abnormal,
             seed=args.seed,
             abnormal_label=ABNORMAL_LABEL,
             k=args.k,

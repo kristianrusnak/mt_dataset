@@ -169,11 +169,13 @@ def draw_production_sample(
     output_path: str,
     ledger_path: str,
     manifest_path: str,
-    num_per_class: int,
+    num_per_class: int = None,
     seed: int = 42,
     abnormal_label: str = "abnormal",
     k: int = 3,
     exclude_cross_class: bool = False,
+    num_normal: int = None,
+    num_abnormal: int = None,
 ) -> None:
     """
     Draws the production set (plan doc step 6): verified by the judge alone, at
@@ -181,23 +183,30 @@ def draw_production_sample(
     population as the gold sample but a disjoint ID pool (anything already in the
     ledger -- gold or previously-drawn production -- is excluded). Production-set
     size is deliberately not defaulted here (see the plan doc's Open Questions); the
-    caller must pass num_per_class explicitly each run.
+    caller must pass the size explicitly each run: num_per_class for a balanced draw, or
+    num_normal / num_abnormal for an unbalanced one (each overrides num_per_class for its
+    class; Thunderbird needs this because it has only a few hundred abnormal windows).
     """
+    num_normal = num_per_class if num_normal is None else num_normal
+    num_abnormal = num_per_class if num_abnormal is None else num_abnormal
+    if num_normal is None or num_abnormal is None:
+        raise ValueError("Pass num_per_class, or both num_normal and num_abnormal.")
+
     random.seed(seed)
 
     normal_pool, abnormal_pool = _deduped_available_pool(
         source_path, ledger_path, abnormal_label, k, exclude_cross_class,
     )
 
-    if len(normal_pool) < num_per_class or len(abnormal_pool) < num_per_class:
+    if len(normal_pool) < num_normal or len(abnormal_pool) < num_abnormal:
         raise ValueError(
             f"Not enough deduplicated {dataset_name} records to draw the production "
             f"sample: normal pool={len(normal_pool)}, abnormal pool={len(abnormal_pool)}, "
-            f"need {num_per_class} of each."
+            f"need {num_normal} normal / {num_abnormal} abnormal."
         )
 
-    normal_draw = random.sample(normal_pool, num_per_class)
-    abnormal_draw = random.sample(abnormal_pool, num_per_class)
+    normal_draw = random.sample(normal_pool, num_normal)
+    abnormal_draw = random.sample(abnormal_pool, num_abnormal)
     drawn_ids = normal_draw + abnormal_draw
 
     records = _collect_records(source_path, set(drawn_ids))
@@ -216,6 +225,9 @@ def draw_production_sample(
             "abnormal_label": abnormal_label,
             "exclude_cross_class": exclude_cross_class,
             "num_per_class": num_per_class,
+            "num_normal": num_normal,
+            "num_abnormal": num_abnormal,
+            "abnormal_left_in_pool": len(abnormal_pool) - num_abnormal,
         },
         "inputs": [source_path],
         "outputs": [output_path],
