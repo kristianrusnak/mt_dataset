@@ -1,3 +1,7 @@
+<!--
+Generated/modified by AI Kilo Code 7.8.17-gratex-023, used model gti-litellm/mimo-2.6-flash.
+-->
+
 # mt-dataset
 
 Pipeline code and data for the explanation dataset. See [CLAUDE.md](CLAUDE.md) for the pipeline overview and
@@ -59,3 +63,6 @@ uv run python -m src.review.llm_as_judge.production_judge --dataset bgl
 
 Defaults: input `dataset_short/<dataset>/production_not_explained.json`, then `production_explained.json`, then
 `production_judged.json`. Add `--limit 5 --output_path <other file>` for a smoke test on the first 5 records.
+
+Step-by-step setup and run guide (copy-paste commands for Windows, macOS and Ubuntu, 8 workers, datasets run one
+after another): [docs/production_judge_guide.md](docs/production_judge_guide.md).
