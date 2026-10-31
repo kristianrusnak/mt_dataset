@@ -1,4 +1,3 @@
-# Generated/modified by AI Kilo Code 7.8.17-gratex-023, used model gti-litellm/deepseek-v4.1-flash
 model,records,ok,requests,cost_mean_usd,cost_median_usd,cost_std_usd,cost_min_usd,cost_max_usd,total_usd,projected_2000_usd,projected_6000_usd,mean_latency_s
 azure/gpt-5.6-luna,20,20,20,0.00076964,0.00074209,0.0001559,0.00049577,0.00108603,0.015393,1.5393,4.6179,2.93
 azure/gpt-6-luna,20,20,20,0.00036094,0.00035436,8.687e-05,0.00024741,0.00066606,0.007219,0.7219,2.1656,3.07
