@@ -21358,5 +21358,235 @@
     ],
     "metrics": {},
     "notes": "2000 explanations generated, 0 reused from the cache file, 0 skipped (already had an explanation), 0 failed (left empty, retried on re-run) out of 2000 records read."
+  },
+  {
+    "step": 6,
+    "action": "llm_as_judge_production_run",
+    "timestamp": "2026-10-31T23:44:58Z",
+    "dataset": "bgl",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v7",
+      "effort": "high",
+      "prompt_fingerprint": "4a715b22d6bc6708"
+    },
+    "inputs": [
+      "dataset_short/bgl/production_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/bgl/production_judged.json",
+      "dataset_short/bgl/production_judged.json.verdicts.jsonl"
+    ],
+    "metrics": {
+      "detail": {
+        "records": {
+          "total": 2000,
+          "skipped": 0,
+          "from_cache": 160,
+          "computed": 1840,
+          "failed": 0
+        },
+        "pass_rate_per_criterion": {
+          "root_cause_correctness": 0.997,
+          "sequence_summary_correctness": 0.9915,
+          "contrast_correctness": 0.981,
+          "groundedness": 0.995,
+          "speculation_bounded": 0.999
+        },
+        "verdicts_per_criterion": {
+          "root_cause_correctness": 2000,
+          "sequence_summary_correctness": 2000,
+          "contrast_correctness": 2000,
+          "groundedness": 2000,
+          "speculation_bounded": 2000
+        }
+      }
+    },
+    "notes": "Final judge config over a bgl file. Verdicts are stored as-is in metadata.hallucination-check.criteria_scores; no accept/reject rule applied (decided later). 0 records failed (status judge_failed, retried on re-run); 0 had no explanation and were passed through; 160 verdicts reused from the cache file. pass_rate_per_criterion counts only the records judged in this file (cached ones included). Descriptive only: the judge's agreement with humans is in the step-5 decision entry."
+  },
+  {
+    "step": 6,
+    "action": "llm_as_judge_production_run",
+    "timestamp": "2026-11-01T04:59:59Z",
+    "dataset": "hdfs",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v7",
+      "effort": "high",
+      "prompt_fingerprint": "4a715b22d6bc6708"
+    },
+    "inputs": [
+      "dataset_short/hdfs/production_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/production_judged.json",
+      "dataset_short/hdfs/production_judged.json.verdicts.jsonl"
+    ],
+    "metrics": {
+      "detail": {
+        "records": {
+          "total": 2000,
+          "skipped": 0,
+          "from_cache": 12,
+          "computed": 1988,
+          "failed": 0
+        },
+        "pass_rate_per_criterion": {
+          "root_cause_correctness": 0.7825,
+          "sequence_summary_correctness": 0.9725,
+          "contrast_correctness": 0.5265,
+          "groundedness": 0.98,
+          "speculation_bounded": 0.984
+        },
+        "verdicts_per_criterion": {
+          "root_cause_correctness": 2000,
+          "sequence_summary_correctness": 2000,
+          "contrast_correctness": 2000,
+          "groundedness": 2000,
+          "speculation_bounded": 2000
+        }
+      }
+    },
+    "notes": "Final judge config over a hdfs file. Verdicts are stored as-is in metadata.hallucination-check.criteria_scores; no accept/reject rule applied (decided later). 0 records failed (status judge_failed, retried on re-run); 0 had no explanation and were passed through; 12 verdicts reused from the cache file. pass_rate_per_criterion counts only the records judged in this file (cached ones included). Descriptive only: the judge's agreement with humans is in the step-5 decision entry."
+  },
+  {
+    "step": 6,
+    "action": "llm_as_judge_production_run",
+    "timestamp": "2026-11-01T09:37:12Z",
+    "dataset": "hdfs",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v7",
+      "effort": "high",
+      "prompt_fingerprint": "4a715b22d6bc6708"
+    },
+    "inputs": [
+      "dataset_short/hdfs/production_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/production_judged.json",
+      "dataset_short/hdfs/production_judged.json.verdicts.jsonl"
+    ],
+    "metrics": {
+      "detail": {
+        "records": {
+          "total": 2000,
+          "skipped": 0,
+          "from_cache": 2000,
+          "computed": 0,
+          "failed": 0
+        },
+        "pass_rate_per_criterion": {
+          "root_cause_correctness": 0.7825,
+          "sequence_summary_correctness": 0.9725,
+          "contrast_correctness": 0.5265,
+          "groundedness": 0.98,
+          "speculation_bounded": 0.984
+        },
+        "verdicts_per_criterion": {
+          "root_cause_correctness": 2000,
+          "sequence_summary_correctness": 2000,
+          "contrast_correctness": 2000,
+          "groundedness": 2000,
+          "speculation_bounded": 2000
+        }
+      }
+    },
+    "notes": "Final judge config over a hdfs file. Verdicts are stored as-is in metadata.hallucination-check.criteria_scores; no accept/reject rule applied (decided later). 0 records failed (status judge_failed, retried on re-run); 0 had no explanation and were passed through; 2000 verdicts reused from the cache file. pass_rate_per_criterion counts only the records judged in this file (cached ones included). Descriptive only: the judge's agreement with humans is in the step-5 decision entry."
+  },
+  {
+    "step": 6,
+    "action": "llm_as_judge_production_run",
+    "timestamp": "2026-11-01T09:37:25Z",
+    "dataset": "hdfs",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v7",
+      "effort": "high",
+      "prompt_fingerprint": "4a715b22d6bc6708"
+    },
+    "inputs": [
+      "dataset_short/hdfs/production_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/hdfs/production_judged.json",
+      "dataset_short/hdfs/production_judged.json.verdicts.jsonl"
+    ],
+    "metrics": {
+      "detail": {
+        "records": {
+          "total": 2000,
+          "skipped": 0,
+          "from_cache": 2000,
+          "computed": 0,
+          "failed": 0
+        },
+        "pass_rate_per_criterion": {
+          "root_cause_correctness": 0.7825,
+          "sequence_summary_correctness": 0.9725,
+          "contrast_correctness": 0.5265,
+          "groundedness": 0.98,
+          "speculation_bounded": 0.984
+        },
+        "verdicts_per_criterion": {
+          "root_cause_correctness": 2000,
+          "sequence_summary_correctness": 2000,
+          "contrast_correctness": 2000,
+          "groundedness": 2000,
+          "speculation_bounded": 2000
+        }
+      }
+    },
+    "notes": "Final judge config over a hdfs file. Verdicts are stored as-is in metadata.hallucination-check.criteria_scores; no accept/reject rule applied (decided later). 0 records failed (status judge_failed, retried on re-run); 0 had no explanation and were passed through; 2000 verdicts reused from the cache file. pass_rate_per_criterion counts only the records judged in this file (cached ones included). Descriptive only: the judge's agreement with humans is in the step-5 decision entry."
+  },
+  {
+    "step": 6,
+    "action": "llm_as_judge_production_run",
+    "timestamp": "2026-11-01T13:46:36Z",
+    "dataset": "thunderbird",
+    "params": {
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.25,
+      "prompt_id": "deepseek_v7",
+      "effort": "high",
+      "prompt_fingerprint": "4a715b22d6bc6708"
+    },
+    "inputs": [
+      "dataset_short/thunderbird/production_explained.json"
+    ],
+    "outputs": [
+      "dataset_short/thunderbird/production_judged.json",
+      "dataset_short/thunderbird/production_judged.json.verdicts.jsonl"
+    ],
+    "metrics": {
+      "detail": {
+        "records": {
+          "total": 2000,
+          "skipped": 0,
+          "from_cache": 22,
+          "computed": 1978,
+          "failed": 0
+        },
+        "pass_rate_per_criterion": {
+          "root_cause_correctness": 0.978,
+          "sequence_summary_correctness": 0.968,
+          "contrast_correctness": 0.979,
+          "groundedness": 0.984,
+          "speculation_bounded": 0.9995
+        },
+        "verdicts_per_criterion": {
+          "root_cause_correctness": 2000,
+          "sequence_summary_correctness": 2000,
+          "contrast_correctness": 2000,
+          "groundedness": 2000,
+          "speculation_bounded": 2000
+        }
+      }
+    },
+    "notes": "Final judge config over a thunderbird file. Verdicts are stored as-is in metadata.hallucination-check.criteria_scores; no accept/reject rule applied (decided later). 0 records failed (status judge_failed, retried on re-run); 0 had no explanation and were passed through; 22 verdicts reused from the cache file. pass_rate_per_criterion counts only the records judged in this file (cached ones included). Descriptive only: the judge's agreement with humans is in the step-5 decision entry."
   }
 ]
