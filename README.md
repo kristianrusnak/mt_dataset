@@ -66,3 +66,6 @@ Defaults: input `dataset_short/<dataset>/production_not_explained.json`, then `p
 
 Step-by-step setup and run guide (copy-paste commands for Windows, macOS and Ubuntu, 8 workers, datasets run one
 after another): [docs/production_judge_guide.md](docs/production_judge_guide.md).
+
+Results of the production run (pass rates per dataset and criterion, HDFS findings, how far to trust the judge):
+[docs/production_judge_report.md](docs/production_judge_report.md).
